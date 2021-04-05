@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>version (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="version (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="version (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Object-types.html" rel="up" title="Object types">
+<link href="line.html" rel="next" title="line">
+<link href="Object-types.html" rel="prev" title="Object types">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="version"></span><div class="header">
+<p>
+Next: <a href="line.html" accesskey="n" rel="next">line</a>, Previous: <a href="Object-types.html" accesskey="p" rel="prev">Object types</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="version-1"></span><h4 class="subsection">11.4.1 version</h4>
+
+<p>Valid in: Schematic and Symbol files
+</p>
+
+<pre class="verbatim">type version fileformat_version
+</pre>
+<table>
+<thead><tr><th width="20%">Pos.</th><th width="20%">Field</th><th width="20%">Type/unit</th><th width="40%">Description</th></tr></thead>
+<tr><td width="20%">#</td><td width="20%">type</td><td width="20%">char</td><td width="40%">v</td></tr>
+<tr><td width="20%">1</td><td width="20%">version</td><td width="20%">int</td><td width="40%">version of gEDA/gaf that wrote this file</td></tr>
+<tr><td width="20%">2</td><td width="20%">fileformat_version</td><td width="20%">int</td><td width="40%">gEDA/gaf file format version
+number</td></tr>
+</table>
+
+<ul>
+<li> The type is a lower case &ldquo;v&rdquo; (as in Victor).
+
+</li><li> This object must be in every file used or created by the gEDA/gaf
+tools.
+
+</li><li> The format of the first version field is YYYYMMDD.
+
+</li><li> The version number is not an arbitrary timestamp. Do not make up a
+version number and expect the tools to behave properly.
+
+</li><li> The &ldquo;version of gEDA/gaf that wrote this file&rdquo; was used in all
+versions of gEDA/gaf up to 20030921 as the file formats version. This
+field should no longer be used to determine the file format. It is
+used for information purposes only now.
+
+</li><li> Starting at and after gEDA/gaf version 20031004, the
+<code>fileformat_version</code> field is used to determine the file format
+version. All file format code should key off of this field.
+
+</li><li> <code>fileformat_version</code> increases when the file format changes.
+
+</li><li> The starting point for <code>fileformat_version</code> was 1. The current
+file format version is 2.
+
+</li><li> fileformat version is just an integer with no minor number.
+
+</li><li> Development versions include: 19990601, 19990610, 19990705, 19990829,
+19990919, 19991011, 20000220, 20000704, 20001006, 20001217, 20010304,
+20010708, 20010722, 20020209, 20020414, 20020527, 20020825, 20021103,
+20030223, 20030525, 20030901, 20040111, 20040710, 20041228, 20050313,
+20050820, 20060123, 20060824, 20060906, 20061020, 20070216, 20070705,
+20070708, 20070818, 20071229, 20080110, 20080127, 20080706, 20081220,
+20081221, 20090328, 20090829, 20090830, 20110116, 20110619, 20111231
+
+</li><li> Stable versions include: 20070526, 20070626, 20070902, 20071231,
+20080127, 20080929, 20081220, 20081231, 20091004, 20100214, 20110115
+
+</li><li> CVS or test versions (should not be used): 20030921, 20031004,
+20031019, 20031231, 20050814
+
+</li><li> Keep in mind that each of the above listed versions might have had
+file format variations. This document only covers the last version&rsquo;s
+file format.
+
+</li></ul>
+
+
+<p>Example:
+</p><div class="example">
+<pre class="example">v 20040111 1
+</pre></div>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="line.html" accesskey="n" rel="next">line</a>, Previous: <a href="Object-types.html" accesskey="p" rel="prev">Object types</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>bus (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="bus (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="bus (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Object-types.html" rel="up" title="Object types">
+<link href="pin.html" rel="next" title="pin">
+<link href="net.html" rel="prev" title="net">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="bus"></span><div class="header">
+<p>
+Next: <a href="pin.html" accesskey="n" rel="next">pin</a>, Previous: <a href="net.html" accesskey="p" rel="prev">net</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="bus-1"></span><h4 class="subsection">11.4.9 bus</h4>
+
+<p>Valid in: Schematic files ONLY
+</p>
+
+<pre class="verbatim">type x1 y1 x2 y2 color ripperdir
+</pre>
+<table>
+<thead><tr><th width="20%">Pos.</th><th width="20%">Field</th><th width="20%">Type/unit</th><th width="40%">Description</th></tr></thead>
+<tr><td width="20%">#</td><td width="20%">type</td><td width="20%">char</td><td width="40%">U</td></tr>
+<tr><td width="20%">1</td><td width="20%">x1</td><td width="20%">int/mils</td><td width="40%">First X coordinate</td></tr>
+<tr><td width="20%">2</td><td width="20%">y1</td><td width="20%">int/mils</td><td width="40%">First Y coordinate</td></tr>
+<tr><td width="20%">3</td><td width="20%">x2</td><td width="20%">int/mils</td><td width="40%">Second X coordinate</td></tr>
+<tr><td width="20%">4</td><td width="20%">y2</td><td width="20%">int/mils</td><td width="40%">Second Y coordinate</td></tr>
+<tr><td width="20%">5</td><td width="20%">color</td><td width="20%">int</td><td width="40%">Color index</td></tr>
+<tr><td width="20%">6</td><td width="20%">ripperdir</td><td width="20%">int</td><td width="40%">Direction of bus rippers</td></tr>
+</table>
+
+<ul>
+<li> The ripperdir field for an brand new bus is 0.
+
+</li><li> The ripperdir field takes on a value of 1 or -1 when a net is
+connected to the bus for the first time. This value indicates the
+direction of the ripper symbol. The ripper direction is set to the
+same value for the entire life of the bus object.
+
+</li><li> Buses can only appear in schematic files.
+
+</li><li> You cannot have a zero length bus (the tools will throw them away).
+
+</li></ul>
+
+
+<p>Example:
+</p><div class="example">
+<pre class="example">U 27300 37400 27300 35300 3 0
+</pre></div>
+
+<p>A bus segment from (27300, 37400) to (27300, 35300) with color index 3
+and no nets have been connected to this bus segment.
+</p>
+
+
+
+
+</body>
+</html>

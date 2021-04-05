@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Paths (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Paths (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Paths (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Pictures.html" rel="next" title="Pictures">
+<link href="Arcs.html" rel="prev" title="Arcs">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Paths"></span><div class="header">
+<p>
+Next: <a href="Pictures.html" accesskey="n" rel="next">Pictures</a>, Previous: <a href="Arcs.html" accesskey="p" rel="prev">Arcs</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Paths-1"></span><h4 class="subsection">2.2.8 Paths</h4>
+
+<p>Paths are arbitrary shapes comprised of straight lines and Bézier
+curves.  Each path contains a sequence of <em>path elements</em>, each
+of which requires zero or more absolute position parameters.  The
+element types supported by Lepton are:
+</p>
+<ul>
+<li> &lsquo;<samp>moveto</samp>&rsquo; elements represent a step (without drawing) to another
+point in the schematic, and begin a new subpath.  &lsquo;<samp>moveto</samp>&rsquo;
+elements need a single position parameter, which is the position of
+the endpoint of the move.
+</li><li> &lsquo;<samp>lineto</samp>&rsquo; elements draw a straight line from the current point to
+the point specified by a single position parameter.
+</li><li> &lsquo;<samp>curveto</samp>&rsquo; elements draw a Bézier curve from the current point.
+The curve requires three position parameters: the position of the
+first control point; the position of the second control point; and the
+endpoint of the curve.
+</li><li> &lsquo;<samp>closepath</samp>&rsquo; elements close the current subpath by drawing a
+straight line from the current point to the subpath&rsquo;s initial point.
+They take no parameters.
+</li></ul>
+
+<dl>
+<dt id="index-path_003f">Function: <strong>path?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a path <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dpath">Function: <strong>make-path</strong> <em>[color]</em></dt>
+<dd><p>Creates and returns a new path <code>object</code>.  If <var>color</var> is
+specified, it should be the integer color map index of the color with
+which to draw the path.  If <var>color</var> is not specified, the default
+path color is used.
+</p></dd></dl>
+
+<dl>
+<dt id="index-path_002dlength">Function: <strong>path-length</strong> <em>path</em></dt>
+<dd><p>Returns the number of path elements in <var>path</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-path_002dref">Function: <strong>path-ref</strong> <em>path K</em></dt>
+<dd><p>Returns the <var>K</var>th element in <var>path</var>.  The return value is a
+list.  The first item in the list is a symbol indicating the type of
+element, and any additional items are the position parameters of the
+element.  For example, a call to <code>path-ref</code> might return:
+</p>
+<div class="example">
+<pre class="example">(curveto (800 . 525) (700 . 700) (500 . 700))
+</pre></div>
+
+<p>If <var>K</var> is not a valid offset into <var>path</var>, raises an
+&lsquo;<samp>out-of-range</samp>&rsquo; error.
+</p></dd></dl>
+
+<dl>
+<dt id="index-path_002dremove_0021">Function: <strong>path-remove!</strong> <em>path K</em></dt>
+<dd><p>Removes the <var>K</var>th element in <var>path</var>, returning <var>path</var>.  If
+<var>K</var> is not a valid offset, raises an &lsquo;<samp>out-of-range</samp>&rsquo; error.
+</p></dd></dl>
+
+<dl>
+<dt id="index-path_002dinsert_0021">Function: <strong>path-insert!</strong> <em>path K type [positions...]</em></dt>
+<dd><p>Inserts a new element into <var>path</var> at index <var>K</var>.  <var>type</var> is
+a symbol indicating the type of element to insert, using the
+parameters <var>positions</var>.  If <var>K</var> is less than zero or greater
+than the number of elements <var>path</var> already contains, the new
+element is appended to the path.  For example, to append a straight
+line section to the current path:
+</p>
+<div class="example">
+<pre class="example">(path-insert! path -1 'lineto '(500 . 100))
+</pre></div>
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Pictures.html" accesskey="n" rel="next">Pictures</a>, Previous: <a href="Arcs.html" accesskey="p" rel="prev">Arcs</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

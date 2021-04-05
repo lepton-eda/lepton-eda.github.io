@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Pages (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Pages (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Pages (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Schematic-Document-Model.html" rel="up" title="Schematic Document Model">
+<link href="Objects.html" rel="next" title="Objects">
+<link href="Schematic-Document-Model.html" rel="prev" title="Schematic Document Model">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Pages"></span><div class="header">
+<p>
+Next: <a href="Objects.html" accesskey="n" rel="next">Objects</a>, Up: <a href="Schematic-Document-Model.html" accesskey="u" rel="up">Schematic Document Model</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Pages-1"></span><h3 class="section">1.1 Pages</h3>
+<span id="index-Pages"></span>
+<span id="index-Schematics"></span>
+<span id="index-Symbols"></span>
+
+<p>Schematics and symbols are presented as different types of document to
+the user, with different file extensions, icons and mime-types.
+However, when they are loaded into a Lepton application such as
+lepton-schematic for editing, they are internally represented in
+exactly the same way, by the <code>page</code> type.  The <code>page</code> is the
+top-level Lepton document data type.
+</p>
+<p>Internally, the main difference between a <code>page</code> for a schematic
+and a <code>page</code> for a symbol is the types of schematic element they
+are permitted to contain (see <a href="Objects.html">Objects</a>).  For example, a symbol is
+not permitted to contain nets, buses, or instances of other symbols,
+and a schematic is not permitted to contain pins.
+</p>
+<p><strong>Note</strong>: Although the restrictions on what types of primitive
+element schematics and symbols may contain are not enforced by the
+API, designs which violate these restrictions may cause the netlister
+not to work as expected.
+</p>
+<p>Each <code>page</code> is associated with a filename, although the filename is
+not required by the API either to be valid or to be associated with a
+accessible file in the filesystem.
+</p>
+<p>Pages are not garbage-collected; once you create a <code>page</code>, you are
+responsible for making sure that it is disposed of when it is no
+longer required.
+</p>
+
+
+
+</body>
+</html>

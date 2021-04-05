@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>schematic.gui group (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="schematic.gui group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="schematic.gui group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic-configuration.html" rel="up" title="lepton-schematic configuration">
+<link href="schematic_002etabs-group.html" rel="next" title="schematic.tabs group">
+<link href="lepton_002dschematic-configuration.html" rel="prev" title="lepton-schematic configuration">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="schematic_002egui-group"></span><div class="header">
+<p>
+Next: <a href="schematic_002etabs-group.html" accesskey="n" rel="next">schematic.tabs group</a>, Previous: <a href="lepton_002dschematic-configuration.html" accesskey="p" rel="prev">lepton-schematic configuration</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="schematic_002egui-group-1"></span><h4 class="subsubsection">3.4.1.1 <code>schematic.gui</code> group</h4>
+<span id="index-schematic_002egui-group"></span>
+
+<table>
+<thead><tr><th width="15%">Name</th><th width="15%">Type</th><th width="15%">Default value</th><th width="55%">Description</th></tr></thead>
+<tr><td width="15%"><code>use-docks</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">How to display widgets: as dialogs (&lsquo;<samp>false</samp>&rsquo;) or inside the dock
+widgets (&lsquo;<samp>true</samp>&rsquo;).</td></tr>
+<tr><td width="15%"><code>use-tabs</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Whether to use tabbed GUI: display each schematic in its own tab
+within GtkNotebook widget.</td></tr>
+<tr><td width="15%"><code>font</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>&quot;&quot;</samp>&rsquo; (empty string)</td><td width="55%">The name of the font to be used to draw text in schematics.  For
+example: &lsquo;<samp>font=OpenGost Type B TT Regular</samp>&rsquo;</td></tr>
+<tr><td width="15%"><code>text-sizes</code></td><td width="15%">&lsquo;<samp>list of <code>string</code>s</samp>&rsquo;</td><td width="15%">&lsquo;<samp>empty list</samp>&rsquo;</td><td width="55%">If set, these values will appear in the &rsquo;size&rsquo; combo box of the &rsquo;Add
+text&rsquo; and &rsquo;Edit text&rsquo; dialogs instead of the default ones (set in
+<samp>gschem_toplevel.c</samp>: 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24,
+26). For example: &lsquo;<samp>text-sizes=2;3;4;5;6;8</samp>&rsquo;</td></tr>
+<tr><td width="15%"><code>max-recent-files</code></td><td width="15%">&lsquo;<samp>integer</samp>&rsquo;</td><td width="15%">&lsquo;<samp>10</samp>&rsquo;</td><td width="55%">Maximum number of recent files to show in &lsquo;File-&gt;Open Recent&lsquo; menu.</td></tr>
+<tr><td width="15%"><code>title-show-path</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Whether to show full file path in the main window&rsquo;s title.</td></tr>
+<tr><td width="15%"><code>restore-window-geometry</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Whether to restore main window&rsquo;s size and position on startup.</td></tr>
+<tr><td width="15%"><code>draw-grips</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the editing grips are drawn when selecting objects.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>toolbars</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the toolbars are visible or not.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>scrollbars</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the scrollbars are visible or not.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>handleboxes</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the handleboxes for the menu and toolbars are visible or
+not.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>zoom-with-pan</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Sets the zoom functions to pan the display and then zoom.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>fast-mousepan</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Controls if text is drawn properly or if a simplified version (a text
+string bounding box) is drawn during mouse pan. Drawing a simple box
+speeds up mousepan a lot for big schematics.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>continue-component-place</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls the behavior of the &quot;Select Component...&quot; dialog. Allows to
+place multiple instances of a component without having to press the
+&quot;Apply&quot; button each time.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>file-preview</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the preview area in the File Open/Save As dialog boxes is
+enabled.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>enforce-hierarchy</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the movement between hierarchy levels of the same
+underlying schematics is allowed or not. If this is enabled, then the
+user cannot (without using the page manager) move between hierarchy
+levels. Otherwise, the user sees all the hierarchy levels as being
+flat.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>third-button-cancel</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the third mouse button cancels draw actions such as
+placing of a component or drawing of a primitive.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>warp-cursor</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Controls if the cursor is warped (moved) when you zoom in and out.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>force-boundingbox</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Controls if the entire bounding box of a symbol is used when figuring
+out which end of the pin is considered the active port.  This option
+is for backward compatibility with old schematic file format.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>net-direction-mode</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Guess the best continuation direction of an L-shape net when adding a
+net.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>embed-components</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Determines if the newly placed components are embedded in the
+schematic.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>netconn-rubberband</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Maintain net connections when you move a connected component or net.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>magnetic-net-mode</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Whether to mark a possible connection that is close to the current
+cursor position when drawing a net.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>zoom-gain</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>20</samp>&rsquo;</td><td width="55%">The percentage size increase/decrease when zooming in/out with the
+mouse wheel. Negative values reverses the direction.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>mousepan-gain</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>1</samp>&rsquo;</td><td width="55%">Controls how much the display pans when using mouse. A larger value
+provides greater pan distance when moving the mouse.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>keyboardpan-gain</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>20</samp>&rsquo;</td><td width="55%">Controls how much the display pans when using the keyboard keys.  A
+larger value provides greater pan distance.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>select-slack-pixels</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>10</samp>&rsquo;</td><td width="55%">Controls how many pixels around an object can still be clicked as part
+of that object. A larger value gives greater ease in selecting small,
+or narrow objects.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>text-size</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>10</samp>&rsquo;</td><td width="55%">Sets the default text size.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>snap-size</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>10</samp>&rsquo;</td><td width="55%">Sets the default grid spacing.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>scrollpan-steps</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>8</samp>&rsquo;</td><td width="55%">Controls the number of scroll pan events required to traverse the
+viewed schematic area.  Larger numbers mean more scroll steps are
+required to pan across the viewed area and giving finer control over
+positioning.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>dots-grid-dot-size</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>1</samp>&rsquo;</td><td width="55%">Controls the size of the grid dots (in pixels) in the dots grid
+display.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>dots-grid-fixed-threshold</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>10</samp>&rsquo;</td><td width="55%">Specifies the minimum number of pixels for the grid to be displayed.
+Controls the density of the displayed grid (smaller numbers will cause
+the grid to be drawn denser).  This option is only effective when the
+dots-grid-mode is set to &quot;fixed&quot;.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>mesh-grid-display-threshold</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>3</samp>&rsquo;</td><td width="55%">Specifies the minimum line pitch for the grid to be displayed.
+Controls the maximum density of the displayed grid before the minor,
+then the major grid lines are switched off.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>action-feedback-mode</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>outline</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>outline</samp>&rsquo;, &lsquo;<samp>boundingbox</samp>&rsquo;.  Sets the
+default action feedback mode for copy, move, and component place
+operations.  When set to &lsquo;<samp>boundingbox</samp>&rsquo;, just a box surrounding
+objects is drawn, which is much faster. It may help with slow
+hardware.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>text-caps-style</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>both</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>both</samp>&rsquo;, &lsquo;<samp>lower</samp>&rsquo;, &lsquo;<samp>upper</samp>&rsquo;.  Sets the
+default caps style used for the input of text.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>middle-button</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>mousepan</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>mousepan</samp>&rsquo;, &lsquo;<samp>popup</samp>&rsquo;, &lsquo;<samp>action</samp>&rsquo;,
+&lsquo;<samp>stroke</samp>&rsquo;, &lsquo;<samp>repeat</samp>&rsquo;.  Controls what the middle mouse
+button does:
+<ul class="no-bullet">
+<li>- &lsquo;<samp>mousepan</samp>&rsquo;: mouse panning
+</li><li>- &lsquo;<samp>popup</samp>&rsquo;: display the popup menu
+</li><li>- &lsquo;<samp>action</samp>&rsquo;: perform an action on a single object
+</li><li>- &lsquo;<samp>stroke</samp>&rsquo;: draw strokes
+</li><li>- &lsquo;<samp>repeat</samp>&rsquo;: repeat the last command
+</li></ul>
+<p>Since <em>1.9.10</em>.
+</p></td></tr>
+<tr><td width="15%"><code>third-button</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>popup</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>popup</samp>&rsquo;, &lsquo;<samp>mousepan</samp>&rsquo;.  Controls what the
+third mouse button does:
+<ul>
+<li> &lsquo;<samp>popup</samp>&rsquo;: display the popup menu
+</li><li> &lsquo;<samp>mousepan</samp>&rsquo;: mouse panning
+</li></ul>
+<p>Since <em>1.9.10</em>.
+</p></td></tr>
+<tr><td width="15%"><code>scroll-wheel</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%"><code>classic</code></td><td width="55%">Possible values: &lsquo;<samp>classic</samp>&rsquo;, &lsquo;<samp>gtk</samp>&rsquo;.
+Controls the binding of the mouse scroll wheel:
+<ul>
+<li> &lsquo;<samp>classic</samp>&rsquo;: zoom in/out, with <tt class="key">CTRL</tt> &ndash; horizontal scroll,
+with <tt class="key">SHIFT</tt> &ndash; vertical scroll
+</li><li> &lsquo;<samp>gtk</samp>&rsquo;: vertical scroll, with <tt class="key">SHIFT</tt> &ndash; horizontal scroll,
+with <tt class="key">CTRL</tt> &ndash; zoom in/out
+</li></ul>
+<p>Since <em>1.9.10</em>.
+</p></td></tr>
+<tr><td width="15%"><code>grid-mode</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>mesh</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>mesh</samp>&rsquo;, &lsquo;<samp>dots</samp>&rsquo;, &lsquo;<samp>none</samp>&rsquo;.  Sets
+the type of the grid.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>dots-grid-mode</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>variable</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>variable</samp>&rsquo;, &lsquo;<samp>fixed</samp>&rsquo;.  Controls the mode
+of the dotted grid.  In the &lsquo;<samp>variable</samp>&rsquo; mode, the grid spacing
+changes depending on the zoom factor.  In the &lsquo;<samp>fixed</samp>&rsquo; mode, the
+grid always represents the same number of units as the
+snap-spacing. You can control the density of the grid using the
+<code>dots-grid-fixed-threshold</code> option.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>net-selection-mode</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>enabled_net</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>enabled_net</samp>&rsquo;, &lsquo;<samp>enabled_all</samp>&rsquo;,
+&lsquo;<samp>disabled</samp>&rsquo;.  Controls how many net segments are selected when
+you click at a net:
+
+<ul>
+<li> &lsquo;<samp>enabled_all</samp>&rsquo;:
+<ul class="no-bullet">
+<li>- first click selects the net itself
+</li><li>- second click selects all nets directly connected to the selected one
+</li><li>- third click in addition selects all nets with equal &lsquo;<samp>netname</samp>&rsquo;
+attributes
+</li></ul>
+
+</li><li> &lsquo;<samp>enabled_net</samp>&rsquo;:
+<ul class="no-bullet">
+<li>- first click selects the net itself
+</li><li>- second click selects all nets directly connected to the selected one
+</li></ul>
+
+</li><li> &lsquo;<samp>disabled</samp>&rsquo;:
+<ul class="no-bullet">
+<li>- mouse clicks just selects the clicked net
+</li></ul>
+</li></ul>
+<p>Since <em>1.9.10</em>.
+</p></td></tr>
+<tr><td width="15%"><code>default-titleblock</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>title-B.sym</samp>&rsquo;</td><td width="55%">Symbol (usually, a title block) to be automatically added when a new
+page is created.  If you do not want to use a title block, set this
+option to an empty string.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>use-toplevel-windows</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">When docking windows GUI is off, allow the following widgets to act as
+top-level windows (do not stay on top of the main window):
+<ul class="no-bullet">
+<li>- Object properties
+</li><li>- Text properties
+</li><li>- Options
+</li><li>- Log
+</li><li>- Find text results
+</li><li>- Page manager
+</li><li>- Font selector
+</li><li>- Color scheme editor
+</li></ul>
+<p>Since <em>1.9.11</em>.
+</p></td></tr>
+<tr><td width="15%"><code>small-placeholders</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Draw either new (smaller) placeholders for missing schematic symbols
+(&lsquo;<samp>true</samp>&rsquo;), or classic ones (giant red triangles with an
+exclamation mark and two lines of text) if this option is set to
+&lsquo;<samp>false</samp>&rsquo;.  Since <em>1.9.11</em>.</td></tr>
+</table>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="schematic_002etabs-group.html" accesskey="n" rel="next">schematic.tabs group</a>, Previous: <a href="lepton_002dschematic-configuration.html" accesskey="p" rel="prev">lepton-schematic configuration</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>pin (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="pin (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="pin (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Object-types.html" rel="up" title="Object types">
+<link href="component.html" rel="next" title="component">
+<link href="bus.html" rel="prev" title="bus">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="pin"></span><div class="header">
+<p>
+Next: <a href="component.html" accesskey="n" rel="next">component</a>, Previous: <a href="bus.html" accesskey="p" rel="prev">bus</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="pin-1"></span><h4 class="subsection">11.4.10 pin</h4>
+
+<p>Valid in: Symbol files ONLY
+</p>
+
+<pre class="verbatim">type x1 y1 x2 y2 color pintype whichend
+</pre>
+<table>
+<thead><tr><th width="20%">Pos.</th><th width="20%">Field</th><th width="20%">Type/unit</th><th width="40%">Description</th></tr></thead>
+<tr><td width="20%">#</td><td width="20%">type</td><td width="20%">char</td><td width="40%">P</td></tr>
+<tr><td width="20%">1</td><td width="20%">x1</td><td width="20%">int/mils</td><td width="40%">First X coordinate</td></tr>
+<tr><td width="20%">2</td><td width="20%">y1</td><td width="20%">int/mils</td><td width="40%">First Y coordinate</td></tr>
+<tr><td width="20%">3</td><td width="20%">x2</td><td width="20%">int/mils</td><td width="40%">Second X coordinate</td></tr>
+<tr><td width="20%">4</td><td width="20%">y2</td><td width="20%">int/mils</td><td width="40%">Second Y coordinate</td></tr>
+<tr><td width="20%">5</td><td width="20%">color</td><td width="20%">int</td><td width="40%">Color index</td></tr>
+<tr><td width="20%">6</td><td width="20%">pintype</td><td width="20%">int</td><td width="40%">Type of pin</td></tr>
+<tr><td width="20%">7</td><td width="20%">whichend</td><td width="20%">int</td><td width="40%">Specifies the active end</td></tr>
+</table>
+
+<ul>
+<li> The pintype is an enumerated type:
+<ul>
+<li> NORMAL PIN = 0
+
+</li><li> BUS PIN = 1 unused
+
+</li></ul>
+
+</li><li> The whichend specifies which end point of the pin is the active
+connection port. Only this end point can have other pins or nets
+connected to it.
+
+</li><li> To make the first end point active, whichend should be 0, else to
+specify the other end, whichend should be 1.
+
+</li><li> Pins can only appear in symbol files.
+
+</li><li> Zero length pins are allowed
+
+</li></ul>
+
+
+<p>Example:
+</p><div class="example">
+<pre class="example">P 0 200 200 200 1 0 0
+</pre></div>
+
+<p>A pin from (0, 200) to (200, 200) with color index 1, a regular pin,
+and the first point being the active connection end.
+</p>
+
+
+
+
+</body>
+</html>

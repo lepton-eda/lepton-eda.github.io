@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Configuration contexts (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Configuration contexts (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Configuration contexts (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Configuration-functions.html" rel="up" title="Configuration functions">
+<link href="Configuration-parameters.html" rel="next" title="Configuration parameters">
+<link href="Configuration-functions.html" rel="prev" title="Configuration functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Configuration-contexts"></span><div class="header">
+<p>
+Next: <a href="Configuration-parameters.html" accesskey="n" rel="next">Configuration parameters</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Configuration-contexts-1"></span><h4 class="subsection">2.5.1 Configuration contexts</h4>
+<span id="index-Configuration-context"></span>
+
+<p>A configuration parameter is always evaluated within a
+<em>configuration context</em>.  Each context is associated with a
+configuration file (although the file does not necessarily need to
+exist).
+</p>
+<p>Each configuration context may have a <em>parent context</em>.  If, when
+looking up a parameter, it has no value set in the selected context,
+the parent context is checked, and so on.
+</p>
+<p>Several special contexts are always automatically defined: the
+<em>default context</em>, the <em>system context</em>, the <em>user
+context</em> and the <em>cache context</em>.  The user context is the
+default parent context for all other configuration contexts,
+including newly-created ones.
+</p>
+<span id="Obtaining-a-context"></span><h4 class="subsubsection">2.5.1.1 Obtaining a context</h4>
+<span id="index-System-configuration-context"></span>
+<span id="index-User-configuration-context"></span>
+<span id="index-Default-configuration-contex"></span>
+
+<dl>
+<dt id="index-path_002dconfig_002dcontext">Function: <strong>path-config-context</strong> <em>path</em></dt>
+<dd><p>Normally, you shouldn&rsquo;t create a configuration context directly; you
+should obtain the configuration context associated with a <var>path</var>.
+</p>
+<p><code>path-config-context</code> looks for a configuration file named
+<samp>lepton.conf</samp>.  If <var>path</var> is not a directory, it is truncated,
+and then a file named <samp>lepton.conf</samp> is looked for in that
+directory.  If none is found, the parent directory is checked, and so
+on until a configuration file is found or the filesystem root is
+reached.  If no configuration file was found, the returned context
+will be associated with a <samp>lepton.conf</samp> in the same directory as
+<var>path</var>.
+</p>
+<p><strong>Warning</strong>: Do not assume that the configuration file associated
+with the context returned by <code>path-config-context</code> is located in
+the directory specified by <var>path</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-default_002dconfig_002dcontext">Function: <strong>default-config-context</strong></dt>
+<dd><p>The default context is not associated with any physical path or
+on-disk configuration file, and has no parent context.  It contains
+the default configuration used when no configuration file can be
+loaded.
+</p>
+<p><strong>Note</strong>: Normally, the default context should be populated with
+built-in default configuration settings on start-up, before loading
+any further configuration files.  This approach is strongly
+recommended, because it means that configuration parameters can then
+be safely read without having to use <code>config-has-group?</code> and
+<code>config-has-key?</code> to check if they are set (see <a href="Configuration-parameters.html">Configuration groups and keys</a>).
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-system_002dconfig_002dcontext">Function: <strong>system-config-context</strong></dt>
+<dd><p>The system context is used for system-wide configuration.  Its parent
+context is the default context.  It is located by searching
+<code>sys-config-dirs</code> for a
+<samp>${prefix}/share/lepton-eda/lepton-system.conf</samp> file.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-user_002dconfig_002dcontext">Function: <strong>user-config-context</strong></dt>
+<dd><p>The user context is used for user-specific configuration, and is
+loaded from <samp>lepton-user.conf</samp> in <code>user-config-dir</code>.
+Its parent context is the system context.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-cache_002dconfig_002dcontext">Function: <strong>cache-config-context</strong></dt>
+<dd><p>The cache context is used to store program-specific settings,
+like dialog geometry and command history.
+It has no parent configuration context.
+The associated file is <samp>gui.conf</samp>
+in <samp>$XDG_CACHE_HOME/lepton-eda/</samp> directory (usually,
+<samp>~/.cache/lepton-eda/</samp>).
+That path can be determined by calling <code>user-cache-dir</code>
+function from the <code>(lepton os)</code> module.
+</p></dd></dl>
+
+<dl>
+<dt id="index-anyfile_002dconfig_002dcontext">Function: <strong>anyfile-config-context</strong> <em>path [parent] [trusted]</em></dt>
+<dd><p>Returns the context associated with a configuration file
+given by <var>path</var>.
+It can be assigned a parent context <var>parent</var> (by default it
+has no parent context).
+The context is considered untrusted, unless the <var>trusted</var>
+parameter is set to &lsquo;<samp>#t</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_003f">Function: <strong>config?</strong> <em>cfg</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>cfg</var> is a configuration
+context object.
+</p></dd></dl>
+
+<span id="Loading-and-saving-configuration-files"></span><h4 class="subsubsection">2.5.1.2 Loading and saving configuration files</h4>
+<span id="index-Loading-configuration"></span>
+<span id="index-Saving-configuration"></span>
+<p>Other than the default context, all configuration contexts are
+associated with an on-disk configuration file.
+</p>
+<dl>
+<dt id="index-config_002dfilename">Function: <strong>config-filename</strong> <em>cfg</em></dt>
+<dd><p>Return the filename of the configuration file associated with the
+context <var>cfg</var>.  For some contexts (including the default context),
+this will return &lsquo;<samp>#f</samp>&rsquo;.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dload_0021">Function: <strong>config-load!</strong> <em>cfg [force-load]</em></dt>
+<dd><p>Attempt to load configuration parameters for the context <var>cfg</var>
+from its associated file. If <var>force-load</var> keyword argument is true
+(&lsquo;<samp>#t</samp>&rsquo;), configuration will be reloaded even if it has already been
+loaded. By default, <var>force-load</var> is set to false (&lsquo;<samp>#f</samp>&rsquo;).
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dloaded_003f">Function: <strong>config-loaded?</strong> <em>cfg</em></dt>
+<dd><p>Determine whether the context <var>cfg</var> has been successfully loaded
+from file.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dsave_0021">Function: <strong>config-save!</strong> <em>cfg</em></dt>
+<dd><p>Attempt to save configuration parameters for the context <var>cfg</var> to
+its associated file. Returns <var>cfg</var>. If configuration cannot be
+saved, raises an error.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dchanged_003f">Function: <strong>config-changed?</strong> <em>cfg</em></dt>
+<dd><p>Determine whether the context <var>cfg</var> has been altered since it was
+last synchronised with the on-disk version by loading or saving it.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<span id="Context-parents"></span><h4 class="subsubsection">2.5.1.3 Context parents</h4>
+<span id="index-Context-parent"></span>
+<span id="index-Parent-configuration-context"></span>
+<p>A configuration context may have a <em>parent context</em>, from which it
+inherits configuration values.  Configuration inheritance loops are
+not permitted.
+</p>
+<p>See <a href="Configuration-parameters.html">Configuration inheritance</a>.
+</p>
+<dl>
+<dt id="index-config_002dparent">Function: <strong>config-parent</strong> <em>cfg</em></dt>
+<dd><p>Return the parent context of the context <var>cfg</var>, if it has one.
+Otherwise, return &lsquo;<samp>#f</samp>&rsquo;.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dconfig_002dparent_0021">Function: <strong>set-config-parent!</strong> <em>cfg parent</em></dt>
+<dd><p>Sets <var>parent</var> as the parent context of <var>cfg</var>.  If <var>parent</var>
+is &lsquo;<samp>#f</samp>&rsquo;, sets <var>cfg</var> as having no parent context.
+</p>
+<p><strong>Note</strong>: Normally, application code should avoid using this
+function; keeping to the default configuration inheritance structure
+is recommended in order to ensure consistent behaviour of all liblepton
+applications.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<span id="Context-trust"></span><h4 class="subsubsection">2.5.1.4 Context trust</h4>
+<span id="index-Context-trust"></span>
+<span id="index-Trusted-configuration-context"></span>
+<span id="index-Configuration-trust"></span>
+
+<p>Some configuration parameters are dangerous; in particular, parameters
+that may lead to arbitrary code execution need to be handled
+carefully.  Such settings might include:
+</p>
+<ul>
+<li> Preferred PDF reader
+</li><li> Preferred web browser
+</li><li> Search path for Scheme plugins
+</li></ul>
+
+<p>Configuration contexts can be flagged as being <em>trusted</em>.  This
+allows code that needs to access such dangerous parameters to
+determine whether the value has been obtained from a safe source.
+</p>
+<p>By default, the default context, system context and user context are
+trusted, and all other contexts untrusted.
+</p>
+<dl>
+<dt id="index-config_002dtrusted_003f">Function: <strong>config-trusted?</strong> <em>cfg</em></dt>
+<dd><p>Test whether <var>cfg</var> is a trusted configuration context.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dconfig_002dtrusted_0021">Function: <strong>set-config-trusted!</strong> <em>cfg trusted?</em></dt>
+<dd><p>Set whether the configuration context <var>cfg</var> should be trusted as a
+source for dangerous configuration parameters.
+</p>
+<p><strong>Warning</strong>: You should not set a configuration context as
+trusted unless you are certain that it originated from a safe source
+(e.g. by interacting with the user to verify it).
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dtrusted_002dcontext">Function: <strong>config-trusted-context</strong> <em>cfg</em></dt>
+<dd><p>If <var>cfg</var> is trusted, returns <var>cfg</var>; otherwise, returns the
+first parent context of <var>cfg</var> that is a trusted context.  If no
+trusted context can be found, returns &lsquo;<samp>#f</samp>&rsquo;.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Configuration-parameters.html" accesskey="n" rel="next">Configuration parameters</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

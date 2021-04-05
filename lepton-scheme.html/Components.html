@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Components (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Components (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Components (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Core-attribute-functions.html" rel="next" title="Core attribute functions">
+<link href="Text.html" rel="prev" title="Text">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Components"></span><div class="header">
+<p>
+Previous: <a href="Text.html" accesskey="p" rel="prev">Text</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Components-1"></span><h4 class="subsection">2.2.11 Components</h4>
+
+<p>Component <code>object</code>s represent instances of symbols.  They contain
+other <code>object</code>s copied from the original symbol when it is
+instantiated into a schematic.
+</p>
+<p>A component&rsquo;s <var>basename</var> is a string used to identify which symbol
+it originated from.  When instantiating a symbol on initial placement
+in a schematic, or when recreating a component while loading a
+schematic, the <var>basename</var> is used to find the underlying symbol
+file in the component library.
+</p>
+<p>See <a href="Component-objects.html">Component objects</a>.
+</p>
+<p>The <var>position</var>, <var>angle</var> and <var>mirror</var> flag of a component
+indicates the transformation that was applied to the contents of the
+original symbol.  The transformation is applied in the following order:
+</p>
+<ol>
+<li> If <var>mirror</var> is true, the symbol is reflected in the line x = 0.
+</li><li> The symbol is rotated anti-clockwise by <var>angle</var> degrees about the
+point (0,0) (<var>angle</var> may only be an integer multiple of 90
+degrees).
+</li><li> Finally, the symbol is translated by <var>position</var>.
+</li></ol>
+
+<p>The component&rsquo;s contents (as returned by <code>component-contents</code>)
+have the transformation already applied to them.  Updating the
+translation information using e.g. <code>set-component!</code> will not
+alter them &ndash; that must be done separately (e.g. by reloading the
+symbol).
+</p>
+<dl>
+<dt id="index-component_003f">Function: <strong>component?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a component <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dcomponent">Function: <strong>make-component</strong> <em>basename position angle mirror locked</em></dt>
+<dd><p>Creates and returns a new, empty component <code>object</code> with the
+given <var>basename</var>.  <var>position</var>, <var>angle</var> and <var>mirror</var>
+specify the symbol transformation.  If <var>locked</var> is true, the
+component will be protected against accidental selection by the user
+(this is used in lepton-schematic e.g. for titleblocks).
+</p>
+<p>No attempt is made to load a symbol matching <var>basename</var> from
+component libraries, and the returned component is flagged as
+embedded.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dcomponent_002flibrary">Function: <strong>make-component/library</strong> <em>basename position angle mirror locked</em></dt>
+<dd><p>Searches the component libraries for a symbol matching <var>basename</var>,
+and if found, instantiates the symbol and returns the resulting
+component (which is not flagged as embedded).  Arguments are as for
+<code>make-component</code>.
+</p>
+<p>If no match for <var>basename</var> is found, &lsquo;<samp>#f</samp>&rsquo; is returned.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dcomponent_0021">Function: <strong>set-component!</strong> <em>component position angle mirror locked</em></dt>
+<dd><p>Sets the parameters of <var>component</var>.  Arguments are the same as to
+<code>make-component</code>.  Returns <var>component</var>.
+</p>
+<p><strong>Note</strong>: Remember that modifying the transformation parameters
+of a component does not update the component&rsquo;s contents.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dcomponent_002dwith_002dtransform_0021">Function: <strong>set-component-with-transform!</strong> <em>component position angle mirror locked</em></dt>
+<dd><p>Sets the parameters of <var>component</var>.  Arguments are the same as to
+<code>make-component</code>.  Returns <var>component</var>.
+</p>
+<p><strong>Note</strong>: All transformations are applied immediately.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dinfo">Function: <strong>component-info</strong> <em>component</em></dt>
+<dd><p>Returns the parameters of <var>component</var> as a list of the form:
+</p>
+<div class="example">
+<pre class="example">(basename (x . y) angle mirror locked)
+</pre></div>
+</dd></dl>
+
+<dl>
+<dt id="index-component_002dbasename">Function: <strong>component-basename</strong> <em>component</em></dt>
+<dd><p>Returns the basename of <var>component</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dfilename">Function: <strong>component-filename</strong> <em>component</em></dt>
+<dd><p>If a component object <var>component</var> has a symbol file
+associated with it, returns its full path, otherwise
+returns false (&lsquo;<samp>#f</samp>&rsquo;).
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dposition">Function: <strong>component-position</strong> <em>component</em></dt>
+<dd><p>Returns the position to which the original symbol was translated when
+creating <var>component</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dangle">Function: <strong>component-angle</strong> <em>component</em></dt>
+<dd><p>Returns the angle by which the original symbol was rotated when
+creating <var>component</var>, as an integer number of degrees.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dmirror_003f">Function: <strong>component-mirror?</strong> <em>component</em></dt>
+<dd><p>Returns true if the original symbol was mirrored when creating
+<var>component</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dlocked_003f">Function: <strong>component-locked?</strong> <em>component</em></dt>
+<dd><p>Returns true if <var>component</var> is non-selectable.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dcontents">Function: <strong>component-contents</strong> <em>component</em></dt>
+<dd><p>Returns the contents of <var>components</var> as a list of objects.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dappend_0021">Function: <strong>component-append!</strong> <em>component objects...</em></dt>
+<dd><p>Appends <var>objects</var> (which must not be component <code>object</code>s) to
+the contents of <var>component</var>.  Any <var>objects</var> which are already
+included in <var>component</var> are ignored.  If any <var>objects</var> are
+already part of a <code>page</code> or of another component <code>object</code>,
+an &lsquo;<samp>object-state</samp>&rsquo; error is raised. Returns <var>component</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-component_002dremove_0021">Function: <strong>component-remove!</strong> <em>component objects...</em></dt>
+<dd><p>Removes <var>objects</var> from the contents of <var>component</var>.  Any
+<var>objects</var> which are not part of a component or of a page are
+ignored. Returns <var>component</var>.
+</p>
+<p>An &lsquo;<samp>object-state</samp>&rsquo; error will be raised if any <var>objects</var>
+satisfy any of the following conditions:
+</p>
+<ul>
+<li> are part of a <code>page</code>;
+</li><li> are part of a component <code>object</code> other than <var>component</var>;
+</li><li> have attached attributes
+</li><li> are attached as an attribute.
+</li></ul>
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Text.html" accesskey="p" rel="prev">Text</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+#+TITLE: Lepton EDA documentation
+
+- [[./lepton-manual.html/index.html][Lepton EDA reference manual]]
+- [[./lepton-scheme.html/index.html][Lepton EDA Scheme API manual]]
+
+# Local Variables:
+# org-html-postamble: "<center><p class=\"copyright\">&#169; Lepton Developers</p></center>"
+# End:

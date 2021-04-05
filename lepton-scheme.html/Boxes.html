@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Boxes (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Boxes (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Boxes (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Circles.html" rel="next" title="Circles">
+<link href="Pins.html" rel="prev" title="Pins">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Boxes"></span><div class="header">
+<p>
+Next: <a href="Circles.html" accesskey="n" rel="next">Circles</a>, Previous: <a href="Pins.html" accesskey="p" rel="prev">Pins</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Boxes-1"></span><h4 class="subsection">2.2.5 Boxes</h4>
+
+<p>Boxes are rectangles specified by the coordinates of their top left
+and bottom right corners.  They are purely graphical, and have no
+electrical meaning.  They can be drawn in different colors, and with
+various stroke and fill settings.
+</p>
+<p>See <a href="Object-color.html">Object color</a>.
+See <a href="Object-fill-and-stroke.html">Object fill and stroke</a>.
+</p>
+<dl>
+<dt id="index-box_003f">Function: <strong>box?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a box <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dbox">Function: <strong>make-box</strong> <em>top-left bottom-right [color]</em></dt>
+<dd><p>Creates and returns a new box <code>object</code>.  <var>top-left</var> is the
+position of the top left of the new box in the form <code>(x . y)</code>,
+and <var>bottom-right</var> is the position of the bottom right of the box.
+If <var>color</var> is specified, it should be the integer color map index
+of the color with which to draw the box.  If <var>color</var> is not
+specified, the default box color is used.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dbox_0021">Function: <strong>set-box!</strong> <em>box top-left bottom-right [color]</em></dt>
+<dd><p>Sets the parameters of <var>box</var>. The arguments are the same as to
+<code>make-box</code>.  Returns <var>box</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-box_002dinfo">Function: <strong>box-info</strong> <em>box</em></dt>
+<dd><p>Returns the parameters of <var>box</var>.  The return value is a list in the form:
+</p>
+<div class="example">
+<pre class="example">((top-left-x . top-left-y) (bottom-right-x . bottom-right-y) color)
+</pre></div>
+</dd></dl>
+
+<dl>
+<dt id="index-box_002dtop_002dleft">Function: <strong>box-top-left</strong> <em>box</em></dt>
+<dd><p>Returns the position of the top left corner of <var>box</var> in the form
+<code>(x . y)</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-box_002dbottom_002dright">Function: <strong>box-bottom-right</strong> <em>box</em></dt>
+<dd><p>Returns the position of the bottom right corner of <var>box</var> in the
+form <code>(x . y)</code>.
+</p></dd></dl>
+
+
+
+
+</body>
+</html>

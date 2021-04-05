@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>lepton-netlist (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="lepton-netlist (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="lepton-netlist (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="lepton_002dcli.html" rel="next" title="lepton-cli">
+<link href="reset_002dcomponent_002dlibrary.html" rel="prev" title="reset-component-library">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="lepton_002dnetlist"></span><div class="header">
+<p>
+Next: <a href="lepton_002dcli.html" accesskey="n" rel="next">lepton-cli</a>, Previous: <a href="lepton_002dschematic.html" accesskey="p" rel="prev">lepton-schematic</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Netlister"></span><h2 class="chapter">6 Netlister</h2>
+<span id="index-lepton_002dnetlist"></span>
+<span id="index-netlist"></span>
+<span id="index-netlister"></span>
+
+<p>lepton-netlist is a Lepton netlister tool with command line interface.
+It can be used directly on command line or in Makefiles to automate
+your work.  This tool consists of a front-end and back-ends parts.
+The front-end is the program itself which creates some internal
+representation of schematic structure and does some post-processing.
+The back-ends use this information to output into various formats for
+use in other programs.  The user can write and use her custom back-end
+or use several already existing backends included in the Lepton EDA
+suite.
+</p>
+<p>Below you&rsquo;ll find the list of back-ends available in Lepton.
+</p>
+<ul>
+<li> allegro
+</li><li> bae
+</li><li> bom
+</li><li> bom2
+</li><li> calay
+</li><li> cascade
+</li><li> drc
+</li><li> drc2
+</li><li> eagle
+</li><li> ewnet
+</li><li> futurenet2
+</li><li> geda
+</li><li> gossip
+</li><li> gsch2pcb
+</li><li> liquidpcb
+</li><li> makedepend
+</li><li> mathematica
+</li><li> maxascii
+</li><li> osmond
+</li><li> pads
+</li><li> partslist1
+</li><li> partslist2
+</li><li> partslist3
+</li><li> PCB
+</li><li> pcbpins
+</li><li> protelII
+</li><li> redac
+</li><li> spice
+</li><li> spice-noqsi
+</li><li> spice-sdb
+</li><li> switcap
+</li><li> systemc
+</li><li> tango
+</li><li> tEDAx
+</li><li> vams
+</li><li> verilog
+</li><li> vhdl
+</li><li> vipec
+</li></ul>
+
+
+
+</body>
+</html>

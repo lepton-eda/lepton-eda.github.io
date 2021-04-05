@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Core attribute functions (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Core attribute functions (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Core attribute functions (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-API-Reference.html" rel="up" title="Core API Reference">
+<link href="Core-source-library-functions.html" rel="next" title="Core source library functions">
+<link href="Components.html" rel="prev" title="Components">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Core-attribute-functions"></span><div class="header">
+<p>
+Next: <a href="Core-source-library-functions.html" accesskey="n" rel="next">Core source library functions</a>, Previous: <a href="Core-object-functions.html" accesskey="p" rel="prev">Core object functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Core-attribute-functions-1"></span><h3 class="section">2.3 Core attribute functions</h3>
+
+<p>To use the functions described in this section, you will need to load
+the <code>(lepton attrib)</code> module.
+</p>
+<p>Attributes are text <code>object</code>s with a particular format of string.
+They can be floating, or they can be attached to another
+<code>object</code>.
+</p>
+<dl>
+<dt id="index-attribute_003f">Function: <strong>attribute?</strong> <em>object</em></dt>
+<dd><p>Returns true if and only if <var>object</var> is an attribute (i.e. a text
+<code>object</code> and in attribute format).
+</p></dd></dl>
+
+<span id="Attribute-names-and-values"></span><h4 class="subsection">2.3.1 Attribute names and values</h4>
+
+<dl>
+<dt id="index-parse_002dattrib">Function: <strong>parse-attrib</strong> <em>text</em></dt>
+<dd><p>Splits the string from <var>text</var> (a text <code>object</code>) into name and
+value, if it is in attribute format.  If it is not in attribute
+format, raises an &lsquo;<samp>attribute-format</samp>&rsquo; error.  The return value is
+in the form &lsquo;<samp>(<var>name</var> . <var>value</var>)</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-attrib_002dname">Function: <strong>attrib-name</strong> <em>attrib</em></dt>
+<dd><p>Returns the name part of <var>attrib</var>, as a string.
+</p></dd></dl>
+
+<dl>
+<dt id="index-attrib_002dvalue">Function: <strong>attrib-value</strong> <em>attrib</em></dt>
+<dd><p>Returns the value part of <var>attrib</var>, as a string.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dattrib_002dvalue_0021">Function: <strong>set-attrib-value!</strong> <em>attrib value</em></dt>
+<dd><p>Sets the value part of <var>attrib</var> to <var>value</var>.
+</p></dd></dl>
+
+<span id="Attribute-attachment"></span><h4 class="subsection">2.3.2 Attribute attachment</h4>
+
+<dl>
+<dt id="index-attrib_002dattachment">Function: <strong>attrib-attachment</strong> <em>attrib</em></dt>
+<dd><p>If <var>attrib</var> is attached to another <code>object</code>, returns that
+object.  Otherwise, returns &lsquo;<samp>#f</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-object_002dattribs">Function: <strong>object-attribs</strong> <em>object</em></dt>
+<dd><p>Returns a list of all attributes attached to <var>object</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-attach_002dattribs_0021">Function: <strong>attach-attribs!</strong> <em>object [attribs...]</em></dt>
+<dd><p>Attach <var>attribs</var> to <var>object</var>.  All the <var>attribs</var> must be
+text <code>object</code>s.  The following conditions must be satisfied, or
+an &lsquo;<samp>object-state</samp>&rsquo; error will be raised:
+</p>
+<ul>
+<li> Neither <var>object</var> nor any of the <var>attribs</var> may be already
+attached as an attribute;
+</li><li> Both <var>object</var> and all <var>attribs</var> must be part of the same
+<code>page</code> and/or component <code>object</code>;
+</li></ul>
+
+<p>Any <var>attribs</var> that are already attached to <var>object</var> are
+ignored.  Returns <var>object</var>.
+</p>
+<p><strong>Note</strong>: For historical reasons, <code>attach-attribs!</code> does not
+require that all <var>attribs</var> satisfy <code>attribute?</code>.
+Nevertheless, avoid attaching non-attribute text objects as attributes.
+</p></dd></dl>
+
+<dl>
+<dt id="index-detach_002dattribs_0021">Function: <strong>detach-attribs!</strong> <em>object [attribs...]</em></dt>
+<dd><p>Detach <var>attribs</var> from <var>object</var>.  Any <var>attribs</var> that are
+not attached as attributes are ignored.  If any <var>attribs</var> are
+attached to <code>object</code>s other than <var>object</var>, an
+&lsquo;<samp>object-state</samp>&rsquo; error is raised.
+</p></dd></dl>
+
+<span id="Inherited-and-promoted-attributes"></span><h4 class="subsection">2.3.3 Inherited and promoted attributes</h4>
+
+<p><em>Inherited attributes</em> are unattached attributes inside a
+component <code>object</code>.
+</p>
+<dl>
+<dt id="index-inherited_002dattribs">Function: <strong>inherited-attribs</strong> <em>object</em></dt>
+<dd><p>Returns the inherited attributes of <var>object</var>, if <var>object</var> is a
+component.  If <var>object</var> is not a component, returns the empty
+list.
+</p></dd></dl>
+
+<dl>
+<dt id="index-attrib_002dinherited_003f">Function: <strong>attrib-inherited?</strong> <em>attrib</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if <var>attrib</var> is an inherited attribute.
+</p></dd></dl>
+
+<p><em>promotable attributes</em> are inherited attributes that are both
+visible and have names that are in the list of promotable attributes
+set with the <code>always-promote-attributes</code> rc file parameter.
+</p>
+<dl>
+<dt id="index-promotable_002dattribs">Function: <strong>promotable-attribs</strong> <em>component</em></dt>
+<dd><p>Returns a list of promotable attributes of <var>component</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-promote_002dattribs_0021">Function: <strong>promote-attribs!</strong> <em>component</em></dt>
+<dd><p>Promote all promotable attributes from <var>component</var> into the
+<code>page</code> that contains <var>component</var>.  If <var>component</var> is not
+in a page, an &lsquo;<samp>object-state</samp>&rsquo; error is raised.
+</p>
+<p>All promotable attributes are copied, and made invisible.  The copies
+are added to the <code>page</code>, and attached as attributes of <var>component</var>.
+</p>
+<p>The promoted attributes are returned.  If <var>component</var> is not in
+fact a component <code>object</code>, does nothing and returns the empty list.
+</p></dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Core-source-library-functions.html" accesskey="n" rel="next">Core source library functions</a>, Previous: <a href="Core-object-functions.html" accesskey="p" rel="prev">Core object functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

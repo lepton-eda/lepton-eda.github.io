@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Pictures (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Pictures (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Pictures (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Text.html" rel="next" title="Text">
+<link href="Paths.html" rel="prev" title="Paths">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Pictures"></span><div class="header">
+<p>
+Next: <a href="Text.html" accesskey="n" rel="next">Text</a>, Previous: <a href="Paths.html" accesskey="p" rel="prev">Paths</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Pictures-1"></span><h4 class="subsection">2.2.9 Pictures</h4>
+
+<p>A picture object displays an image in the schematic, and is a purely
+graphical element.  Pictures may be in any format supported by the
+user&rsquo;s GdkPixbuf installation (but note that images that can&rsquo;t be
+loaded for some reason are preserved).  The <var>top-left</var>,
+<var>bottom-right</var>, <var>angle</var> and <var>mirror</var> properties of a
+picture object indicate the transformation that was applied to the
+original image.  The transformation is applied as follows:
+</p>
+<ol>
+<li> If <var>mirror</var> is true, the picture is reflected about its vertical
+centerline.
+</li><li> The picture is rotated by <var>angle</var> anticlockwise about its center
+(<var>angle</var> may only be an integer multiple of 90 degrees).
+</li><li> The picture is scaled and translated to fit within the rectangle
+defined by the points <var>top-left</var> and <var>bottom-right</var>.
+</li></ol>
+
+<dl>
+<dt id="index-picture_003f">Function: <strong>picture?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a picture <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dpicture_002fvector">Function: <strong>make-picture/vector</strong> <em>vector filename top-left bottom-right angle mirror</em></dt>
+<dd><p>Creates and returns a new picture object for <var>filename</var>, by
+reading image data from <var>vector</var> (which should be in a standard
+image file format).  If <var>vector</var> could not be loaded, an error is
+raised.  <var>top-left</var>, <var>bottom-right</var>, <var>angle</var> and
+<var>mirror</var> specify the picture transformation.
+</p>
+<p>The points <var>top-left</var> and <var>bottom-right</var> should be specified
+in the form &lsquo;<samp>(x . y)</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dpicture_0021">Function: <strong>set-picture!</strong> <em>picture top-left bottom-right angle mirror</em></dt>
+<dd><p>Sets the picture transformation for <var>picture</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-picture_002dinfo">Function: <strong>picture-info</strong> <em>picture</em></dt>
+<dd><p>Returns the parameters of <var>picture</var> as a list in the form:
+</p>
+<div class="example">
+<pre class="example">(filename (top-left-x . top-left-y) (bottom-right-x . bottom-right-y) angle mirror)
+</pre></div>
+</dd></dl>
+
+<dl>
+<dt id="index-picture_002dfilename">Function: <strong>picture-filename</strong> <em>picture</em></dt>
+<dd><p>Returns the filename associated with <var>picture</var> as a string.
+</p></dd></dl>
+
+<dl>
+<dt id="index-picture_002dtop_002dleft">Function: <strong>picture-top-left</strong> <em>picture</em></dt>
+<dd><p>Returns the position of the top left corner of &lsquo;<samp>picture</samp>&rsquo; in the
+form &lsquo;<samp>(x . y)</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-picture_002dbottom_002dright">Function: <strong>picture-bottom-right</strong> <em>picture</em></dt>
+<dd><p>Returns the position of the bottom right corner of &lsquo;<samp>picture</samp>&rsquo; in
+the form &lsquo;<samp>(x . y)</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-picture_002dangle">Function: <strong>picture-angle</strong> <em>picture</em></dt>
+<dd><p>Returns the angle to rotate &lsquo;<samp>picture</samp>&rsquo; by, as an integer number of
+degrees.
+</p></dd></dl>
+
+<dl>
+<dt id="index-picture_002dmirror_003f">Function: <strong>picture-mirror?</strong> <em>picture</em></dt>
+<dd><p>Returns true if &lsquo;<samp>picture</samp>&rsquo; is mirrored.
+</p></dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Text.html" accesskey="n" rel="next">Text</a>, Previous: <a href="Paths.html" accesskey="p" rel="prev">Paths</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

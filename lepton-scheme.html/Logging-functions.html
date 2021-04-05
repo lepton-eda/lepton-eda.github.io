@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Logging functions (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Logging functions (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Logging functions (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-API-Reference.html" rel="up" title="Core API Reference">
+<link href="System-information.html" rel="next" title="System information">
+<link href="Configuration-errors.html" rel="prev" title="Configuration errors">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Logging-functions"></span><div class="header">
+<p>
+Next: <a href="System-information.html" accesskey="n" rel="next">System information</a>, Previous: <a href="Configuration-functions.html" accesskey="p" rel="prev">Configuration functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Logging-functions-1"></span><h3 class="section">2.6 Logging functions</h3>
+
+<p>To use the functions described in this section, you will need to load
+the <code>(lepton log)</code> module.
+</p>
+<dl>
+<dt id="index-log_0021">Function: <strong>log!</strong> <em>level message [format-args...]</em></dt>
+<dd><p>Emit a log message with the specified <var>level</var>.  The <var>message</var>
+is interpreted as a format string, with <var>format-args</var> as its
+parameters.
+</p>
+<p>The <var>level</var> should be one of the symbols <code>error</code>,
+<code>critical</code>, <code>warning</code>, <code>message</code>, <code>info</code> or
+<code>debug</code>.
+</p>
+<p>Note: if <var>level</var> is set to <code>error</code>, main program will terminate.
+</p>
+<p>Generally, if the <var>level</var> is not <code>debug</code>, then the message
+should be localised.
+</p></dd></dl>
+
+
+
+
+</body>
+</html>

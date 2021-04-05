@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Top (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Top (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="Top (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="#Top" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Overview.html" rel="next" title="Overview">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">Lepton EDA Reference Manual 1.9.13</h1>
+
+
+
+
+
+<span id="SEC_Contents"></span>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Overview-1" href="Overview.html#Overview">1 Overview</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Compatibility-with-geda_002dgaf-1" href="Compatibility-with-geda_002dgaf.html#Compatibility-with-geda_002dgaf">1.1 Compatibility with geda-gaf</a></li>
+  </ul></li>
+  <li><a id="toc-Installation-1" href="Installation.html#Installation">2 Installation</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Dependencies-1" href="Dependencies.html#Dependencies">2.1 Dependencies</a></li>
+    <li><a id="toc-Troubleshooting-dependencies-1" href="Troubleshooting-dependencies.html#Troubleshooting-dependencies">2.2 Troubleshooting dependencies</a></li>
+    <li><a id="toc-Installation-from-a-source-archive" href="Installation-from-source.html#Installation-from-source">2.3 Installation from a source archive</a></li>
+    <li><a id="toc-Installation-from-the-git-repository" href="Installation-from-git.html#Installation-from-git">2.4 Installation from the git repository</a></li>
+    <li><a id="toc-Configure-options-1" href="Configure-options.html#Configure-options">2.5 Configure options</a></li>
+  </ul></li>
+  <li><a id="toc-Configuration-system" href="Configuration.html#Configuration">3 Configuration system</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Introduction-1" href="Introduction.html#Introduction">3.1 Introduction</a></li>
+    <li><a id="toc-Legacy-configuration-files-still-in-use" href="Legacy-configuration.html#Legacy-configuration">3.2 Legacy configuration files still in use</a>
+    <ul class="no-bullet">
+      <li><a id="toc-gafrc-1" href="gafrc.html#gafrc">3.2.1 <samp>gafrc</samp></a></li>
+      <li><a id="toc-gschemrc-1" href="gschemrc.html#gschemrc">3.2.2 <samp>gschemrc</samp></a></li>
+    </ul></li>
+    <li><a id="toc-Overview-of-the-new-configuration-system" href="New-configuration-system.html#New-configuration-system">3.3 Overview of the new configuration system</a></li>
+    <li><a id="toc-Configuration-settings-for-tools-in-the-Lepton-EDA-suite" href="Configuration-of-Lepton-tools.html#Configuration-of-Lepton-tools">3.4 Configuration settings for tools in the Lepton EDA suite</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Configuration-of-lepton_002dschematic" href="lepton_002dschematic-configuration.html#lepton_002dschematic-configuration">3.4.1 <code>Configuration of lepton-schematic</code></a>
+      <ul class="no-bullet">
+        <li><a id="toc-schematic_002egui-group-1" href="schematic_002egui-group.html#schematic_002egui-group">3.4.1.1 <code>schematic.gui</code> group</a></li>
+        <li><a id="toc-schematic_002etabs-group-1" href="schematic_002etabs-group.html#schematic_002etabs-group">3.4.1.2 <code>schematic.tabs</code> group</a></li>
+        <li><a id="toc-schematic_002estatus_002dbar-group-1" href="schematic_002estatus_002dbar-group.html#schematic_002estatus_002dbar-group">3.4.1.3 <code>schematic.status-bar</code> group</a></li>
+        <li><a id="toc-schematic_002eundo-group-1" href="schematic_002eundo-group.html#schematic_002eundo-group">3.4.1.4 <code>schematic.undo</code> group</a></li>
+        <li><a id="toc-schematic_002elog_002dwindow-group-1" href="schematic_002elog_002dwindow-group.html#schematic_002elog_002dwindow-group">3.4.1.5 <code>schematic.log-window</code> group</a></li>
+        <li><a id="toc-schematic_002emacro_002dwidget-group-1" href="schematic_002emacro_002dwidget-group.html#schematic_002emacro_002dwidget-group">3.4.1.6 <code>schematic.macro-widget</code> group</a></li>
+        <li><a id="toc-schematic-group-1" href="schematic-group.html#schematic-group">3.4.1.7 <code>schematic</code> group</a></li>
+        <li><a id="toc-schematic_002elibrary-group-1" href="schematic_002elibrary-group.html#schematic_002elibrary-group">3.4.1.8 <code>schematic.library</code> group</a></li>
+        <li><a id="toc-schematic_002eprinting-group-1" href="schematic_002eprinting-group.html#schematic_002eprinting-group">3.4.1.9 <code>schematic.printing</code> group</a></li>
+        <li><a id="toc-schematic_002ebackup-group-1" href="schematic_002ebackup-group.html#schematic_002ebackup-group">3.4.1.10 <code>schematic.backup</code> group</a></li>
+        <li><a id="toc-schematic_002eattrib-group-1" href="schematic_002eattrib-group.html#schematic_002eattrib-group">3.4.1.11 <code>schematic.attrib</code> group</a></li>
+      </ul></li>
+      <li><a id="toc-Configuration-of-lepton_002dnetlist" href="lepton_002dnetlist-configuration.html#lepton_002dnetlist-configuration">3.4.2 <code>Configuration of lepton-netlist</code></a>
+      <ul class="no-bullet">
+        <li><a id="toc-netlist-group-1" href="netlist-group.html#netlist-group">3.4.2.1 <code>netlist</code> group</a></li>
+        <li><a id="toc-netlist_002ehierarchy-group-1" href="netlist_002ehierarchy-group.html#netlist_002ehierarchy-group">3.4.2.2 <code>netlist.hierarchy</code> group</a></li>
+      </ul></li>
+      <li><a id="toc-Configuration-of-lepton_002dcli" href="lepton_002dcli-configuration.html#lepton_002dcli-configuration">3.4.3 <code>Configuration of lepton-cli</code></a>
+      <ul class="no-bullet">
+        <li><a id="toc-export-group-1" href="export-group.html#export-group">3.4.3.1 <code>export</code> group</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Deprecated-settings-1" href="Deprecated-settings.html#Deprecated-settings">3.5 Deprecated settings</a></li>
+    <li><a id="toc-Resources-1" href="Resources.html#Resources">3.6 Resources</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Documentation-1" href="Documentation.html#Documentation">3.6.1 Documentation</a></li>
+      <li><a id="toc-Web-pages-1" href="Web-pages.html#Web-pages">3.6.2 Web pages</a></li>
+      <li><a id="toc-Utilities-1" href="Utilities.html#Utilities">3.6.3 Utilities</a></li>
+      <li><a id="toc-Other-resources-_0028outdated_002c-but-may-be-useful_0029" href="Other-resources.html#Other-resources">3.6.4 Other resources (outdated, but may be useful)</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Symbols-1" href="Symbols.html#Symbols">4 Symbols</a>
+  <ul class="no-bullet">
+    <li><a id="toc-No-Connection-Short-Form-Data-Sheet" href="No_002dconnect-symbols.html#No_002dconnect-symbols">4.1 No Connection Short Form Data Sheet</a></li>
+  </ul></li>
+  <li><a id="toc-Schematic-capture" href="lepton_002dschematic.html#lepton_002dschematic">5 Schematic capture</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Component-libraries-1" href="Component-libraries.html#Component-libraries">5.1 Component libraries</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Component-library-setup-1" href="Component-library-setup.html#Component-library-setup">5.1.1 Component library setup</a>
+      <ul class="no-bullet">
+        <li><a id="toc-component_002dlibrary-1" href="component_002dlibrary.html#component_002dlibrary">5.1.1.1 component-library</a></li>
+        <li><a id="toc-component_002dlibrary_002dsearch-1" href="component_002dlibrary_002dsearch.html#component_002dlibrary_002dsearch">5.1.1.2 component-library-search</a></li>
+        <li><a id="toc-component_002dlibrary_002dcommand-1" href="component_002dlibrary_002dcommand.html#component_002dlibrary_002dcommand">5.1.1.3 component-library-command</a></li>
+        <li><a id="toc-component_002dlibrary_002dfuncs-1" href="component_002dlibrary_002dfuncs.html#component_002dlibrary_002dfuncs">5.1.1.4 component-library-funcs</a></li>
+        <li><a id="toc-reset_002dcomponent_002dlibrary-1" href="reset_002dcomponent_002dlibrary.html#reset_002dcomponent_002dlibrary">5.1.1.5 reset-component-library</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Netlister" href="lepton_002dnetlist.html#lepton_002dnetlist">6 Netlister</a></li>
+  <li><a id="toc-lepton_002dcli-_002d-Lepton-command_002dline-utility" href="lepton_002dcli.html#lepton_002dcli">7 lepton-cli - Lepton command-line utility</a>
+  <ul class="no-bullet">
+    <li><a id="toc-lepton_002dcli-export-1" href="lepton_002dcli-export.html#lepton_002dcli-export">7.1 lepton-cli export</a></li>
+    <li><a id="toc-lepton_002dcli-config-1" href="lepton_002dcli-config.html#lepton_002dcli-config">7.2 lepton-cli config</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Configuration-files" href="lepton_002dcli-config.html#Configuration-files">7.2.1 Configuration files</a></li>
+      <li><a id="toc-lepton_002dcli-config-examples" href="lepton_002dcli-config.html#lepton_002dcli-config-examples">7.2.2 lepton-cli config examples</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Set-up-exporting" href="lepton_002dcli-config.html#Set-up-exporting">7.2.2.1 Set up exporting</a></li>
+        <li><a id="toc-Set-up-netlisting" href="lepton_002dcli-config.html#Set-up-netlisting">7.2.2.2 Set up netlisting</a></li>
+        <li><a id="toc-Set-up-lepton_002dschematic" href="lepton_002dcli-config.html#Set-up-lepton_002dschematic">7.2.2.3 Set up lepton-schematic</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-lepton_002dcli-shell-1" href="lepton_002dcli-shell.html#lepton_002dcli-shell">7.3 lepton-cli shell</a></li>
+  </ul></li>
+  <li><a id="toc-Spreadsheet-attribute-editor" href="lepton_002dattrib.html#lepton_002dattrib">8 Spreadsheet attribute editor</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Introduction-to-lepton_002dattrib" href="lepton_002dattrib.html#Introduction-to-lepton_002dattrib">8.1 Introduction to lepton-attrib</a></li>
+    <li><a id="toc-Usage-of-lepton_002dattrib-1" href="Usage-of-lepton_002dattrib.html#Usage-of-lepton_002dattrib">8.2 Usage of lepton-attrib</a></li>
+    <li><a id="toc-lepton_002dattrib-menus-1" href="lepton_002dattrib-menus.html#lepton_002dattrib-menus">8.3 lepton-attrib menus</a></li>
+    <li><a id="toc-Installation-of-lepton_002dattrib-1" href="Installation-of-lepton_002dattrib.html#Installation-of-lepton_002dattrib">8.4 Installation of lepton-attrib</a></li>
+    <li><a id="toc-Credits-and-history-of-lepton_002dattrib-1" href="Credits-and-history-of-lepton_002dattrib.html#Credits-and-history-of-lepton_002dattrib">8.5 Credits and history of lepton-attrib</a></li>
+  </ul></li>
+  <li><a id="toc-Communication-1" href="Communication.html#Communication">9 Communication</a></li>
+  <li><a id="toc-Development-1" href="Development.html#Development">10 Development</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Debugging-the-tools" href="Debugging.html#Debugging">10.1 Debugging the tools</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Debug-Guile-Scheme-code" href="Debug-Scheme-code.html#Debug-Scheme-code">10.1.1 Debug Guile Scheme code</a></li>
+      <li><a id="toc-Debug-C-code-with-debugger-tools" href="Debuggers.html#Debuggers">10.1.2 Debug C code with debugger tools</a></li>
+      <li><a id="toc-Debug-C-code-based-on-Glib-and-GTK" href="Debug-Glib-and-GTK.html#Debug-Glib-and-GTK">10.1.3 Debug C code based on Glib and GTK</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-gEDA_002fgaf-File-Format-Document" href="gEDA-file-format.html#gEDA-file-format">11 gEDA/gaf File Format Document</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Overview-2" href="File-format-overview.html#File-format-overview">11.1 Overview</a></li>
+    <li><a id="toc-Coordinate-Space" href="Coordinate-space.html#Coordinate-space">11.2 Coordinate Space</a></li>
+    <li><a id="toc-Filenames-1" href="Filenames.html#Filenames">11.3 Filenames</a></li>
+    <li><a id="toc-Object-types-1" href="Object-types.html#Object-types">11.4 Object types</a>
+    <ul class="no-bullet">
+      <li><a id="toc-version-1" href="version.html#version">11.4.1 version</a></li>
+      <li><a id="toc-line-1" href="line.html#line">11.4.2 line</a></li>
+      <li><a id="toc-picture-1" href="picture.html#picture">11.4.3 picture</a></li>
+      <li><a id="toc-box-1" href="box.html#box">11.4.4 box</a></li>
+      <li><a id="toc-circle-1" href="circle.html#circle">11.4.5 circle</a></li>
+      <li><a id="toc-arc-1" href="arc.html#arc">11.4.6 arc</a></li>
+      <li><a id="toc-text-and-attributes-1" href="text-and-attributes.html#text-and-attributes">11.4.7 text and attributes</a></li>
+      <li><a id="toc-net-1" href="net.html#net">11.4.8 net</a></li>
+      <li><a id="toc-bus-1" href="bus.html#bus">11.4.9 bus</a></li>
+      <li><a id="toc-pin-1" href="pin.html#pin">11.4.10 pin</a></li>
+      <li><a id="toc-component-1" href="component.html#component">11.4.11 component</a></li>
+      <li><a id="toc-path-1" href="path.html#path">11.4.12 path</a></li>
+      <li><a id="toc-font-1" href="font.html#font">11.4.13 font</a></li>
+    </ul></li>
+    <li><a id="toc-Colors-1" href="Colors.html#Colors">11.5 Colors</a></li>
+    <li><a id="toc-Attributes-1" href="Attributes.html#Attributes">11.6 Attributes</a></li>
+    <li><a id="toc-Embedded-components" href="Embedded-Components.html#Embedded-Components">11.7 Embedded components</a></li>
+    <li><a id="toc-Path-data-1" href="Path-data.html#Path-data">11.8 Path data</a></li>
+    <li><a id="toc-gEDA-File-Format-Document-Revision-History-1" href="gEDA-File-Format-Document-Revision-History.html#gEDA-File-Format-Document-Revision-History">11.9 gEDA File Format Document Revision History</a></li>
+  </ul></li>
+  <li><a id="toc-Lepton-EDA-fonts-1" href="Lepton-EDA-fonts.html#Lepton-EDA-fonts">Appendix A Lepton EDA fonts</a></li>
+  <li><a id="toc-Topic-Index-1" href="Topic-Index.html#Topic-Index" rel="index">Topic Index</a></li>
+</ul>
+</div>
+
+
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="Overview.html" accesskey="n" rel="next">Overview</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Lepton-EDA-Reference-Manual"></span><h1 class="top">Lepton EDA Reference Manual</h1>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Overview.html" accesskey="1">Overview</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Overview of program components.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installation.html" accesskey="2">Installation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Installation of the tool suite.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Configuration.html" accesskey="3">Configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configuration system.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Symbols.html" accesskey="4">Symbols</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dschematic.html" accesskey="5">lepton-schematic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Lepton EDA schematic capture program.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dnetlist.html" accesskey="6">lepton-netlist</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Lepton EDA netlister.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli.html" accesskey="7">lepton-cli</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dattrib.html" accesskey="8">lepton-attrib</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Lepton EDA spreadsheet attribute editor.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Communication.html" accesskey="9">Communication</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Places for discussions and chatting.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Development.html">Development</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Useful information for developers.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gEDA-file-format.html">gEDA file format</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">File format currently in use.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Lepton-EDA-fonts.html">Lepton EDA fonts</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Topic-Index.html" rel="index">Topic Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment"> &mdash; The Detailed Node Listing &mdash;
+
+Overview
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Compatibility-with-geda_002dgaf.html">Compatibility with geda-gaf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Installation
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Dependencies.html">Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Troubleshooting-dependencies.html">Troubleshooting dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installation-from-source.html">Installation from source</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installation-from-git.html">Installation from git</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Configure-options.html">Configure options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Configuration system
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Introduction.html">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Introductory information.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Legacy-configuration.html">Legacy configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Legacy configuration files still in use.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="New-configuration-system.html">New configuration system</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Overview of the new configuration system.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Configuration-of-Lepton-tools.html">Configuration of Lepton tools</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configuration settings for particular Lepton tools.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Deprecated-settings.html">Deprecated settings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configuration settings no longer used.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Resources.html">Resources</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other useful resources.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Legacy configuration files still in use
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="gafrc.html">gafrc</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gschemrc.html">gschemrc</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Configuration settings for tools in the Lepton EDA suite
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="lepton_002dschematic-configuration.html">lepton-schematic configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dnetlist-configuration.html">lepton-netlist configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-configuration.html">lepton-cli configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+<code>Configuration of lepton-schematic</code>
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="schematic_002egui-group.html">schematic.gui group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002etabs-group.html">schematic.tabs group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002estatus_002dbar-group.html">schematic.status-bar group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002eundo-group.html">schematic.undo group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002elog_002dwindow-group.html">schematic.log-window group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002emacro_002dwidget-group.html">schematic.macro-widget group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic-group.html">schematic group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002elibrary-group.html">schematic.library group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002eprinting-group.html">schematic.printing group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002ebackup-group.html">schematic.backup group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="schematic_002eattrib-group.html">schematic.attrib group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+<code>Configuration of lepton-netlist</code>
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="netlist-group.html">netlist group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="netlist_002ehierarchy-group.html">netlist.hierarchy group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+<code>Configuration of lepton-cli</code>
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="export-group.html">export group</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Resources
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Documentation.html">Documentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Web-pages.html">Web pages</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Utilities.html">Utilities</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Other-resources.html">Other resources</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Schematic capture
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Component-libraries.html">Component libraries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Component libraries
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Component-library-setup.html">Component library setup</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Component library setup
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="component_002dlibrary.html">component-library</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="component_002dlibrary_002dsearch.html">component-library-search</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="component_002dlibrary_002dcommand.html">component-library-command</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="component_002dlibrary_002dfuncs.html">component-library-funcs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="reset_002dcomponent_002dlibrary.html">reset-component-library</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+lepton-cli - Lepton command-line utility
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-export.html">lepton-cli export</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Export images from schematic and symbol files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-config.html">lepton-cli config</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configure all Lepton tools.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-shell.html">lepton-cli shell</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Scheme REPL for interactively processing schematics.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Introduction to lepton-attrib
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Usage-of-lepton_002dattrib.html">Usage of lepton-attrib</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dattrib-menus.html">lepton-attrib menus</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installation-of-lepton_002dattrib.html">Installation of lepton-attrib</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Credits-and-history-of-lepton_002dattrib.html">Credits and history of lepton-attrib</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Development
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Debugging.html">Debugging</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Debugging the tools
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Debugging the tools
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Debug-Scheme-code.html">Debug Scheme code</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Debuggers.html">Debuggers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Debug-Glib-and-GTK.html">Debug Glib and GTK</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+gEDA/gaf File Format Document
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="File-format-overview.html">File format overview</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Coordinate-space.html">Coordinate space</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Filenames.html">Filenames</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object-types.html">Object types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Colors.html">Colors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Attributes.html">Attributes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Embedded-Components.html">Embedded Components</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Path-data.html">Path data</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="gEDA-File-Format-Document-Revision-History.html">gEDA File Format Document Revision History</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Object types
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="version.html">version</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="line.html">line</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="picture.html">picture</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="box.html">box</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="circle.html">circle</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="arc.html">arc</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="text-and-attributes.html">text and attributes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="net.html">net</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="bus.html">bus</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="pin.html">pin</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="component.html">component</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="path.html">path</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="font.html">font</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr></table>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Overview.html" accesskey="n" rel="next">Overview</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

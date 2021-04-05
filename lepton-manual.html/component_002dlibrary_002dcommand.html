@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>component-library-command (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="component-library-command (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="component-library-command (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Component-library-setup.html" rel="up" title="Component library setup">
+<link href="component_002dlibrary_002dfuncs.html" rel="next" title="component-library-funcs">
+<link href="component_002dlibrary_002dsearch.html" rel="prev" title="component-library-search">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="component_002dlibrary_002dcommand"></span><div class="header">
+<p>
+Next: <a href="component_002dlibrary_002dfuncs.html" accesskey="n" rel="next">component-library-funcs</a>, Previous: <a href="component_002dlibrary_002dsearch.html" accesskey="p" rel="prev">component-library-search</a>, Up: <a href="Component-library-setup.html" accesskey="u" rel="up">Component library setup</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="component_002dlibrary_002dcommand-1"></span><h4 class="subsubsection">5.1.1.3 component-library-command</h4>
+<span id="index-component_002dlibrary_002dcommand"></span>
+
+<p>A program or set of programs can be used as a component resource.  The
+procedure used to add such a resource from a Lepton RC file is:
+</p>
+<div class="example">
+<pre class="example">(component-library-command list-command get-command name)
+</pre></div>
+
+<p>The code adds a new library named <var>name</var>.  The <var>list-command</var>
+argument specifies a name of the program that will be executed with no
+further arguments, and should output a list of available symbol names
+on stdout.  The <var>get-command</var> argument specifies another program
+that should take a symbol name as its only argument, and output symbol
+data in <a href="gEDA-file-format.html">gEDA file format</a> on stdout.
+</p>
+<p>If the command cannot successfully complete, it should exit with
+non-zero exit status.  Anything it has output on stdout will be
+ignored, and any stderr output displayed to the user.
+</p>
+<p>This is the contents of an example script:
+</p>
+<div class="example">
+<pre class="example">#!/usr/bin/env sh
+if [ -z &quot;$1&quot; ] ; then
+   echo &quot;Usage: $0 symname.sym&quot;
+   echo &quot;List symbols: $0 -l&quot;
+   echo &quot;Get symbol: $0 symname.sym&quot;
+   exit 255
+fi
+
+if test &quot;$1&quot; = &quot;-l&quot;; then
+   echo &quot;symname1.sym&quot;
+   echo &quot;symname2.sym&quot;
+else
+   if test &quot;$1&quot; = &quot;symname1.sym&quot;; then
+       # symname1.sym
+       echo &quot;v 20200604 2&quot;
+       echo &quot;L 100 100 200 200 3 0 0 0 -1 -1&quot;
+   else
+       # symname2.sym
+       echo &quot;v 20200604 2&quot;
+       echo &quot;P 300 300 0 300 1 0 1&quot;
+   fi
+fi
+</pre></div>
+
+<p>As can be seen from the code, the script can function as list command,
+if the option <samp>-l</samp> is given, or as get command, if file name is
+given.  Otherwise, if no arguments given, it exits with an error code.
+If the script is named, say, <samp>cmd-component.sh</samp>, then the
+following code in <samp>gafrc</samp> file will define a new component
+library:
+</p>
+<div class="lisp">
+<pre class="lisp">(define list-command &quot;cmd-component.sh&quot;)
+(define get-command (string-append list-command &quot; -l&quot;))
+(component-library-command list-command get-command &quot;simple-cmd-lib&quot;)
+</pre></div>
+
+<p>Likewise, you can use various symbol generators written in various
+languages.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="component_002dlibrary_002dfuncs.html" accesskey="n" rel="next">component-library-funcs</a>, Previous: <a href="component_002dlibrary_002dsearch.html" accesskey="p" rel="prev">component-library-search</a>, Up: <a href="Component-library-setup.html" accesskey="u" rel="up">Component library setup</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

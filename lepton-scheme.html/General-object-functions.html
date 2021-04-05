@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>General object functions (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="General object functions (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="General object functions (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Object-sub_002dtypes.html" rel="next" title="Object sub-types">
+<link href="Core-object-functions.html" rel="prev" title="Core object functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="General-object-functions"></span><div class="header">
+<p>
+Next: <a href="Lines.html" accesskey="n" rel="next">Lines</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="General-object-functions-1"></span><h4 class="subsection">2.2.1 General object functions</h4>
+
+<dl>
+<dt id="index-object_003f">Function: <strong>object?</strong> <em>obj</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>obj</var> is an <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-copy_002dobject">Function: <strong>copy-object</strong> <em>object</em></dt>
+<dd><p>Returns a deep copy of <var>object</var>.  The new <code>object</code> returned
+has no attached attributes, and is not part of a <code>page</code> or part
+of a component <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-object_002dcomponent">Function: <strong>object-component</strong> <em>object</em></dt>
+<dd><p>Returns the component <code>object</code> that contains <var>object</var>, or
+&lsquo;<samp>#f</samp>&rsquo; if <var>object</var> is not part of a component.
+</p></dd></dl>
+
+<dl>
+<dt id="index-object_002dconnections">Function: <strong>object-connections</strong> <em>object</em></dt>
+<dd><p>Returns a list of other <code>object</code>s that are <em>directly</em>
+connected to <var>object</var>.  If <code>object</code> is not included in a
+<code>page</code>, raises an &lsquo;<samp>object-state</samp>&rsquo; error.  The connections
+reported are independent of inclusion in components.
+</p>
+<p>For example, consider a page containing a net and a component, and the
+component contains a single pin.  If the connectable end of the pin
+intersects the net, then <code>(object-connections &lt;net&gt;)</code> will return
+a list containing the pin <code>object</code>, and <em>not</em> the component.
+</p></dd></dl>
+
+<dl>
+<dt id="index-object_002dselectable_003f">Function: <strong>object-selectable?</strong> <em>object</em></dt>
+<dd><p>Returns true (&lsquo;<samp>#t</samp>&rsquo;) if <var>object</var> is selectable (i.e. not locked).
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dobject_002dselectable_0021">Function: <strong>set-object-selectable!</strong> <em>object state</em></dt>
+<dd><p>Sets the selectable flag for <var>object</var>.
+If <var>state</var> is &lsquo;<samp>#f</samp>&rsquo;, clears the selectable flag; if <var>state</var>
+is &lsquo;<samp>#t</samp>&rsquo;, sets it. Returns <var>object</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-object_002dembedded_003f">Function: <strong>object-embedded?</strong> <em>object</em></dt>
+<dd><p>Returns true (&lsquo;<samp>#t</samp>&rsquo;) if <var>object</var> is embedded,
+false (&lsquo;<samp>#f</samp>&rsquo;) otherwise.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dobject_002dembedded_0021">Function: <strong>set-object-embedded!</strong> <em>object state</em></dt>
+<dd><p>Embed (if <var>state</var> is &lsquo;<samp>#t</samp>&rsquo;) or unembed (if <var>state</var> is
+&lsquo;<samp>#t</samp>&rsquo;) <var>object</var>. Returns <var>object</var>.
+</p></dd></dl>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Object-sub_002dtypes.html" accesskey="1">Object sub-types</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object-transformations.html" accesskey="2">Object transformations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object-bounds.html" accesskey="3">Object bounds</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object-color.html" accesskey="4">Object color</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object-fill-and-stroke.html" accesskey="5">Object fill and stroke</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Lines.html" accesskey="n" rel="next">Lines</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Windows and views (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Windows and views (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Windows and views (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic-API-Reference.html" rel="up" title="lepton-schematic API Reference">
+<link href="Key-mapping.html" rel="next" title="Key mapping">
+<link href="lepton_002dschematic-API-Reference.html" rel="prev" title="lepton-schematic API Reference">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Windows-and-views"></span><div class="header">
+<p>
+Next: <a href="Key-mapping.html" accesskey="n" rel="next">Key mapping</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Windows-and-views-1"></span><h3 class="section">3.1 Windows and views</h3>
+
+<p>To use the functions described in this section, you will need to load
+the <code>(schematic window)</code> module.
+</p>
+<dl>
+<dt id="index-active_002dpage">Function: <strong>active-page</strong></dt>
+<dd><p>Returns the <code>page</code> currently being displayed for editing.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dactive_002dpage_0021">Function: <strong>set-active-page!</strong> <em>page</em></dt>
+<dd><p>Sets the current <code>page</code> to <var>page</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-pointer_002dposition">Function: <strong>pointer-position</strong></dt>
+<dd><p>Returns the current mouse pointer position in world coordinates in the
+form &lsquo;<samp>(x . y)</samp>&rsquo;.  If the pointer is outside the display area,
+returns &lsquo;<samp>#f</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-snap_002dpoint">Function: <strong>snap-point</strong> <em>point</em></dt>
+<dd><p>Snaps the given <var>point</var> to the current snap grid, i.e. returns the
+closest grid location to <var>point</var>.  Expects a point in the form
+&lsquo;<samp>(x . y)</samp>&rsquo;, and returns a point in the same format.
+</p></dd></dl>
+
+
+
+
+</body>
+</html>

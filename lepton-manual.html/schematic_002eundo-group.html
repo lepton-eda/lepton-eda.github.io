@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>schematic.undo group (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="schematic.undo group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="schematic.undo group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic-configuration.html" rel="up" title="lepton-schematic configuration">
+<link href="schematic_002elog_002dwindow-group.html" rel="next" title="schematic.log-window group">
+<link href="schematic_002estatus_002dbar-group.html" rel="prev" title="schematic.status-bar group">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="schematic_002eundo-group"></span><div class="header">
+<p>
+Next: <a href="schematic_002elog_002dwindow-group.html" accesskey="n" rel="next">schematic.log-window group</a>, Previous: <a href="schematic_002estatus_002dbar-group.html" accesskey="p" rel="prev">schematic.status-bar group</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="schematic_002eundo-group-1"></span><h4 class="subsubsection">3.4.1.4 <code>schematic.undo</code> group</h4>
+<span id="index-schematic_002eundo-group"></span>
+
+<table>
+<thead><tr><th width="15%">Name</th><th width="15%">Type</th><th width="15%">Default value</th><th width="55%">Description</th></tr></thead>
+<tr><td width="15%"><code>modify-viewport</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Allow undo/redo operations to change pan and zoom.</td></tr>
+<tr><td width="15%"><code>undo-control</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the undo is enabled or not.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>undo-type</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>disk</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>disk</samp>&rsquo;, &lsquo;<samp>memory</samp>&rsquo;.  Controls what kind
+of medium is used for storing undo data.  The &lsquo;<samp>disk</samp>&rsquo; mechanism
+is nice because you get undo-level number of backups of the schematic
+written to disk as backups so you should never lose a schematic due to
+a crash.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>undo-levels</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>20</samp>&rsquo;</td><td width="55%">Determines the number of levels of undo.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>undo-panzoom</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Controls if pan or zoom commands are saved in the undo list. If this
+is enabled, then a pan or zoom will be considered a command and can be
+undone.  Since <em>1.9.10</em>.</td></tr>
+</table>
+
+
+
+
+
+</body>
+</html>

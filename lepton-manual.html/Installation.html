@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Installation (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Installation (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="Installation (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="Dependencies.html" rel="next" title="Dependencies">
+<link href="Compatibility-with-geda_002dgaf.html" rel="prev" title="Compatibility with geda-gaf">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Installation"></span><div class="header">
+<p>
+Next: <a href="Configuration.html" accesskey="n" rel="next">Configuration</a>, Previous: <a href="Overview.html" accesskey="p" rel="prev">Overview</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Installation-1"></span><h2 class="chapter">2 Installation</h2>
+
+<p>Installation of Lepton is pretty simple on many operating systems and
+distributions supporting pre-built binary packages.  Just use your
+favorite package manager to install the package.  For example, on
+Debian or Ubuntu, you could use <code>synaptic</code>, <code>apt-get</code>,
+or <code>aptitude</code> for installation.  It doesn&rsquo;t matter which
+interface you use, GUI or CLI. For instance:
+</p><div class="example">
+<pre class="example">sudo aptitude install lepton-eda
+</pre></div>
+
+<p>However, in some cases or on some systems you may want to install
+Lepton from source code.  The order is as follows.
+</p><ul>
+<li> Download the source code:
+</li><li> Compile it and install:
+<div class="example">
+<pre class="example">cd the-directory-with-lepton-eda
+autoreconf -ivf &amp;&amp; ./configure &amp;&amp; make &amp;&amp; sudo make install
+</pre></div>
+<p>Call for <code>autoreconf</code> is not needed if you download sources as
+a tarball of some version.
+</p></li><li> In some cases, when, for example, a new library is installed, you may
+need to launch <code>ldconfig</code> as well:
+<div class="example">
+<pre class="example">sudo ldconfig
+</pre></div>
+</li></ul>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Dependencies.html" accesskey="1">Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Troubleshooting-dependencies.html" accesskey="2">Troubleshooting dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installation-from-source.html" accesskey="3">Installation from source</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installation-from-git.html" accesskey="4">Installation from git</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Configure-options.html" accesskey="5">Configure options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+
+</body>
+</html>

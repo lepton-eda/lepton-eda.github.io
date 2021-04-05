@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>picture (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="picture (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="picture (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Object-types.html" rel="up" title="Object types">
+<link href="box.html" rel="next" title="box">
+<link href="line.html" rel="prev" title="line">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="picture"></span><div class="header">
+<p>
+Next: <a href="box.html" accesskey="n" rel="next">box</a>, Previous: <a href="line.html" accesskey="p" rel="prev">line</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="picture-1"></span><h4 class="subsection">11.4.3 picture</h4>
+
+<p>Valid in: Schematic and Symbol files
+</p>
+
+<pre class="verbatim">type x y width height angle mirrored embedded filename
+[encoded picture data
+encoded picture end]
+</pre>
+
+<table>
+<thead><tr><th width="20%">Pos.</th><th width="20%">Field</th><th width="20%">Type/unit</th><th width="40%">Description</th></tr></thead>
+<tr><td width="20%">#</td><td width="20%">type</td><td width="20%">char</td><td width="40%">G</td></tr>
+<tr><td width="20%">1</td><td width="20%">x</td><td width="20%">int/mils</td><td width="40%">Lower left X coordinate</td></tr>
+<tr><td width="20%">2</td><td width="20%">y</td><td width="20%">int/mils</td><td width="40%">Lower left Y coordinate</td></tr>
+<tr><td width="20%">3</td><td width="20%">width</td><td width="20%">int/mils</td><td width="40%">Width of the picture</td></tr>
+<tr><td width="20%">4</td><td width="20%">height</td><td width="20%">int/mils</td><td width="40%">Height of the picture</td></tr>
+<tr><td width="20%">5</td><td width="20%">angle</td><td width="20%">int/degrees</td><td width="40%">Angle of the picture</td></tr>
+<tr><td width="20%">6</td><td width="20%">mirrored</td><td width="20%">char</td><td width="40%">Mirrored or normal picture</td></tr>
+<tr><td width="20%">7</td><td width="20%">embedded</td><td width="20%">char</td><td width="40%">Embedded or link to the picture file</td></tr>
+<tr><td width="20%">8</td><td width="20%">filename</td><td width="20%">string</td><td width="40%">path and filename of a not embedded
+picture</td></tr>
+<tr><td width="20%">9</td><td width="20%">encoded picture data</td><td width="20%">string</td><td width="40%">Serialized picture
+encoded using base64</td></tr>
+<tr><td width="20%">10</td><td width="20%">encoded picture end</td><td width="20%">string</td><td width="40%">A line containing only a
+dot character</td></tr>
+</table>
+
+<ul>
+<li> This object is a picture object. The first line contains all the
+picture parameters, and the second line is the path and filename of
+the picture. The filename is not used if the picture is embedded.
+
+</li><li> The angle of the picture can only take on one of the following values:
+0, 90, 180, 270.
+
+</li><li> The mirrored field is an enumerated type:
+<ul>
+<li> NOT MIRRORED = 0
+
+</li><li> MIRRORED = 1
+
+</li></ul>
+
+</li><li> The embedded field is an enumerated type:
+<ul>
+<li> NOT EMBEDDED = 0
+
+</li><li> EMBEDDED = 1 (not yet supported)
+
+</li></ul>
+
+</li><li> The encoded picture and encoded picture end fields are only in the
+file if the picture is embedded in the schematic:
+<ul>
+<li> encoded picture data: This is a multiple line field. The picture is
+serialized and then encoded using base64. This way the encoded data
+uses only printable characters. This field is the result of these two
+operations.
+
+</li><li> encoded picture end : A line containing only a single dot &lsquo;<samp>.</samp>&rsquo;
+character marks the end of the encoded picture data.
+
+</li></ul>
+
+</li></ul>
+
+
+<p>Example 1:
+</p><div class="example">
+<pre class="example">G 16900 35800 1400 2175 0 0 0
+../bitmaps/logo.jpg
+</pre></div>
+
+<p>A picture object with the lower left corner at (16900, 35800). The
+width of the image is 1400 mils, and its height is 2175 mils. The
+picture rotation is 0 degrees and the picture is not mirrored, neither
+embedded.
+</p>
+<p>The picture path and filename is showed in the second line.
+</p>
+<p>Example 2:
+</p><div class="example">
+<pre class="example">G 16900 35800 1400 2175 0 0 1
+../bitmaps/logo.jpg
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+.
+</pre></div>
+
+<p>A picture object with the lower left corner at (16900, 35800). The
+width of the image is 1400 mils, and its height is 2175 mils.
+</p>
+<p>The picture rotation is 0 degrees, it is not mirrored, and it is
+embedded.
+</p>
+<p>The picture path and filename is showed in the second line. Since this
+is an embedded picture, the filename and path are not used.
+</p>
+<p>The encoded picture data is only an example (it is not real data). The
+last line containing a single dot &lsquo;<samp>.</samp>&rsquo; character marks the end of
+the encoded picture data.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="box.html" accesskey="n" rel="next">box</a>, Previous: <a href="line.html" accesskey="p" rel="prev">line</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

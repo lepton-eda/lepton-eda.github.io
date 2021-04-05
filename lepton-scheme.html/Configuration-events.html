@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Configuration events (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Configuration events (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Configuration events (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Configuration-functions.html" rel="up" title="Configuration functions">
+<link href="Configuration-errors.html" rel="next" title="Configuration errors">
+<link href="Configuration-parameters.html" rel="prev" title="Configuration parameters">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Configuration-events"></span><div class="header">
+<p>
+Next: <a href="Configuration-errors.html" accesskey="n" rel="next">Configuration errors</a>, Previous: <a href="Configuration-parameters.html" accesskey="p" rel="prev">Configuration parameters</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Configuration-events-1"></span><h4 class="subsection">2.5.3 Configuration events</h4>
+<span id="index-Configuration-events"></span>
+<span id="index-Configuration-notifications"></span>
+
+<p>When the value of a configuration parameter is altered, either
+directly or by loading a configuration file, a <em>configuration
+event</em> is generated.  Handlers can be registered to be notified when a
+configuration event occurs.  A configuration event is associated with
+the group and key that had its value modified.
+</p>
+<p>If a configuration event is emitted by a configuration context, it
+propagates to all configuration contexts which inherit that group and
+key from it.
+</p>
+<p>A configuration event handler must be a closure that accepts three
+arguments:
+</p>
+<div class="example">
+<pre class="example">handler cfg group key
+</pre></div>
+
+<p><var>cfg</var> is always the configuration context that received the event,
+and the <var>group</var> and <var>key</var> identify the configuration parameter
+that changed.
+When a configuration group is deleted, <var>group</var> argument is set to
+the name of the deleted group and <var>key</var> argument is set to an empty
+string.
+</p>
+<dl>
+<dt id="index-add_002dconfig_002devent_0021">Function: <strong>add-config-event!</strong> <em>cfg handler</em></dt>
+<dd><p>Registers <var>handler</var> to be called when configuration changes in the
+context <var>cfg</var>.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-remove_002dconfig_002devent_0021">Function: <strong>remove-config-event!</strong> <em>cfg handler</em></dt>
+<dd><p>Stops <var>handler</var> from being called when configuration changes in
+the context <var>cfg</var>.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Objects (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Objects (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Objects (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Schematic-Document-Model.html" rel="up" title="Schematic Document Model">
+<link href="Component-objects.html" rel="next" title="Component objects">
+<link href="Pages.html" rel="prev" title="Pages">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Objects"></span><div class="header">
+<p>
+Next: <a href="Component-objects.html" accesskey="n" rel="next">Component objects</a>, Previous: <a href="Pages.html" accesskey="p" rel="prev">Pages</a>, Up: <a href="Schematic-Document-Model.html" accesskey="u" rel="up">Schematic Document Model</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Objects-1"></span><h3 class="section">1.2 Objects</h3>
+<span id="index-Objects"></span>
+<span id="index-Schematic-elements"></span>
+
+<p>Each <code>page</code> contains some number of <em>schematic elements</em>,
+represented by the <code>object</code> type.  There are several sub-types of
+<code>object</code>, including:
+</p>
+<ul>
+<li> graphical lines, circles, arcs, rectangles and paths;
+
+</li><li> nets and net pins;
+
+</li><li> buses and bus pins;
+
+</li><li> pictures;
+
+</li><li> text;
+
+</li><li> and symbol instances, known as &rsquo;components&rsquo;.
+</li></ul>
+
+<p>Each <code>object</code> can be part of at most a single <code>page</code> &ndash; they
+cannot be shared between pages.  <code>object</code>s are automatically
+garbage collected.
+</p>
+<p>Most of different <code>object</code> sub-types are quite straightforward to
+understand.  The main exceptions are components, and the text
+<code>object</code>-based attribute mechanism, which are described in the
+following sections.
+</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>text and attributes (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="text and attributes (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="text and attributes (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Object-types.html" rel="up" title="Object types">
+<link href="net.html" rel="next" title="net">
+<link href="arc.html" rel="prev" title="arc">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="text-and-attributes"></span><div class="header">
+<p>
+Next: <a href="net.html" accesskey="n" rel="next">net</a>, Previous: <a href="arc.html" accesskey="p" rel="prev">arc</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="text-and-attributes-1"></span><h4 class="subsection">11.4.7 text and attributes</h4>
+
+<p>Depending on context, text objects can play different roles. Outside
+any environment, they represent informative lines of text. When
+enclosed by curly braces, they are interpreted as attributes. See the
+<a href="Attributes.html">attributes section</a>.
+</p>
+<p>Valid in: Schematic and Symbol files
+</p>
+
+<pre class="verbatim">type x y color size visibility show_name_value angle alignment num_lines
+string line 1
+string line 2
+string line 3
+...
+string line N
+</pre>
+<table>
+<thead><tr><th width="20%">Pos.</th><th width="20%">Field</th><th width="20%">Type/unit</th><th width="40%">Description</th></tr></thead>
+<tr><td width="20%">#</td><td width="20%">type</td><td width="20%">char</td><td width="40%">T</td></tr>
+<tr><td width="20%">1</td><td width="20%">x</td><td width="20%">int/mils</td><td width="40%">First X coordinate</td></tr>
+<tr><td width="20%">2</td><td width="20%">y</td><td width="20%">int/mils</td><td width="40%">First Y coordinate</td></tr>
+<tr><td width="20%">3</td><td width="20%">color</td><td width="20%">int</td><td width="40%">Color index</td></tr>
+<tr><td width="20%">4</td><td width="20%">size</td><td width="20%">int/points</td><td width="40%">Size of text</td></tr>
+<tr><td width="20%">5</td><td width="20%">visibility</td><td width="20%">int</td><td width="40%">Visibility of text</td></tr>
+<tr><td width="20%">6</td><td width="20%">show_name_value</td><td width="20%">int</td><td width="40%">Attribute visibility control</td></tr>
+<tr><td width="20%">7</td><td width="20%">angle</td><td width="20%">int/degrees</td><td width="40%">Angle of the text</td></tr>
+<tr><td width="20%">8</td><td width="20%">alignment</td><td width="20%">int</td><td width="40%">Alignment/origin of the text</td></tr>
+<tr><td width="20%">9</td><td width="20%">num_lines</td><td width="20%">int</td><td width="40%">Number of lines of text (1 based)</td></tr>
+<tr><td width="20%">10</td><td width="20%">string line 1 ... N</td><td width="20%">string</td><td width="40%">The text strings, on a
+separate line</td></tr>
+</table>
+
+<ul>
+<li> This object is a multi line object. The first line contains all the
+text parameters and the subsequent lines are the text strings.
+
+</li><li> There must be exactly num lines of text following the T ... string.
+
+</li><li> The maximum length of any single text string is 1024, however there is
+no limit to the number of text string lines.
+
+</li><li> The minimum size is 2 points (1/72 of an inch).
+
+</li><li> There is no maximum size.
+
+</li><li> The coordinate pair is the origin of the text item.
+
+</li><li> The visibility field is an enumerated type:
+<ul>
+<li> INVISIBLE = 0
+
+</li><li> VISIBLE = 1
+
+</li></ul>
+
+</li><li> The show_name_value is an enumerated type:
+<ul>
+<li> SHOW NAME VALUE = 0 (show both name and value of an attribute)
+
+</li><li> SHOW VALUE = 1 (show only the value of an attribute)
+
+</li><li> SHOW NAME = 2 (show only the name of an attribute)
+
+</li></ul>
+
+</li><li> The show_name_value field is only valid if the string is an attribute
+(string has to be in the form: name=value to be considered an
+attribute).
+
+</li><li> The angle of the text can only take on one of the following values: 0,
+90, 180, 270. A value of 270 will always generate upright text.
+
+</li><li> The alignment/origin field controls the relative location of the
+origin.
+
+</li><li> The alignment field can take a value from 0 to 8.
+
+<p>The following diagram shows what the values for the alignment field
+mean:
+</p>
+</li></ul>
+
+
+<img src="text-layout.png" alt="text-layout">
+
+<ul>
+<li> The num_lines field always starts at 1.
+
+<p>The num_lines field was added starting with file format version
+1. Past versions (0 or earlier) only supported single line text
+objects.
+</p>
+</li><li> The text strings of the string line(s) can have overbars if the text
+is embedded in two overbar markers &lsquo;<samp>\_</samp>&rsquo;. A single backslash needs
+to be written as &lsquo;<samp>\\</samp>&rsquo;.
+
+</li></ul>
+
+
+<p>Example 1:
+</p><div class="example">
+<pre class="example">T 16900 35800 3 10 1 0 0 0 1
+Text string!
+</pre></div>
+
+<p>A text object with the origin at (16900, 35800), color index 3, 10
+points in size, visible, attribute flags not valid (not an attribute),
+origin at lower left, not rotated, string: Text string!
+</p>
+<p>Example 2:
+</p><div class="example">
+<pre class="example">T 16900 35800 3 10 1 0 0 0 5
+Text string line 1
+Text string line 2
+Text string line 3
+Text string line 4
+Text string line 5
+</pre></div>
+
+<p>This is a similar text object as the above example, however here there
+are five lines of text.
+</p>
+<p>Example 3:
+</p><div class="example">
+<pre class="example">T 10000 20000 3 10 1 1 8 90 1
+pinlabel=R/\_W\_
+</pre></div>
+
+<p>A text object with the origin at (10000, 20000), color index 3, 10
+points in size, visible, only the value of the attribute is visible,
+text origin at upper right, the text is rotated by 90 degree, the
+string: &ldquo;R/W&rdquo; has an overbar over the &ldquo;W&rdquo;.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="net.html" accesskey="n" rel="next">net</a>, Previous: <a href="arc.html" accesskey="p" rel="prev">arc</a>, Up: <a href="Object-types.html" accesskey="u" rel="up">Object types</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

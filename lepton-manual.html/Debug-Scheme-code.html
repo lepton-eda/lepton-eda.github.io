@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Debug Scheme code (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Debug Scheme code (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="Debug Scheme code (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Debugging.html" rel="up" title="Debugging">
+<link href="Debuggers.html" rel="next" title="Debuggers">
+<link href="Debugging.html" rel="prev" title="Debugging">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Debug-Scheme-code"></span><div class="header">
+<p>
+Next: <a href="Debuggers.html" accesskey="n" rel="next">Debuggers</a>, Previous: <a href="Debugging.html" accesskey="p" rel="prev">Debugging</a>, Up: <a href="Debugging.html" accesskey="u" rel="up">Debugging</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Debug-Guile-Scheme-code"></span><h4 class="subsection">10.1.1 Debug Guile Scheme code</h4>
+<span id="index-debug-Scheme-code"></span>
+
+<p>Sometimes code in Scheme may fail and output a backtrace looking out
+something like this:
+</p>
+<div class="example">
+<pre class="example">Backtrace:
+In unknown file:
+?: 19 [apply-smob/1 #&lt;catch-closure 55e36cf0a020&gt;]
+In ice-9/boot-9.scm:
+66: 18 [call-with-prompt prompt0 ...]
+...
+many more lines
+...
+In ice-9/boot-9.scm:
+105: 1 [#&lt;procedure 55e36e0eee80 at ice-9/boot-9.scm:100:6
+(thrown-k . args)&gt; wrong-type-arg ...]
+In unknown file:
+?: 0 [apply-smob/1 #&lt;catch-closure 55e36e0edae0&gt; wrong-type-arg ...]
+
+ERROR: In procedure apply-smob/1:
+ERROR: In procedure struct-vtable: Wrong type argument in position 1
+(expecting struct): #f
+</pre></div>
+
+<p>The output is incomprehensible, isn&rsquo;t it?  The issue gets worse due to
+abbreviation of the output, look at the ellipses in some of the lines.
+</p>
+<p>The length of the output lines depends on the environment variable
+<code>COLUMNS</code> set in your environment.  Sometimes you can improve
+readability of such errors by setting the variable to a bigger value.
+For instance, if you launch your program in terminal, do:
+</p>
+<div class="example">
+<pre class="example">echo $COLUMNS
+-| 106
+export COLUMNS=1000
+lepton-schematic
+</pre></div>
+
+<p>You can do it in your Scheme code as well:
+</p>
+<div class="lisp">
+<pre class="lisp">(setenv &quot;COLUMNS&quot; &quot;1000&quot;)
+</pre></div>
+
+<p>Sometimes you have to find the code you could insert such a line in.
+For example, the code of Lepton Scheme unit tests contains this line
+in <samp>unit-test.scm</samp>, though it is commented out as this is
+unnecessary in most cases.
+</p>
+<p>Another approach is using of interactive mode of Guile or one of
+Lepton tools to debug your code.  Load your modules or files with code
+in this mode one by one and see what&rsquo;s wrong with them.
+<code>lepton-netlist</code> and <code>lepton-symcheck</code> support this.
+</p>
+
+
+
+
+</body>
+</html>

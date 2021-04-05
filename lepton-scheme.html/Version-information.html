@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Version information (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Version information (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Version information (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-API-Reference.html" rel="up" title="Core API Reference">
+<link href="lepton_002dschematic-API-Reference.html" rel="next" title="lepton-schematic API Reference">
+<link href="System-information.html" rel="prev" title="System information">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Version-information"></span><div class="header">
+<p>
+Previous: <a href="System-information.html" accesskey="p" rel="prev">System information</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Version-information-1"></span><h3 class="section">2.8 Version information</h3>
+
+<p>To use the functions described in this section, you will need to load
+the <code>(lepton version)</code> module.
+</p>
+<p>This section describes functions and variables that can be used to get
+and report Lepton version data.
+</p>
+<p>The following list of symbols can be used with functions described
+below to retrieve corresponding version information:
+</p>
+<ul>
+<li> &lsquo;<samp>prepend</samp>&rsquo; Text that is usually prepended when the version
+information is output.
+</li><li> &lsquo;<samp>dotted</samp>&rsquo; Dotted version info.
+</li><li> &lsquo;<samp>date</samp>&rsquo; Date of the current release.
+</li><li> &lsquo;<samp>git</samp>&rsquo; Git commit hash of the current release.
+</li><li> &lsquo;<samp>bugs</samp>&rsquo; Internet address of Lepton&rsquo;s bugtracker.
+</li><li> &lsquo;<samp>url</samp>&rsquo; Internet address of Lepton&rsquo;s main page.
+</li><li> &lsquo;<samp>copyright</samp>&rsquo; General copyright information.
+</li></ul>
+
+<p>An optional element, &lsquo;<samp>git7</samp>&rsquo;, can be used to get 7-char prefix of
+the git commit hash.
+</p>
+<dl>
+<dt id="index-lepton_002dversion_002dref">Function: <strong>lepton-version-ref</strong> <em>element</em></dt>
+<dd>
+<p>Returns a single version data string by specified <var>element</var> from
+the above symbol list.
+</p>
+<p>For example, you can use &lsquo;<samp>(lepton-version-ref 'copyright)</samp>&rsquo; to get
+copyright info of the library.
+</p>
+<div class="lisp">
+<pre class="lisp">(lepton-version-ref 'git7)
+&rArr; &quot;88acbbd&quot;
+</pre></div>
+</dd></dl>
+
+<dl>
+<dt id="index-lepton_002dversion_002ddata">Function: <strong>lepton-version-data</strong> <em>[element-list]</em></dt>
+<dd>
+<p>Returns a list of strings corresponding to the above symbol list
+(exluding &lsquo;<samp>git7</samp>&rsquo;) in order.  An optional argument
+<var>element-list</var> can be specified to retrieve any number of the data
+strings in any order.
+</p>
+<div class="lisp">
+<pre class="lisp">(lepton-version-data 'dotted 'git7)
+&rArr; (&quot;1.9.11&quot; &quot;88acbbd&quot;)
+</pre></div>
+</dd></dl>
+
+<dl>
+<dt id="index-lepton_002dversion">Function: <strong>lepton-version</strong> <em>[format-string . format-args]</em></dt>
+<dd><p>Returns a generic string describing the version of Lepton library
+currently in use.
+</p>
+<p>If the optional <var>format-string</var> is specified, it is interpreted as
+a format string, with <var>format-args</var> as its parameters.
+</p>
+<div class="lisp">
+<pre class="lisp">(lepton-version)
+&rArr; &quot;Lepton EDA 1.9.11.20200604 (git: 88acbbd)&quot;
+(lepton-version &quot;lepton-netlist ~A&quot; 'dotted)
+&rArr; &quot;lepton-netlist 1.9.11&quot;
+</pre></div>
+</dd></dl>
+
+<dl>
+<dt id="index-display_002dlepton_002dversion">Function: <strong>display-lepton-version</strong> <em>[print-name] [copyright] [log]</em></dt>
+<dd>
+<p>Outputs version of a Lepton tool to the current output port or log. If
+<var>print-name</var> keyword argument is true (&lsquo;<samp>#t</samp>&rsquo;), the basename of
+the tool is included to the output.  If <var>log</var> keyword argument is
+true (&lsquo;<samp>#t</samp>&rsquo;), the output will go to log instead of standard output
+port. If <var>copyright</var> is true (&lsquo;<samp>#t</samp>&rsquo;), copyright information
+will be output as well.  By default, all keywords are set to false
+(&lsquo;<samp>#f</samp>&rsquo;).
+</p>
+<div class="lisp">
+<pre class="lisp">(display-lepton-version)
+-| &quot;Lepton EDA 1.9.11.20200604 (git: 88acbbd)&quot;
+(display-lepton-version #:print-name #t)
+-| &quot;Lepton EDA/lepton-netlist 1.9.11.20200604 (git: 88acbbd)&quot;
+</pre></div>
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="System-information.html" accesskey="p" rel="prev">System information</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

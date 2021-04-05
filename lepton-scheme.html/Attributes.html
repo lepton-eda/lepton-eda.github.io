@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Attributes (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Attributes (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Attributes (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Schematic-Document-Model.html" rel="up" title="Schematic Document Model">
+<link href="Coordinate-system.html" rel="next" title="Coordinate system">
+<link href="Component-objects.html" rel="prev" title="Component objects">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Attributes"></span><div class="header">
+<p>
+Next: <a href="Coordinate-system.html" accesskey="n" rel="next">Coordinate system</a>, Previous: <a href="Component-objects.html" accesskey="p" rel="prev">Component objects</a>, Up: <a href="Schematic-Document-Model.html" accesskey="u" rel="up">Schematic Document Model</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Attributes-1"></span><h3 class="section">1.4 Attributes</h3>
+<span id="index-Attribute"></span>
+<span id="index-Attribute-format"></span>
+
+<p>A Lepton user is able to annotate schematic elements with additional
+data, such as footprints for components or net names for nets.  This
+is carried out using <em>attributes</em>.
+</p>
+<p>An attribute is text <code>object</code> which contains a text string in the
+form &lsquo;<samp><var>name</var>=<var>value</var></samp>&rsquo;.  Currently, the restrictions on
+attribute format that are enforced by the API are:
+</p>
+<ul>
+<li> Attribute <var>name</var>s:
+
+<ol>
+<li> must contain at least one character;
+</li><li> must not contain a &lsquo;<samp>=</samp>&rsquo; character (Unicode <code>U+003D</code>);
+</li><li> must not end with a space (&lsquo;<samp> </samp>&rsquo;, Unicode <code>U+0020</code>).
+</li></ol>
+
+</li><li> Attribute <var>value</var>s:
+
+<ol>
+<li> must contain at least one character;
+</li><li> must not begin with a space (&lsquo;<samp> </samp>&rsquo;, Unicode <code>U+0020</code>).
+</li></ol>
+</li></ul>
+
+<p><strong>Note</strong>: Due to assumptions made by some Lepton and gEDA tools,
+it is <em>strongly recommended</em> that you use attribute <var>name</var>s
+which contain only lower-case Latin characters, decimal digits, full
+stops &lsquo;<samp>.</samp>&rsquo;  (<code>U+002E</code>), and hyphens &lsquo;<samp>-</samp>&rsquo; (<code>U+002D</code>).
+</p>
+<p>There are two types of attribute:
+</p>
+<span id="index-Attached-attribute"></span>
+<p><em>Attached attributes</em> are attribute text <code>object</code>s that are
+linked to another <code>object</code>.  To attach an attribute to another
+schematic element, both <code>object</code>s must be part of the same
+component or part of the same <code>object</code>.  For example, a
+&lsquo;<samp>netname=<var>name</var></samp>&rsquo; attribute attached to a net <code>object</code>
+can be used to give that net a specific name in netlist output, such
+as &lsquo;<samp>VCC</samp>&rsquo; or &lsquo;<samp>GND</samp>&rsquo;.
+</p>
+<span id="index-Floating-attribute"></span>
+<p><em>Floating attributes</em> are attribute text <code>object</code>s that are
+not linked to another <code>object</code>.  These attributes affect the
+schematic or symbol that they&rsquo;re part of as a whole.  For example, a
+floating &lsquo;<samp>documentation=<var>url</var></samp>&rsquo; attribute in a symbol tells
+lepton-schematic&rsquo;s <strong>Help → Component Documentation</strong> command how
+to find the component&rsquo;s data sheet.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Coordinate-system.html" accesskey="n" rel="next">Coordinate system</a>, Previous: <a href="Component-objects.html" accesskey="p" rel="prev">Component objects</a>, Up: <a href="Schematic-Document-Model.html" accesskey="u" rel="up">Schematic Document Model</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

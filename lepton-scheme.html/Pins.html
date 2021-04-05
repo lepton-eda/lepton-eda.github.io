@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Pins (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Pins (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Pins (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Boxes.html" rel="next" title="Boxes">
+<link href="Nets-and-buses.html" rel="prev" title="Nets and buses">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Pins"></span><div class="header">
+<p>
+Next: <a href="Boxes.html" accesskey="n" rel="next">Boxes</a>, Previous: <a href="Nets-and-buses.html" accesskey="p" rel="prev">Nets and buses</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Pins-1"></span><h4 class="subsection">2.2.4 Pins</h4>
+
+<p>Pin <code>objects</code> are straight line segments which represent
+connectable points in symbols or subcircuits, such as the pins of a
+semiconductor package.  Only one end of a pin can be connected to
+nets, buses or other pins; the rest of a pin is purely graphical.
+</p>
+<p>Pins come in two varieties: <em>net pins</em> and <em>bus pins</em>, which
+are used for connections to nets and buses respectively (see <a href="Nets-and-buses.html">Nets and buses</a>).
+</p>
+<p>All of the functions that work on line <code>object</code>s also work with
+pins (see <a href="Lines.html">Lines</a>).  Note that <code>line?</code> will return <code>#f</code> if
+called with a pin argument.
+</p>
+<dl>
+<dt id="index-pin_003f">Function: <strong>pin?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a pin <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-net_002dpin_003f">Function: <strong>net-pin?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a net pin.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dnet_002dpin">Function: <strong>make-net-pin</strong> <em>start end [color]</em></dt>
+<dd><p>Creates and returns a new net pin <code>object</code>.  <var>start</var> is the
+position of the start of the new pin (the connectable end) in the form
+<code>(x . y)</code> and <var>end</var> is the position of end of the pin.  If
+<var>color</var> is specified, it should be the integer color map index of
+the color with which to draw the pin.  If <var>color</var> is not
+specified, the default pin color is used.
+</p></dd></dl>
+
+<dl>
+<dt id="index-bus_002dpin_003f">Function: <strong>bus-pin?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a bus pin.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dbus_002dpin">Function: <strong>make-bus-pin</strong> <em>start end [color]</em></dt>
+<dd><p>Creates and returns a new bus pin <code>object</code>.  Arguments are as for
+<code>make-net-pin</code>.
+</p></dd></dl>
+
+
+
+
+</body>
+</html>

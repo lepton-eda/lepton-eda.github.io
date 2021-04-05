@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>gafrc (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="gafrc (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="gafrc (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Legacy-configuration.html" rel="up" title="Legacy configuration">
+<link href="gschemrc.html" rel="next" title="gschemrc">
+<link href="Legacy-configuration.html" rel="prev" title="Legacy configuration">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="gafrc"></span><div class="header">
+<p>
+Next: <a href="gschemrc.html" accesskey="n" rel="next">gschemrc</a>, Previous: <a href="Legacy-configuration.html" accesskey="p" rel="prev">Legacy configuration</a>, Up: <a href="Legacy-configuration.html" accesskey="u" rel="up">Legacy configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="gafrc-1"></span><h4 class="subsection">3.2.1 <samp>gafrc</samp></h4>
+
+<p><samp>gafrc</samp> is a configuration file used by various tools in the
+Lepton EDA suite.
+</p>
+<p>Files named <samp>gafrc</samp> are read from <samp>~/.config/lepton-eda/</samp>
+(user configuration) and from a directory where you run the lepton-eda
+tools (configuration for current directory). Expressions in
+<samp>gafrc</samp> files control the following settings:
+</p>
+<ul>
+<li> Component and source libraries. <em>Component libraries</em> is a list of
+directories where Lepton will search for symbol files (<samp>*.sym</samp>).
+<em>Source libraries</em> is a list of directories where Lepton will
+search for <em>source files</em> (defined by the <var>source=</var>
+attribute) used in hierarchical schematics.
+
+<ul class="no-bullet">
+<li>- <code>(reset-component-library)</code>
+
+<p>Clear the list of component libraries.
+</p>
+</li><li>- <code>(reset-source-library)</code>
+
+<p>Clear the list of source libraries.
+</p>
+</li><li>- <code>(component-library <var>path</var> <var>name</var>)</code>
+
+<p>Add the directory <var>path</var> to the list of component libraries giving
+it a display name <var>name</var> which will be shown in the &quot;Add
+Component&quot; dialog in <code>lepton-schematic</code>, for example:
+</p>
+<div class="lisp">
+<pre class="lisp">(component-library &quot;/home/dmn/sym&quot; &quot;MySymbols&quot;)
+</pre></div>
+
+</li><li>- <code>(component-library-search <var>path</var> <var>prefix</var>)</code>
+
+<p>Add the directory <var>path</var> recursively with all its sub-directories
+to the list of component libraries. Directories added with this
+command will be shown in <code>lepton-schematic</code> in the &quot;Add
+Component&quot; dialog prefixed with the string <var>prefix</var>, for example:
+</p>
+<div class="lisp">
+<pre class="lisp">(component-library-search &quot;/home/dmn/my-libs&quot; &quot;MyLibs::&quot;)
+</pre></div>
+
+</li><li>- <code>(source-library <var>path</var>)</code>
+
+<p>Add the directory <var>path</var> to the list of source libraries.
+</p>
+</li></ul>
+
+</li><li> Color scheme used for exporting/printing by <code>lepton-cli export</code>
+and <code>lepton-schematic</code>&rsquo;s &lsquo;<samp>File</samp>&rsquo;-&gt;&lsquo;<samp>Write Image...</samp>&rsquo;  (if
+&quot;Image type&quot; is set to &lsquo;<samp>PDF</samp>&rsquo;) and &lsquo;<samp>File</samp>&rsquo;-&gt;&lsquo;<samp>Print...</samp>&rsquo; main
+menu commands.
+
+<ul class="no-bullet">
+<li>- <code>(primitive-load <var>file</var>)</code>
+
+<p>Load a color scheme from file <var>file</var>, for example:
+</p>
+<div class="lisp">
+<pre class="lisp">(primitive-load &quot;/usr/share/lepton-eda/print-colormap-darkbg&quot;)
+</pre></div>
+</li></ul>
+
+</li></ul>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="gschemrc.html" accesskey="n" rel="next">gschemrc</a>, Previous: <a href="Legacy-configuration.html" accesskey="p" rel="prev">Legacy configuration</a>, Up: <a href="Legacy-configuration.html" accesskey="u" rel="up">Legacy configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

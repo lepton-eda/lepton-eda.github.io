@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Configuration-functions.html" rel="up" title="Configuration functions">
+<link href="Configuration-events.html" rel="next" title="Configuration events">
+<link href="Configuration-contexts.html" rel="prev" title="Configuration contexts">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Configuration-parameters"></span><div class="header">
+<p>
+Next: <a href="Configuration-events.html" accesskey="n" rel="next">Configuration events</a>, Previous: <a href="Configuration-contexts.html" accesskey="p" rel="prev">Configuration contexts</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Configuration-parameters-1"></span><h4 class="subsection">2.5.2 Configuration parameters</h4>
+<span id="index-Configuration-parameter"></span>
+<span id="index-Configuration-key"></span>
+<span id="index-Configuration-group"></span>
+<span id="index-Configuration-value"></span>
+
+<p>A Lepton <em>configuration parameter</em> consists of three components:
+</p>
+<dl compact="compact">
+<dt><em>Group</em></dt>
+<dd><p>A string which identifies the general category in which the
+parameter lies (e.g. which application and/or plugin).
+</p></dd>
+<dt><em>Name</em></dt>
+<dd><p>A string which specifically identifies the parameter within the group.
+</p></dd>
+<dt><em>Value</em></dt>
+<dd><p>The value of the parameter. This is stored as a string, but can be
+converted to a number of possible scalar and list types.
+</p></dd>
+</dl>
+
+<p>Groups, names and values are all case-sensitive.
+</p>
+<span id="Configuration-groups-and-keys"></span><h4 class="subsubsection">2.5.2.1 Configuration groups and keys</h4>
+
+<dl>
+<dt id="index-config_002dgroups">Function: <strong>config-groups</strong> <em>cfg</em></dt>
+<dd><p>Returns a list of all groups available in <var>cfg</var> and its parent
+contexts.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dhas_002dgroup_003f">Function: <strong>config-has-group?</strong> <em>cfg group</em></dt>
+<dd><p>Determines whether <var>cfg</var> or its parent contexts contain the
+specified <var>group</var>
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dkeys">Function: <strong>config-keys</strong> <em>cfg group</em></dt>
+<dd><p>Returns a list of all keys available in the specified <var>group</var> in
+<var>cfg</var> and its parent contexts.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dhas_002dkey_003f">Function: <strong>config-has-key?</strong> <em>cfg group key</em></dt>
+<dd><p>Determines whether <var>cfg</var> or its parent contexts contains <var>key</var>
+in the specified <var>group</var>.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dremove_002dkey_0021">Function: <strong>config-remove-key!</strong> <em>cfg group key</em></dt>
+<dd><p>Removes the configuration parameter identified by the given <var>group</var>
+and <var>key</var> in the configuration context <var>cfg</var>. Returns &lsquo;<samp>#t</samp>&rsquo;
+on success, &lsquo;<samp>#f</samp>&rsquo; otherwise.
+</p>
+</dd></dl>
+
+<dl>
+<dt id="index-config_002dremove_002dgroup_0021">Function: <strong>config-remove-group!</strong> <em>cfg group</em></dt>
+<dd><p>Removes the configuration group identified by <var>group</var>
+and all its parameters in the configuration context <var>cfg</var>.
+Returns &lsquo;<samp>#t</samp>&rsquo; on success, &lsquo;<samp>#f</samp>&rsquo; otherwise.
+</p>
+</dd></dl>
+
+<span id="Configuration-inheritance"></span><h4 class="subsubsection">2.5.2.2 Configuration inheritance</h4>
+
+<p>If a configuration context does not directly specify a value for a
+configuration parameter, it inherits the value from its parent
+context.
+</p>
+<p>See <a href="Configuration-contexts.html">Context parents</a>.
+</p>
+<dl>
+<dt id="index-config_002dinherited_003f">Function: <strong>config-inherited?</strong> <em>cfg group key</em></dt>
+<dd><p>Returns &lsquo;<samp>#f</samp>&rsquo; if value of the configuration parameter with the
+given <var>group</var> and <var>key</var> is specified in the context <var>cfg</var>,
+and &lsquo;<samp>#t</samp>&rsquo; if it is inherited from a parent context of <var>cfg</var>.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dsource">Function: <strong>config-source</strong> <em>cfg group key</em></dt>
+<dd><p>Returns the configuration context (either <var>cfg</var> or one of its
+parent contexts) in which the configuration parameter with the given
+<var>group</var> and <var>key</var> has its value defined.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<span id="Configuration-values"></span><h4 class="subsubsection">2.5.2.3 Configuration values</h4>
+<span id="index-Getting-configuration-parameters"></span>
+<span id="index-Setting-configuration-parameters"></span>
+
+<p>Each value is stored as a UTF-8 string in the configuration file.
+However, this string can be parsed a several different types.  All of
+the following types are supported:
+</p>
+<ul>
+<li> Strings
+</li><li> Booleans
+</li><li> Exact integers
+</li><li> Inexact real numbers
+</li></ul>
+
+<p>In addition, lists of all the above are supported.
+</p>
+<dl>
+<dt id="index-config_002dstring">Function: <strong>config-string</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as a string.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dboolean">Function: <strong>config-boolean</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as a boolean.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dint">Function: <strong>config-int</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as an exact integer.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dreal">Function: <strong>config-real</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as an inexact real number.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dstring_002dlist">Function: <strong>config-string-list</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as a list of strings.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dboolean_002dlist">Function: <strong>config-boolean-list</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as a list of booleans.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+<dl>
+<dt id="index-config_002dint_002dlist">Function: <strong>config-int-list</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as a list of exact integers.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-config_002dreal_002dlist">Function: <strong>config-real-list</strong> <em>cfg group key</em></dt>
+<dd><p>Retrieve configuration value as a list of inexact real numbers.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dconfig_0021">Function: <strong>set-config!</strong> <em>cfg group key value</em></dt>
+<dd><p>Set the configuration parameter identified by the given <var>group</var>
+and <var>key</var> in the configuration context <var>cfg</var>.  The type of
+value to set is inferred from <var>value</var>. Returns <var>cfg</var>.
+</p>
+<p>Since 1.10.
+</p></dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Configuration-events.html" accesskey="n" rel="next">Configuration events</a>, Previous: <a href="Configuration-contexts.html" accesskey="p" rel="prev">Configuration contexts</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

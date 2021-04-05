@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>System information (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="System information (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="System information (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-API-Reference.html" rel="up" title="Core API Reference">
+<link href="Version-information.html" rel="next" title="Version information">
+<link href="Logging-functions.html" rel="prev" title="Logging functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="System-information"></span><div class="header">
+<p>
+Next: <a href="Version-information.html" accesskey="n" rel="next">Version information</a>, Previous: <a href="Logging-functions.html" accesskey="p" rel="prev">Logging functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="System-information-1"></span><h3 class="section">2.7 System information</h3>
+
+<p>To use the functions described in this section, you will need to load
+the <code>(lepton os)</code> module.
+</p>
+<p>This section describes some functions and variables that are useful
+for Scheme code that needs to behave differently depending on which
+operating system Lepton is running on.
+</p>
+<dl>
+<dt id="index-separator_002dchar">Variable: <strong>separator-char</strong></dt>
+<dd><p>The directory separator character that should be used on the host
+platform.
+</p>
+<p>The <code>separator-char</code> function is deprecated and must not be used in
+the newly written code. It will be removed after version 1.10.
+There is no replacement for it.
+</p></dd></dl>
+
+<dl>
+<dt id="index-separator">Variable: <strong>separator</strong></dt>
+<dd><p>A string containing <code>separator-char</code>.
+</p>
+<p>The <code>separator</code> function is deprecated and must not be used in
+the newly written code. It will be removed after version 1.10.
+Use the guile function <code>file-name-separator-string</code> instead.
+</p></dd></dl>
+
+<dl>
+<dt id="index-path_002dseparator_002dchar">Variable: <strong>path-separator-char</strong></dt>
+<dd><p>The character used for separating the elements in &lsquo;<samp>PATH</samp>&rsquo;-like
+environment variables on the host platform.
+</p></dd></dl>
+
+<dl>
+<dt id="index-path_002dseparator">Variable: <strong>path-separator</strong></dt>
+<dd><p>A string containing <code>path-separator-char</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-platform">Function: <strong>platform</strong></dt>
+<dd><p>Returns a list of symbols describing the host platform.  The returned
+symbols may include:
+</p>
+<ul>
+<li> &lsquo;<samp>carbon</samp>&rsquo;
+</li><li> &lsquo;<samp>cygwin</samp>&rsquo;
+</li><li> &lsquo;<samp>linux</samp>&rsquo;
+</li><li> &lsquo;<samp>win32</samp>&rsquo;
+</li><li> &lsquo;<samp>win32-native</samp>&rsquo;
+</li></ul>
+</dd></dl>
+
+<dl>
+<dt id="index-platform_003f">Function: <strong>platform?</strong> <em>type</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if the platform description list returned by
+<code>platform</code> contains the symbol <var>type</var>, and &lsquo;<samp>#f</samp>&rsquo;
+otherwise.
+</p></dd></dl>
+
+<dl>
+<dt id="index-sys_002ddata_002ddirs">Function: <strong>sys-data-dirs</strong></dt>
+<dd><p>Returns an ordered list of directories in which to access system-wide
+Lepton data.
+</p></dd></dl>
+
+<dl>
+<dt id="index-sys_002dconfig_002ddirs">Function: <strong>sys-config-dirs</strong></dt>
+<dd><p>Returns an ordered list of directories in which to access system-wide
+Lepton configuration information.
+</p></dd></dl>
+
+<dl>
+<dt id="index-user_002ddata_002ddir">Function: <strong>user-data-dir</strong></dt>
+<dd><p>Returns the directory in which to store user-specific Lepton data.
+</p></dd></dl>
+
+<dl>
+<dt id="index-user_002dconfig_002ddir">Function: <strong>user-config-dir</strong></dt>
+<dd><p>Returns the directory in which to store user-specific Lepton
+configuration information.
+</p></dd></dl>
+
+<dl>
+<dt id="index-user_002dcache_002ddir">Function: <strong>user-cache-dir</strong></dt>
+<dd><p>Returns the directory in which to store program-specific Lepton
+configuration information.
+</p></dd></dl>
+
+<dl>
+<dt id="index-expand_002denv_002dvariables">Function: <strong>expand-env-variables</strong> <em>str</em></dt>
+<dd><p>Recursively expands <var>str</var> until no more environment variables can be
+expanded, and return the expanded string. Environment variables are in
+the form &lsquo;<samp>${VAR}</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">(expand-env-variables &quot;${HOME}/path/to/dir&quot;)
+</pre></div>
+
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Version-information.html" accesskey="n" rel="next">Version information</a>, Previous: <a href="Logging-functions.html" accesskey="p" rel="prev">Logging functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

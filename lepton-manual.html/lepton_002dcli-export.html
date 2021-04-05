@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>lepton-cli export (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="lepton-cli export (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="lepton-cli export (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dcli.html" rel="up" title="lepton-cli">
+<link href="lepton_002dcli-config.html" rel="next" title="lepton-cli config">
+<link href="lepton_002dcli.html" rel="prev" title="lepton-cli">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="lepton_002dcli-export"></span><div class="header">
+<p>
+Next: <a href="lepton_002dcli-config.html" accesskey="n" rel="next">lepton-cli config</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="lepton_002dcli-export-1"></span><h3 class="section">7.1 lepton-cli export</h3>
+<span id="index-lepton_002dcli-export"></span>
+
+<p>The command <code>lepton-cli export</code> is used to export schematic and
+symbol files in a variety of image formats.  The resulting images can
+be then used for printing or embedding into other documents.  It
+currently supports single-page PNG, SVG and EPS output, and multi-page
+PS and PDF output.  It accepts a variety of options for controlling
+how the output is formatted.
+</p>
+<blockquote>
+<p><b>Note:</b> <code>lepton-cli export</code> can produce multi-page PDF and PS documents
+in one go.
+</p></blockquote>
+
+
+<p>Usage:
+</p>
+<div class="example">
+<pre class="example">lepton-cli export [OPTION ...] -o OUTPUT [--] FILE ...
+</pre></div>
+
+<p>The command can be used with the options described below.
+</p>
+<dl compact="compact">
+<dt><samp>-o <var>FILE</var></samp></dt>
+<dt><samp>--output=<var>FILE</var></samp></dt>
+<dd><p>Output generated image data to <var>FILE</var>.
+</p>
+</dd>
+<dt><samp>-f <var>FORMAT</var></samp></dt>
+<dt><samp>--format=<var>FORMAT</var></samp></dt>
+<dd><p>Specify an output format.  <var>FORMAT</var> can be one of &lsquo;<samp>png</samp>&rsquo;,
+&lsquo;<samp>pdf</samp>&rsquo;, &lsquo;<samp>svg</samp>&rsquo;, &lsquo;<samp>ps</samp>&rsquo;, or &lsquo;<samp>eps</samp>&rsquo;. Usually, this option
+is not required, because <code>lepton-cli</code> will infer the correct format from the
+file extension of the output file.
+</p>
+</dd>
+<dt><samp>-p <var>NAME</var></samp></dt>
+<dt><samp>--paper=<var>NAME</var></samp></dt>
+<dd><p>Size the output for a particular paper size.  The <var>NAME</var> should be
+a PWG 5101.1-2002 paper name.  For example, valid values include
+&lsquo;<samp>iso_a4</samp>&rsquo;, &lsquo;<samp>na_letter</samp>&rsquo;, or &lsquo;<samp>na_d</samp>&rsquo;.  You can use the
+<samp>--paper-names</samp> option (see below) to obtain all valid names.
+</p>
+</dd>
+<dt><samp>-P</samp></dt>
+<dt><samp>--paper-names</samp></dt>
+<dd><p>Print paper size names suitable to pass to the <samp>--paper</samp> option
+and exit.
+</p>
+</dd>
+<dt><samp>-l <var>LAYOUT</var></samp></dt>
+<dt><samp>--layout=<var>LAYOUT</var></samp></dt>
+<dd><p>When using a paper size, set the orientation of the output.
+<var>LAYOUT</var> can be one of &lsquo;<samp>auto</samp>&rsquo;, &lsquo;<samp>landscape</samp>&rsquo;, or
+&lsquo;<samp>portrait</samp>&rsquo;.  If &lsquo;<samp>auto</samp>&rsquo; layout is used, <code>lepton-cli</code> selects the
+orientation that best fits the drawing.
+</p>
+</dd>
+<dt><samp>-s <var>SIZE</var></samp></dt>
+<dt><samp>--size=<var>SIZE</var></samp></dt>
+<dd><p>Size the output with specific dimensions.  <var>SIZE</var> can be specified
+either as &lsquo;<samp>auto</samp>&rsquo;, or as two numbers in the format
+&lsquo;<samp>WIDTH:HEIGHT</samp>&rsquo;.  If the size is &lsquo;<samp>auto</samp>&rsquo;, select the size that
+best fits the drawing.
+</p>
+</dd>
+<dt><samp>-k <var>FACTOR</var></samp></dt>
+<dt><samp>--scale=<var>FACTOR</var></samp></dt>
+<dd><p>Set the output scale <var>FACTOR</var>. This is a distance identical with
+100 points (1 default grid spacing) in <a href="lepton_002dschematic.html">lepton-schematic</a> coordinate
+space. It is used to size the output when neither <samp>--paper</samp> nor
+<samp>--size</samp> are given, and defaults to 100 mil.
+</p>
+</dd>
+<dt><samp>-m <var>MARGINS</var></samp></dt>
+<dt><samp>--margins=<var>MARGINS</var></samp></dt>
+<dd><p>Set the widths of the margins to be used.  <var>MARGINS</var> can be
+specified either as &lsquo;<samp>auto</samp>&rsquo;, or as a set from one to four numbers
+separated by colons.  If &lsquo;<samp>auto</samp>&rsquo; margins are specified, a sensible
+default value will be chosen.  Up to four margin widths can be
+provided.  If one is provided, it will be used on all four sides.  If
+two are provided, the first will be used for the top/bottom and the
+second for the left/right.  If three are provided, the first will be
+used for the top, the second for left/right, and the third for the
+bottom.  This is summarized here:
+</p>
+<table>
+<tr><td><samp>-m TOP:LEFT:BOTTOM:RIGHT</samp></td><td></td><td>all widths defined</td></tr>
+<tr><td><samp>-m TOP</samp></td><td>&rarr;</td><td><samp>-m TOP:TOP:TOP:TOP</samp></td></tr>
+<tr><td><samp>-m TOP:LEFT</samp></td><td>&rarr;</td><td><samp>-m TOP:LEFT:TOP:LEFT</samp></td></tr>
+<tr><td><samp>-m TOP:LEFT:BOTTOM</samp></td><td>&rarr;</td><td><samp>-m TOP:LEFT:BOTTOM:LEFT</samp></td></tr>
+</table>
+
+</dd>
+<dt><samp>-a <var>ALIGN</var></samp></dt>
+<dt><samp>--align=<var>ALIGN</var></samp></dt>
+<dd><p>Set how the drawing is aligned within the page.  <var>ALIGN</var> can be
+specified either as &lsquo;<samp>auto</samp>&rsquo;, or as two numbers in the format
+&lsquo;<samp>HALIGN:VALIGN</samp>&rsquo;.  &lsquo;<samp>HALIGN</samp>&rsquo; controls the horizontal
+alignment, and &lsquo;<samp>VALIGN</samp>&rsquo; the vertical.  Each alignment value
+should be in the range 0.0 to 1.0.  The &lsquo;<samp>auto</samp>&rsquo; alignment is
+equivalent to a value of &lsquo;<samp>0.5:0.5</samp>&rsquo;, i.e. centered.
+</p>
+</dd>
+<dt><samp>-d <var>DPI</var></samp></dt>
+<dt><samp>--dpi=<var>DPI</var></samp></dt>
+<dd><p>Set the number of pixels per inch used when generating PNG output.
+</p>
+</dd>
+<dt><samp>-c</samp></dt>
+<dt><samp>--color</samp></dt>
+<dd><p>Enable color output.
+</p>
+</dd>
+<dt><samp>--no-color</samp></dt>
+<dd><p>Disable color output.
+</p>
+</dd>
+<dt><samp>-F <var>FONT-FAMILY</var></samp></dt>
+<dt><samp>--font=<var>FONT-FAMILY</var></samp></dt>
+<dd><p>Set the font to be used for drawing text.
+</p>
+</dd>
+<dt><samp>-h</samp></dt>
+<dt><samp>--help</samp></dt>
+<dd><p>Display usage information of the command <code>lepton-cli export</code> and
+exit.
+</p>
+</dd>
+<dt><samp>--</samp></dt>
+<dd><p>Treat all remaining arguments as schematic or symbol filenames.  Use
+this if you have a schematic or symbol filename which begins with
+&lsquo;<samp>-</samp>&rsquo;.
+</p>
+</dd>
+</dl>
+
+<p>The <samp>--size</samp>, <samp>--margins</samp>, or <samp>--scale</samp> options
+described above accept values using units of &lsquo;<samp>mm</samp>&rsquo;, &lsquo;<samp>cm</samp>&rsquo;,
+&lsquo;<samp>in</samp>&rsquo;, &lsquo;<samp>pc</samp>&rsquo;, &lsquo;<samp>px</samp>&rsquo;, or &lsquo;<samp>pt</samp>&rsquo;.  If you do not provide
+a unit, points are assumed.  N.b. that &lsquo;<samp>px</samp>&rsquo; are evaluated
+relative to the current <samp>--dpi</samp> setting.
+</p>
+
+<p>When using the <samp>--size</samp>, <samp>--margins</samp>, or
+<samp>--align</samp> options with multiple values, you may use &lsquo;<samp>;</samp>&rsquo;,
+or &lsquo;<samp> </samp>&rsquo; (space) as a separator between them instead of
+&lsquo;<samp>:</samp>&rsquo;. In such a case, remember to properly quote your arguments to
+avoid them to be interpreted by your shell.
+</p><hr>
+<div class="header">
+<p>
+Next: <a href="lepton_002dcli-config.html" accesskey="n" rel="next">lepton-cli config</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

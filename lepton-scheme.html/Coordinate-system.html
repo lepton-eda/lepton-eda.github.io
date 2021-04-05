@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Coordinate system (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Coordinate system (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Coordinate system (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Schematic-Document-Model.html" rel="up" title="Schematic Document Model">
+<link href="Core-API-Reference.html" rel="next" title="Core API Reference">
+<link href="Attributes.html" rel="prev" title="Attributes">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Coordinate-system"></span><div class="header">
+<p>
+Previous: <a href="Attributes.html" accesskey="p" rel="prev">Attributes</a>, Up: <a href="Schematic-Document-Model.html" accesskey="u" rel="up">Schematic Document Model</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Coordinate-system-1"></span><h3 class="section">1.5 Coordinate system</h3>
+
+<p>Lepton documents use a <em>coordinate system</em> (internally referred to
+as &lsquo;world&rsquo; coordinates) with coordinates increasing upwards and to the
+right (i.e. a conventional right-handed Cartesian coordinate
+system).
+</p>
+<p>Although all coordinates may be positive or negative, lepton-schematic
+only displays objects with positive coordinates (i.e. in the upper
+right quadrant of the coordinate system).  It is therefore recommended
+to use only positive coordinates.
+</p>
+<p>In the Scheme API, the coordinate of a point is expressed in the format:
+</p>
+<div class="example">
+<pre class="example">(x . y)
+</pre></div>
+
+<p>and a set of <em>bounds</em> (i.e. a rectangular area in the document
+plane) is expressed in the format:
+</p>
+<div class="example">
+<pre class="example">((left . top) . (right . bottom))
+</pre></div>
+
+<p>where <code>left</code> is the smaller x coordinate, <code>right</code> is the
+larger x coordinate, and <code>bottom</code> and <code>top</code> are respectively
+the smaller and larger y coordinates.
+</p>
+
+
+
+</body>
+</html>

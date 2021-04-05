@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>schematic.attrib group (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="schematic.attrib group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="schematic.attrib group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic-configuration.html" rel="up" title="lepton-schematic configuration">
+<link href="lepton_002dnetlist-configuration.html" rel="next" title="lepton-netlist configuration">
+<link href="schematic_002ebackup-group.html" rel="prev" title="schematic.backup group">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="schematic_002eattrib-group"></span><div class="header">
+<p>
+Previous: <a href="schematic_002ebackup-group.html" accesskey="p" rel="prev">schematic.backup group</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="schematic_002eattrib-group-1"></span><h4 class="subsubsection">3.4.1.11 <code>schematic.attrib</code> group</h4>
+<span id="index-schematic_002eattrib-group"></span>
+
+<p>Since <em>1.9.10</em>.
+</p>
+<p>The parameters in this group replace the deprecated options used
+to be set in <samp>gafrc</samp> files.
+</p>
+<table>
+<thead><tr><th width="15%">Name</th><th width="15%">Type</th><th width="15%">Default value</th><th width="55%">Description</th></tr></thead>
+<tr><td width="15%"><code>promote</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Former <samp>gafrc</samp> option: <code>attribute-promotion</code>.  Set if
+attribute promotion occurs when you instantiate a component.
+Attribute promotion means that any floating (unattached) attribute
+which is inside a symbol gets attached to the newly inserted component
+when it is instantiated.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>always-promote</code></td><td width="15%">&lsquo;<samp>string list</samp>&rsquo;</td><td width="15%">&lsquo;<samp>footprint;device;value;model-name</samp>&rsquo;</td><td width="55%">Former <samp>gafrc</samp> option: <code>always-promote-attributes</code>.  The
+list of attributes that are always promoted regardless of their
+visibility.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>promote-invisible</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Former <samp>gafrc</samp> option: <code>promote-invisible</code>.  Set if
+invisible floating attributes are promoted when a component is
+instantiated.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>keep-invisible</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Former <samp>gafrc</samp> option: <code>keep-invisible</code>.  Do not change
+this option. Here&rsquo;s the original description from the
+<samp>system-gafrc</samp> file:
+<blockquote>
+<p>If both <code>attribute-promotion</code> and <code>promote-invisible</code>
+are enabled, then this controls if invisible floating attributes are
+kept around in memory and NOT deleted. Having this enabled will keeps
+component slotting working. If <code>attribute-promotion</code> and
+<code>promote-invisible</code> are enabled and this keyword is disabled,
+then component slotting will NOT work (and maybe other functions which
+depend on hidden attributes, since those attributes are deleted from
+memory).  Since <em>1.9.10</em>.
+</p></blockquote></td></tr>
+<tr><td width="15%"><code>symbol-attribs</code></td><td width="15%">&lsquo;<samp>string list</samp>&rsquo;</td><td width="15%">&lsquo;<samp>netname;footprint;value;refdes;
+source;model-name;model;net;
+device;numslots;slot;slotdef;
+graphical;description;documentation;symversion;
+comment;author;dist-license;use-license;file</samp>&rsquo;</td><td width="55%">Formerly the attribute names were given by using the <samp>gafrc</samp>
+keyword <code>attribute-name</code> several time in the file.  Do not use
+this keyword any more.
+
+<p>The list specifies attributes presented in the &lsquo;<samp>Add attribute</samp>&rsquo;
+and &lsquo;<samp>Edit attribute</samp>&rsquo; dialogs.  The user can add any attributes
+which should be listed there.  The default names are specific for
+symbols and nets.  Use <code>pin-attribs</code> for pins.  While for now
+both lists are displayed together, this may change in future.  The
+attribute names are case sensitive.  The order of the names in the
+list determines the order they are displayed.
+</p>
+<blockquote>
+<p><b>Note:</b> The attribute names from parent configuration contexts are not
+inherited and will be overridden by the child context value.  If the
+user will specify, e.g., &lsquo;<samp>foo;bar</samp>&rsquo; here, only these two names
+are displayed.
+</p></blockquote>
+
+<p>Since <em>1.9.12</em>.
+</p></td></tr>
+<tr><td width="15%"><code>pin-attribs</code></td><td width="15%">&lsquo;<samp>string list</samp>&rsquo;</td><td width="15%">&lsquo;<samp>pinnumber;pinseq;pintype;pinlabel</samp>&rsquo;</td><td width="55%">The same as <code>symbol-attribs</code> but for pin attribute names.  The
+attribute names are displayed in the &lsquo;<samp>Add attribute</samp>&rsquo; and
+&lsquo;<samp>Edit attribute</samp>&rsquo; dialogs along with names specified in that key.
+All notes about the <code>symbol-attribs</code> keyword are applicable
+here, too.
+
+<p>Since <em>1.9.12</em>.
+</p></td></tr>
+</table>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="schematic_002ebackup-group.html" accesskey="p" rel="prev">schematic.backup group</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

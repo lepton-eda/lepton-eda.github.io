@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>lepton-cli (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="lepton-cli (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="lepton-cli (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="lepton_002dcli-export.html" rel="next" title="lepton-cli export">
+<link href="lepton_002dnetlist.html" rel="prev" title="lepton-netlist">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="lepton_002dcli"></span><div class="header">
+<p>
+Next: <a href="lepton_002dattrib.html" accesskey="n" rel="next">lepton-attrib</a>, Previous: <a href="lepton_002dnetlist.html" accesskey="p" rel="prev">lepton-netlist</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="lepton_002dcli-_002d-Lepton-command_002dline-utility"></span><h2 class="chapter">7 lepton-cli - Lepton command-line utility</h2>
+<span id="index-lepton_002dcli"></span>
+
+<p><code>lepton-cli</code> provides a number of small command-line utilities for
+working with Lepton schematic and symbol files, and is designed to be
+used for batch processing of designs created using the schematic
+editor <a href="lepton_002dschematic.html">lepton-schematic</a>.
+</p>
+<p>General usage is:
+</p>
+<div class="example">
+<pre class="example">lepton-cli [OPTION...] COMMAND [ARGS ...]
+</pre></div>
+
+<p>Currently, <var>COMMAND</var> can be one of <code>config</code>, <code>export</code>,
+or <code>shell</code>.
+</p>
+<p>Here is the description of <code>lepton-cli</code>&rsquo;s general options:
+</p>
+<dl compact="compact">
+<dt><samp>--no-rcfiles</samp></dt>
+<dd><p>Prevent <a href="gafrc.html">gafrc</a> Scheme initialisation files from being loaded.
+</p>
+</dd>
+<dt><samp>-h</samp></dt>
+<dt><samp>--help</samp></dt>
+<dd><p>Print a help message.
+</p>
+</dd>
+<dt><samp>-V</samp></dt>
+<dt><samp>--version</samp></dt>
+<dd><p>Print <code>lepton-cli</code> version information.
+</p>
+</dd>
+</dl>
+
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-export.html" accesskey="1">lepton-cli export</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Export images from schematic and symbol files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-config.html" accesskey="2">lepton-cli config</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Configure all Lepton tools.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dcli-shell.html" accesskey="3">lepton-cli shell</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Scheme REPL for interactively processing schematics.
+</td></tr>
+</table>
+
+
+
+
+
+</body>
+</html>

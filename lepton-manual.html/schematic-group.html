@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>schematic group (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="schematic group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="schematic group (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic-configuration.html" rel="up" title="lepton-schematic configuration">
+<link href="schematic_002elibrary-group.html" rel="next" title="schematic.library group">
+<link href="schematic_002emacro_002dwidget-group.html" rel="prev" title="schematic.macro-widget group">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="schematic-group"></span><div class="header">
+<p>
+Next: <a href="schematic_002elibrary-group.html" accesskey="n" rel="next">schematic.library group</a>, Previous: <a href="schematic_002emacro_002dwidget-group.html" accesskey="p" rel="prev">schematic.macro-widget group</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="schematic-group-1"></span><h4 class="subsubsection">3.4.1.7 <code>schematic</code> group</h4>
+<span id="index-schematic-group"></span>
+
+<p>Since <em>1.9.10</em>.
+Before 1.9.10 it was <code>gschem</code> group.
+</p>
+<table>
+<thead><tr><th width="15%">Name</th><th width="15%">Type</th><th width="15%">Default value</th><th width="55%">Description</th></tr></thead>
+<tr><td width="15%"><code>default-filename</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>&quot;untitled&quot;</samp>&rsquo;</td><td width="55%">Default file name for any new schematic files.  It is used to create
+filenames of the form <samp>untitled_N.sch</samp> where &lsquo;<samp>N</samp>&rsquo; is a
+number.</td></tr>
+<tr><td width="15%"><code>bus-ripper-size</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>200</samp>&rsquo;</td><td width="55%">Sets the size of the auto bus rippers.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>bus-ripper-type</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>component</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>component</samp>&rsquo;, &lsquo;<samp>net</samp>&rsquo;.  Sets the bus
+ripper type, either a symbol (&lsquo;<samp>component</samp>&rsquo;) or plain net.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>bus-ripper-symname</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>busripper-1.sym</samp>&rsquo;</td><td width="55%">The default bus ripper symbol, used when the
+<code>schematic::bus-ripper-type</code> configuration key is set to
+&lsquo;<samp>&quot;component&quot;</samp>&rsquo;.  The symbol must exist in a component library.
+Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>bus-ripper-rotation</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>non-symmetric</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>non-symmetric</samp>&rsquo;, &lsquo;<samp>symmetric</samp>&rsquo;.  This
+deals with how the bus ripper symbol is rotated when it is auto added
+to a schematic.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>net-consolidate</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the net consolidation code is used when schematics are
+read in, written to disk, and when nets are being drawn (does not
+consolidate when things are being copied or moved yet).  Net
+consolidation is the connection of nets which can be combined into
+one.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>logging</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Determines if the logging mechanism is enabled.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>log-window</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>later</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>later</samp>&rsquo;, &lsquo;<samp>startup</samp>&rsquo; Controls if the log
+window is shown when lepton-schematic is started up
+(&lsquo;<samp>startup</samp>&rsquo;), or not (&lsquo;<samp>later</samp>&rsquo;).  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>auto-save-interval</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>120</samp>&rsquo;</td><td width="55%">Controls how often a backup copy is made, in seconds.  The backup copy
+is made when you make some change to the schematic, and there were
+more than &quot;interval&quot; seconds from the last autosave.  Autosaving will
+not be allowed if setting it to zero.  Since <em>1.9.10</em>.</td></tr>
+</table>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="schematic_002elibrary-group.html" accesskey="n" rel="next">schematic.library group</a>, Previous: <a href="schematic_002emacro_002dwidget-group.html" accesskey="p" rel="prev">schematic.macro-widget group</a>, Up: <a href="lepton_002dschematic-configuration.html" accesskey="u" rel="up">lepton-schematic configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

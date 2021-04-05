@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.13.
+
+Copyright (C) 2020 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>lepton-cli config (Lepton EDA Reference Manual 1.9.13)</title>
+
+<meta name="description" content="lepton-cli config (Lepton EDA Reference Manual 1.9.13)">
+<meta name="keywords" content="lepton-cli config (Lepton EDA Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dcli.html" rel="up" title="lepton-cli">
+<link href="lepton_002dcli-shell.html" rel="next" title="lepton-cli shell">
+<link href="lepton_002dcli-export.html" rel="prev" title="lepton-cli export">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="lepton_002dcli-config"></span><div class="header">
+<p>
+Next: <a href="lepton_002dcli-shell.html" accesskey="n" rel="next">lepton-cli shell</a>, Previous: <a href="lepton_002dcli-export.html" accesskey="p" rel="prev">lepton-cli export</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="lepton_002dcli-config-1"></span><h3 class="section">7.2 lepton-cli config</h3>
+<span id="index-lepton_002dcli-config"></span>
+
+<p>This section describes how to set up Lepton tools with the
+<code>lepton-cli config</code> command.
+</p>
+<p><code>lepton-cli config</code> is a basic utility for inspecting and
+modifying Lepton EDA configuration stores.
+</p>
+<p>The usage of the command:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config [OPTION] [GROUP KEY [VALUE]]
+</pre></div>
+
+<p>If a <var>GROUP</var> and <var>KEY</var> are specified, it retrieves the value
+of that configuration parameter.  If a <var>VALUE</var> is specified as
+well, it sets the value of that parameter.
+</p>
+<p>The options <samp>-p</samp>, <samp>-u</samp>, and <samp>-s</samp>, listed below,
+can be used to select what configuration store should be affected (by
+default, the project configuration store for the current working
+directory).  If no <var>GROUP</var> and <var>KEY</var> are provided, the command
+outputs the filename of the selected configuration store.
+</p>
+<dl compact="compact">
+<dt><samp>-p [<var>PATH</var>]</samp></dt>
+<dt><samp>--project[=<var>PATH</var>]</samp></dt>
+<dd><p>Select the project configuration store of the project located in
+<var>PATH</var>.  If no <var>PATH</var> is provided, selects the project in the
+current working directory.
+</p>
+</dd>
+<dt><samp>-u</samp></dt>
+<dt><samp>--user</samp></dt>
+<dd><p>Select the user configuration store.
+</p>
+</dd>
+<dt><samp>-s</samp></dt>
+<dt><samp>--system</samp></dt>
+<dd><p>Select the system configuration store.  Depending on user permissions,
+the system configuration store may be read-only.
+</p>
+</dd>
+<dt><samp>-c</samp></dt>
+<dt><samp>--cache</samp></dt>
+<dd><p>Select the program-specific configuration store
+(<a href="New-configuration-system.html#cache_002dconfiguration_002dcontext">CACHE configuration context</a>).
+</p>
+</dd>
+</dl>
+
+
+<span id="Configuration-files"></span><h4 class="subsection">7.2.1 Configuration files</h4>
+
+<p>Configuration settings used to configure these programs are written to
+Lepton config files.  Naming and location of those files, file format,
+as well as configuration settings available, are described in the
+chapter <a href="Configuration.html">Configuration system</a>.
+</p>
+<blockquote>
+<p><b>Note:</b> Apart from using <code>lepton-cli</code> for modifying the files, you can just edit them
+manually in your favorite text editor.
+</p></blockquote>
+
+<p>All the config files consist of sections, called groups, containing
+key-value pairs.
+</p>
+<p>Values of some keys in the Lepton config files are lists.  Note that
+unlike the <a href="lepton_002dcli-export.html">lepton-cli export</a> command, where several list
+separators can be used, the only separator between list values in the
+config files is semicolon &lsquo;<samp>;</samp>&rsquo;.
+</p>
+<blockquote>
+<p><b>Note:</b> Always properly escape semicolons in key values.  Use double quotes or
+backslash for that.  Otherwise your shell may interpret your command
+wrong.
+</p></blockquote>
+
+<p>Another difference between <code>export</code> and <code>config</code> commands is
+that when using the latter, you always have to specify all parameters
+of the used list. Thus, for example, this command is wrong:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export size 1000
+</pre></div>
+
+<p>The right command will look like this:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export size &quot;1000;1000&quot;
+</pre></div>
+
+
+<blockquote>
+<p><b>Note:</b> All sizes in the configuration files, and therefore in the
+<code>lepton-cli config</code> command line, <strong>must</strong> be given in
+Adobe points (72 points = 1 inch).  Suffixes such as &lsquo;<samp>pt</samp>&rsquo;,
+&lsquo;<samp>mm</samp>&rsquo;, and others, which can be used with the <a href="lepton_002dcli-export.html">lepton-cli export</a> command, are not yet supported in the config files.  Fixes are
+welcome.
+</p></blockquote>
+
+<p>In some cases, your configuration may work wrongly if ever.
+While <code>lepton-cli</code> supports locales for the <code>export</code> command, it is not
+so for <code>config</code>.
+</p>
+<blockquote>
+<p><b>Note:</b> It is recommended to always use <em>dot</em> (&lsquo;<samp>.</samp>&rsquo;) as decimal point
+separator with <code>lepton-cli</code>.
+</p></blockquote>
+
+
+<p>Suppose, for example, that comma is used in your locale as decimal
+point separator.  Despite it, the following command results with wrong
+values in your project&rsquo;s configuration file, and the config just won&rsquo;t
+work properly:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export align &quot;1,0;0,0&quot;
+</pre></div>
+
+<p>Unlike it, the following <em>exporting</em> command will work OK under
+such conditions:
+</p>
+<div class="example">
+<pre class="example">lepton-cli export -a 0,0:1.0 -o file.pdf file.sch
+</pre></div>
+
+<span id="lepton_002dcli-config-examples"></span><h4 class="subsection">7.2.2 lepton-cli config examples</h4>
+
+<span id="Set-up-exporting"></span><h4 class="subsubsection">7.2.2.1 Set up exporting</h4>
+<p>Use the &ldquo;landscape&rdquo; layout by default for a local project:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export layout landscape
+</pre></div>
+
+<p>Use the &ldquo;letter&rdquo; paper size by default for all your printouts:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --user export paper na_letter
+</pre></div>
+
+<p>Set paper size to the definite value of 1x2 inch for a local project:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export size &quot;72;144&quot;
+</pre></div>
+
+<p>Set margins as a half of inch for left and right sides and as a
+quarter of inch for top and bottom for a local project:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export margins &quot;18;36;18;36&quot;
+</pre></div>
+
+<p>This command will align your project&rsquo;s schematics to the right.
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export align &quot;1.0;0.5&quot;
+</pre></div>
+
+<p>Export schematics in a project in color (note: &lsquo;<samp>False</samp>&rsquo; or
+&lsquo;<samp>FALSE</samp>&rsquo; will not work):
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export monochrome false
+</pre></div>
+
+<p>Set up a custom user font:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --user export font &quot;OpenGost Type B TT Italic&quot;
+</pre></div>
+
+<p>Choose another font for a local project:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project export font &quot;Arial Bold&quot;
+</pre></div>
+
+
+<span id="Set-up-netlisting"></span><h4 class="subsubsection">7.2.2.2 Set up netlisting</h4>
+
+<p>Use shorter net names for unnamed nets in all netlists:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --user netlist default-net-name net
+</pre></div>
+
+<p>Ensure that a local project will use hierarchical net names despite of
+settings in <samp>lepton-user.conf</samp>:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project netlist.hierarchy traverse-hierarchy true
+</pre></div>
+
+<p>Promote &lsquo;<samp>net</samp>&rsquo; attribute over &lsquo;<samp>netname</samp>&rsquo;:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project netlist net-naming-priority net-attribute
+</pre></div>
+
+
+<span id="Set-up-lepton_002dschematic"></span><h4 class="subsubsection">7.2.2.3 Set up lepton-schematic</h4>
+
+<p>Use shorter names for new pages:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --user schematic default-filename empty
+</pre></div>
+
+
+<p>Set up select component widget to always show all attributes:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project schematic.library component-attributes &quot;*&quot;
+</pre></div>
+
+<p>Please be careful when using this command in the command line. If you
+forget the quotes, your shell will substitute the first file name in
+the working directory file list for the attribute name. This is most
+likely not what you want.
+</p>
+<p>Display only attributes that are in the filter list:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project lepton-schematic.library \
+  component-attributes &quot;refdes;device;description&quot;
+</pre></div>
+
+<p>Please note that if you replace semicolons with commas, <code>lepton-schematic</code>
+will consider the string in quotes just one attribute name, which is
+obviously wrong, and you will see no attribute at all.
+</p>
+<p>Sort component library in <code>lepton-schematic</code> alphabetically:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --user schematic.library sort true
+</pre></div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="lepton_002dcli-shell.html" accesskey="n" rel="next">lepton-cli shell</a>, Previous: <a href="lepton_002dcli-export.html" accesskey="p" rel="prev">lepton-cli export</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

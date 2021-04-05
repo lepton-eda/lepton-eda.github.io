@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Lepton EDA, version 1.9.13.
+
+Copyright (C) 2011-2013 Peter TB Brett
+Copyright (C) 2011-2017 gEDA developers
+Copyright (C) 2017-2021 Lepton developers
+
+The text of and illustrations in this document are licensed under a
+Creative Commons Attribution–Share Alike 3.0 Unported license
+("CC-BY-SA"). An explanation of CC-BY-SA is available at
+http://creativecommons.org/licenses/by-sa/3.0/. The original
+authors of this document designate the gEDA Project and Lepton EDA
+Project as the "Attribution Parties" for purposes of CC-BY-SA. In
+accordance with CC-BY-SA, if you distribute this document or an
+adaptation of it, you must provide the URL for the original version. -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Text (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+
+<meta name="description" content="Text (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="keywords" content="Text (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Core-object-functions.html" rel="up" title="Core object functions">
+<link href="Components.html" rel="next" title="Components">
+<link href="Pictures.html" rel="prev" title="Pictures">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-scheme.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Text"></span><div class="header">
+<p>
+Next: <a href="Components.html" accesskey="n" rel="next">Components</a>, Previous: <a href="Pictures.html" accesskey="p" rel="prev">Pictures</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Text-1"></span><h4 class="subsection">2.2.10 Text</h4>
+
+<p>Text fulfils two roles, as straightforward labels and notes on
+schematics and symbols, and as attached or floating attributes
+(see <a href="Attributes.html">Attributes</a>).  A text <code>object</code> can be aligned in
+different ways relative to its anchor position, and can be displayed
+in different font sizes.
+</p>
+<p>Any text can be set to be visible or invisible on printed output (and
+lepton-schematic provides ways to preview invisible text).  When a text
+<code>object</code> is an attribute (i.e. its string is in a
+&lsquo;<samp><var>name</var>=<var>value</var></samp>&rsquo; format) then the visibility settings are
+more fine-grained: the text can be set to display just the attribute
+name, just the attribute value, or both.
+</p>
+<p>See <a href="Attributes.html">Attributes</a>.
+</p>
+<dl>
+<dt id="index-text_003f">Function: <strong>text?</strong> <em>object</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a text <code>object</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-make_002dtext">Function: <strong>make-text</strong> <em>anchor align angle string size visible show [color]</em></dt>
+<dd><p>Creates and returns a new text <code>object</code>.  <var>anchor</var> is the
+position of the anchor of the new text in the form <code>(x . y)</code>, and
+<var>align</var> is a symbol determining how the text should be aligned
+relative to the anchor.  <var>align</var> must be one of the following
+symbols:
+</p>
+<ul>
+<li> &lsquo;<samp>lower-left</samp>&rsquo;
+</li><li> &lsquo;<samp>middle-left</samp>&rsquo;
+</li><li> &lsquo;<samp>upper-left</samp>&rsquo;
+</li><li> &lsquo;<samp>lower-center</samp>&rsquo;
+</li><li> &lsquo;<samp>middle-center</samp>&rsquo;
+</li><li> &lsquo;<samp>upper-center</samp>&rsquo;
+</li><li> &lsquo;<samp>lower-right</samp>&rsquo;
+</li><li> &lsquo;<samp>middle-right</samp>&rsquo;
+</li><li> &lsquo;<samp>upper-right</samp>&rsquo;
+</li></ul>
+
+<p>For example, if <var>align</var> is &lsquo;<samp>upper-center</samp>&rsquo;, the anchor will be
+located at the top center of the rendered text block.
+</p>
+<p><var>angle</var> should be an integer multiple of 90 degrees, determining
+the angle which the text should be displayed at.  <var>string</var> is the
+string contents for the <code>text</code> object, and must not contain any
+null characters (&lsquo;<samp>#\0</samp>&rsquo; in Scheme, Unicode
+&lsquo;<samp>U+0000</samp>&rsquo;). <var>size</var> is the font size to use.  If <var>visible</var>
+is &lsquo;<samp>#f</samp>&rsquo;, the text will be invisible; otherwise, it will be
+visible.
+</p>
+<p>When the <var>string</var> is in an attribute format (see <a href="Attributes.html">Attributes</a>),
+the <var>show</var> argument determines which parts of the <var>string</var>
+will be displayed.  It must be one of the following symbols:
+</p>
+<ul>
+<li> &lsquo;<samp>name</samp>&rsquo;
+</li><li> &lsquo;<samp>value</samp>&rsquo;
+</li><li> &lsquo;<samp>both</samp>&rsquo;
+</li></ul>
+
+<p>If <var>color</var> is specified, it should be the integer color map index
+of the color with which to draw the text.  If <var>color</var> is not
+specified, the default text color is used.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dtext_0021">Function: <strong>set-text!</strong> <em>text anchor align angle string size visible show [color]</em></dt>
+<dd><p>Sets the parameters of <var>text</var>. The arguments are the same as to
+<code>make-text</code>. Returns <var>text</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002dinfo">Function: <strong>text-info</strong> <em>text</em></dt>
+<dd><p>Returns the parameters of <var>text</var> as a list in the form:
+</p>
+<div class="example">
+<pre class="example">((anchor-x . anchor-y) align angle string size visible show color)
+</pre></div>
+
+<p>See <code>make-text</code> for a description of all of these parameters.
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002danchor">Function: <strong>text-anchor</strong> <em>text</em></dt>
+<dd><p>Returns the position of the anchor of <var>text</var> in the form
+<code>(x . y)</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002dalign">Function: <strong>text-align</strong> <em>text</em></dt>
+<dd><p>Returns the alignment of <var>text</var> as one of the following symbols:
+</p>
+<ul>
+<li> &lsquo;<samp>lower-left</samp>&rsquo;
+</li><li> &lsquo;<samp>middle-left</samp>&rsquo;
+</li><li> &lsquo;<samp>upper-left</samp>&rsquo;
+</li><li> &lsquo;<samp>lower-center</samp>&rsquo;
+</li><li> &lsquo;<samp>middle-center</samp>&rsquo;
+</li><li> &lsquo;<samp>upper-center</samp>&rsquo;
+</li><li> &lsquo;<samp>lower-right</samp>&rsquo;
+</li><li> &lsquo;<samp>middle-right</samp>&rsquo;
+</li><li> &lsquo;<samp>upper-right</samp>&rsquo;
+</li></ul>
+</dd></dl>
+
+<dl>
+<dt id="index-text_002dangle">Function: <strong>text-angle</strong> <em>text</em></dt>
+<dd><p>Returns the angle that <var>text</var> is displayed at as an integer
+multiple of 90 degrees.
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002dstring">Function: <strong>text-string</strong> <em>text</em></dt>
+<dd><p>Returns the string content of <var>text</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dtext_002dstring_0021">Function: <strong>set-text-string!</strong> <em>text str</em></dt>
+<dd><p>Set the string content of <var>text</var> to <var>str</var>.  <var>str</var> must not
+contain any null characters (&lsquo;<samp>#\0</samp>&rsquo; in Scheme, Unicode
+&lsquo;<samp>U+0000</samp>&rsquo;).
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002dsize">Function: <strong>text-size</strong> <em>text</em></dt>
+<dd><p>Return the font size of <var>text</var> as an integer.
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002dvisible_003f">Function: <strong>text-visible?</strong> <em>text</em></dt>
+<dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>text</var> is set to be visible.
+</p></dd></dl>
+
+<dl>
+<dt id="index-set_002dtext_002dvisibility_0021">Function: <strong>set-text-visibility!</strong> <em>text visible?</em></dt>
+<dd><p>If <var>visible?</var> is &lsquo;<samp>#f</samp>&rsquo;, sets <var>text</var> to be invisible;
+otherwise, sets it to be visible.
+</p></dd></dl>
+
+<dl>
+<dt id="index-text_002dattribute_002dmode">Function: <strong>text-attribute-mode</strong> <em>text</em></dt>
+<dd><p>Returns a symbol indicating which parts of <var>text</var> will be
+displayed when <var>text</var> is a valid attribute.  The returned value
+will be one of the following symbols:
+</p>
+<ul>
+<li> &lsquo;<samp>name</samp>&rsquo;
+</li><li> &lsquo;<samp>value</samp>&rsquo;
+</li><li> &lsquo;<samp>both</samp>&rsquo;
+</li></ul>
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Components.html" accesskey="n" rel="next">Components</a>, Previous: <a href="Pictures.html" accesskey="p" rel="prev">Pictures</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
