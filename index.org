@@ -4,5 +4,5 @@
 - [[./lepton-scheme.html/index.html][Lepton EDA Scheme API manual]]
 
 # Local Variables:
-# org-html-postamble: "<center><p class=\"copyright\">&#169; Lepton Developers</p></center>"
+# org-html-postamble: "<center><p class=\"copyright\">Copyright &#169; 2021 Lepton Developers</p></center>"
 # End:
