@@ -1,5 +1,7 @@
 #+TITLE: Lepton EDA documentation
 
+** Manuals
+
 - [[./lepton-manual.html/index.html][Lepton EDA reference manual]]
 - [[./lepton-scheme.html/index.html][Lepton EDA Scheme API manual]]
 
