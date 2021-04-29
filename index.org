@@ -3,6 +3,25 @@
 - [[./lepton-manual.html/index.html][Lepton EDA reference manual]]
 - [[./lepton-scheme.html/index.html][Lepton EDA Scheme API manual]]
 
+
+** Manual pages
+
+- [[./man/lepton-archive.html][lepton-archive]]
+- [[./man/lepton-attrib.html][lepton-attrib]]
+- [[./man/lepton-cli.html][lepton-cli]]
+- [[./man/lepton-embed.html][lepton-embed]]
+- [[./man/lepton-netlist.html][lepton-netlist]]
+- [[./man/lepton-pcb_backannotate.html][lepton-pcb_backannotate]]
+- [[./man/lepton-refdes_renum.html][lepton-refdes_renum]]
+- [[./man/lepton-sch2pcb.html][lepton-sch2pcb]]
+- [[./man/lepton-schdiff.html][lepton-schdiff]]
+- [[./man/lepton-schematic.html][lepton-schematic]]
+- [[./man/lepton-symcheck.html][lepton-symcheck]]
+- [[./man/lepton-symfix.html][lepton-symfix]]
+- [[./man/lepton-tragesym.html][lepton-tragesym]]
+- [[./man/lepton-upcfg.html][lepton-upcfg]]
+
+
 # Local Variables:
 # org-html-postamble: "<center><p class=\"copyright\">Copyright &#169; 2021 Lepton Developers</p></center>"
 # End:
