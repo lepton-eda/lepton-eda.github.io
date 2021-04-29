@@ -1,0 +1,148 @@
+<!-- Creator     : groff version 1.19.2 -->
+<!-- CreationDate: Thu Apr 29 11:55:31 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p     { margin-top: 0; margin-bottom: 0; }
+       pre   { margin-top: 0; margin-bottom: 0; }
+       table { margin-top: 0; margin-bottom: 0; }
+</style>
+<title>lepton-schdiff</title>
+
+</head>
+<body>
+
+<h1 align=center>lepton-schdiff</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#BUGS">BUGS</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<a name="NAME"></a>
+<h2>NAME</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schdiff</b>
+&minus; Graphical diff tool for schematics</p>
+
+<a name="SYNOPSIS"></a>
+<h2>SYNOPSIS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schdiff</b>
+<i>[-d VIEWER] infile1.sch infile2.sch</i></p>
+
+<a name="DESCRIPTION"></a>
+<h2>DESCRIPTION</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>lepton-schdiff</b> program will use <b>ImageMagick(1)</b>
+to display a graphical diff of two schematic files.
+It&rsquo;s most useful when combined with a revision control
+system so it can compare two revisions of the same file,
+review changes, etc. However, it is limited in that it can
+only compare two files at a time; it cannot diff entire
+directories nor can it diff an entire revision (unless that
+revision affected only one file).</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>VIEWER</i>
+command, if specified, will be used to display the result.
+By default, it&rsquo;s <b>display</b> program from the
+ImageMagick package.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schdiff</b>
+can easily be configured to work with most revision control
+systems. Here are instructions for three:</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>git:</b> Use
+the <b>difftool</b> command exactly as you would use
+<b>diff</b> , but supply the <b>&minus;x lepton-schdiff</b>
+option.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>mercurial:</b>
+Use the <b>lepton-schdiff</b> command exactly as you would
+use <b>diff</b> , but add the following lines to your
+.hgrc:</p>
+
+<p style="margin-left:22%; margin-top: 1em">[extensions]
+<br>
+hgext.extdiff = <br>
+[extdiff] <br>
+cmd.schdiff = lepton-schdiff</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>subversion:</b>
+Use the <b>diff</b> command like normal, but supply the
+<b>--diff-cmd lepton-schdiff</b> option.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Note:</b> To
+make lepton-schdiff work properly, all page contents should
+be enclosed in some form of bounding box (e.g. a title
+block), otherwise the symbols in exported images could have
+different relative positions and/or sizes, resulting in a
+difference image that is rather hard to comprehend.</p>
+
+<a name="EXAMPLES"></a>
+<h2>EXAMPLES</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Use git to view
+the changes to a file between two revisions</p>
+
+<p style="margin-left:22%;">git difftool &minus;x
+lepton-schdiff 182110f 039e012 cpu.sch</p>
+
+<p style="margin-left:11%;">Use mercurial to see all the
+changes since a specific revision</p>
+
+<p style="margin-left:22%;">hg schdiff &minus;r
+8442880f9835 cpld.sch</p>
+
+<p style="margin-left:11%;">Use subversion to review a
+specific revision</p>
+
+<p style="margin-left:22%;">svn diff &minus;&minus;diff-cmd
+lepton-schdiff &minus;c 49 power.sch</p>
+
+<a name="BUGS"></a>
+<h2>BUGS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">If you find
+one, please report it at
+https://github.com/lepton-eda/lepton-eda/issues</p>
+
+<a name="AUTHOR"></a>
+<h2>AUTHOR</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Alan Somers</p>
+
+<a name="SEE ALSO"></a>
+<h2>SEE ALSO</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>composite(1),
+display(1), git(1), lepton-schematic(1), hg(1),
+svn(1)</b></p>
+<hr>
+</body>
+</html>

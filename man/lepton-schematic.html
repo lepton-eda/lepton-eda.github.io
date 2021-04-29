@@ -1,0 +1,198 @@
+<!-- Creator     : groff version 1.19.2 -->
+<!-- CreationDate: Thu Apr 29 11:54:23 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p     { margin-top: 0; margin-bottom: 0; }
+       pre   { margin-top: 0; margin-bottom: 0; }
+       table { margin-top: 0; margin-bottom: 0; }
+</style>
+<title>lepton-schematic</title>
+
+</head>
+<body>
+
+<h1 align=center>lepton-schematic</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#SCHEMATIC AND SYMBOL FILES">SCHEMATIC AND SYMBOL FILES</a><br>
+<a href="#AUTHORS">AUTHORS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<a name="NAME"></a>
+<h2>NAME</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">lepton-schematic
+- Lepton EDA Schematic Capture</p>
+
+<a name="SYNOPSIS"></a>
+<h2>SYNOPSIS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic</b>
+[<i>OPTION</i> ...] [<i>--</i>] [<i>FILE</i> ...]</p>
+
+<a name="DESCRIPTION"></a>
+<h2>DESCRIPTION</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic</b>
+is a schematic capture application, and is part of the
+Lepton EDA (Electronic Design Automation) toolset. It is
+used to draw electronic schematics, which describe the
+logical structure of an circuit. Schematics are made up of
+symbols, which represent the various components in the
+circuit, and are obtained either from a standard library or
+created by the user. The connections between components
+represented by nets (wires). Schematics may be printed to a
+PostScript file for printing or further conversion to other
+output formats. Output to various image formats is also
+supported.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic</b>
+can also be used for editing symbols for use in
+schematics.</p>
+
+<a name="OPTIONS"></a>
+<h2>OPTIONS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>-q</b>,
+<b>--quiet</b></p>
+
+<p style="margin-left:23%;">Quiet mode. Turn off all
+warnings/notes/messages.</p>
+
+<p style="margin-left:11%;"><b>-v</b>, <b>--verbose</b></p>
+
+<p style="margin-left:23%;">Verbose mode. Output all
+diagnostic information.</p>
+
+<p style="margin-left:11%;"><b>-L</b> <i>DIRECTORY</i></p>
+
+<p style="margin-left:23%;">Prepend <i>DIRECTORY</i> to the
+list of directories to be searched for Scheme files.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="11%">
+
+
+<p style="margin-top: 1em" valign="top"><b>-s</b>
+<i>FILE</i></p> </td>
+<td width="1%"></td>
+<td width="77%">
+
+
+<p style="margin-top: 1em" valign="top">Specify a Scheme
+script to be executed at startup.</p></td>
+<td width="0%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>-c</b> <i>EXPR</i>,
+<b>--command</b>=<i>EXPR</i></p>
+
+<p style="margin-left:23%;">Specify a Scheme expression to
+be evaluated at startup.</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:23%;">Print a help message.</p>
+
+<p style="margin-left:11%;"><b>-V</b>, <b>--version</b></p>
+
+<p style="margin-left:23%;">Print <b>lepton-schematic</b>
+version information.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top"><b>--</b></p></td>
+<td width="9%"></td>
+<td width="77%">
+
+
+<p style="margin-top: 1em" valign="top">Treat all remaining
+arguments as schematic or symbol filenames. Use this if you
+have a schematic or symbol filename which begins with
+&lsquo;-&rsquo;.</p> </td>
+</table>
+
+<a name="SCHEMATIC AND SYMBOL FILES"></a>
+<h2>SCHEMATIC AND SYMBOL FILES</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Optionally,
+schematic or symbol <i>FILE</i>s may be specified on the
+command line. Any schematic or symbols specified are loaded
+at startup as separate documents in the schematic
+editor.</p>
+
+<p style="margin-left:11%; margin-top: 1em">If no
+<i>FILE</i>s are specified, a blank schematic is created for
+editing.</p>
+
+<a name="AUTHORS"></a>
+<h2>AUTHORS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">See the
+&lsquo;AUTHORS&rsquo; file included with this program.</p>
+
+<a name="COPYRIGHT"></a>
+<h2>COPYRIGHT</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2012-2017 gEDA Contributors. <br>
+Copyright &copy; 2017-2021 Lepton Developers. <br>
+License GPLv2+: GNU GPL version 2 or later. Please see the
+&lsquo;COPYING&rsquo; <br>
+file included with this program for full details.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This is free
+software: you are free to change and redistribute it. <br>
+There is NO WARRANTY, to the extent permitted by law.</p>
+
+<a name="SEE ALSO"></a>
+<h2>SEE ALSO</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-netlist</b>(1),
+<b>lepton-symcheck</b>(1)</p>
+
+<p style="margin-left:11%; margin-top: 1em">The complete
+manual for <b>lepton-schematic</b> is provided in a GNU
+texinfo format. It is also available as HTML which you can
+open from within the program by selecting the
+&lsquo;Documentation&rsquo; option from the program&rsquo;s
+&lsquo;Help&rsquo; menu. The texinfo version may be viewed
+with various info viewers such as emacs or tkinfo.</p>
+<hr>
+</body>
+</html>

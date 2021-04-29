@@ -1,0 +1,420 @@
+<!-- Creator     : groff version 1.19.2 -->
+<!-- CreationDate: Thu Apr 29 11:55:34 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p     { margin-top: 0; margin-bottom: 0; }
+       pre   { margin-top: 0; margin-bottom: 0; }
+       table { margin-top: 0; margin-bottom: 0; }
+</style>
+<title>lepton-cli</title>
+
+</head>
+<body>
+
+<h1 align=center>lepton-cli</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#GENERAL OPTIONS">GENERAL OPTIONS</a><br>
+<a href="#EXPORTING IMAGE FILES">EXPORTING IMAGE FILES</a><br>
+<a href="#ACCESSING CONFIGURATION">ACCESSING CONFIGURATION</a><br>
+<a href="#SCHEME PROCESSING">SCHEME PROCESSING</a><br>
+<a href="#AUTHORS">AUTHORS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<a name="NAME"></a>
+<h2>NAME</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">lepton-cli -
+Lepton EDA Command-Line Utility</p>
+
+<a name="SYNOPSIS"></a>
+<h2>SYNOPSIS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli</b>
+[<i>OPTION</i> ...] <i>COMMAND</i> [<i>ARGS</i> ...]</p>
+
+<a name="DESCRIPTION"></a>
+<h2>DESCRIPTION</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli</b>
+is part of the Lepton EDA (Electronic Design Automation)
+toolset. It provides a number of small command-line
+utilities for working with schematic and symbol files, and
+is designed to be used for batch processing of designs
+created using the schematic editor
+<b>lepton-schematic</b>(1). It currently has three built-in
+<i>COMMAND</i>s:</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+export</b> is used to create SVG, PDF, PNG, PS and EPS files
+from schematic and symbol files, for printing or embedding
+in other documents.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+config</b> allows reading and writing settings in Lepton EDA
+project, user and system configuration stores.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+shell</b> provides a Scheme REPL for command-line batch
+processing of schematic data.</p>
+
+<a name="GENERAL OPTIONS"></a>
+<h2>GENERAL OPTIONS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>--no-rcfiles</b></p>
+
+<p style="margin-left:23%;">Prevent &lsquo;gafrc&rsquo;
+Scheme initialisation files from being loaded.</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:23%;">Print a help message.</p>
+
+<p style="margin-left:11%;"><b>-V</b>, <b>--version</b></p>
+
+<p style="margin-left:23%;">Print <b>lepton-cli</b> version
+information.</p>
+
+<a name="EXPORTING IMAGE FILES"></a>
+<h2>EXPORTING IMAGE FILES</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+export</b> [<i>OPTION</i> ...] <b>-o</b> <i>OUTPUT</i>
+[<i>--</i>] <i>FILE</i> ...</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+export</b> can export schematic and symbol files in a
+variety of image formats for printing or further processing.
+It currently supports single-page PNG, SVG and EPS output,
+and multi-page PS and PDF output. It accepts a variety of
+options for controlling how the output is formatted. <b><br>
+-o</b>, <b>--output</b>=<i>FILE</i></p>
+
+<p style="margin-left:23%;">Output generated image data to
+<i>FILE</i>.</p>
+
+<p style="margin-left:11%;"><b>-f</b>,
+<b>--format</b>=(<b>png</b> | <b>pdf</b> | <b>svg</b> |
+<b>ps</b> | <b>eps</b>)</p>
+
+<p style="margin-left:23%;">Specify an output format.
+Usually, this option is not required, because <b>lepton-cli
+export</b> will infer the correct format from the file
+extension of the output file.</p>
+
+<p style="margin-left:11%;"><b>-p</b>,
+<b>--paper</b>=<i>NAME</i></p>
+
+<p style="margin-left:23%;">Size the output for a
+particular paper size. The <i>NAME</i> should be a PWG
+5101.1-2002 paper name. For example, valid values include
+&lsquo;iso_a4&rsquo;, &lsquo;na_letter&rsquo;, or
+&lsquo;na_d&rsquo;.</p>
+
+<p style="margin-left:11%;"><b>-P</b>,
+<b>--paper-names</b></p>
+
+<p style="margin-left:23%;">Print paper size names suitable
+to pass to the <b>--paper</b> option and exit.</p>
+
+<p style="margin-left:11%;"><b>-l</b>,
+<b>--layout</b>=(<b>auto</b> | <b>landscape</b> |
+<b>portrait</b>)</p>
+
+<p style="margin-left:23%;">When using a paper size, set
+the orientation of the output. If &lsquo;auto&rsquo; layout
+is used, the orientation that best fits the drawing will be
+used.</p>
+
+<p style="margin-left:11%;"><b>-s</b>,
+<b>--size</b>=(<b>auto</b> | <i>WIDTH</i>:<i>HEIGHT</i>)</p>
+
+<p style="margin-left:23%;">Size the output with specific
+dimensions. If the size is &lsquo;auto&rsquo;, select the
+size that best fits the drawing.</p>
+
+<p style="margin-left:11%;"><b>-k</b>,
+<b>--scale</b>=<i>FACTOR</i> Set the output scale</p>
+
+<p style="margin-left:23%;"><i>FACTOR</i>. This is a
+distance identical with 100 points (1 default grid spacing)
+in <b>lepton-schematic</b>(1) coordinate space. It is used
+to size the output when neither <b>--paper</b> nor
+<b>--size</b> are given, and defaults to 100 mil.</p>
+
+<p style="margin-left:11%;"><b>-m</b>,
+<b>--margins</b>=(<b>auto</b> |
+<i>TOP</i>[:<i>LEFT</i>[:<i>BOTTOM</i>[:<i>RIGHT</i>]]])</p>
+
+<p style="margin-left:23%;">Set the widths of the margins
+to be used. If &lsquo;auto&rsquo; margins are specified, a
+sensible default value will be chosen. Up to four margin
+widths can be provided. If one is provided, it will be used
+on all four sides. If two are provided, the first will be
+used for the top/bottom and the second for the left/right.
+If three are provided, the first will be used for the top,
+the second for left/right, and the third for the bottom.</p>
+
+<p style="margin-left:11%;"><b>-a</b>,
+<b>--align</b>=(<b>auto</b> |
+<i>HALIGN</i>:<i>VALIGN</i>)</p>
+
+<p style="margin-left:23%;">Set how the drawing is aligned
+within the page. <i>HALIGN</i> controls the horizontal
+alignment, and <i>VALIGN</i> the vertical. Each alignment
+value should be in the range 0.0 to 1.0. The
+&lsquo;auto&rsquo; alignment is equivalent to a value of
+&lsquo;0.5:0.5&rsquo;, i.e. centered.</p>
+
+<p style="margin-left:11%;"><b>-d</b>,
+<b>--dpi</b>=<i>DPI</i></p>
+
+<p style="margin-left:23%;">Set the number of pixels per
+inch used when generating PNG output.</p>
+
+<p style="margin-left:11%;"><b>-c</b>, <b>--color</b></p>
+
+<p style="margin-left:23%;">Enable colour output.</p>
+
+<p style="margin-left:11%;"><b>--no-color</b></p>
+
+<p style="margin-left:23%;">Disable color output.</p>
+
+<p style="margin-left:11%;"><b>-F</b>,
+<b>--font</b>=<i>FONT-FAMILY</i></p>
+
+<p style="margin-left:23%;">Set the font to be used for
+drawing text.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top"><b>--</b></p></td>
+<td width="9%"></td>
+<td width="77%">
+
+
+<p style="margin-top: 1em" valign="top">Treat all remaining
+arguments as schematic or symbol filenames. Use this if you
+have a schematic or symbol filename which begins with
+&lsquo;-&rsquo;.</p> </td>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>--size</b>, <b>--margins</b>, or <b>--scale</b> options
+described above accept values using units of
+&lsquo;mm&rsquo;, &lsquo;cm&rsquo;, &lsquo;in&rsquo;,
+&lsquo;pc&rsquo;, &lsquo;px&rsquo;, or &lsquo;pt&rsquo;. If
+you do not provide a unit, points are assumed. N.b. that
+&lsquo;px&rsquo; are evaluated relative to the current
+<b>--dpi</b> setting.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When using the
+<b>--size</b>, <b>--margins</b>, or <b>--align</b> options
+with multiple values, you may use &lsquo;;&rsquo;, or
+&lsquo; &rsquo; as a separator between them instead of
+&lsquo;:&rsquo;. In such a case, remember to properly quote
+your arguments to avoid them to be interpreted by your
+shell.</p>
+
+<a name="ACCESSING CONFIGURATION"></a>
+<h2>ACCESSING CONFIGURATION</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+config</b> [<i>OPTION</i>] [<i>GROUP KEY</i>
+[<i>VALUE</i>]]</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+config</b> is a basic utility for inspecting and modifying
+Lepton EDA configuration stores.</p>
+
+<p style="margin-left:11%; margin-top: 1em">If a
+<i>GROUP</i> and KEY are specified, retrieves the value of
+that configuration parameter. If a <i>VALUE</i> is
+specified, sets the value of that parameter. The <b>-p</b>,
+<b>-u</b> and <b>-s</b> options can be used to select the
+configuration store affected (by default, the project
+configuration store for the current working directory). If
+no <i>GROUP</i> and <i>KEY</i> are provided, outputs the
+filename of the selected configuration store. <b><br>
+-p</b>, <b>--project</b>[=<i>PATH</i>]</p>
+
+<p style="margin-left:23%;">Select the project
+configuration store of the project located in <i>PATH</i>.
+If no <i>PATH</i> is provided, selects the project in the
+current working directory.</p>
+
+<p style="margin-left:11%;"><b>-u</b>, <b>--user</b></p>
+
+<p style="margin-left:23%;">Select the user configuration
+store.</p>
+
+<p style="margin-left:11%;"><b>-s</b>, <b>--system</b></p>
+
+<p style="margin-left:23%;">Select the system configuration
+store. Depending on user permissions, the system
+configuration store may be read-only.</p>
+
+<p style="margin-left:11%;"><b>-c</b>, <b>--cache</b></p>
+
+<p style="margin-left:23%;">Select the program-specific
+configuration store (CACHE configuration context, associated
+with $XDG_CACHE_HOME/lepton-eda/gui.conf configuration
+file).</p>
+
+<a name="SCHEME PROCESSING"></a>
+<h2>SCHEME PROCESSING</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+shell</b> [<i>OPTION ...</i>]</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-cli
+shell</b> provides a Scheme Read-Eval-Print Loop (REPL) for
+automating processing of schematic and symbol files. It is
+designed to be used with the Lepton EDA Scheme API.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="11%">
+
+
+<p style="margin-top: 1em" valign="top"><b>-s</b>
+<i>FILE</i></p> </td>
+<td width="1%"></td>
+<td width="74%">
+
+
+<p style="margin-top: 1em" valign="top">Evaluate Scheme
+source code from <i>FILE</i>, and exit.</p></td>
+<td width="3%">
+</td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="11%">
+
+
+<p style="margin-top: 1em" valign="top"><b>-c</b>
+<i>EXPR</i></p> </td>
+<td width="1%"></td>
+<td width="74%">
+
+
+<p style="margin-top: 1em" valign="top">Evaluate the Scheme
+expression <i>EXPR</i>, and exit.</p></td>
+<td width="3%">
+</td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="11%">
+
+
+<p style="margin-top: 1em" valign="top"><b>--</b></p></td>
+<td width="1%"></td>
+<td width="74%">
+
+
+<p style="margin-top: 1em" valign="top">Stop scanning
+arguments; run interactively.</p></td>
+<td width="3%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>-L</b> <i>DIRECTORY</i></p>
+
+<p style="margin-left:23%;">Prepend <i>DIRECTORY</i> to the
+list of directories to be searched for Scheme files.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="11%">
+
+
+<p style="margin-top: 1em" valign="top"><b>-l</b>
+<i>FILE</i></p> </td>
+<td width="1%"></td>
+<td width="59%">
+
+
+<p style="margin-top: 1em" valign="top">Evaluate Scheme
+source code from <i>FILE</i>.</p></td>
+<td width="18%">
+</td>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">The <b>-s</b>,
+<b>-c</b> and <b>--</b> switches stop argument processing
+and pass all the remaining arguments as the value of
+&lsquo;(command-line)&rsquo;.</p>
+
+<a name="AUTHORS"></a>
+<h2>AUTHORS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">See the
+&lsquo;AUTHORS&rsquo; file included with this program.</p>
+
+<a name="COPYRIGHT"></a>
+<h2>COPYRIGHT</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2012-2017 gEDA Contributors. <br>
+Copyright &copy; 2017-2021 Lepton Developers. <br>
+License GPLv2+: GNU GPL version 2 or later. Please see the
+&lsquo;COPYING&rsquo; <br>
+file included with this program for full details.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This is free
+software: you are free to change and redistribute it. <br>
+There is NO WARRANTY, to the extent permitted by law.</p>
+
+<a name="SEE ALSO"></a>
+<h2>SEE ALSO</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic</b>(1).</p>
+
+<p style="margin-left:11%; margin-top: 1em">For more
+information on the Scheme API, see the <b>lepton-scheme</b>
+Texinfo manual. If the <b>info</b> program is properly
+installed at your site, the command</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info
+lepton-scheme</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>
