@@ -1,0 +1,220 @@
+<!-- Creator     : groff version 1.19.2 -->
+<!-- CreationDate: Thu Apr 29 11:55:31 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p     { margin-top: 0; margin-bottom: 0; }
+       pre   { margin-top: 0; margin-bottom: 0; }
+       table { margin-top: 0; margin-bottom: 0; }
+</style>
+<title>lepton-symfix</title>
+
+</head>
+<body>
+
+<h1 align=center>lepton-symfix</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<a name="NAME"></a>
+<h2>NAME</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">lepton-symfix
+&minus; automatically fix common issues with Lepton EDA
+symbols</p>
+
+<a name="SYNOPSIS"></a>
+<h2>SYNOPSIS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-symfix
+[</b> <i>options</i> <b>]</b> <i>symbol_file</i></p>
+
+<a name="DESCRIPTION"></a>
+<h2>DESCRIPTION</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-symfix</b>
+reads a Lepton EDA symbol file and does the following:</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">prints a warning if
+there is no pinnumber attribute on a pin;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Renumbers pinseq
+attributes on all pins, starting with 1;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Adds a pinseq
+attribute to a pin if none exists;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Adds a pinlabel=n_a
+attribute to a pin if none exists;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Adds a pintype=io
+attribute to a pin if none exists;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Adds a numslots=0
+attribute to the symbol if none exists;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Adds a device=XXX
+attribute to the symbol if none exists;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Adds a
+footprint=XXX attribute to the symbol if none exists.</p></td>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">The idea here
+is to fix common cut-and-paste issues and fix up the symbol
+so that it will pass <b>lepton-symcheck</b>(1) with no
+errors or warnings.</p>
+
+<a name="OPTIONS"></a>
+<h2>OPTIONS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-symfix</b>
+accepts the following options: <b><br>
+-h</b>, <b>&minus;&minus;help</b></p>
+
+<p style="margin-left:22%;">Displays this help message.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;&minus;verbose</b></p>
+
+<p style="margin-left:22%;">Enables verbose output.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;&minus;vverbose</b></p>
+
+<p style="margin-left:22%;">Enables *very* verbose
+output.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;&minus;version</b></p>
+
+<p style="margin-left:22%;">Shows the version of this
+program.</p>
+
+<a name="AUTHOR"></a>
+<h2>AUTHOR</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Mike Skerritt
+&lt;mike@acornpacket.com&gt;.</p>
+
+<a name="SEE ALSO"></a>
+<h2>SEE ALSO</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic</b>(1),
+<b>lepton-symcheck</b>(1)</p>
+
+<a name="COPYRIGHT"></a>
+<h2>COPYRIGHT</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2012-2017 gEDA Contributors. <br>
+License GPLv2+: GNU GPL version 2 or later. Please see the
+&lsquo;COPYING&rsquo; <br>
+file included with this program for full details.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This is free
+software: you are free to change and redistribute it. <br>
+There is NO WARRANTY, to the extent permitted by law.</p>
+<hr>
+</body>
+</html>

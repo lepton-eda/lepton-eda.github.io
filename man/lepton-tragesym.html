@@ -1,0 +1,560 @@
+<!-- Creator     : groff version 1.19.2 -->
+<!-- CreationDate: Thu Apr 29 11:55:31 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p     { margin-top: 0; margin-bottom: 0; }
+       pre   { margin-top: 0; margin-bottom: 0; }
+       table { margin-top: 0; margin-bottom: 0; }
+</style>
+<title>lepton-tragesym</title>
+
+</head>
+<body>
+
+<h1 align=center>lepton-tragesym</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#SOURCE FILE FORMAT">SOURCE FILE FORMAT</a><br>
+<a href="#TUTORIAL">TUTORIAL</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<a name="NAME"></a>
+<h2>NAME</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">lepton-tragesym
+&minus; create Lepton EDA symbols from structured text
+files</p>
+
+<a name="SYNOPSIS"></a>
+<h2>SYNOPSIS</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-tragesym</b>
+<i>SOURCE-FILE SYMBOL-FILE</i></p>
+
+<a name="DESCRIPTION"></a>
+<h2>DESCRIPTION</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-tragesym</b>
+creates lepton-schematic symbols from structured text
+files.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-tragesym</b>
+can:</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">create pins, their
+elements (clocksign, negation bubble), and attributes
+(&ldquo;pinnumber&rdquo;, &ldquo;pinseq&rdquo;,
+&ldquo;pintype&rdquo;, and &ldquo;pinlabel&rdquo;);</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">sort the pins
+alphabetically by their attributes;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">rotate pinlabel
+attributes of the top and bottom pins if requested;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">swap words in the
+pinlabel attributes if requested (only for attributes of the
+right and top pins, in the latter case only if rotation is
+also requested);</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">do some syntax
+checking to the input file.</p></td>
+</table>
+
+<a name="SOURCE FILE FORMAT"></a>
+<h2>SOURCE FILE FORMAT</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>General</b>
+<br>
+Source file is a text file consisting of three sections:
+<br>
+&bull; <b>[geda_attr]</b> <br>
+&bull; <b>[options]</b> <br>
+&bull; <b>[pins]</b></p>
+
+<p style="margin-top: 1em" valign="top">Section name should
+be enclosed in square brackets.</p>
+
+<p style="margin-top: 1em" valign="top">Empty lines, lines
+consisting of whitespaces only, as well as lines beginning
+with the character &rsquo;#&rsquo; (comments) are silently
+ignored.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>[options]</b>
+<br>
+The section contains export settings. The following settings
+are supported:</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="27%">
+
+
+<p style="margin-top: 1em" valign="top"><b>wordswap</b>
+(<i>boolean</i>)</p> </td>
+<td width="51%">
+</td>
+</table>
+
+<p style="margin-left:22%;">Swap labels if the pin is on
+the right side and contains space between words, that is,
+looks like this: &ldquo;PB1 (CLK)&rdquo;. That may be useful
+for micro controller port labels.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="35%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>rotate_labels</b>
+(<i>boolean</i>)</p> </td>
+<td width="43%">
+</td>
+</table>
+
+<p style="margin-left:22%;">Rotate the
+&ldquo;pinlabel&rdquo; attribute of the top and bottom pins
+by 90 degrees. This may be useful for large symbols like
+FPGAs with more than 100 pins.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="32%">
+
+
+<p style="margin-top: 1em" valign="top"><b>sort_labels</b>
+(<i>boolean</i>)</p> </td>
+<td width="46%">
+</td>
+</table>
+
+<p style="margin-left:22%;">Sort the pins by their
+&ldquo;pinlabel&rdquo; attributes, which is useful for
+address ports, busses, etc.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="38%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>generate_pinseq</b>
+(<i>boolean</i>)</p> </td>
+<td width="40%">
+</td>
+</table>
+
+<p style="margin-left:22%;">Automatically generate
+&ldquo;pinseq&rdquo; attributes for those pins whose
+corresponding field in the source file is empty. The
+generated attribute values are numbers incremented in the
+order the pin description lines appear in the <b>[pins]</b>
+section except for already existing numbers.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="29%">
+
+
+<p style="margin-top: 1em" valign="top"><b>sym_width</b>
+(<i>integer</i>)</p> </td>
+<td width="49%">
+</td>
+</table>
+
+<p style="margin-left:22%;">Minimum box width of the
+resulting symbol.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="40%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>pinwidthvertical</b>
+(<i>integer</i>)</p> </td>
+<td width="38%">
+</td>
+</table>
+
+<p style="margin-left:22%;">The vertical distance between
+pins on the left or right hand side of the symbol.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<td width="10%"></td>
+<td width="43%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>pinwidthhorizontal</b>
+(<i>integer</i>)</p> </td>
+<td width="35%">
+</td>
+</table>
+
+<p style="margin-left:22%;">The horizontal distance between
+pins on the top or bottom of the symbol.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The boolean
+values are specified in the source file by the words
+&ldquo;yes&rdquo; or &ldquo;on&rdquo; meaning TRUE and
+&ldquo;no&rdquo; or &ldquo;off&rdquo; meaning FALSE.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>[geda_attr]</b>
+<br>
+The section contains the list of Lepton symbol attributes
+(&ldquo;name=value&rdquo; pairs) which you would want to see
+in the symbol file. The attribute names may be separated by
+the equal or tabulation character (&ldquo;=&rdquo; or
+&ldquo;\t&rdquo;). The tab separator is supported for
+convenient export from spreadsheet programs.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>[pins]</b>
+<br>
+The section contains the description of symbol pins to be
+made, one pin per line. The pin description consists of
+seven tab separated fields, any of which may contain empty
+value (no character between tabs). The fields define the
+following pin attributes and properties:</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">1.</p></td>
+<td width="1%"></td>
+<td width="33%">
+
+
+
+<p style="margin-top: 1em" valign="top">&ldquo;pinnumber&rdquo;
+attribute</p> </td>
+<td width="52%">
+</td>
+</table>
+
+<p style="margin-left:15%;">The &ldquo;pinnumber&rdquo;
+attribute represents the physical number of the component
+pin.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">2.</p></td>
+<td width="1%"></td>
+<td width="28%">
+
+
+
+<p style="margin-top: 1em" valign="top">&ldquo;pinseq&rdquo;
+attribute</p> </td>
+<td width="57%">
+</td>
+</table>
+
+<p style="margin-left:15%;">The &ldquo;pinseq&rdquo;
+attribute is used in Lepton to assign pin numbers for
+slotted components and by the SPICE backends to output pins
+in right order. Leave the field blank if it doesn&rsquo;t
+matter.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">3.</p></td>
+<td width="1%"></td>
+<td width="30%">
+
+
+
+<p style="margin-top: 1em" valign="top">&ldquo;pintype&rdquo;
+attribute</p> </td>
+<td width="55%">
+</td>
+</table>
+
+<p style="margin-left:15%;">The &ldquo;pintype&rdquo;
+attribute defines the pin function (input, output, power,
+etc.) and can be one of &ldquo;in&rdquo;, &ldquo;out&rdquo;,
+&ldquo;io&rdquo;, &ldquo;oc&rdquo;, &ldquo;oe&rdquo;,
+&ldquo;pas&rdquo;, &ldquo;tp&rdquo;, &ldquo;tri&rdquo;,
+&ldquo;clk&rdquo;, or &ldquo;pwr&rdquo;. The attribute is
+used by the DRC backends to check component interconnection
+validity.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">4.</p></td>
+<td width="1%"></td>
+<td width="14%">
+
+
+<p style="margin-top: 1em" valign="top">pin style</p></td>
+<td width="71%">
+</td>
+</table>
+
+<p style="margin-left:15%;">Pin style determines the
+appearance of the pin. It can be one of &ldquo;line&rdquo;
+(simple pin), &ldquo;dot&rdquo; (pin with negation bubble),
+&ldquo;clk&rdquo; (pin with clock symbol),
+&ldquo;dotclk&rdquo; (bubble and clock),
+&ldquo;spacer&rdquo; (not a pin, just additional empty space
+between two pins), or &ldquo;none&rdquo; (to add a virtual
+pin via the &ldquo;net&rdquo; attribute).</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">5.</p></td>
+<td width="1%"></td>
+<td width="19%">
+
+
+<p style="margin-top: 1em" valign="top">pin position</p></td>
+<td width="66%">
+</td>
+</table>
+
+<p style="margin-left:15%;">Pin position determines the
+side of the component the pin should be placed on. It can be
+&ldquo;l&rdquo; (left), &ldquo;r&rdquo; (right),
+&ldquo;t&rdquo; (top), &ldquo;b&rdquo; (bottom), or empty
+(&ldquo;&rdquo;) when the pin should be defined in the
+&ldquo;net&rdquo; attribute.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">6.</p></td>
+<td width="1%"></td>
+<td width="11%">
+
+
+<p style="margin-top: 1em" valign="top">pin net</p></td>
+<td width="74%">
+</td>
+</table>
+
+<p style="margin-left:15%;">Specifies the net name of the
+pin to define via the &ldquo;net&rdquo; attribute, for
+example, &ldquo;Vcc&rdquo; or &ldquo;GND&rdquo;.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em" valign="top">7.</p></td>
+<td width="1%"></td>
+<td width="31%">
+
+
+
+<p style="margin-top: 1em" valign="top">&ldquo;pinlabel&rdquo;
+attribute</p> </td>
+<td width="54%">
+</td>
+</table>
+
+<p style="margin-left:15%;">The &ldquo;pinlabel&rdquo;
+attribute represents the visible pin label defining its name
+in the component, for example &ldquo;A&rdquo; (anode) or
+&ldquo;C&rdquo; (cathode) in a diode symbol. Negation lines
+can be added with &ldquo;\_&rdquo;, for example,
+&ldquo;\_enable\_&rdquo;. If you want to add the character
+&ldquo;\&rdquo;, use &ldquo;\\&rdquo; as escape sequence.
+This is supported by &lsquo;lepton-schematic&lsquo;.</p>
+
+<a name="TUTORIAL"></a>
+<h2>TUTORIAL</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">There is a
+tutorial on the use of <b>tragesym</b>, the predecessor of
+<b>lepton-tragesym</b>, at:</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">http://wiki.geda-project.org/geda:tragesym_tutorial</p>
+
+<a name="AUTHOR"></a>
+<h2>AUTHOR</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The initial
+Python script has been written by Werner Hoch
+&lt;werner.ho@gmx.de&gt;. The program has been rewritten
+almost from scratch in Scheme by Vladimir Zhbanov
+&lt;vzhbanov@gmail.com&gt;.</p>
+
+<a name="SEE ALSO"></a>
+<h2>SEE ALSO</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic</b>(1),</p>
+
+<a name="COPYRIGHT"></a>
+<h2>COPYRIGHT</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2012-2017 gEDA Contributors. <br>
+Copyright &copy; 2019-2021 Lepton EDA Contributors. <br>
+License GPLv2+: GNU GPL version 2 or later. Please see the
+&lsquo;COPYING&rsquo; <br>
+file included with this program for full details.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This is free
+software: you are free to change and redistribute it. <br>
+There is NO WARRANTY, to the extent permitted by law.</p>
+<hr>
+</body>
+</html>
