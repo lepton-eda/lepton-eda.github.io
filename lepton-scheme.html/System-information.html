@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.13.
+<!-- This manual is for Lepton EDA, version 1.9.14.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
@@ -17,10 +17,10 @@ adaptation of it, you must provide the URL for the original version. -->
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>System information (Lepton EDA Scheme Reference Manual 1.9.13)</title>
+<title>System information (Lepton EDA Scheme Reference Manual 1.9.14)</title>
 
-<meta name="description" content="System information (Lepton EDA Scheme Reference Manual 1.9.13)">
-<meta name="keywords" content="System information (Lepton EDA Scheme Reference Manual 1.9.13)">
+<meta name="description" content="System information (Lepton EDA Scheme Reference Manual 1.9.14)">
+<meta name="keywords" content="System information (Lepton EDA Scheme Reference Manual 1.9.14)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -104,12 +104,26 @@ environment variables on the host platform.
 symbols may include:
 </p>
 <ul>
-<li> &lsquo;<samp>carbon</samp>&rsquo;
-</li><li> &lsquo;<samp>cygwin</samp>&rsquo;
+<li> &lsquo;<samp>cygwin</samp>&rsquo;
 </li><li> &lsquo;<samp>linux</samp>&rsquo;
 </li><li> &lsquo;<samp>win32</samp>&rsquo;
 </li><li> &lsquo;<samp>win32-native</samp>&rsquo;
+</li><li> &lsquo;<samp>unknown</samp>&rsquo;
 </li></ul>
+
+<blockquote>
+<p><b>Note:</b> Previously, the function defined platform on Mac OS as &lsquo;<samp>carbon</samp>&rsquo;.
+Since the Carbon framework has been discontinued by Apple, the symbol
+is no longer used, and the platform will be determined as
+&lsquo;<samp>unknown</samp>&rsquo;.  The Guile variable <var>%host-type</var> can be used
+instead to define the platform in this case.  For example:
+</p><div class="lisp">
+<pre class="lisp">(string-contains %host-type &quot;apple&quot;)
+</pre></div>
+<p>Please let us know if you have a better suggestion of how to name the
+platform in the function.
+</p></blockquote>
+
 </dd></dl>
 
 <dl>
