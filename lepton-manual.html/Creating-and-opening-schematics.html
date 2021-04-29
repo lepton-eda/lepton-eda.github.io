@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.14.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Creating and opening schematics (Lepton EDA Reference Manual 1.9.14)</title>
+
+<meta name="description" content="Creating and opening schematics (Lepton EDA Reference Manual 1.9.14)">
+<meta name="keywords" content="Creating and opening schematics (Lepton EDA Reference Manual 1.9.14)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic.html" rel="up" title="lepton-schematic">
+<link href="Saving-schematic-pages.html" rel="next" title="Saving schematic pages">
+<link href="Save-As-dialog-box.html" rel="prev" title="Save As dialog box">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Creating-and-opening-schematics"></span><div class="header">
+<p>
+Next: <a href="Saving-schematic-pages.html" accesskey="n" rel="next">Saving schematic pages</a>, Previous: <a href="Dialog-boxes.html" accesskey="p" rel="prev">Dialog boxes</a>, Up: <a href="lepton_002dschematic.html" accesskey="u" rel="up">lepton-schematic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Creating-new-and-opening-existing-schematic-files"></span><h3 class="section">5.5 Creating new and opening existing schematic files</h3>
+<span id="index-creating-schematics"></span>
+<span id="index-create-schematics"></span>
+<span id="index-create-schematic"></span>
+<span id="index-create-schematic-files"></span>
+<span id="index-create-schematic-file"></span>
+<span id="index-schematic-creation"></span>
+<span id="index-opening-schematics"></span>
+<span id="index-opening-schematic"></span>
+<span id="index-opening-schematic-file"></span>
+<span id="index-open-schematics"></span>
+<span id="index-open-schematic"></span>
+<span id="index-open-schematic-file"></span>
+
+<p>Every time you launch <code>lepton-schematic</code> without arguments in a terminal, or
+from your window manager menu, a new untitled schematic page is
+created.  Use File &rarr; New within <code>lepton-schematic</code> if
+you want to create another page.
+</p>
+<p>The default page name for new pages is formed as a filename prefix
+defined in the configuration key <a href="schematic-group.html#default_002dfilename">default-filename</a> and a serial
+number which is incremented every time a new page is created,
+e.g. <samp>untitled_3.sch</samp>.  Usually, a title block symbol is
+inserted, see <a href="Title-block-symbol.html">Title block symbol</a>.
+</p>
+<p>Within the program, you can open an already existing schematic using
+the menu action File &rarr; Open...  In the opened
+dialog box select the file you need and click the button &lsquo;<samp>Open</samp>&rsquo;
+to actually open it, or &lsquo;<samp>Cancel</samp>&rsquo; to cancel with it.  At the
+bottom-right of the dialog there is a filter button.  With it, you can
+change view to see schematics or symbols only, both schematics and
+symbols, or any files in case you want to look at some other stuff in
+the selected directory.
+</p>
+<p>If you want to open a file you worked on recently, click the menu item
+File &rarr; Open Recent.  The submenu contains
+several file names.  You can configure how many files should be shown
+there using the configuration key <a href="schematic_002egui-group.html#max_002drecent_002dfiles">max-recent-files</a>.
+</p>
+
+
+
+</body>
+</html>

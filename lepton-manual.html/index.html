@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.13.
+<!-- This manual documents Lepton EDA version 1.9.14.
 
-Copyright (C) 2020 Lepton Contributors.
+Copyright (C) 2020-2021 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -13,10 +13,10 @@ Documentation License." -->
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Top (Lepton EDA Reference Manual 1.9.13)</title>
+<title>Top (Lepton EDA Reference Manual 1.9.14)</title>
 
-<meta name="description" content="Top (Lepton EDA Reference Manual 1.9.13)">
-<meta name="keywords" content="Top (Lepton EDA Reference Manual 1.9.13)">
+<meta name="description" content="Top (Lepton EDA Reference Manual 1.9.14)">
+<meta name="keywords" content="Top (Lepton EDA Reference Manual 1.9.14)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -49,7 +49,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Lepton EDA Reference Manual 1.9.13</h1>
+<h1 class="settitle" align="center">Lepton EDA Reference Manual 1.9.14</h1>
 
 
 
@@ -63,7 +63,12 @@ ul.no-bullet {list-style: none}
 <ul class="no-bullet">
   <li><a id="toc-Overview-1" href="Overview.html#Overview">1 Overview</a>
   <ul class="no-bullet">
-    <li><a id="toc-Compatibility-with-geda_002dgaf-1" href="Compatibility-with-geda_002dgaf.html#Compatibility-with-geda_002dgaf">1.1 Compatibility with geda-gaf</a></li>
+    <li><a id="toc-The-list-of-programs-in-the-suite" href="List-of-programs.html#List-of-programs">1.1 The list of programs in the suite</a></li>
+    <li><a id="toc-Compatibility-with-geda_002dgaf-1" href="Compatibility-with-geda_002dgaf.html#Compatibility-with-geda_002dgaf">1.2 Compatibility with geda-gaf</a></li>
+    <li><a id="toc-Related-tools-1" href="Related-tools.html#Related-tools">1.3 Related tools</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Covered-1" href="Covered.html#Covered">1.3.1 Covered</a></li>
+    </ul></li>
   </ul></li>
   <li><a id="toc-Installation-1" href="Installation.html#Installation">2 Installation</a>
   <ul class="no-bullet">
@@ -120,22 +125,56 @@ ul.no-bullet {list-style: none}
   <li><a id="toc-Symbols-1" href="Symbols.html#Symbols">4 Symbols</a>
   <ul class="no-bullet">
     <li><a id="toc-No-Connection-Short-Form-Data-Sheet" href="No_002dconnect-symbols.html#No_002dconnect-symbols">4.1 No Connection Short Form Data Sheet</a></li>
+    <li><a id="toc-Title-block-symbol-1" href="Title-block-symbol.html#Title-block-symbol">4.2 Title block symbol</a></li>
   </ul></li>
   <li><a id="toc-Schematic-capture" href="lepton_002dschematic.html#lepton_002dschematic">5 Schematic capture</a>
   <ul class="no-bullet">
-    <li><a id="toc-Component-libraries-1" href="Component-libraries.html#Component-libraries">5.1 Component libraries</a>
+    <li><a id="toc-Introduction-to-lepton_002dschematic-1" href="Introduction-to-lepton_002dschematic.html#Introduction-to-lepton_002dschematic">5.1 Introduction to lepton-schematic</a></li>
+    <li><a id="toc-Running-lepton_002dschematic-1" href="Running-lepton_002dschematic.html#Running-lepton_002dschematic">5.2 Running lepton-schematic</a></li>
+    <li><a id="toc-Main-lepton_002dschematic-window" href="lepton_002dschematic-window.html#lepton_002dschematic-window">5.3 Main lepton-schematic window</a>
     <ul class="no-bullet">
-      <li><a id="toc-Component-library-setup-1" href="Component-library-setup.html#Component-library-setup">5.1.1 Component library setup</a>
+      <li><a id="toc-Menubar-1" href="Menubar.html#Menubar">5.3.1 Menubar</a></li>
+      <li><a id="toc-Menu-File-1" href="Menu-File.html#Menu-File">5.3.2 Menu File</a></li>
+      <li><a id="toc-Menu-Edit-1" href="Menu-Edit.html#Menu-Edit">5.3.3 Menu Edit</a></li>
+      <li><a id="toc-Menu-View-1" href="Menu-View.html#Menu-View">5.3.4 Menu View</a></li>
+      <li><a id="toc-Menu-Page-1" href="Menu-Page.html#Menu-Page">5.3.5 Menu Page</a></li>
+      <li><a id="toc-Menu-Add-1" href="Menu-Add.html#Menu-Add">5.3.6 Menu Add</a></li>
+      <li><a id="toc-Menu-Hierarchy-1" href="Menu-Hierarchy.html#Menu-Hierarchy">5.3.7 Menu Hierarchy</a></li>
+      <li><a id="toc-Menu-Attributes-1" href="Menu-Attributes.html#Menu-Attributes">5.3.8 Menu Attributes</a></li>
+      <li><a id="toc-Menu-Options-1" href="Menu-Options.html#Menu-Options">5.3.9 Menu Options</a></li>
+      <li><a id="toc-Menu-Netlist-1" href="Menu-Netlist.html#Menu-Netlist">5.3.10 Menu Netlist</a></li>
+      <li><a id="toc-Menu-Help-1" href="Menu-Help.html#Menu-Help">5.3.11 Menu Help</a></li>
+    </ul></li>
+    <li><a id="toc-Dialog-boxes-1" href="Dialog-boxes.html#Dialog-boxes">5.4 Dialog boxes</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Add-Component-widget-1" href="Add-Component-widget.html#Add-Component-widget">5.4.1 Add Component widget</a></li>
+      <li><a id="toc-Save-As-dialog-box-1" href="Save-As-dialog-box.html#Save-As-dialog-box">5.4.2 Save As dialog box</a></li>
+    </ul></li>
+    <li><a id="toc-Creating-new-and-opening-existing-schematic-files" href="Creating-and-opening-schematics.html#Creating-and-opening-schematics">5.5 Creating new and opening existing schematic files</a></li>
+    <li><a id="toc-Saving-schematic-pages-1" href="Saving-schematic-pages.html#Saving-schematic-pages">5.6 Saving schematic pages</a></li>
+    <li><a id="toc-Selecting-objects-1" href="Selecting-objects.html#Selecting-objects">5.7 Selecting objects</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Simple-object-selection-1" href="Simple-object-selection.html#Simple-object-selection">5.7.1 Simple object selection</a></li>
+      <li><a id="toc-Box-selection-1" href="Box-selection.html#Box-selection">5.7.2 Box selection</a></li>
+    </ul></li>
+    <li><a id="toc-lepton_002dschematic-command-line-options-1" href="lepton_002dschematic-command-line-options.html#lepton_002dschematic-command-line-options">5.8 lepton-schematic command line options</a></li>
+    <li><a id="toc-Component-libraries-1" href="Component-libraries.html#Component-libraries">5.9 Component libraries</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Component-library-setup-1" href="Component-library-setup.html#Component-library-setup">5.9.1 Component library setup</a>
       <ul class="no-bullet">
-        <li><a id="toc-component_002dlibrary-1" href="component_002dlibrary.html#component_002dlibrary">5.1.1.1 component-library</a></li>
-        <li><a id="toc-component_002dlibrary_002dsearch-1" href="component_002dlibrary_002dsearch.html#component_002dlibrary_002dsearch">5.1.1.2 component-library-search</a></li>
-        <li><a id="toc-component_002dlibrary_002dcommand-1" href="component_002dlibrary_002dcommand.html#component_002dlibrary_002dcommand">5.1.1.3 component-library-command</a></li>
-        <li><a id="toc-component_002dlibrary_002dfuncs-1" href="component_002dlibrary_002dfuncs.html#component_002dlibrary_002dfuncs">5.1.1.4 component-library-funcs</a></li>
-        <li><a id="toc-reset_002dcomponent_002dlibrary-1" href="reset_002dcomponent_002dlibrary.html#reset_002dcomponent_002dlibrary">5.1.1.5 reset-component-library</a></li>
+        <li><a id="toc-component_002dlibrary-1" href="component_002dlibrary.html#component_002dlibrary">5.9.1.1 component-library</a></li>
+        <li><a id="toc-component_002dlibrary_002dsearch-1" href="component_002dlibrary_002dsearch.html#component_002dlibrary_002dsearch">5.9.1.2 component-library-search</a></li>
+        <li><a id="toc-component_002dlibrary_002dcommand-1" href="component_002dlibrary_002dcommand.html#component_002dlibrary_002dcommand">5.9.1.3 component-library-command</a></li>
+        <li><a id="toc-component_002dlibrary_002dfuncs-1" href="component_002dlibrary_002dfuncs.html#component_002dlibrary_002dfuncs">5.9.1.4 component-library-funcs</a></li>
+        <li><a id="toc-reset_002dcomponent_002dlibrary-1" href="reset_002dcomponent_002dlibrary.html#reset_002dcomponent_002dlibrary">5.9.1.5 reset-component-library</a></li>
       </ul></li>
     </ul></li>
   </ul></li>
-  <li><a id="toc-Netlister" href="lepton_002dnetlist.html#lepton_002dnetlist">6 Netlister</a></li>
+  <li><a id="toc-Netlister" href="lepton_002dnetlist.html#lepton_002dnetlist">6 Netlister</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Allegro-netlister-backend" href="Allegro-backend.html#Allegro-backend">6.1 Allegro netlister backend</a></li>
+    <li><a id="toc-BOM-netlister-backend" href="BOM-backend.html#BOM-backend">6.2 BOM netlister backend</a></li>
+  </ul></li>
   <li><a id="toc-lepton_002dcli-_002d-Lepton-command_002dline-utility" href="lepton_002dcli.html#lepton_002dcli">7 lepton-cli - Lepton command-line utility</a>
   <ul class="no-bullet">
     <li><a id="toc-lepton_002dcli-export-1" href="lepton_002dcli-export.html#lepton_002dcli-export">7.1 lepton-cli export</a></li>
@@ -243,7 +282,17 @@ Next: <a href="Overview.html" accesskey="n" rel="next">Overview</a>, Previous: <
 
 Overview
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Compatibility-with-geda_002dgaf.html">Compatibility with geda-gaf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="List-of-programs.html">List of programs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The list of programs in the suite.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compatibility-with-geda_002dgaf.html">Compatibility with geda-gaf</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Related-tools.html">Related tools</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Tools related to Lepton EDA
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Related tools
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Covered.html">Covered</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -347,9 +396,69 @@ Resources
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
+Symbols
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="No_002dconnect-symbols.html">No-connect symbols</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Title-block-symbol.html">Title block symbol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Schematic capture
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Component-libraries.html">Component libraries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Introduction-to-lepton_002dschematic.html">Introduction to lepton-schematic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Running-lepton_002dschematic.html">Running lepton-schematic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dschematic-window.html">lepton-schematic window</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Dialog-boxes.html">Dialog boxes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Selecting-objects.html">Selecting objects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="lepton_002dschematic-command-line-options.html">lepton-schematic command line options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Component-libraries.html">Component libraries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Main lepton-schematic window
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Menubar.html">Menubar</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-File.html">Menu File</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Edit.html">Menu Edit</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-View.html">Menu View</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Page.html">Menu Page</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Add.html">Menu Add</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Hierarchy.html">Menu Hierarchy</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Attributes.html">Menu Attributes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Options.html">Menu Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Netlist.html">Menu Netlist</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Menu-Help.html">Menu Help</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Dialog boxes
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Add-Component-widget.html">Add Component widget</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Selecting objects
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Simple-object-selection.html">Simple object selection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Box-selection.html">Box selection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -370,6 +479,14 @@ Component library setup
 <tr><td align="left" valign="top">&bull; <a href="component_002dlibrary_002dfuncs.html">component-library-funcs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="reset_002dcomponent_002dlibrary.html">reset-component-library</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Netlister
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Allegro-backend.html">Allegro backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="BOM-backend.html">BOM backend</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
