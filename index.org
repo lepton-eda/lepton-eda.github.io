@@ -1,4 +1,5 @@
 #+TITLE: Lepton EDA documentation
+#+OPTIONS: toc:nil
 
 ** Manuals
 
