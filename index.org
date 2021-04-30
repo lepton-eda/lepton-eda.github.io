@@ -26,4 +26,5 @@
 
 # Local Variables:
 # org-html-postamble: "<center><p class=\"copyright\">Copyright &#169; 2021 Lepton Developers</p></center>"
+# org-export-with-sub-superscripts: {}
 # End:
