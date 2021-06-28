@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.15.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Editing schematics (Lepton EDA Reference Manual 1.9.15)</title>
+
+<meta name="description" content="Editing schematics (Lepton EDA Reference Manual 1.9.15)">
+<meta name="keywords" content="Editing schematics (Lepton EDA Reference Manual 1.9.15)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic.html" rel="up" title="lepton-schematic">
+<link href="Working-with-windows.html" rel="next" title="Working with windows">
+<link href="Creating-and-opening-schematics.html" rel="prev" title="Creating and opening schematics">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Editing-schematics"></span><div class="header">
+<p>
+Next: <a href="Working-with-windows.html" accesskey="n" rel="next">Working with windows</a>, Previous: <a href="Creating-and-opening-schematics.html" accesskey="p" rel="prev">Creating and opening schematics</a>, Up: <a href="lepton_002dschematic.html" accesskey="u" rel="up">lepton-schematic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Editing-schematics-1"></span><h3 class="section">5.6 Editing schematics</h3>
+<span id="index-editing-schematics"></span>
+<span id="index-edit-schematics"></span>
+<span id="index-schematic_002c-edit"></span>
+<span id="index-schematic_002c-editing"></span>
+
+<p>In order to do any action on some object, you have to select it first.
+See <a href="Selecting-objects.html">Selecting objects</a> if you don&rsquo;t know how to do it.
+</p>
+<p>When editing schematics, you can undo and redo several last actions
+using Edit &rarr; Undo (<kbd>Ctrl-Z</kbd>, <kbd>U</kbd>,
+<kbd>Shift-U</kbd>, or <kbd>E Shift-U</kbd>) and Edit &rarr;
+Redo (<kbd>Shift-Ctrl-Z</kbd>, <kbd>Ctrl-Y</kbd>, <kbd>Shift-R</kbd>, or <kbd>E
+Shift-R</kbd>).  The latter restores the results of the last editing action
+undone with Edit &rarr; Undo.  The number of
+possible actions for undo/redo is limited in the configuration setting
+<a href="schematic_002eundo-group.html#undo_002dlevels">undo-levels</a>.
+</p>
+<p>If you need to copy some objects, select them and do
+Edit &rarr; Copy Mode (<kbd>C</kbd> or <kbd>E C</kbd>).  The
+objects will be visually duplicated and you will be able to put the
+copies where you need to by left-clicking on the canvas.  This allows
+one-time copy of the objects.  Another option is copying objects
+multiple times.  Select Edit &rarr; Multiple Copy
+Mode or hit <kbd>E Y</kbd> to switch on the mode.  Use left-click to
+insert the objects.  Unlike the former case, copying won&rsquo;t stop after
+first insertion.  Click once again, and a new copy will be made.  The
+copying process can be stopped by switching to some other mode, for
+example, by hitting <kbd>Esc</kbd> to choose the select mode, or by
+clicking at the net mode button in the toolbar.  In both cases (one or
+multiple copies), the current selection does not change during the
+process.
+</p>
+<p>The objects on canvas can also be copied or cut to clipboard, and
+pasted from it using Edit &rarr; Copy
+(<kbd>Ctrl-C</kbd>), Edit &rarr; Cut (<kbd>Ctrl-X</kbd>),
+Edit &rarr; Paste (<kbd>Ctrl-V</kbd>) correspondingly.
+To delete all currently selected objects use Edit
+&rarr; Delete (<kbd>Delete</kbd>, <kbd>D</kbd>, or <kbd>E D</kbd>).  If some of the
+objects are locked, the dialog prompting for deletion of all selected
+objects or only unlocked ones will appear, in which you can also
+cancel the deletion.
+</p>
+<p>You can move objects on the canvas using the left mouse button: click
+on the object you want to move, keep the button depressed, drag the
+object where you need to and release the button to place the object.
+The object gets selected after the operation.  If you select several
+objects beforehand, the same operation allows you to move and place
+them all.  Sometimes it is more convenient to switch on move mode to
+move objects without depressing the mouse button.  Select
+Edit &rarr; Move Mode (<kbd>M</kbd> or <kbd>E M</kbd>) and
+move the selected objects where you want to, then use left click once
+to place them on the canvas.
+</p>
+<p>Edit &rarr; Rotate 90 Mode (<kbd>E R</kbd>) rotates
+selected objects by 90 degrees counter-clockwise each time.  The
+objects are rotated around the mouse cursor.
+</p>
+<p>Edit &rarr; Mirror mode (<kbd>E I</kbd>) can be used to
+mirror objects such as components and pictures around the X axis.
+Mirroring of other, simple objects is supported as well, though it&rsquo;s
+rarely useful.  Mirroring around the Y axis is not yet supported.
+However, you can use a sequence of mirrorings and rotations as a
+workaround to get the look you want.
+</p>
+<p>You can also rotate or mirror objects while moving them, using one of
+the ways described above, or when inserting a component.
+</p>
+<p>Edit &rarr; Object Properties... (<kbd>E O</kbd>) opens a
+dialog where you can see and change the properties of primitives such
+as lines, boxes, pins, text and so on.  The editable properties
+include color, stroke and filling styles, and the type of pins.
+Changing of a property affects all objects selected if they support
+it.
+</p>
+<p>If <a href="schematic_002egui-group.html#use_002ddocks">docks</a> are enabled in your configuration, the
+properties widget will be shown as the first tab in the right dock.
+</p>
+<p>Edit &rarr; Rotate 90 Mode (<kbd>E R</kbd>) rotates
+selected objects by 90 degrees counter-clockwise each time.  The
+objects are rotated around the mouse cursor.
+</p>
+<p>You can also rotate or mirror objects while moving them, using one of
+the ways described above, or when inserting a component.
+</p>
+<p>Apart from editing properties of primitive objects for which the
+<em>Object Properties...</em> dialog described above is used, you can
+edit text contents of text objects such as plain text and attributes.
+Use Edit &rarr; Edit... (<kbd>E E</kbd>) to start editing
+text objects.  Depending on what objects are selected, one of the
+following dialogs will be opened.  <em>Edit Attributes</em> dialog is
+opened for connectible objects which include components, pins, nets,
+and buses.  For non-connectible graphical primitives such as lines,
+boxes, etc. the action does nothing.  For plain attributes, the
+command opens the <em>Edit Attribute</em> dialog (please note the
+singular <em>Attribute</em> instead of plural <em>Attributes</em> in the
+former case).  In the dialog you can select and change attribute
+names, values, and visibility.  For plain text objects, the command
+opens the <em>Edit Text</em> dialog the same way as if you would use by
+Edit &rarr; Edit Text....  If selected objects
+include a mixed set of plain text objects, attributes, and connectible
+objects, the program opens the dialog appropriate for the objects
+selected first so you may end up with not what you really wanted.  In
+such a case, deselect objects, select wanted ones, and try again.
+</p>
+<p>The action Edit &rarr; Edit Text... (<kbd>E X</kbd>) and
+the <em>Edit Text</em> dialog box it invokes is intended for editing
+plain text objects.  Thus, unlike the attribute editing dialogs, this
+dialog displays attributes as strings in the form &ldquo;name=value&rdquo;.
+</p>
+<p>If <a href="schematic_002egui-group.html#use_002ddocks">docks</a> are enabled in your configuration, the
+<em>Edit Text</em> widget will be shown as the second tab in the right
+dock.
+</p>
+<p>Sometimes a symbol may represent components with different pin numbers
+without changing it in any other aspect.  For example, quad-opamp has
+four same opamps in one package for which only pin numbers differ on
+schematic page.  Such components are called <em>slotted</em> and there
+is a special action in <code>lepton-schematic</code> to change the slot number quickly.
+Use Edit &rarr; Slot... (<kbd>E Shift-S</kbd>) and enter
+the slot number you want.  It should be greater than zero but not
+greater than the value stored in the &ldquo;numslot&rdquo; attribute of the
+symbol.  While you can attach the &ldquo;slot&rdquo; attribute to any object on
+the page, slots are useless for graphical primitives, text, and
+pictures, and are only meaningful for such slotted components.  While
+you can use the attribute for non-slotted components, it won&rsquo;t add
+much to your schematics unless you change the component symbol to
+support slots by adding both &ldquo;numslots&rdquo; attribute and &ldquo;slotdef&rdquo;
+attributes which determine how many slots will be used at all and what
+pin numbers will be used for each particular slot.
+</p>
+<p>Sometimes you want some objects on the page to not get in your way
+while editing schematics.  It is particularly true for big symbols
+like title blocks (see <a href="Title-block-symbol.html">Title block symbol</a>).  Such symbols are
+intentionally put to background and other symbols are placed over
+them.  The issue here is the selection mechanism of <code>lepton-schematic</code>.
+When you click on an object to select it, and there are several
+selectable objects under the mouse cursor, the program will select
+each of them one by one to let you choose the wanted one.  Locked
+symbols are to be excluded from such a sequence since it would be
+annoying to, say, every time select the title block symbol when you
+merely want to select any other object within it.  Select symbols you
+want to be locked and use Edit &rarr; Lock (<kbd>E
+L</kbd>) to lock them.  (By the way, you rarely need this for title blocks
+as they usually are added as already locked when a new schematic is
+created.  See <a href="Title-block-symbol.html">Title block symbol</a> for more information.)  In order
+to unlock a symbol, select it using box selection (see <a href="Box-selection.html">Box selection</a>) and use Edit &rarr; Unlock (<kbd>E
+Shift-L</kbd>).
+</p>
+<blockquote>
+<p><b>Note:</b> Locking and unlocking actions affect not only components but also all
+the attributes attached to them.  You don&rsquo;t have to select each one of
+them individually, it is sufficient to select just the component they
+are attached to.
+</p></blockquote>
+
+<blockquote>
+<p><b>Note:</b> Primitive objects (not components) cannot be locked or unlocked, it is
+not supported in the current file format (see <a href="gEDA-file-format.html">gEDA file format</a>).
+However, a Scheme extension may be used in Lepton to achieve that.
+</p></blockquote>
+
+<p>There are two special actions that allow you to save data of a
+component or a picture within schematic or undo such a change.
+Edit &rarr; Embed Component/Picture (<kbd>E B</kbd>)
+embeds the data of selected component or picture into schematic.  This
+may make sense in case you want to distribute your schematic as one
+file and/or prevent data loss or corruption due to different set of
+symbols available at the target and destination locations.  Currently,
+you have to embed each component or picture instance if you have
+several of them in your schematic.  Otherwise, not embedded objects
+won&rsquo;t be present in the schematic if you don&rsquo;t include libraries with
+appropriate symbols into your project.  This is limitation of the
+current file format.  See <a href="gEDA-file-format.html">gEDA file format</a> for more information.
+Embedding objects makes thus the file size bigger (sometimes, much
+bigger), and after you made sure anything is OK, and necessary symbols
+or pictures are in place, you may want to unembed the objects.  The
+action Edit &rarr; Unembed Component/Picture (<kbd>E
+Shift-B</kbd>) does just that.  It unembeds a component or picture embedded
+by the menu item action described above.  Note that the command will
+be ignored if you don&rsquo;t have the symbol or image corresponding to your
+unembeddable object in one of the libraries available for your
+schematic.  Remember to open the log window and see what could went
+wrong if your schematic file did not change after this action and
+saving it.
+</p>
+<p>If you edit a symbol and save it, schematics containing it are not
+updated automatically.  You have to update component instances
+manually.  Select the components you want to update and use
+Edit &rarr; Update Component (<kbd>E U</kbd>) to actually
+do it.
+</p>
+<p>Another useful action is translation of the page contents to origin,
+that is, to the coordinate (0, 0) of the page.  It is usually
+necessary when you create or edit a symbol.  The origin defines the
+anchor of the symbol.  When you insert the symbol from the component
+library, this point in the symbol corresponds to the position of the
+mouse cursor, so the visible contents of your component will be
+positioned around the mouse cursor at the same distance the contents
+of the corresponding symbol is positioned around the origin within it.
+Usually, it is the left-bottom point of a symbol.  However you can
+define it anywhere. If you want, for example, the anchor to be located
+at the center of your symbol, move the symbol contents to lay around
+the origin.  Use Edit &rarr; Symbol Translate...
+(<kbd>E T</kbd>) to translate the symbol you edit to origin and then place
+its contents the way you wish.
+</p>
+<blockquote>
+<p><b>Note:</b> If the contents of your symbol is too far from origin, you may even
+not see the symbol when inserting.  Zoom out to see if this is the
+case then.
+</p></blockquote>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Working-with-windows.html" accesskey="n" rel="next">Working with windows</a>, Previous: <a href="Creating-and-opening-schematics.html" accesskey="p" rel="prev">Creating and opening schematics</a>, Up: <a href="lepton_002dschematic.html" accesskey="u" rel="up">lepton-schematic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
