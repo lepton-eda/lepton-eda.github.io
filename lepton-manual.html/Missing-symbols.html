@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.15.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Missing symbols (Lepton EDA Reference Manual 1.9.15)</title>
+
+<meta name="description" content="Missing symbols (Lepton EDA Reference Manual 1.9.15)">
+<meta name="keywords" content="Missing symbols (Lepton EDA Reference Manual 1.9.15)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Symbols.html" rel="up" title="Symbols">
+<link href="lepton_002dschematic.html" rel="next" title="lepton-schematic">
+<link href="Title-block-symbol.html" rel="prev" title="Title block symbol">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Missing-symbols"></span><div class="header">
+<p>
+Previous: <a href="Title-block-symbol.html" accesskey="p" rel="prev">Title block symbol</a>, Up: <a href="Symbols.html" accesskey="u" rel="up">Symbols</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Missing-symbols-1"></span><h3 class="section">4.3 Missing symbols</h3>
+<span id="index-missing-symbols"></span>
+<span id="index-symbol_002c-missing"></span>
+<span id="index-placeholder"></span>
+<span id="index-placeholder-symbol"></span>
+
+<p>Sometimes you may see on your screen such strange symbols instead of
+components you would expect in your schematic:
+</p>
+
+<p>That means here should be a symbol that has not been found in any of
+the libraries added in your project.  The symbols above are
+placeholder symbols, that is, some symbols intended just for such
+cases.
+</p>
+<p>If title block symbol is missing in your libraries, the visible effect
+will be a bit other.  You&rsquo;ll see just an empty page.  The actions
+described below will however help you in such a case as well.
+</p>
+<p>Some symbols may be missing for several reasons:
+</p>
+<ul>
+<li> You distributed your design without some necessary symbol.  For
+example, you sent your schematic by email without symbols and the
+receiver does not have those symbols.
+</li><li> You did not add a necessary library in your project.  For example, you
+created a project, then disabled system libraries using
+<code>reset-component-library</code>, though did not add some required
+symbol into the local library of your project.
+</li><li> You misspelled the title block name in your configuration file.
+See <a href="Title-block-symbol.html">Title block symbol</a>.
+</li><li> The name of the title block symbol in your local configuration is
+spelled right, but it is missing in the libraries of your project
+after disabling some of them as above.
+</li><li> You edited your symbol file contents manually in your text editor or
+by a script and misspelled the names of some symbols.
+</li></ul>
+
+<p>In order to figure out what&rsquo;s wrong you may do as follows:
+</p>
+<ul>
+<li> Open <code>lepton-schematic</code>, hit <kbd>I</kbd> to see the enabled libraries and look
+at what libraries are really present.
+</li><li> If you are working with one of the utilites that supports interactive
+mode (e.g. <code>lepton-netlist</code>), enter the mode and type the following in the
+REPL:
+<div class="lisp">
+<pre class="lisp">(use-modules (lepton library component))
+(component-libraries)
+</pre></div>
+
+</li><li> In <code>lepton-schematic</code>, you can do the same, thought the results will be
+displayed in the Log window.  See <a href="Log-window.html">Log window</a> for more.
+</li></ul>
+
+<p>The two last options will show you what libraries are enabled and what
+are their names and full paths to them.
+</p>
+<p>Check in the log window (<a href="Log-window.html">Log window</a>) or in the log file
+(<a href="Logging.html">Logging</a>) what RC files have been loaded.  Check also what
+configuration files have been loaded.  If you don&rsquo;t know what
+configuration files have been used, you can enter the REPL in
+<code>lepton-schematic</code> or in one of the utilities supporting interactive mode
+(like <code>lepton-netlist</code>) and look for system and user configuration
+directorires.  See <a href="lepton_002dcli-shell.html">lepton-cli shell</a> for recipes on how
+to do that.  The local project configuration directory is most often
+the directory where its schematics reside, though the directory with
+schematics may be one in the subdirectory tree of your project.  If in
+doubt, try in the directory with schematics:
+</p><div class="lisp">
+<pre class="lisp">(config-filename (path-config-context (getcwd)))
+</pre></div>
+<p>or use the full path in the form <samp>&quot;/path/to/my/project&quot;</samp>
+instead of <code>(getcwd)</code> in this command.
+</p>
+<p>After having discovered what and where (in which config file) is
+enabled, search for a library with the symbol required and add it
+(See <a href="Component-library-setup.html">Component library setup</a>) or add required symbol(s) to the
+local library directory of your project.
+</p>
+<p>If you misspelled the name of a symbol, just fix it.
+</p><hr>
+<div class="header">
+<p>
+Previous: <a href="Title-block-symbol.html" accesskey="p" rel="prev">Title block symbol</a>, Up: <a href="Symbols.html" accesskey="u" rel="up">Symbols</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

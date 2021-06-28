@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.15.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interactive work with Scheme code (Lepton EDA Reference Manual 1.9.15)</title>
+
+<meta name="description" content="Interactive work with Scheme code (Lepton EDA Reference Manual 1.9.15)">
+<meta name="keywords" content="Interactive work with Scheme code (Lepton EDA Reference Manual 1.9.15)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dschematic.html" rel="up" title="lepton-schematic">
+<link href="lepton_002dnetlist.html" rel="next" title="lepton-netlist">
+<link href="reset_002dcomponent_002dlibrary.html" rel="prev" title="reset-component-library">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Interactive-work-with-Scheme-code"></span><div class="header">
+<p>
+Previous: <a href="Component-libraries.html" accesskey="p" rel="prev">Component libraries</a>, Up: <a href="lepton_002dschematic.html" accesskey="u" rel="up">lepton-schematic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Interactive-work-with-Scheme-code-1"></span><h3 class="section">5.14 Interactive work with Scheme code</h3>
+<span id="index-using-Scheme-in-GUI"></span>
+
+<p>You can extend the functionality of <code>lepton-schematic</code>, automate some work
+on schematic or symbol creation, and learn how things are internally
+made up playing with Scheme without even exiting the program.  There
+are several ways to get things done and they are described below.
+</p>
+<blockquote>
+<p><b>Note:</b> You can also work with Scheme using interactive mode of several
+non-GUI Lepton utilities, namely, <code>lepton-netlist</code>, <code>lepton-cli</code>, and <code>lepton-symcheck</code>.
+Please read their manual pages on how to run them interactively.
+</p></blockquote>
+
+<p>Sometimes it is very convenient to invoke a one-line script to try
+some idea.  Use File &rarr; Invoke macro...
+(<kbd>:</kbd>, colon, or <kbd>E Shift-:</kbd>) to open a macro widget which will
+allow you to execute some small excerpts of Scheme code interactively.
+In the macro widget entry you may enter one line consisting of one or
+more commands in Scheme (don&rsquo;t forget parentheses).  Hit <kbd>Enter</kbd>
+to make them evaluate and watch the result of your expression in the
+<em>Log window</em>.  If the script includes some interactive functions,
+you&rsquo;ll immediately see the result in GUI.
+</p>
+<p>Another, more powerful possibility is executing a Scheme script stored
+in some file in your file system.  It allows you evaluate the code of
+any length, so it is much more convenient if you work on some complex
+code. Use File &rarr; Execute Script... (<kbd>F T</kbd>)
+and select a Scheme script to execute.  You can filter the files like
+in the <em>File Open</em> dialog (see <a href="Creating-and-opening-schematics.html">Creating and opening schematics</a>), though you can choose solely amongst showing only Scheme
+or any files.  Switch between <code>lepton-schematic</code> and your text editor, edit
+your code and try again.
+</p>
+<p>The most powerful and convenient way of working with Scheme is using
+REPL.  There are two ways to start it:
+</p>
+<ul>
+<li> Use File &rarr; REPL... (<kbd>F Shift-R</kbd>) to start
+REPL in the background terminal where you started <code>lepton-schematic</code>, move
+to the terminal and hack your Scheme code interactively.  If you
+didn&rsquo;t use a terminal for launching the program, the feature is not
+available.
+
+</li><li> Launch the following code in the macro widget described above, in the
+command line using the <samp>-c</samp> option (see <a href="lepton_002dschematic-command-line-options.html">lepton-schematic command line options</a>), or in one of RC files available for your
+project (see <a href="gschemrc.html">gschemrc</a>):
+
+<div class="lisp">
+<pre class="lisp">(use-modules (system repl server)) (spawn-server)
+</pre></div>
+
+<p>The command will make available a Scheme socket on the port
+<em>37146</em> for your program.  You can connect to it, for example,
+using <code>netcat</code> or shiny <code>geiser</code> environment for
+<code>Emacs</code>, and enjoy working with REPL using the program chosen.
+</p>
+</li></ul>
+
+<p>In the REPL, you&rsquo;ll immediately see the results of your expressions or
+errors, be able to list, edit and use expressions evaluated before,
+utilize their results again, load files, and more.  So this option
+embraces all the advantages of the former two and adds more.  However,
+be careful:
+</p>
+<blockquote>
+<p><b>Caution:</b> Trying some code pieces may be dangerous and crash your running
+<code>lepton-schematic</code> process while working in the REPL!  The reason is the
+lack of proper multi-threading support in GTK while Scheme supports it
+pretty well.  If in doubt, save your designs before trying something
+out.
+</p></blockquote>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Component-libraries.html" accesskey="p" rel="prev">Component libraries</a>, Up: <a href="lepton_002dschematic.html" accesskey="u" rel="up">lepton-schematic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
