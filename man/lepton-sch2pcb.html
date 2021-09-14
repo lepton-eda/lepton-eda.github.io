@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.19.2 -->
-<!-- CreationDate: Thu Apr 29 11:55:31 2021 -->
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Sep 14 10:02:43 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,16 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <meta name="Content-Style" content="text/css">
 <style type="text/css">
-       p     { margin-top: 0; margin-bottom: 0; }
-       pre   { margin-top: 0; margin-bottom: 0; }
-       table { margin-top: 0; margin-bottom: 0; }
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
 </style>
 <title>lepton-sch2pcb</title>
 
 </head>
 <body>
 
-<h1 align=center>lepton-sch2pcb</h1>
+<h1 align="center">lepton-sch2pcb</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
@@ -32,23 +33,26 @@
 <hr>
 
 
+<h2>NAME
 <a name="NAME"></a>
-<h2>NAME</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">lepton-sch2pcb
 - Update PCB layouts from Lepton EDA schematics</p>
 
+<h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
-<h2>SYNOPSIS</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-sch2pcb</b>
 [<i>OPTION</i> ...] {<i>PROJECT</i> | <i>FILE</i> ...}</p>
 
+<h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
-<h2>DESCRIPTION</h2>
+</h2>
 
 
 
@@ -66,47 +70,48 @@ the command line, <b>lepton-sch2pcb</b> can use a
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-sch2pcb</b>
 first runs <b>lepton-netlist</b>(1) with the
-&lsquo;PCB&rsquo; backend (or backend specified by
---backend-net) to create a &lsquo;&lt;name&gt;.net&rsquo;
+&rsquo;PCB&rsquo; backend (or backend specified by
+--backend-net) to create a &rsquo;&lt;name&gt;.net&rsquo;
 file containing a <b>pcb</b>(1) formatted netlist for the
 design.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The second step
 is to run <b>lepton-netlist</b>(1) again with the
-&lsquo;gsch2pcb&rsquo; backend (or backend specified by
+&rsquo;gsch2pcb&rsquo; backend (or backend specified by
 --backend-pcb) to find any <b>M4</b>(1) elements required by
 the schematics. Any missing elements are found by searching
 a set of file element directories. If no
-&lsquo;&lt;name&gt;.pcb&rsquo; file exists for the design
+&rsquo;&lt;name&gt;.pcb&rsquo; file exists for the design
 yet, it is created with the required elements; otherwise,
 any new elements are output to a
-&lsquo;&lt;name&gt;.new.pcb&rsquo; file.</p>
+&rsquo;&lt;name&gt;.new.pcb&rsquo; file.</p>
 
 <p style="margin-left:11%; margin-top: 1em">If a
-&lsquo;&lt;name&gt;.pcb&rsquo; file exists, it is searched
+&rsquo;&lt;name&gt;.pcb&rsquo; file exists, it is searched
 for elements with a non-empty element name with no matching
 schematic symbol. These elements are removed from the
-&lsquo;&lt;name&gt;.pcb&rsquo; file, with a backup in a
-&lsquo;&lt;name&gt;.pcb.bak&rsquo; file.</p>
+&rsquo;&lt;name&gt;.pcb&rsquo; file, with a backup in a
+&rsquo;&lt;name&gt;.pcb.bak&rsquo; file.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Finally,
 <b>lepton-netlist</b>(1) is run a third time with the
-&lsquo;pcbpins&rsquo; backend (or backend specified by
---backend-cmd) to create a &lsquo;&lt;name&gt;.cmd&rsquo;
+&rsquo;pcbpins&rsquo; backend (or backend specified by
+--backend-cmd) to create a &rsquo;&lt;name&gt;.cmd&rsquo;
 file. This can be loaded into <b>pcb</b>(1) to rename all
 pin names in the PCB layout to match the schematic.</p>
 
+<h2>OPTIONS
 <a name="OPTIONS"></a>
-<h2>OPTIONS</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>-o</b>,
 <b>--output-name</b>=<i>BASENAME</i></p>
 
 <p style="margin-left:23%;">Use output filenames
-&lsquo;<i>BASENAME</i>.net&rsquo;,
-&lsquo;<i>BASENAME</i>.pcb&rsquo;, and
-&lsquo;<i>BASENAME</i>.new.pcb&rsquo;. By default, the
+&rsquo;<i>BASENAME</i>.net&rsquo;,
+&rsquo;<i>BASENAME</i>.pcb&rsquo;, and
+&rsquo;<i>BASENAME</i>.new.pcb&rsquo;. By default, the
 basename of the first schematic file in the list of input
 files is used.</p>
 
@@ -116,12 +121,12 @@ files is used.</p>
 <p style="margin-left:23%;">Add <i>DIRECTORY</i> to the
 list of directories to search for PCB file elements. By
 default, the following directories are searched if they
-exist: &lsquo;./packages&rsquo;,
-&lsquo;/usr/local/share/pcb/newlib&rsquo;,
-&lsquo;/usr/share/pcb/newlib&rsquo;,
-&lsquo;/usr/local/lib/pcb_lib&rsquo;,
-&lsquo;/usr/lib/pcb_lib&rsquo;,
-&lsquo;/usr/local/pcb_lib&rsquo;.</p>
+exist: &rsquo;./packages&rsquo;,
+&rsquo;/usr/local/share/pcb/newlib&rsquo;,
+&rsquo;/usr/share/pcb/newlib&rsquo;,
+&rsquo;/usr/local/lib/pcb_lib&rsquo;,
+&rsquo;/usr/lib/pcb_lib&rsquo;,
+&rsquo;/usr/local/pcb_lib&rsquo;.</p>
 
 <p style="margin-left:11%;"><b>-f</b>,
 <b>--use-files</b></p>
@@ -139,8 +144,8 @@ using <b>M4</b>(1) entirely.</p>
 
 <p style="margin-left:23%;">Use the <b>M4</b>(1) file
 <i>FILE</i> in addition to the default M4 files
-&lsquo;./pcb.inc&rsquo; and
-&lsquo;~/.pcb/pcb.inc&rsquo;.</p>
+&rsquo;./pcb.inc&rsquo; and
+&rsquo;~/.pcb/pcb.inc&rsquo;.</p>
 
 <p style="margin-left:11%;"><b>--m4-pcbdir</b>
 <i>DIRECTORY</i></p>
@@ -153,18 +158,18 @@ directory where <b>lepton-sch2pcb</b> should look for
 <b>--remove-unfound</b></p>
 
 <p style="margin-left:23%;">Don&rsquo;t include references
-to unfound elements in the generated &lsquo;.pcb&rsquo;
+to unfound elements in the generated &rsquo;.pcb&rsquo;
 files. Use if you want <b>pcb</b>(1) to be able to load the
-(incomplete) &lsquo;.pcb&rsquo; file. This is enabled by
+(incomplete) &rsquo;.pcb&rsquo; file. This is enabled by
 default.</p>
 
 <p style="margin-left:11%;"><b>-k</b>,
 <b>--keep-unfound</b></p>
 
 <p style="margin-left:23%;">Keep include references to
-unfound elements in the generated &lsquo;.pcb&rsquo; files.
+unfound elements in the generated &rsquo;.pcb&rsquo; files.
 Use if you want to hand edit or otherwise preprocess the
-generated &lsquo;.pcb&rsquo; file before running
+generated &rsquo;.pcb&rsquo; file before running
 <b>pcb</b>(1).</p>
 
 <p style="margin-left:11%;"><b>-p</b>,
@@ -179,30 +184,30 @@ never deleted, this option is rarely useful.</p>
 <i>BACKEND</i></p>
 
 <p style="margin-left:23%;">Use <i>BACKEND</i> to generate
-&lsquo;&lt;name&gt;.cmd&rsquo; file instead of the default
-one (&lsquo;pcbpins&rsquo;).</p>
+&rsquo;&lt;name&gt;.cmd&rsquo; file instead of the default
+one (&rsquo;pcbpins&rsquo;).</p>
 
 <p style="margin-left:11%;"><b>--backend-net</b>
 <i>BACKEND</i></p>
 
 <p style="margin-left:23%;">Use <i>BACKEND</i> to generate
-&lsquo;&lt;name&gt;.net&rsquo; file instead of the default
-one (&lsquo;PCB&rsquo;).</p>
+&rsquo;&lt;name&gt;.net&rsquo; file instead of the default
+one (&rsquo;PCB&rsquo;).</p>
 
 <p style="margin-left:11%;"><b>--backend-pcb</b>
 <i>BACKEND</i></p>
 
 <p style="margin-left:23%;">Use <i>BACKEND</i> to generate
-&lsquo;&lt;name&gt;.pcb&rsquo; file instead of the default
-one (&lsquo;gsch2pcb&rsquo;).</p>
+&rsquo;&lt;name&gt;.pcb&rsquo; file instead of the default
+one (&rsquo;gsch2pcb&rsquo;).</p>
 
 <p style="margin-left:11%;"><b>--gnetlist</b>
 <i>BACKEND</i></p>
 
 <p style="margin-left:23%;">In addition to the default
-backends, run <b>lepton-netlist</b>(1) with &lsquo;&minus;g
+backends, run <b>lepton-netlist</b>(1) with &rsquo;-g
 <i>BACKEND</i>&rsquo;, with output to
-&lsquo;&lt;name&gt;.<i>BACKEND</i>&rsquo;.</p>
+&rsquo;&lt;name&gt;.<i>BACKEND</i>&rsquo;.</p>
 
 <p style="margin-left:11%;"><b>--gnetlist-arg</b>
 <i>ARG</i></p>
@@ -214,7 +219,7 @@ additional argument to <b>lepton-netlist</b>(1).</p>
 <i>NAME</i></p>
 
 <p style="margin-left:23%;">If <i>NAME</i> is not
-&lsquo;none&rsquo;, <b>lepton-sch2pcb</b> will not add
+&rsquo;none&rsquo;, <b>lepton-sch2pcb</b> will not add
 elements for components with that name to the PCB file. Note
 that if the omitted components have net connections, they
 will still appear in the netlist and <b>pcb</b>(1) will warn
@@ -223,9 +228,9 @@ that they are missing.</p>
 <p style="margin-left:11%;"><b>--fix-elements</b></p>
 
 <p style="margin-left:23%;">If a schematic
-component&rsquo;s &lsquo;footprint&rsquo; attribute is not
-equal to the &lsquo;Description&rsquo; of the corresponding
-PCB element, update the &lsquo;Description&rsquo; instead of
+component&rsquo;s &rsquo;footprint&rsquo; attribute is not
+equal to the &rsquo;Description&rsquo; of the corresponding
+PCB element, update the &rsquo;Description&rsquo; instead of
 replacing the element.</p>
 
 <p style="margin-left:11%;"><b>-q</b>, <b>--quiet</b></p>
@@ -236,9 +241,9 @@ on steps to take after running <b>lepton-sch2pcb</b>.</p>
 <p style="margin-left:11%;"><b>-v</b>, <b>--verbose</b></p>
 
 <p style="margin-left:23%;">Output extra debugging
-information. This option can be specified twice
-(&lsquo;&minus;v &minus;v&rsquo;) to obtain additional
-debugging for file elements.</p>
+information. This option can be specified twice (&rsquo;-v
+-v&rsquo;) to obtain additional debugging for file
+elements.</p>
 
 <p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
 
@@ -249,27 +254,26 @@ debugging for file elements.</p>
 <p style="margin-left:23%;">Print <b>lepton-sch2pcb</b>
 version information.</p>
 
+<h2>PROJECT FILES
 <a name="PROJECT FILES"></a>
-<h2>PROJECT FILES</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">A
 <b>lepton-sch2pcb</b> project file is a file (not ending in
-&lsquo;.sch&rsquo;) containing a list of schematics to
+&rsquo;.sch&rsquo;) containing a list of schematics to
 process and some options. Any long-form command line option
 can appear in the project file with the leading
-&lsquo;&minus;&minus;&rsquo; removed, with the exception of
-&lsquo;&minus;&minus;gnetlist-arg&rsquo;,
-&lsquo;&minus;&minus;fix-elements&rsquo;,
-&lsquo;&minus;&minus;verbose&rsquo;, and
-&lsquo;&minus;&minus;version&rsquo;. Schematics should be
-listed on a line beginning with
-&lsquo;schematics&rsquo;.</p>
+&rsquo;--&rsquo; removed, with the exception of
+&rsquo;--gnetlist-arg&rsquo;, &rsquo;--fix-elements&rsquo;,
+&rsquo;--verbose&rsquo;, and &rsquo;--version&rsquo;.
+Schematics should be listed on a line beginning with
+&rsquo;schematics&rsquo;.</p>
 
 <p style="margin-left:11%; margin-top: 1em">An example
 project file might look like:</p>
 
-<table width="100%" border=0 rules="none" frame="void"
+<table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="8%"></td>
@@ -277,18 +281,19 @@ project file might look like:</p>
 <td width="85%">
 
 
-<p valign="top">schematics partA.sch partB.sch</p></td>
+<p>schematics partA.sch partB.sch</p></td></tr>
 <tr valign="top" align="left">
 <td width="8%"></td>
 <td width="7%"></td>
 <td width="85%">
 
 
-<p valign="top">output-name design</p></td>
+<p>output-name design</p></td></tr>
 </table>
 
+<h2>ENVIRONMENT
 <a name="ENVIRONMENT"></a>
-<h2>ENVIRONMENT</h2>
+</h2>
 
 
 
@@ -296,31 +301,34 @@ project file might look like:</p>
 
 <p style="margin-left:23%;">specifies the
 <b>netlister</b>(1) program to run. The default is
-&lsquo;lepton-netlist&rsquo;.</p>
+&rsquo;lepton-netlist&rsquo;.</p>
 
+<h2>AUTHOR
 <a name="AUTHOR"></a>
-<h2>AUTHOR</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">Bill Wilson</p>
 
+<h2>COPYRIGHT
 <a name="COPYRIGHT"></a>
-<h2>COPYRIGHT</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">Copyright
 &copy; 2012-2017 gEDA Contributors. <br>
 Copyright &copy; 2017-2021 Lepton Developers. <br>
 License GPLv2+: GNU GPL version 2 or later. Please see the
-&lsquo;COPYING&rsquo; <br>
+&rsquo;COPYING&rsquo; <br>
 file included with this program for full details.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This is free
 software: you are free to change and redistribute it. <br>
 There is NO WARRANTY, to the extent permitted by law.</p>
 
+<h2>SEE ALSO
 <a name="SEE ALSO"></a>
-<h2>SEE ALSO</h2>
+</h2>
 
 
 

@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.19.2 -->
-<!-- CreationDate: Thu Apr 29 11:55:32 2021 -->
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Sep 14 10:02:44 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,16 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <meta name="Content-Style" content="text/css">
 <style type="text/css">
-       p     { margin-top: 0; margin-bottom: 0; }
-       pre   { margin-top: 0; margin-bottom: 0; }
-       table { margin-top: 0; margin-bottom: 0; }
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
 </style>
 <title>lepton-upcfg</title>
 
 </head>
 <body>
 
-<h1 align=center>lepton-upcfg</h1>
+<h1 align="center">lepton-upcfg</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
@@ -30,27 +31,30 @@
 <hr>
 
 
+<h2>NAME
 <a name="NAME"></a>
-<h2>NAME</h2>
+</h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">lepton-upcfg
-&minus; Lepton EDA configuration upgrade utility</p>
+<p style="margin-left:11%; margin-top: 1em">lepton-upcfg -
+Lepton EDA configuration upgrade utility</p>
 
+<h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
-<h2>SYNOPSIS</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-upcfg</b>
 <i>OPTIONS</i> | <i>FILE</i></p>
 
+<h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
-<h2>DESCRIPTION</h2>
+</h2>
 
 
 
-<p style="margin-left:11%; margin-top: 1em"><b>lepton-upcfg</b>
+<p style="margin-left:11%; margin-top: 1em"><i><b>lepton-upcfg</b></i>
 converts legacy configuration stored in geda*.conf files to
 Lepton EDA configuration format used in lepton*.conf files.
 By default, the result is printed to standard output.</p>
@@ -62,21 +66,20 @@ options, one can specify the configuration file path to
 convert and redirect the output to some destination
 file.</p>
 
+<h2>OPTIONS
 <a name="OPTIONS"></a>
-<h2>OPTIONS</h2>
+</h2>
 
 
-
-<p style="margin-left:11%; margin-top: 1em"><b>&minus;l</b>,
-<b>&minus;&minus;local</b></p>
+<p style="margin-left:11%; margin-top: 1em"><b>-l</b>,
+<b>--local</b></p>
 
 <p style="margin-left:22%;">Read and upgrade configuration
 from the <b>geda.conf</b> file in current directory. If
 <b>-c</b> is specified, write the result to the
 <b>lepton.conf</b> file in current directory.</p>
 
-<p style="margin-left:11%;"><b>&minus;u</b>,
-<b>&minus;&minus;user</b></p>
+<p style="margin-left:11%;"><b>-u</b>, <b>--user</b></p>
 
 <p style="margin-left:22%;">Upgrade the user configuration.
 If multiple user configuration files are found, prompt the
@@ -85,50 +88,50 @@ write the result to the <b>lepton-user.conf</b> file in
 $XDG_CONFIG_HOME/lepton-eda directory (typically,
 ~/.config/lepton-eda).</p>
 
-<p style="margin-left:11%;"><b>&minus;c</b>,
-<b>&minus;&minus;copy</b></p>
+<p style="margin-left:11%;"><b>-c</b>, <b>--copy</b></p>
 
 <p style="margin-left:22%;">Write upgraded configuration to
 corresponding lepton*.conf file instead of standard
 ouput.</p>
 
-<p style="margin-left:11%;"><b>&minus;x</b>,
-<b>&minus;&minus;overwrite</b></p>
+<p style="margin-left:11%;"><b>-x</b>,
+<b>--overwrite</b></p>
 
 <p style="margin-left:22%;">Overwrite existing files.</p>
 
-<p style="margin-left:11%;"><b>&minus;V</b>,
-<b>&minus;&minus;version</b></p>
+<p style="margin-left:11%;"><b>-V</b>, <b>--version</b></p>
 
 <p style="margin-left:22%;">Show version information.</p>
 
-<p style="margin-left:11%;"><b>&minus;h</b>,
-<b>&minus;&minus;help</b></p>
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
 
 <p style="margin-left:22%;">Show usage information.</p>
 
+<h2>AUTHOR
 <a name="AUTHOR"></a>
-<h2>AUTHOR</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">dmn
 &lt;graahnul.grom@gmail.com&gt;</p>
 
+<h2>SEE ALSO
 <a name="SEE ALSO"></a>
-<h2>SEE ALSO</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-cli(1)</b></p>
 
+<h2>COPYRIGHT
 <a name="COPYRIGHT"></a>
-<h2>COPYRIGHT</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">Copyright
 &copy; 2019-2021 Lepton Developers. <br>
 License GPLv2+: GNU GPL version 2 or later. Please see the
-&lsquo;COPYING&rsquo; <br>
+&rsquo;COPYING&rsquo; <br>
 file included with this program for full details.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This is free

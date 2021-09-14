@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.19.2 -->
-<!-- CreationDate: Thu Apr 29 11:55:32 2021 -->
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Sep 14 10:02:44 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,16 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <meta name="Content-Style" content="text/css">
 <style type="text/css">
-       p     { margin-top: 0; margin-bottom: 0; }
-       pre   { margin-top: 0; margin-bottom: 0; }
-       table { margin-top: 0; margin-bottom: 0; }
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
 </style>
 <title>lepton-symcheck</title>
 
 </head>
 <body>
 
-<h1 align=center>lepton-symcheck</h1>
+<h1 align="center">lepton-symcheck</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
@@ -31,24 +32,27 @@
 <hr>
 
 
+<h2>NAME
 <a name="NAME"></a>
-<h2>NAME</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em">lepton-symcheck
-&minus; Lepton EDA Symbol Checker</p>
+- Lepton EDA Symbol Checker</p>
 
+<h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
-<h2>SYNOPSIS</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-symcheck</b>
 [<i>OPTION</i> ...] <i>FILE</i> ...</p>
 
+<h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
-<h2>DESCRIPTION</h2>
+</h2>
 
 
 
@@ -59,180 +63,172 @@ symbol <i>FILE</i>s passed on the command line.</p>
 <p style="margin-left:11%; margin-top: 1em">Here is a list
 of checks that <b>lepton-symcheck</b> performs:</p>
 
-<table width="100%" border=0 rules="none" frame="void"
+<table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks for
-<i>graphical</i> attribute (if present does varied
-tests)</p> </td>
+<p>Checks for <i>graphical</i> attribute (if present does
+varied tests)</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks for the
-<i>device</i> attribute</p></td>
+<p>Checks for the <i>device</i> attribute</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks for various
-other missing attributes (<i>pinlabel</i>, <i>pintype</i>,
-<i>pinseq</i>, <i>footprint</i>, <i>refdes</i>)</p></td>
+<p>Checks for various other missing attributes
+(<i>pinlabel</i>, <i>pintype</i>, <i>pinseq</i>,
+<i>footprint</i>, <i>refdes</i>)</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks to make sure
-that the active pin end is on the 100 unit grid.</p></td>
+<p>Checks to make sure that the active pin end is on the
+100 unit grid.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks the uses of
-the various attributes (duplicates, incorrect syntax,
-invalid values, etc...)</p></td>
+<p>Checks the uses of the various attributes (duplicates,
+incorrect syntax, invalid values, etc...)</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks for
-obsolete, old, and forbidden attributes</p></td>
+<p>Checks for obsolete, old, and forbidden attributes</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks for any nets
-or buses within a symbol</p></td>
+<p>Checks for any nets or buses within a symbol</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks for any
-other connections within a symbol</p></td>
+<p>Checks for any other connections within a symbol</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="1%">
 
 
-<p style="margin-top: 1em" valign="top">&bull;</p></td>
+<p>&bull;</p></td>
 <td width="2%"></td>
 <td width="86%">
 
 
-<p style="margin-top: 1em" valign="top">Checks to make sure
-the number of pins is the correct number</p></td>
+<p>Checks to make sure the number of pins is the correct
+number</p> </td></tr>
 </table>
 
+<h2>OPTIONS
 <a name="OPTIONS"></a>
-<h2>OPTIONS</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-symcheck</b>
 accepts the following options: <b><br>
-&minus;q</b>, <b>&minus;&minus;quiet</b></p>
+-q</b>, <b>--quiet</b></p>
 
 <p style="margin-left:23%;">Quiet mode on. This mode turns
 off all warnings/notes/messages.</p>
 
-<p style="margin-left:11%;"><b>&minus;v</b>,
-<b>&minus;&minus;verbose</b></p>
+<p style="margin-left:11%;"><b>-v</b>, <b>--verbose</b></p>
 
 <p style="margin-left:23%;">Verbose mode 1. This mode will
 show all error messages.</p>
 
-<table width="100%" border=0 rules="none" frame="void"
+<table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="6%">
 
 
-<p style="margin-top: 1em" valign="top"><b>-vv</b></p></td>
+<p><b>-vv</b></p></td>
 <td width="6%"></td>
 <td width="77%">
 
 
-<p style="margin-top: 1em" valign="top">Verbose mode 2.
-This mode will show all error and warning messages.</p></td>
+<p>Verbose mode 2. This mode will show all error and
+warning messages.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="6%">
 
 
-<p style="margin-top: 1em" valign="top"><b>-vvv</b></p></td>
+<p><b>-vvv</b></p></td>
 <td width="6%"></td>
 <td width="77%">
 
 
-<p style="margin-top: 1em" valign="top">Verbose mode 3.
-This mode will show all error, warning, and info
-messages.</p> </td>
+<p>Verbose mode 3. This mode will show all error, warning,
+and info messages.</p></td></tr>
 </table>
 
-<p style="margin-left:11%;"><b>&minus;V</b>,
-<b>&minus;&minus;version</b></p>
+<p style="margin-left:11%;"><b>-V</b>, <b>--version</b></p>
 
 <p style="margin-left:23%;">Print version information.</p>
 
-<p style="margin-left:11%;"><b>-h</b>,
-<b>&minus;&minus;help</b></p>
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
 
 <p style="margin-left:23%;">Print a help message.</p>
 
+<h2>EXAMPLES
 <a name="EXAMPLES"></a>
-<h2>EXAMPLES</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">Here are some
@@ -243,7 +239,7 @@ information run:</p>
 
 
 <p style="margin-left:22%; margin-top: 1em">lepton-symcheck
-&minus;&minus;help</p>
+--help</p>
 
 <p style="margin-left:11%; margin-top: 1em">To actually
 check a symbol with just error counts, run:</p>
@@ -257,46 +253,49 @@ actuall error messages, run:</p>
 
 
 <p style="margin-left:22%; margin-top: 1em">lepton-symcheck
-&minus;v <i>symbolfilename.sym</i></p>
+-v <i>symbolfilename.sym</i></p>
 
 <p style="margin-left:11%; margin-top: 1em">To see all the
 error messages and warnings, run:</p>
 
 
 <p style="margin-left:22%; margin-top: 1em">lepton-symcheck
-&minus;vv <i>symbolfilename.sym</i></p>
+-vv <i>symbolfilename.sym</i></p>
 
 <p style="margin-left:11%; margin-top: 1em">To see all the
 error messages, warnings, and parse info, run:</p>
 
 
 <p style="margin-left:22%; margin-top: 1em">lepton-symcheck
-&minus;vvv <i>symbolfilename.sym</i></p>
+-vvv <i>symbolfilename.sym</i></p>
 
+<h2>AUTHORS
 <a name="AUTHORS"></a>
-<h2>AUTHORS</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">See the
-&lsquo;AUTHORS&rsquo; file included with this program.</p>
+&rsquo;AUTHORS&rsquo; file included with this program.</p>
 
+<h2>COPYRIGHT
 <a name="COPYRIGHT"></a>
-<h2>COPYRIGHT</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">Copyright
 &copy; 2012-2017 gEDA Contributors. <br>
 Copyright &copy; 2017-2021 Lepton Developers. <br>
 License GPLv2+: GNU GPL version 2 or later. Please see the
-&lsquo;COPYING&rsquo; <br>
+&rsquo;COPYING&rsquo; <br>
 file included with this program for full details.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This is free
 software: you are free to change and redistribute it. <br>
 There is NO WARRANTY, to the extent permitted by law.</p>
 
+<h2>SEE ALSO
 <a name="SEE ALSO"></a>
-<h2>SEE ALSO</h2>
+</h2>
 
 
 

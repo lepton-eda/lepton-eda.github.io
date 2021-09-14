@@ -1,5 +1,5 @@
-<!-- Creator     : groff version 1.19.2 -->
-<!-- CreationDate: Thu Apr 29 11:55:31 2021 -->
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Sep 14 10:02:43 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,16 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <meta name="Content-Style" content="text/css">
 <style type="text/css">
-       p     { margin-top: 0; margin-bottom: 0; }
-       pre   { margin-top: 0; margin-bottom: 0; }
-       table { margin-top: 0; margin-bottom: 0; }
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
 </style>
 <title>lepton-archive</title>
 
 </head>
 <body>
 
-<h1 align=center>lepton-archive</h1>
+<h1 align="center">lepton-archive</h1>
 
 <a href="#NAME">NAME</a><br>
 <a href="#SYNOPSIS">SYNOPSIS</a><br>
@@ -31,23 +32,26 @@
 <hr>
 
 
+<h2>NAME
 <a name="NAME"></a>
-<h2>NAME</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">lepton-archive
-&minus; create and extract Lepton EDA design archives</p>
+- create and extract Lepton EDA design archives</p>
 
+<h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
-<h2>SYNOPSIS</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-archive</b>
 [<i>OPTIONS</i>] <i>FILE</i> ...</p>
 
+<h2>DESCRIPTION
 <a name="DESCRIPTION"></a>
-<h2>DESCRIPTION</h2>
+</h2>
 
 
 
@@ -68,28 +72,29 @@ attributes.</p>
 <p style="margin-left:11%; margin-top: 1em">Archive mode is
 the default.</p>
 
+<h2>OPTIONS
 <a name="OPTIONS"></a>
-<h2>OPTIONS</h2>
+</h2>
 
 
-<p style="margin-left:11%; margin-top: 1em">&minus;h,
-&minus;&minus;help Print usage information. <br>
-&minus;v, &minus;&minus;verbose Verbose mode. <br>
-&minus;f, &minus;&minus;files&minus;from=FILE Additionally
-read filenames to archive from FILE. <br>
-&minus;e, &minus;&minus;extract Extract mode. Mandatory if
-you want to extract from archive. <br>
-&minus;a, &minus;&minus;archive Archive mode. It is the
-default mode. <br>
-&minus;o, &minus;&minus;output=FILE Specify the name of the
-output archive file <br>
+<p style="margin-left:11%; margin-top: 1em">-h, --help
+Print usage information. <br>
+-v, --verbose Verbose mode. <br>
+-f, --files-from=FILE Additionally read filenames to archive
+from FILE. <br>
+-e, --extract Extract mode. Mandatory if you want to extract
+from archive. <br>
+-a, --archive Archive mode. It is the default mode. <br>
+-o, --output=FILE Specify the name of the output archive
+file <br>
 in archive mode. If FILE has no &quot;.tar.gz&quot; suffix
 it will be <br>
 automatically appended. <br>
 Default file name is &quot;project-archive.tar.gz&quot;.</p>
 
+<h2>EXAMPLES
 <a name="EXAMPLES"></a>
-<h2>EXAMPLES</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">To create an
@@ -97,28 +102,29 @@ archive named MyArchive.tar.gz, the files to store are
 listed in &quot;archive-list&quot;:</p>
 
 <p style="margin-left:22%; margin-top: 1em">lepton-archive
-&minus;f archive-list &minus;o MyArchive.tar.gz</p>
+-f archive-list -o MyArchive.tar.gz</p>
 
 <p style="margin-left:11%; margin-top: 1em">The same by
 using just file basename:</p>
 
 <p style="margin-left:22%; margin-top: 1em">lepton-archive
-&minus;f archive-list &minus;o MyArchive</p>
+-f archive-list -o MyArchive</p>
 
 <p style="margin-left:11%; margin-top: 1em">Verbosely
 create an archive from files listed on command line:</p>
 
 <p style="margin-left:22%; margin-top: 1em">lepton-archive
-&minus;v README sch1.sch sch2.sch sch3.sch</p>
+-v README sch1.sch sch2.sch sch3.sch</p>
 
 <p style="margin-left:11%; margin-top: 1em">Extract an
 archive:</p>
 
 <p style="margin-left:22%; margin-top: 1em">lepton-archive
-&minus;e project-archive.tar.gz</p>
+-e project-archive.tar.gz</p>
 
+<h2>AUTHOR
 <a name="AUTHOR"></a>
-<h2>AUTHOR</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">The initial
@@ -127,22 +133,24 @@ Python script has been written by Stuart Brorson
 almost from scratch in Scheme by Vladimir Zhbanov
 &lt;vzhbanov@gmail.com&gt;.</p>
 
+<h2>SEE ALSO
 <a name="SEE ALSO"></a>
-<h2>SEE ALSO</h2>
+</h2>
 
 
 
 <p style="margin-left:11%; margin-top: 1em"><b>lepton-schematic(1)</b></p>
 
+<h2>COPYRIGHT
 <a name="COPYRIGHT"></a>
-<h2>COPYRIGHT</h2>
+</h2>
 
 
 <p style="margin-left:11%; margin-top: 1em">Copyright
 &copy; 2012-2017 gEDA Contributors. <br>
 Copyright &copy; 2019-2021 Lepton EDA Contributors. <br>
 License GPLv2+: GNU GPL version 2 or later. Please see the
-&lsquo;COPYING&rsquo; <br>
+&rsquo;COPYING&rsquo; <br>
 file included with this program for full details.</p>
 
 <p style="margin-left:11%; margin-top: 1em">This is free
