@@ -24,6 +24,7 @@
 - [[./man/lepton-symfix.html][lepton-symfix]]
 - [[./man/lepton-tragesym.html][lepton-tragesym]]
 - [[./man/lepton-upcfg.html][lepton-upcfg]]
+- [[./man/lepton-update.html][lepton-update]]
 
 
 # Local Variables:
