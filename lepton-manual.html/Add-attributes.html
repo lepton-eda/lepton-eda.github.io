@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.16.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Add attributes (Lepton EDA Reference Manual 1.9.16)</title>
+
+<meta name="description" content="Add attributes (Lepton EDA Reference Manual 1.9.16)">
+<meta name="keywords" content="Add attributes (Lepton EDA Reference Manual 1.9.16)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Symbol-example.html" rel="next" title="Symbol example">
+<link href="Adding-attributes-to-your-symbol.html" rel="prev" title="Adding attributes to your symbol">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Add-attributes"></span><div class="header">
+<p>
+ &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Add-attributes-1"></span><h4 class="subsubsection">4.1.4.2 Add attributes</h4>
+
+<p>For more information on the attributes presented here, please see the
+<a href="gEDA_002fgaf-Master-Attribute-Document.html">Master Attributes List</a>.
+</p><ol>
+<li> A <var>device=DEVICENAME</var> attribute should be placed somewhere in the
+symbol and made invisible.  Typically the <var>devicename</var> is in all
+caps (capital letters).  This attribute should not be used as a label.
+Use a separate text object for the label.  If the object is a graphic
+then <var>device=</var> should be set to none (<var>device=none</var>).
+
+</li><li> A <var>graphical=1</var> attribute should exist somewhere in a symbol
+which is purely graphical (such as a title block or <samp>decon</samp>
+symbol).  Symbols which have this attribute have no electrical or
+circuit significance.  Don&rsquo;t forget to set <var>device=none</var> per the
+previous requirement.
+
+</li><li> A <var>description=TEXT</var> attribute should exist somewhere in the
+symbol.  The <var>TEXT</var> value should provide a one line description
+of the symbol.
+
+</li><li> A <var>footprint=PACKAGENAME</var> attribute should exist somewhere in the
+symbol which might be used with a pcb netlister.  <var>PACKAGENAME</var>
+is a pcb footprint or package type like DIP14 or DIP40.  Please see
+the <a href="geda-pcb_footprint_naming_conventions.html">footprint naming
+conventions</a> page for further detail.  If you are using gEDA / PCB,
+also see the <a href="http://pcb.geda-project.org/manual.html">PCB
+documentation</a> and gnetlist/docs/README.pcb for more info on this
+attribute and how it is used.
+
+</li><li> A <var>refdes=U?</var> attribute should be placed inside all non-graphical
+symbols.  Make only the value visible and it will be promoted
+(attached to the outside of the symbol, so it can be edited) when the
+symbol is placed in a schematic.
+
+</li><li> The <var>label=</var> and <var>name=</var> attributes should not exist
+anywhere in the symbol.  They are obsolete.
+
+</li><li> The <var>netname=</var> attribute should not be attached anywhere in the
+symbol.  It is only used in schematics.
+
+</li></ol>
+
+
+<span id="Slotting"></span><h4 class="subsubsection">4.1.4.3 Slotting</h4>
+
+<ol>
+<li> If a component has multiple slots in a package (such as a 7400 (NAND)
+which has 4 NANDs per package) then you need a <var>numslots=#</var>
+attribute.  The <var>#</var> is the number of slots the device has.
+<var>numslots=</var> should be exist somewhere in the symbol and made
+invisible.  Additional slot related required attributes are described
+below.
+
+</li><li> If a component has multiple slots in a physical package then you also
+need to include a <var>slotdef=#:#,#,#...</var> for every slot.  The first
+<var>#</var> corresponds to the slot number.  If a device has 4 slots then
+there should be <var>slotdef=1:...</var>, <var>slotdef=2:...</var>,
+<var>slotdef=3:...</var>, and <var>slotdef=4:...</var>, attributes existing
+somewhere in the symbol and made invisible.  The subsequent <var>#</var>
+have a one-to-one correspondence to <var>pinseq=#</var> attributes and
+specify what corresponding <var>pinnumber=#</var> should be when that slot
+is set.  See the <a href="Symbol-example.html">attached 7400-1.sym</a> as an
+example of how this should all work.
+
+</li><li> It is recommended that all symbols which have slots have a
+<var>slot=1</var> attribute inside the symbol.
+
+</li></ol>
+
+
+<span id="Checking-a-Symbol"></span><h4 class="subsection">4.1.5 Checking a Symbol</h4>
+
+<p>Running gsymcheck will check that all of these requirements are met.
+gsymcheck will output fatal errors which are quite serious and must be
+corrected.  gsymcheck will also output warnings on things which should
+be fixed but are not fatal.
+</p>
+
+<span id="Style"></span><h4 class="subsection">4.1.6 Style</h4>
+
+<p>This section describes the style which is used in the standard
+gEDA/gaf symbol library.
+</p>
+
+<span id="Text"></span><h4 class="subsubsection">4.1.6.1 Text</h4>
+<ul>
+<li> All text labels should all be 10 pt in size.
+
+</li><li> Text (labels not attributes) should be color number 9 (text | green).
+
+</li><li> Use the special overbar encoding (e.g. <var>pinlabel=\_Reset\_</var>) to
+express inverse logic levels.
+
+</li></ul>
+
+
+<span id="Attributes-1"></span><h4 class="subsubsection">4.1.6.2 Attributes</h4>
+<ul>
+<li> <var>pinnumber</var> attributes should be displayed as pin numbers for
+pins (not <var>pinseq</var>) and should be 8 pt in size.
+
+</li><li> Attached attributes should be color number 5 (attributes | yellow).
+The color is set automatically to yellow if the text item is attached.
+
+</li><li> The only exception to this is <var>pinlabel=</var> attributes, those
+should be color number 9 (text | green).  If every text item within a
+symbol is yellow, the symbol looks too yellow.
+
+</li><li> Attributes can be attached to some part of the symbol.  Toplevel
+attributes (like the <var>device=</var> or <var>net=</var> attributes) used to
+be required to be attached to something to be attributes, but now they
+just have to exist in the symbol file as <var>name=value</var>.
+
+</li><li> Expanding a bit on the last sentence, as long as the text item has
+ the format <var>name=value</var>, it is considered an attribute.
+ Attributes inside a symbol do not have to be attached to anything.
+ In order to see hidden attributes in <code>lepton-schematic</code> select
+ Edit &rarr; Show/Hide Inv Text.
+
+</li><li> There is a symbol content versioning system in libgeda which is based
+on the <var>symversion=</var> attribute.  Please see the <a href="symversion-attribute.html">symversion attribute</a> for more information on using this versioning scheme.
+
+</li></ul>
+
+
+<span id="Graphics"></span><h4 class="subsubsection">4.1.6.3 Graphics</h4>
+<ul>
+<li> Lines, boxes, arcs, and any other graphics should be color number 3
+(graphic | green).
+
+</li><li> Polarity bubbles should be color number 6 (logic bubble | cyan).
+
+</li><li> If you are unsure on how to make a new symbol look or how big to make
+a new symbol, look at the existing symbols to get a feel for the
+appropriate appearance and size.
+
+</li></ul>
+
+
+<span id="Pins-1"></span><h4 class="subsubsection">4.1.6.4 Pins</h4>
+<ul>
+<li> Pins should all be 300 mils (3 grid spaces) long.
+
+</li><li> For pins which are next to a logic bubble, make the pins 200 mils (2
+grid spaces) long and then make the logic bubble 100 mils in diameter.
+In order to draw a 100 mil diameter circle, you will need to change
+the snap spacing to 50.
+
+</li><li> A pin has two ends: one end has a red endpoint and one end that does
+not.  The red endpoint is where nets can be connected.  You can either
+rotate the pin so that this active end is in the right place or
+manually edit the symbol file changing the &ldquo;whichend&rdquo; parameter on
+the pin object.  See <a href="pin.html">pin</a> for more info.
+
+</li><li> Be that all endpoints of pins which are meant to be connected to are
+on the 100 mil grid.  The endpoint which is not active can be off the
+grid if necessary.
+
+</li><li> Pins should be color number 1 (pins | white).
+
+</li><li> Leave 400 mils (4 grid spaces) between (vertically) pins, unless you
+are drawing a special symbol, then just try to make it look good.
+
+</li><li> Pin number attributes should be 50 mils above (or below; which ever
+makes the most sense) the pin which they are attached to.
+
+</li><li> Input pins belong on the left and output pins belong on the right of
+the symbol.
+
+</li><li> Please do not mix inputs and outputs on the same side of the symbol,
+unless absolutely necessary.
+
+</li><li> You can have pins on the top or bottom of a symbol.
+
+</li><li> The order for rows of pins (buses) should be LSB (least significant
+bit) to MSB (most significant bit).  When drawing pins which are part
+of a bus, make sure the LSB of the bus is at the top (or for pins on
+top/bottom of a symbol, left of the rest of the other pins).  Look at
+<samp>74/74181-1.sym</samp> for a correct example of this order (<code>A0</code>
+on top through <code>A3</code> and <code>B0</code> on top through <code>B3</code>).
+Violating this rule will make connecting buses much more difficult.
+
+</li><li> When placing pins on logic gates, be sure to place the smallest pin
+numbers toward the top (or left) and then increment going down (or
+across).
+
+</li></ul>
+
+
+<span id="Electrical"></span><h4 class="subsubsection">4.1.6.5 Electrical</h4>
+<ul>
+<li> Do not draw power and ground pins.  That information will be conveyed
+using attributes (see the <a href="net_003d-attribute-mini_002dHOWTO.html">net= attribute mini-HOWTO</a>).
+
+</li><li> The above rule can be broken if necessary, but keep in mind most of
+the standard library does not have power pins showing.
+
+</li><li> Keep in mind, symbols are supposed to be symbolic, they do not
+represent the physical package that the device comes in.
+
+</li><li> There is some disagreement on above, so this is okay too: arrange the
+pins on a symbol logically so that they promote an uncluttered
+schematic.  Note that this is frequently not the same pin arrangement
+as the physical device.
+
+</li></ul>
+
+
+<span id="Hints-and-Tips"></span><h4 class="subsection">4.1.7 Hints and Tips</h4>
+
+<p>This section describes some hints and tips which will make your symbol
+creation experience easier.
+</p><ul>
+<li> Pins <em>MUST</em> be snapped on the 100-spaced grid.
+
+</li><li> Avoid drawing things off of the grid.  If you do, you cannot move the
+object(s) using the move command (if the grid is on) since the object
+will be snapped to the grid.  [This was an old bug, which I think has
+been fixed, but avoid doing this anyway].  Use the symbol translate
+command instead (or move the object with grid snap off).
+
+</li><li> It is okay to set the grid finer than 100 (say 10 or 25) when creating
+symbols, just remember to set this back to 100 once you are ready to
+translate the symbol to the origin.
+
+</li><li> If you want to translate a symbol from the origin to elsewhere, then
+use the Edit &rarr; Symbol Translate... command and
+enter a non zero number.  Make sure this number is a multiple of 100
+(i.e. 1000, or 1100).
+
+</li><li> Remember that pins are special objects; if you want to add a pin, make
+sure it is a pin and not a line or net.  Use the Add
+&rarr; Pin command to place a pin.
+
+</li><li> Don&rsquo;t include nets or buses inside symbols.  That is not supported and
+doesn&rsquo;t make much sense anyway.
+
+</li><li> <var>pinnumber</var> should be the visible attribute for pins, along with
+<var>pinlabel</var> if any.
+
+</li></ul>
+
+
+<hr>
+<div class="header">
+<p>
+ &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

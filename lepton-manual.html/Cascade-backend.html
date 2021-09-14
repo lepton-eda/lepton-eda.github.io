@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.16.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Cascade backend (Lepton EDA Reference Manual 1.9.16)</title>
+
+<meta name="description" content="Cascade backend (Lepton EDA Reference Manual 1.9.16)">
+<meta name="keywords" content="Cascade backend (Lepton EDA Reference Manual 1.9.16)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="lepton_002dnetlist.html" rel="up" title="lepton-netlist">
+<link href="PADS-backend.html" rel="next" title="PADS backend">
+<link href="BOM-backend.html" rel="prev" title="BOM backend">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Cascade-backend"></span><div class="header">
+<p>
+Next: <a href="PADS-backend.html" accesskey="n" rel="next">PADS backend</a>, Previous: <a href="BOM-backend.html" accesskey="p" rel="prev">BOM backend</a>, Up: <a href="lepton_002dnetlist.html" accesskey="u" rel="up">lepton-netlist</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Lepton-RF-Cascade-Symbols-and-Netlister"></span><h3 class="section">6.3 Lepton RF Cascade Symbols and Netlister</h3>
+
+<p>by: Dan McMahill
+</p>
+<p>This document is released under
+<a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>
+</p>
+<p>December 3rd, 2003
+</p>
+
+<span id="Overview-3"></span><h4 class="subsection">6.3.1 Overview</h4>
+
+<p>This document describes the symbol library and <code>lepton-netlist</code> backend
+which support driving RF Cascade
+(<a href="http://rfcascade.sourceforge.net">http://rfcascade.sourceforge.net</a>) simulations from the Lepton
+system.  Cascade is a noise figure and distortion analysis tool geared
+towards radio receiver design.
+</p>
+<p>The basic steps involved with using Lepton as the frontend for Cascade
+simulations are:
+</p><ol>
+<li> Create schematics of the circuit.
+
+</li><li> Extract the netlist.
+
+</li><li> Run Cascade.
+
+</li></ol>
+
+
+<span id="Requirements"></span><h4 class="subsection">6.3.2 Requirements</h4>
+
+<p>You will need the following programs to be installed:
+</p><ul>
+<li> lepton-eda
+A version of Lepton package.
+
+</li><li> RF Cascade
+The executable is usually called <code>cascade</code>.  If you do not
+have Cascade available on your system, you will need to get a copy
+from <a href="http://rfcascade.sourceforge.net">http://rfcascade.sourceforge.net</a>.
+
+</li></ul>
+
+
+<span id="Creating-Schematics"></span><h4 class="subsection">6.3.3 Creating Schematics</h4>
+
+<p>When creating a block diagram in the <code>lepton-schematic</code> editor, use only the
+symbols from the cascade library.  Every block diagram must have a
+&lsquo;<samp>cascadesource</samp>&rsquo; element.  In addition, the block diagram must be a
+simple cascade.  No parallel paths or branches are allowed.
+</p>
+<p>All instances must have a unique reference designator.  For a receiver
+block diagram, this is often times best achieved by manually entering
+them.  The only restriction on reference designator names is that they
+contain no spaces.  A descriptive name such as &lsquo;<samp>RF Filter</samp>&rsquo; or
+&lsquo;<samp>First Mixer</samp>&rsquo; is useful as it will show up in the cascade output
+report.
+</p>
+
+<span id="Extracting-the-Cascade-Input-File"></span><h4 class="subsection">6.3.4 Extracting the Cascade Input File</h4>
+
+<p>To extract the Cascade input file, run:
+</p><div class="example">
+<pre class="example">lepton-netlist -g cascade -o test.cas file1.sch [file2.sch ...]
+</pre></div>
+
+<p>For the example file contained in this archive, you can run:
+</p><div class="example">
+<pre class="example">lepton-netlist -g cascade -o example.cas example.sch
+</pre></div>
+
+<p>The netlist will be left in <samp>example.cas</samp>.
+</p>
+
+<span id="Running-Cascade"></span><h4 class="subsection">6.3.5 Running Cascade</h4>
+
+<p>Cascade is exceptionally simple to run.  Just run:
+</p><div class="example">
+<pre class="example">cascade example.cas &gt; example.out
+</pre></div>
+
+<p>to run the analysis on the system contained in the file
+<samp>example.cas</samp> and write the results to the file
+<samp>example.out</samp>.  Refer to the Cascade documentation for complete
+details.
+</p>
+
+<span id="Appendix-A-_002d_002d-Symbols-in-the-Library"></span><h4 class="subsection">6.3.6 Appendix A &ndash; Symbols in the Library</h4>
+
+<p>Please note that all instances must have the &lsquo;<samp>refdes=</samp>&rsquo; attribute
+set.
+</p>
+
+<span id="Sources-_0028cascade_002dsource_0029"></span><h4 class="subsubsection">6.3.6.1 Sources (cascade-source)</h4>
+
+<p>Source.
+</p>
+<p>Attributes:
+</p><ul>
+<li> C=Carrier level in dBm.  Optional.
+
+</li><li> CN0=Carrier to Noise Spectral Density Ratio in dBm/Hz.  Optional.
+
+</li><li> CN=Carrier to Noise Ratio in dB.  Optional.
+
+</li><li> BW=Signal Bandwidth in Hz.  Optional, but requred if CN= is used.
+
+</li></ul>
+
+
+<span id="Defaults-_0028cascade_002ddefault_0029"></span><h4 class="subsubsection">6.3.6.2 Defaults (cascade-default)</h4>
+
+<p>This symbol sets the default impedance levels as well as the
+correlation coeffcient used for third order distortion calculations.
+There are two versions of this symbol.  One is used to set the
+defaults at the beginnng of the definition.  The other can be placed
+in series with the cascade to change the defaults part way through.
+This is useful if you wish to change impedance levels in the middle of
+the receiver chain.  Attributes:
+</p>
+<ul>
+<li> RIN=Default block input resistance in Ohms.  Optional.
+
+</li><li> ROUT=Default block output resistance in Ohms.  Optional.
+
+</li><li> RHO=Default third order distortion correlation coeffcient.  Optional.
+
+</li></ul>
+
+
+<span id="Elements"></span><h4 class="subsubsection">6.3.6.3 Elements</h4>
+
+<p>Cascade characterizes each block in a system by its gain and
+optionally noise figure and third order intercept point.  As such,
+there is no distinction between various elements such as amplifiers,
+filters, and mixers.  The Lepton RF Cascade symbol library contains
+different symbols for clarity in the diagram only.  The currently
+available element symbols are:
+</p>
+<p>Attributes:
+</p>
+<p>Table 1: Element Types
+</p>
+<dl compact="compact">
+<dt><code>cascade-amp</code></dt>
+<dd><p>Amplifier
+</p>
+</dd>
+<dt><code>cascade-filter</code></dt>
+<dd><p>Filter
+</p>
+</dd>
+<dt><code>cascade-mixer</code></dt>
+<dd><p>Mixer
+</p>
+</dd>
+<dt><code>cascade-transformer</code></dt>
+<dd><p>Transformer
+</p>
+</dd>
+</dl>
+
+<ul>
+<li> Gain is specified by one of the following:
+
+<ul>
+<li> <code>G</code>=Power gain in dB.
+
+</li><li> <code>GP</code>=Power gain in dB.
+
+</li><li> <code>GV</code>=Voltage gain in dB.
+
+</li></ul>
+
+</li><li> <code>NF</code>=Noise Figure in dB.  Optional.
+
+</li><li> <code>IIP3</code>=Input Third Order Intercept Point in dBm.  Optional.
+
+</li><li> <code>RIN</code>=Block input resistance in Ohms.  Optional.
+
+</li><li> <code>ROUT</code>=Block output resistance in Ohms.  Optional.
+
+</li><li> <code>RHO</code>=Third order distortion correlation coeffcient.  Optional.
+
+</li></ul>
+
+
+<span id="Example"></span><h4 class="subsection">6.3.7 Example</h4>
+
+<p>This appendix provides a simple example of the entire process of
+generating a schematic, producing a Cascade input file, running an
+analysis and looking at the result.
+</p>
+
+<span id="Example-Schematics"></span><h4 class="subsubsection">6.3.7.1 Example Schematics</h4>
+
+<p><a href="#fig_003acascade1">Figure 6.1</a> shows the schematic of a simple receiver signal
+chain.
+</p>
+<div class="float"><span id="fig_003acascade1"></span>
+<img src="rf_cascade.png" alt="rf_cascade">
+
+<div class="float-caption"><p><strong>Figure 6.1: </strong>Simple receiver signal chain block diagram</p></div></div>
+<p><a href="#fig_003acascade2">Figure 6.2</a> shows the contents of the <samp>example.cas</samp> file.
+</p>
+<div class="float"><span id="fig_003acascade2"></span>
+<div class="format">
+<pre class="verbatim"># Cascade (http://rfcascade.sourceforge.net)
+# Created with Lepton EDA netlister
+
+# Initial global defaults
+defaults RIN=75 ROUT=75 RHO=0 
+
+# Source definition
+source C=-35 CN0=78 CN=0 BW=1
+
+# Cascaded system
+RF_FILTER1 G=-2.5 NF=2.5
+LNA G=12 NF=2.7 IIP3=0
+RF_FILTER2 G=-2.5 NF=2.5
+MIXER G=-7 NF=7 IIP3=-3
+IF_FILTER G=-6 NF=6
+T1 G=0 NF=0 RIN=75 ROUT=50
+defaults  RIN=75 ROUT=50 RHO=0
+IF_AMP G=12 NF=6 IIP3=7
+
+# End of netlist created by Lepton EDA netlister
+
+</pre></div>
+
+<div class="float-caption"><p><strong>Figure 6.2: </strong>Example RF Cascade input file, <samp>example.cas</samp></p></div></div>
+<span id="Netlist-the-Design"></span><h4 class="subsubsection">6.3.7.2 Netlist the Design</h4>
+
+<p>To netlist the design, run:
+</p><div class="example">
+<pre class="example">lepton-netlist -g cascade example.cas example.sch
+</pre></div>
+
+
+<span id="Run-the-Analysis"></span><h4 class="subsubsection">6.3.7.3 Run the Analysis</h4>
+
+<p>Run the analysis with:
+</p><div class="example">
+<pre class="example">cascade example.cas
+</pre></div>
+
+
+<span id="Document-Revision-History"></span><h4 class="subsection">6.3.8 Document Revision History</h4>
+<dl compact="compact">
+<dt><code>December 3rd, 2003</code></dt>
+<dd><p>Created cascade.tex
+</p></dd>
+</dl>
+<hr>
+<div class="header">
+<p>
+Next: <a href="PADS-backend.html" accesskey="n" rel="next">PADS backend</a>, Previous: <a href="BOM-backend.html" accesskey="p" rel="prev">BOM backend</a>, Up: <a href="lepton_002dnetlist.html" accesskey="u" rel="up">lepton-netlist</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.15.
+<!-- This manual documents Lepton EDA version 1.9.16.
 
 Copyright (C) 2020-2021 Lepton Contributors.
 
@@ -13,10 +13,10 @@ Documentation License." -->
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>schematic.undo group (Lepton EDA Reference Manual 1.9.15)</title>
+<title>schematic.undo group (Lepton EDA Reference Manual 1.9.16)</title>
 
-<meta name="description" content="schematic.undo group (Lepton EDA Reference Manual 1.9.15)">
-<meta name="keywords" content="schematic.undo group (Lepton EDA Reference Manual 1.9.15)">
+<meta name="description" content="schematic.undo group (Lepton EDA Reference Manual 1.9.16)">
+<meta name="keywords" content="schematic.undo group (Lepton EDA Reference Manual 1.9.16)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -61,14 +61,14 @@ Next: <a href="schematic_002elog_002dwindow-group.html" accesskey="n" rel="next"
 <table>
 <thead><tr><th width="15%">Name</th><th width="15%">Type</th><th width="15%">Default value</th><th width="55%">Description</th></tr></thead>
 <tr><td width="15%"><code>modify-viewport</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Allow undo/redo operations to change pan and zoom.</td></tr>
-<tr><td width="15%"><code>undo-control</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the undo is enabled or not.  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>undo-type</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>disk</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>disk</samp>&rsquo;, &lsquo;<samp>memory</samp>&rsquo;.  Controls what kind
+<tr><td width="15%"><code>undo-control</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%"><span id="undo_002dcontrol"></span>Controls if the undo is enabled or not.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>undo-type</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>disk</samp>&rsquo;</td><td width="55%"><span id="undo_002dtype"></span>Possible values: &lsquo;<samp>disk</samp>&rsquo;, &lsquo;<samp>memory</samp>&rsquo;.  Controls what kind
 of medium is used for storing undo data.  The &lsquo;<samp>disk</samp>&rsquo; mechanism
 is nice because you get undo-level number of backups of the schematic
 written to disk as backups so you should never lose a schematic due to
 a crash.  Since <em>1.9.10</em>.</td></tr>
 <tr><td width="15%"><code>undo-levels</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>20</samp>&rsquo;</td><td width="55%"><span id="undo_002dlevels"></span>Determines the number of levels of undo.  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>undo-panzoom</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%">Controls if pan or zoom commands are saved in the undo list. If this
+<tr><td width="15%"><code>undo-panzoom</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>false</samp>&rsquo;</td><td width="55%"><span id="undo_002dpanzoom"></span>Controls if pan or zoom commands are saved in the undo list. If this
 is enabled, then a pan or zoom will be considered a command and can be
 undone.  Since <em>1.9.10</em>.</td></tr>
 </table>

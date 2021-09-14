@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.15.
+<!-- This manual documents Lepton EDA version 1.9.16.
 
 Copyright (C) 2020-2021 Lepton Contributors.
 
@@ -13,10 +13,10 @@ Documentation License." -->
 <!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>schematic group (Lepton EDA Reference Manual 1.9.15)</title>
+<title>schematic group (Lepton EDA Reference Manual 1.9.16)</title>
 
-<meta name="description" content="schematic group (Lepton EDA Reference Manual 1.9.15)">
-<meta name="keywords" content="schematic group (Lepton EDA Reference Manual 1.9.15)">
+<meta name="description" content="schematic group (Lepton EDA Reference Manual 1.9.16)">
+<meta name="keywords" content="schematic group (Lepton EDA Reference Manual 1.9.16)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -66,27 +66,27 @@ Before 1.9.10 it was <code>gschem</code> group.
 <tr><td width="15%"><code>default-filename</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>&quot;untitled&quot;</samp>&rsquo;</td><td width="55%"><span id="default_002dfilename"></span>Default file name for any new schematic files.  It is used to create
 filenames of the form <samp>untitled_N.sch</samp> where &lsquo;<samp>N</samp>&rsquo; is a
 number.</td></tr>
-<tr><td width="15%"><code>bus-ripper-size</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>200</samp>&rsquo;</td><td width="55%">Sets the size of the auto bus rippers.  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>bus-ripper-type</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>component</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>component</samp>&rsquo;, &lsquo;<samp>net</samp>&rsquo;.  Sets the bus
+<tr><td width="15%"><code>bus-ripper-size</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>200</samp>&rsquo;</td><td width="55%"><span id="bus_002dripper_002dsize"></span>Sets the size of the auto bus rippers.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>bus-ripper-type</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>component</samp>&rsquo;</td><td width="55%"><span id="bus_002dripper_002dtype"></span>Possible values: &lsquo;<samp>component</samp>&rsquo;, &lsquo;<samp>net</samp>&rsquo;.  Sets the bus
 ripper type, either a symbol (&lsquo;<samp>component</samp>&rsquo;) or plain net.
 Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>bus-ripper-symname</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>busripper-1.sym</samp>&rsquo;</td><td width="55%">The default bus ripper symbol, used when the
+<tr><td width="15%"><code>bus-ripper-symname</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>busripper-1.sym</samp>&rsquo;</td><td width="55%"><span id="bus_002dripper_002dsymname"></span>The default bus ripper symbol, used when the
 <code>schematic::bus-ripper-type</code> configuration key is set to
 &lsquo;<samp>&quot;component&quot;</samp>&rsquo;.  The symbol must exist in a component library.
 Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>bus-ripper-rotation</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>non-symmetric</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>non-symmetric</samp>&rsquo;, &lsquo;<samp>symmetric</samp>&rsquo;.  This
+<tr><td width="15%"><code>bus-ripper-rotation</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>non-symmetric</samp>&rsquo;</td><td width="55%"><span id="bus_002dripper_002drotation"></span>Possible values: &lsquo;<samp>non-symmetric</samp>&rsquo;, &lsquo;<samp>symmetric</samp>&rsquo;.  This
 deals with how the bus ripper symbol is rotated when it is auto added
 to a schematic.  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>net-consolidate</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Controls if the net consolidation code is used when schematics are
+<tr><td width="15%"><code>net-consolidate</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%"><span id="net_002dconsolidate"></span>Controls if the net consolidation code is used when schematics are
 read in, written to disk, and when nets are being drawn (does not
 consolidate when things are being copied or moved yet).  Net
 consolidation is the connection of nets which can be combined into
 one.  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>logging</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%">Determines if the logging mechanism is enabled.  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>log-window</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>later</samp>&rsquo;</td><td width="55%">Possible values: &lsquo;<samp>later</samp>&rsquo;, &lsquo;<samp>startup</samp>&rsquo; Controls if the log
+<tr><td width="15%"><code>logging</code></td><td width="15%">&lsquo;<samp>boolean</samp>&rsquo;</td><td width="15%">&lsquo;<samp>true</samp>&rsquo;</td><td width="55%"><span id="logging"></span>Determines if the logging mechanism is enabled.  Since <em>1.9.10</em>.</td></tr>
+<tr><td width="15%"><code>log-window</code></td><td width="15%">&lsquo;<samp>string</samp>&rsquo;</td><td width="15%">&lsquo;<samp>later</samp>&rsquo;</td><td width="55%"><span id="log_002dwindow"></span>Possible values: &lsquo;<samp>later</samp>&rsquo;, &lsquo;<samp>startup</samp>&rsquo; Controls if the log
 window is shown when lepton-schematic is started up
 (&lsquo;<samp>startup</samp>&rsquo;), or not (&lsquo;<samp>later</samp>&rsquo;).  Since <em>1.9.10</em>.</td></tr>
-<tr><td width="15%"><code>auto-save-interval</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>120</samp>&rsquo;</td><td width="55%">Controls how often a backup copy is made, in seconds.  The backup copy
+<tr><td width="15%"><code>auto-save-interval</code></td><td width="15%">&lsquo;<samp>int</samp>&rsquo;</td><td width="15%">&lsquo;<samp>120</samp>&rsquo;</td><td width="55%"><span id="auto_002dsave_002dinterval"></span>Controls how often a backup copy is made, in seconds.  The backup copy
 is made when you make some change to the schematic, and there were
 more than &quot;interval&quot; seconds from the last autosave.  Autosaving will
 not be allowed if setting it to zero.  Since <em>1.9.10</em>.</td></tr>

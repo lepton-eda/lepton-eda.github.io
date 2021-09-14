@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.16.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Symbol Creation (Lepton EDA Reference Manual 1.9.16)</title>
+
+<meta name="description" content="Symbol Creation (Lepton EDA Reference Manual 1.9.16)">
+<meta name="keywords" content="Symbol Creation (Lepton EDA Reference Manual 1.9.16)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Symbols.html" rel="up" title="Symbols">
+<link href="Adding-attributes-to-your-symbol.html" rel="next" title="Adding attributes to your symbol">
+<link href="Symbols.html" rel="prev" title="Symbols">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Symbol-Creation"></span><div class="header">
+<p>
+Next: <a href="Editing-symbols.html" accesskey="n" rel="next">Editing symbols</a>, Up: <a href="Symbols.html" accesskey="u" rel="up">Symbols</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Symbol-Creation-1"></span><h3 class="section">4.1 Symbol Creation</h3>
+
+<p>This section has been written by <em>Ales Hvezda</em> for the gEDA
+project and later adapted for Lepton.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Symbol-example.html" accesskey="1">Symbol example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<span id="Overview-2"></span><h4 class="subsection">4.1.1 Overview</h4>
+
+<p>This document describes the creation of component symbols, including
+style conventions, and hints/tips and things to look out for when
+drawing symbols for the gEDA/gaf system.
+</p>
+
+<span id="Component-Symbol-Creation"></span><h4 class="subsection">4.1.2 Component Symbol Creation</h4>
+
+<p>Component symbols (from here on known as <em>symbols</em>) are drawn
+using <code>lepton-schematic</code>.  You can start with a blank page or a known-to-be
+good symbol that is similar to the one you want to create.
+</p>
+
+<span id="Preparing"></span><h4 class="subsubsection">4.1.2.1 Preparing</h4>
+
+<p>Before you open <code>lepton-schematic</code> to create your symbol, there are a few
+questions you should ask yourself, that will effect how you create
+your symbol:
+</p>
+<ol>
+<li> Is this symbol purely for aesthetic purposes (a graphic)?  If so,
+several steps are simplified.
+
+</li><li> Do I want to simulate the component in question, with e.g. SPICE?
+
+</li><li> Do I want to use this symbol in a schematic that includes power
+distribution?  This will become important when deciding what pins to
+draw.
+
+</li><li> Does this symbol represent a component that comes several in a
+package?  This is called <em>slotting</em> in gEDA&rsquo;s language, and has
+special rules.
+
+</li></ol>
+
+<p>Once you&rsquo;ve answered those questions, the following guide will be more
+useful to you.
+</p>
+<p>To start building your symbol:
+</p>
+<ol>
+<li> Open <code>lepton-schematic</code>.
+
+</li><li> The default empty page has boxes on it.  Use the selection tool (the
+one that looks like a black mouse cursor) to select everything on the
+page.  Hit the <kbd>Delete</kbd> key to delete it.
+
+</li><li> Zoom in at least one step (View &rarr; Zoom, or hit
+the <kbd>Z</kbd> key).
+
+</li><li> Make sure the snap-to-grid functionality is ON (Options
+&rarr; Toggle Snap On/Off, or <kbd>O S</kbd>).
+
+</li><li> Make sure grid snap size is set to 100 (Options
+&rarr; Snap Grid Spacing..., or <kbd>O Shift-S</kbd>).
+
+</li></ol>
+
+
+<span id="Drawing-your-Symbol"></span><h4 class="subsubsection">4.1.2.2 Drawing your Symbol</h4>
+
+<p>Use the &lsquo;<samp>line</samp>&rsquo;, &lsquo;<samp>box</samp>&rsquo;, &lsquo;<samp>circle</samp>&rsquo;, and &lsquo;<samp>arc</samp>&rsquo; tools
+(in the &lsquo;<samp>Add</samp>&rsquo; menu) to create a simplified visual representation
+of your device.  Make sure that the only color you use is
+<code>graphic</code> (green).  Do not place any pins on the device until the
+next step.
+</p>
+<p>To check what color you are using to draw, go to Edit
+&rarr; Color... (or hit <kbd>E O</kbd>).
+</p>
+
+<span id="Placing-Pins-on-your-Symbol"></span><h4 class="subsubsection">4.1.2.3 Placing Pins on your Symbol</h4>
+
+<p>If you have decided your symbol is graphical in nature (e.g., does not
+connect to anything, is just artwork), you can skip this step.
+</p>
+<p>Add your first pin.
+</p><ol>
+<li> Select Add &rarr; Pin, or hit <kbd>A P</kbd>.  Once that
+is done, click from the end of your pin, to one of the edges of your
+symbol.  A &rsquo;0&rsquo; and the word &rsquo;unknown&rsquo; should pop up near your new pin.
+Please note that the direction you draw your pins is important.  If
+you draw them starting from the edge of your symbol to outside of your
+symbol, you will end up with text outside of the symbol!
+
+</li><li> Click on the selection tool, and use it to select the pin you just
+drew.  The pin and text with it should change colors, and boxes should
+be drawn around the ends of the pin.
+
+</li><li> Select Edit &rarr; Edit..., or hit <kbd>E E</kbd> (or
+right click, and hit &lsquo;<samp>Edit...</samp>&rsquo;).  This will bring up the edit
+dialog for this pin.
+
+</li></ol>
+
+<p>In the Edit dialog for a pin, you should see four attributes
+(<var>name=value</var> pairs) already associated with your new pin.  These
+attributes can be edited by clicking on the attribute in the list at
+the top of the edit window, then clicking on the field you want to
+edit.  Note that when selected, the &lsquo;<samp>Add Attribute</samp>&rsquo; section of
+this dialog does not reflect what has been selected, as it is only
+meant for addition, not for editing.
+</p>
+<p>Let&rsquo;s look at each attribute already associated with your pin, and
+edit some of the values.  I recommend expanding the size of the edit
+window until all attributes are visible.
+</p><ul>
+<li> All pins should have a <var>pinseq</var> attribute.  This number dictates
+the order pins are looked at on this symbol in SPICE, <code>lepton-netlist</code>, and
+other tools.  For our first pin, start this sequence number at
+<code>1</code>, incrementing it on each new pin, as we add them.
+
+</li><li> All pins should have a <var>pinnumber</var> attribute.  This is the number
+of the pin, on the package of the item you are drawing a symbol for.
+<var>pinnumber</var> values can be alphanumeric (i.e. like <code>E</code> or
+<code>C</code>).
+
+</li><li> All pins should have a <var>pinlabel</var> attribute.  This attribute is
+the name or label of the pin (not the pin number).
+
+</li><li> All pins should have a <var>pintype</var> attribute.  This attribute
+describes the kind of a pin.
+
+</li><li> <var>pinseq</var> and <var>pinnumber</var> attributes of several pins can be
+automatically numbered by Attributes &rarr;
+Autonumber Text....
+
+</li></ul>
+
+<p>Possible <var>pintype</var> values are: <var>in</var>, <var>out</var>, <var>io</var>,
+<var>oc</var>, <var>oe</var>, <var>pas</var>, <var>tp</var>, <var>tri</var>, <var>clk</var>,
+<var>pwr</var>.  See <a href="pintype-attribute.html">pintype attribute</a> for more info.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Editing-symbols.html" accesskey="n" rel="next">Editing symbols</a>, Up: <a href="Symbols.html" accesskey="u" rel="up">Symbols</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

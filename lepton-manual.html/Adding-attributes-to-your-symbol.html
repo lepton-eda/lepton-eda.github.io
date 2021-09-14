@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents Lepton EDA version 1.9.16.
+
+Copyright (C) 2020-2021 Lepton Contributors.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled "GNU Free
+Documentation License." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Adding attributes to your symbol (Lepton EDA Reference Manual 1.9.16)</title>
+
+<meta name="description" content="Adding attributes to your symbol (Lepton EDA Reference Manual 1.9.16)">
+<meta name="keywords" content="Adding attributes to your symbol (Lepton EDA Reference Manual 1.9.16)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Topic-Index.html" rel="index" title="Topic Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Add-attributes.html" rel="next" title="Add attributes">
+<link href="Symbol-Creation.html" rel="prev" title="Symbol Creation">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="lepton-manual.css">
+
+
+</head>
+
+<body lang="en">
+<span id="Adding-attributes-to-your-symbol"></span><div class="header">
+<p>
+ &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Adding-attributes-to-your-symbol-1"></span><h4 class="subsubsection">4.1.2.4 Adding attributes to your symbol</h4>
+<span id="index-symbol_002c-add-attributes"></span>
+<span id="index-add-attributes-to-symbol"></span>
+
+<p>Every symbol needs some attributes (<var>name=value</var> pairs) in order
+to be useful in <code>lepton-schematic</code>, and in other tools.
+</p>
+<p>First we&rsquo;re going to add all of the attributes we want, then make the
+ones that need to be invisible invisible.
+</p><ol>
+<li> A <var>device=DEVICENAME</var> attribute should be placed somewhere in the
+symbol.  The <var>devicename</var> should consist of nothing but capital
+letters, dashes, numbers, and underscores.  If the object is a graphic
+then <var>device=</var> should be set to <var>none</var> (<var>device=none</var>).
+
+</li><li> A <var>graphical=1</var> attribute should exist somewhere in a symbol
+which is purely graphical (such as a title block or <samp>decon</samp>
+symbol).  Symbols which have this attribute have no electrical or
+circuit significance.  Don&rsquo;t forget to set <var>device=none</var> per the
+previous step.
+
+</li><li> A <var>description=TEXT</var> attribute should exist somewhere in the
+symbol.  The <var>TEXT</var> value should provide a one line description
+of the symbol.
+
+</li><li> A <var>footprint=PACKAGENAME</var> attribute should exist somewhere in the
+symbol which might be used with a pcb netlister.  <var>PACKAGENAME</var>
+is a pcb footprint or package type like <code>DIP14</code> or <code>DIP40</code>.
+Please see the <a href="geda-pcb_footprint_naming_conventions.html">footprint naming conventions</a> page for further detail.  If you are
+using gEDA / PCB, also see the
+<a href="http://pcb.geda-project.org/manual.html">PCB documentation</a> and
+gnetlist/docs/README.pcb for more info on this attribute and how it is
+used.
+
+</li><li> A <var>refdes=</var> attribute should be placed inside all non-graphical
+symbols.  This attribute should default to <var>U?</var> for integrated
+circuits, and <var>T?</var> for transistors.  Make only the value visible
+and it will be promoted (attached to the outside of the symbol (so it
+can be edited)) when the symbol is placed in a schematic.
+
+</li><li> A <var>numslots=</var> attribute should be placed inside of all symbols,
+to prevent a warning when you will check your symbol by gsymcheck.
+<var>numslots=1</var> works fine.
+
+</li></ol>
+
+<p>Now that those have been added, make the <var>numslots</var>,
+<var>footprint</var>, <var>description</var>, <var>graphical</var> and
+<var>device</var> attributes invisible.  Leave only the value of the
+<var>refdes</var> attribute visible, and place it somewhere at the top of
+your symbol.
+</p>
+
+<span id="Finishing"></span><h4 class="subsubsection">4.1.2.5 Finishing</h4>
+<ol>
+<li> Add a label to your symbol by selecting Add &rarr;
+Text... or pressing <kbd>A T</kbd>.  Type out your label, and move it to
+the top of your symbol.
+
+</li><li> Translate the symbol to the origin using Edit &rarr;
+Symbol Translate... or press <kbd>E T</kbd>.
+
+</li><li> Enter <code>0</code> into the entry field and press &lsquo;<samp>OK</samp>&rsquo;.
+
+</li><li> Save the symbol using File &rarr; Save or
+File &rarr; Save As...
+
+</li><li> Place the symbol in one of the directories specified as a symbol
+library in a suite configuration file (one of the <a href="gafrc.html">gafrc</a> files).
+For an explanation of how to set up symbol libraries, see the
+<a href="Legacy-configuration.html">Legacy configuration</a>.  Once this is done, the symbol should be
+visible immediately and can be selected and placed with the
+Add &rarr; Select Component... menu item.  On
+Debian, placing files in <samp>/usr/share/gEDA/sym/local/</samp> works, but
+requires permissions setup.
+
+</li></ol>
+
+
+<blockquote>
+<p><b>Note:</b> Translating the symbol to the origin is a required step.  To translate
+a symbol elsewhere, enter a offset (in mils) which is a even multiple
+of 100.  Make sure all pins are snapped to a 100 mil grid point.
+</p></blockquote>
+
+<span id="Common-Symbol-Naming-Conventions"></span><h4 class="subsection">4.1.3 Common Symbol Naming Conventions</h4>
+<ol>
+<li> Symbols are named: <samp>symbolname-#.sym</samp>
+
+</li><li> Symbols end with a <samp>.sym</samp> extension.
+
+</li><li> Symbols have a <samp>-#</samp> where <code>#</code> is a number.  Typically
+<code>#</code> is <code>1</code> but if there are multiple symbols for a device
+then this number simply increments.
+
+</li><li> Symbol names are typically lowercase but letters which are part of a
+part number are uppercase.
+
+</li><li> The above case rule can be broken if the filename looks incorrect or
+wrong.
+
+</li></ol>
+
+
+<span id="Symbol-Requirements"></span><h4 class="subsection">4.1.4 Symbol Requirements</h4>
+
+<p>This section describes the various requirements which must be met in
+order to create a valid symbol which will display and netlist in the
+gEDA/gaf system.
+</p>
+
+<span id="Pins"></span><h4 class="subsubsection">4.1.4.1 Pins</h4>
+<ol>
+<li> All pins should have a <var>pinseq</var> attribute.  This number dictates
+the order pins are looked at on this symbol in spice, <code>lepton-netlist</code>, and
+other tools.  This is just a sequence number, and should increment
+sequentially starting at 1.
+
+</li><li> All pins should have a <var>pinnumber</var> attribute attached to them.
+This is the number of the pin, on the package of the item you are
+drawing a symbol for.  The pin number can be alphanumeric (i.e. like
+<code>E</code> or <code>C</code>).
+
+</li><li> All pins should have a <var>pinlabel</var> attribute attached to them.
+This attribute is the name or label of the pin (not the pin number).
+This attribute is also used when a symbol is used in a hierarchical
+schematic.
+
+</li><li> All pins should have <var>pintype</var> attribute attached to them.  This
+attribute describes the kind of a pin.  Possible values are:
+<var>in</var>, <var>out</var>, <var>io</var>, <var>oc</var>, <var>oe</var>, <var>pas</var>,
+<var>tp</var>, <var>tri</var>, <var>clk</var>, <var>pwr</var>.  See <a href="pintype-attribute.html">pintype attribute</a> for more info.
+
+</li></ol>
+
+
+<hr>
+<div class="header">
+<p>
+ &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
