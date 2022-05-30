@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Introduction (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Introduction (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Introduction (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Introduction (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Introduction (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Introduction (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="index.html" rel="prev" title="Top">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,21 +57,32 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Introduction"></span><div class="header">
+<div class="unnumbered" id="Introduction">
+<div class="header">
 <p>
-Next: <a href="Schematic-Document-Model.html" accesskey="n" rel="next">Schematic Document Model</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Schematic-Document-Model.html" accesskey="n" rel="next">The Schematic Document Model</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Lepton EDA Scheme Reference Manual</a>, Up: <a href="index.html" accesskey="u" rel="up">Lepton EDA Scheme Reference Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Introduction-1"></span><h2 class="unnumbered">Introduction</h2>
 
-<span id="About-Lepton-EDA"></span><h3 class="section">About Lepton EDA</h3>
+<ul class="section-toc">
+<li><a href="#About-Lepton-EDA" accesskey="1">About Lepton EDA</a></li>
+<li><a href="#About-gEDA" accesskey="2">About gEDA</a></li>
+<li><a href="#About-the-Lepton-EDA-Scheme-API" accesskey="3">About the Lepton EDA Scheme API</a></li>
+<li><a href="#Getting-Additional-Help" accesskey="4">Getting Additional Help</a></li>
+<li><a href="#We-Need-Feedback_0021" accesskey="5">We Need Feedback!</a></li>
+</ul>
+<div class="section" id="About-Lepton-EDA">
+<h3 class="section">About Lepton EDA</h3>
 <p>Lepton EDA is a suite of free software tools for designing
 electronics. It provides schematic capture, netlisting into over 30
 netlist formats, and many other features. It was forked from the
 <a href="http://wiki.geda-project.org/geda:gaf">gEDA/gaf suite</a> (part of
 gEDA, please see below) by most of its main developers in late 2016.
 </p>
-<span id="About-gEDA"></span><h3 class="section">About gEDA</h3>
+</div>
+<div class="section" id="About-gEDA">
+<h3 class="section">About gEDA</h3>
 
 <p><em>gEDA</em>, or <em>GPL Electronic Design Automation</em>, is a suite of
 free software tools for designing electronics.  The gEDA project has
@@ -83,7 +97,9 @@ hardware or open source hardware. The suite is mainly being developed
 on the GNU/Linux platform with some development effort going into
 making sure the tools run on other platforms as well.
 </p>
-<span id="About-the-Lepton-EDA-Scheme-API"></span><h3 class="section">About the Lepton EDA Scheme API</h3>
+</div>
+<div class="section" id="About-the-Lepton-EDA-Scheme-API">
+<h3 class="section">About the Lepton EDA Scheme API</h3>
 
 <p>The <em>Lepton EDA Scheme API</em>, documented in this manual, is a set of
 Scheme functions which can be used to enhance Lepton applications by
@@ -103,7 +119,9 @@ the <em>GNU Ubiquitous Intelligent Language for Extensions</em>) as its
 embedded Scheme.  For more information about Guile, please visit
 <a href="http://www.gnu.org/s/guile/">http://www.gnu.org/s/guile/</a>.
 </p>
-<span id="Getting-Additional-Help"></span><h3 class="section">Getting Additional Help</h3>
+</div>
+<div class="section" id="Getting-Additional-Help">
+<h3 class="section">Getting Additional Help</h3>
 <span id="index-Reporting-bugs"></span>
 
 <p>If you think you have found a bug, please file a bug report:
@@ -119,17 +137,21 @@ accessed from the main gEDA website:
 an own mailing list. You may also find additional information in the
 <a href="https://github.com/lepton-eda/lepton-eda/wiki">Lepton EDA wiki</a>.
 </p>
-<span id="We-Need-Feedback_0021"></span><h3 class="section">We Need Feedback!</h3>
+</div>
+<div class="section" id="We-Need-Feedback_0021">
+<h3 class="section">We Need Feedback!</h3>
 
 <p>If you find a typographical error in this manual, or if you have
 thought of a way to make this manual better, we would love to hear
 from you! Please submit a bug report:
 <a href="https://github.com/lepton-eda/lepton-eda/issues">https://github.com/lepton-eda/lepton-eda/issues</a>, with the tag &lsquo;<samp>scheme-api</samp>&rsquo;.
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Schematic-Document-Model.html" accesskey="n" rel="next">Schematic Document Model</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Schematic-Document-Model.html">The Schematic Document Model</a>, Previous: <a href="index.html">Lepton EDA Scheme Reference Manual</a>, Up: <a href="index.html">Lepton EDA Scheme Reference Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

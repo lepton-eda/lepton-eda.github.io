@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,27 +17,26 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Top (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Top (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Top (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Top (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Top (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Top (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Introduction.html" rel="next" title="Introduction">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -43,6 +45,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -52,134 +55,23 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Lepton EDA Scheme Reference Manual 1.9.16</h1>
+<h1 class="settitle" align="center">Lepton EDA Scheme Reference Manual 1.9.18</h1>
 
 
 
-<span id="SEC_Contents"></span>
-<h2 class="contents-heading">Table of Contents</h2>
 
-<div class="contents">
-
-<ul class="no-bullet">
-  <li><a id="toc-Introduction-1" href="Introduction.html#Introduction">Introduction</a>
-  <ul class="no-bullet">
-    <li><a id="toc-About-Lepton-EDA" href="Introduction.html#About-Lepton-EDA">About Lepton EDA</a></li>
-    <li><a id="toc-About-gEDA" href="Introduction.html#About-gEDA">About gEDA</a></li>
-    <li><a id="toc-About-the-Lepton-EDA-Scheme-API" href="Introduction.html#About-the-Lepton-EDA-Scheme-API">About the Lepton EDA Scheme API</a></li>
-    <li><a id="toc-Getting-Additional-Help" href="Introduction.html#Getting-Additional-Help">Getting Additional Help</a></li>
-    <li><a id="toc-We-Need-Feedback_0021" href="Introduction.html#We-Need-Feedback_0021">We Need Feedback!</a></li>
-  </ul></li>
-  <li><a id="toc-The-Schematic-Document-Model" href="Schematic-Document-Model.html#Schematic-Document-Model">1 The Schematic Document Model</a>
-  <ul class="no-bullet">
-    <li><a id="toc-Pages-1" href="Pages.html#Pages">1.1 Pages</a></li>
-    <li><a id="toc-Objects-1" href="Objects.html#Objects">1.2 Objects</a></li>
-    <li><a id="toc-Component-objects-1" href="Component-objects.html#Component-objects">1.3 Component objects</a></li>
-    <li><a id="toc-Attributes-1" href="Attributes.html#Attributes">1.4 Attributes</a></li>
-    <li><a id="toc-Coordinate-system-1" href="Coordinate-system.html#Coordinate-system">1.5 Coordinate system</a></li>
-  </ul></li>
-  <li><a id="toc-Core-API-Reference-1" href="Core-API-Reference.html#Core-API-Reference">2 Core API Reference</a>
-  <ul class="no-bullet">
-    <li><a id="toc-Core-page-functions-1" href="Core-page-functions.html#Core-page-functions">2.1 Core page functions</a>
-    <ul class="no-bullet">
-      <li><a id="toc-Page-creation_002c-disposal-and-filenames" href="Core-page-functions.html#Page-creation_002c-disposal-and-filenames">2.1.1 Page creation, disposal and filenames</a></li>
-      <li><a id="toc-Conversion-between-files-and-pages" href="Core-page-functions.html#Conversion-between-files-and-pages">2.1.2 Conversion between files and pages</a></li>
-      <li><a id="toc-Page-serialisation" href="Core-page-functions.html#Page-serialisation">2.1.3 Page serialisation</a></li>
-      <li><a id="toc-Page-contents" href="Core-page-functions.html#Page-contents">2.1.4 Page contents</a></li>
-      <li><a id="toc-Page-dirty-flags" href="Core-page-functions.html#Page-dirty-flags">2.1.5 Page dirty flags</a></li>
-    </ul></li>
-    <li><a id="toc-Core-object-functions-1" href="Core-object-functions.html#Core-object-functions">2.2 Core object functions</a>
-    <ul class="no-bullet">
-      <li><a id="toc-General-object-functions-1" href="General-object-functions.html#General-object-functions">2.2.1 General object functions</a>
-      <ul class="no-bullet">
-        <li><a id="toc-Object-sub_002dtypes-1" href="Object-sub_002dtypes.html#Object-sub_002dtypes">2.2.1.1 Object sub-types</a></li>
-        <li><a id="toc-Object-transformations-1" href="Object-transformations.html#Object-transformations">2.2.1.2 Object transformations</a></li>
-        <li><a id="toc-Object-bounds-1" href="Object-bounds.html#Object-bounds">2.2.1.3 Object bounds</a></li>
-        <li><a id="toc-Object-color-1" href="Object-color.html#Object-color">2.2.1.4 Object color</a></li>
-        <li><a id="toc-Object-fill-and-stroke-1" href="Object-fill-and-stroke.html#Object-fill-and-stroke">2.2.1.5 Object fill and stroke</a></li>
-      </ul></li>
-      <li><a id="toc-Lines-1" href="Lines.html#Lines">2.2.2 Lines</a></li>
-      <li><a id="toc-Nets-and-buses-1" href="Nets-and-buses.html#Nets-and-buses">2.2.3 Nets and buses</a></li>
-      <li><a id="toc-Pins-1" href="Pins.html#Pins">2.2.4 Pins</a></li>
-      <li><a id="toc-Boxes-1" href="Boxes.html#Boxes">2.2.5 Boxes</a></li>
-      <li><a id="toc-Circles-1" href="Circles.html#Circles">2.2.6 Circles</a></li>
-      <li><a id="toc-Arcs-1" href="Arcs.html#Arcs">2.2.7 Arcs</a></li>
-      <li><a id="toc-Paths-1" href="Paths.html#Paths">2.2.8 Paths</a></li>
-      <li><a id="toc-Pictures-1" href="Pictures.html#Pictures">2.2.9 Pictures</a></li>
-      <li><a id="toc-Text-1" href="Text.html#Text">2.2.10 Text</a></li>
-      <li><a id="toc-Components-1" href="Components.html#Components">2.2.11 Components</a></li>
-    </ul></li>
-    <li><a id="toc-Core-attribute-functions-1" href="Core-attribute-functions.html#Core-attribute-functions">2.3 Core attribute functions</a>
-    <ul class="no-bullet">
-      <li><a id="toc-Attribute-names-and-values" href="Core-attribute-functions.html#Attribute-names-and-values">2.3.1 Attribute names and values</a></li>
-      <li><a id="toc-Attribute-attachment" href="Core-attribute-functions.html#Attribute-attachment">2.3.2 Attribute attachment</a></li>
-      <li><a id="toc-Inherited-and-promoted-attributes" href="Core-attribute-functions.html#Inherited-and-promoted-attributes">2.3.3 Inherited and promoted attributes</a></li>
-    </ul></li>
-    <li><a id="toc-Core-source-library-functions-1" href="Core-source-library-functions.html#Core-source-library-functions">2.4 Core source library functions</a></li>
-    <li><a id="toc-Configuration-functions-1" href="Configuration-functions.html#Configuration-functions">2.5 Configuration functions</a>
-    <ul class="no-bullet">
-      <li><a id="toc-Configuration-contexts-1" href="Configuration-contexts.html#Configuration-contexts">2.5.1 Configuration contexts</a>
-      <ul class="no-bullet">
-        <li><a id="toc-Obtaining-a-context" href="Configuration-contexts.html#Obtaining-a-context">2.5.1.1 Obtaining a context</a></li>
-        <li><a id="toc-Loading-and-saving-configuration-files" href="Configuration-contexts.html#Loading-and-saving-configuration-files">2.5.1.2 Loading and saving configuration files</a></li>
-        <li><a id="toc-Context-parents" href="Configuration-contexts.html#Context-parents">2.5.1.3 Context parents</a></li>
-        <li><a id="toc-Context-trust" href="Configuration-contexts.html#Context-trust">2.5.1.4 Context trust</a></li>
-      </ul></li>
-      <li><a id="toc-Configuration-parameters-1" href="Configuration-parameters.html#Configuration-parameters">2.5.2 Configuration parameters</a>
-      <ul class="no-bullet">
-        <li><a id="toc-Configuration-groups-and-keys" href="Configuration-parameters.html#Configuration-groups-and-keys">2.5.2.1 Configuration groups and keys</a></li>
-        <li><a id="toc-Configuration-inheritance" href="Configuration-parameters.html#Configuration-inheritance">2.5.2.2 Configuration inheritance</a></li>
-        <li><a id="toc-Configuration-values" href="Configuration-parameters.html#Configuration-values">2.5.2.3 Configuration values</a></li>
-      </ul></li>
-      <li><a id="toc-Configuration-events-1" href="Configuration-events.html#Configuration-events">2.5.3 Configuration events</a></li>
-      <li><a id="toc-Configuration-errors-1" href="Configuration-errors.html#Configuration-errors">2.5.4 Configuration errors</a></li>
-    </ul></li>
-    <li><a id="toc-Logging-functions-1" href="Logging-functions.html#Logging-functions">2.6 Logging functions</a></li>
-    <li><a id="toc-System-information-1" href="System-information.html#System-information">2.7 System information</a></li>
-    <li><a id="toc-Version-information-1" href="Version-information.html#Version-information">2.8 Version information</a></li>
-  </ul></li>
-  <li><a id="toc-lepton_002dschematic-API-Reference-1" href="lepton_002dschematic-API-Reference.html#lepton_002dschematic-API-Reference">3 lepton-schematic API Reference</a>
-  <ul class="no-bullet">
-    <li><a id="toc-Windows-and-views-1" href="Windows-and-views.html#Windows-and-views">3.1 Windows and views</a></li>
-    <li><a id="toc-Key-mapping-1" href="Key-mapping.html#Key-mapping">3.2 Key mapping</a>
-    <ul class="no-bullet">
-      <li><a id="toc-Key-combinations" href="Key-mapping.html#Key-combinations">3.2.1 Key combinations</a></li>
-      <li><a id="toc-Key-sequences" href="Key-mapping.html#Key-sequences">3.2.2 Key sequences</a></li>
-      <li><a id="toc-Keymaps" href="Key-mapping.html#Keymaps">3.2.3 Keymaps</a></li>
-    </ul></li>
-    <li><a id="toc-Selections-1" href="Selections.html#Selections">3.3 Selections</a></li>
-    <li><a id="toc-Hooks-1" href="Hooks.html#Hooks">3.4 Hooks</a></li>
-    <li><a id="toc-Actions-1" href="Actions.html#Actions">3.5 Actions</a>
-    <ul class="no-bullet">
-      <li><a id="toc-Action-objects" href="Actions.html#Action-objects">3.5.1 Action objects</a></li>
-      <li><a id="toc-Evaluating-actions" href="Actions.html#Evaluating-actions">3.5.2 Evaluating actions</a></li>
-      <li><a id="toc-Action-positions" href="Actions.html#Action-positions">3.5.3 Action positions</a></li>
-    </ul></li>
-    <li><a id="toc-Miscellaneous-lepton_002dschematic-functions" href="Miscellanous-lepton_002dschematic-functions.html#Miscellanous-lepton_002dschematic-functions">3.6 Miscellaneous lepton-schematic functions</a>
-    <ul class="no-bullet">
-      <li><a id="toc-lepton_002dschematic-Attribute-Helpers" href="Miscellanous-lepton_002dschematic-functions.html#lepton_002dschematic-Attribute-Helpers">3.6.1 lepton-schematic Attribute Helpers</a></li>
-      <li><a id="toc-Miscellaneous-utility-functions" href="Miscellanous-lepton_002dschematic-functions.html#Miscellaneous-utility-functions">3.6.2 Miscellaneous utility functions</a></li>
-    </ul></li>
-  </ul></li>
-  <li><a id="toc-lepton_002dnetlist-API-Reference-1" href="lepton_002dnetlist-API-Reference.html#lepton_002dnetlist-API-Reference">4 lepton-netlist API Reference</a></li>
-  <li><a id="toc-Concept-Index-1" href="Concept-Index.html#Concept-Index" rel="index">Concept Index</a></li>
-  <li><a id="toc-Function-Index-1" href="Function-Index.html#Function-Index" rel="index">Function Index</a></li>
-  <li><a id="toc-Variable-Index-1" href="Variable-Index.html#Variable-Index" rel="index">Variable Index</a></li>
-</ul>
-</div>
-
-
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="Introduction.html" accesskey="n" rel="next">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Lepton-EDA-Scheme-Reference-Manual"></span><h1 class="top">Lepton EDA Scheme Reference Manual</h1>
-<p>This manual is for Lepton EDA, version 1.9.16.
+<p>This manual is for Lepton EDA, version 1.9.18.
 </p>
 <p>Copyright &copy; 2011-2013 Peter TB Brett
 Copyright &copy; 2011-2017 gEDA developers
-Copyright &copy; 2017-2021 Lepton developers
+Copyright &copy; 2017-2022 Lepton developers
 </p>
 <p>The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -190,29 +82,120 @@ Project as the &quot;Attribution Parties&quot; for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="Introduction.html" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Schematic-Document-Model.html" accesskey="2">Schematic Document Model</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Core-API-Reference.html" accesskey="3">Core API Reference</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="lepton_002dschematic-API-Reference.html" accesskey="4">lepton-schematic API Reference</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="lepton_002dnetlist-API-Reference.html" accesskey="5">lepton-netlist API Reference</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Concept-Index.html" rel="index" accesskey="6">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Function-Index.html" rel="index" accesskey="7">Function Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Variable-Index.html" rel="index" accesskey="8">Variable Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
+<div class="contents">
 
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-1" href="Introduction.html">Introduction</a>
+  <ul class="no-bullet">
+    <li><a id="toc-About-Lepton-EDA" href="Introduction.html#About-Lepton-EDA">About Lepton EDA</a></li>
+    <li><a id="toc-About-gEDA" href="Introduction.html#About-gEDA">About gEDA</a></li>
+    <li><a id="toc-About-the-Lepton-EDA-Scheme-API" href="Introduction.html#About-the-Lepton-EDA-Scheme-API">About the Lepton EDA Scheme API</a></li>
+    <li><a id="toc-Getting-Additional-Help" href="Introduction.html#Getting-Additional-Help">Getting Additional Help</a></li>
+    <li><a id="toc-We-Need-Feedback_0021" href="Introduction.html#We-Need-Feedback_0021">We Need Feedback!</a></li>
+  </ul></li>
+  <li><a id="toc-The-Schematic-Document-Model" href="Schematic-Document-Model.html">1 The Schematic Document Model</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Pages-1" href="Pages.html">1.1 Pages</a></li>
+    <li><a id="toc-Objects-1" href="Objects.html">1.2 Objects</a></li>
+    <li><a id="toc-Component-objects-1" href="Component-objects.html">1.3 Component objects</a></li>
+    <li><a id="toc-Attributes-1" href="Attributes.html">1.4 Attributes</a></li>
+    <li><a id="toc-Coordinate-system-1" href="Coordinate-system.html">1.5 Coordinate system</a></li>
+  </ul></li>
+  <li><a id="toc-Core-API-Reference-1" href="Core-API-Reference.html">2 Core API Reference</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Core-page-functions-1" href="Core-page-functions.html">2.1 Core page functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Page-creation_002c-disposal-and-filenames" href="Core-page-functions.html#Page-creation_002c-disposal-and-filenames">2.1.1 Page creation, disposal and filenames</a></li>
+      <li><a id="toc-Conversion-between-files-and-pages" href="Core-page-functions.html#Conversion-between-files-and-pages">2.1.2 Conversion between files and pages</a></li>
+      <li><a id="toc-Page-serialisation" href="Core-page-functions.html#Page-serialisation">2.1.3 Page serialisation</a></li>
+      <li><a id="toc-Page-contents" href="Core-page-functions.html#Page-contents">2.1.4 Page contents</a></li>
+      <li><a id="toc-Page-dirty-flags" href="Core-page-functions.html#Page-dirty-flags">2.1.5 Page dirty flags</a></li>
+    </ul></li>
+    <li><a id="toc-Core-object-functions-1" href="Core-object-functions.html">2.2 Core object functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-General-object-functions-1" href="General-object-functions.html">2.2.1 General object functions</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Object-sub_002dtypes-1" href="Object-sub_002dtypes.html">2.2.1.1 Object sub-types</a></li>
+        <li><a id="toc-Object-transformations-1" href="Object-transformations.html">2.2.1.2 Object transformations</a></li>
+        <li><a id="toc-Object-bounds-1" href="Object-bounds.html">2.2.1.3 Object bounds</a></li>
+        <li><a id="toc-Object-color-1" href="Object-color.html">2.2.1.4 Object color</a></li>
+        <li><a id="toc-Object-fill-and-stroke-1" href="Object-fill-and-stroke.html">2.2.1.5 Object fill and stroke</a></li>
+      </ul></li>
+      <li><a id="toc-Lines-1" href="Lines.html">2.2.2 Lines</a></li>
+      <li><a id="toc-Nets-and-buses-1" href="Nets-and-buses.html">2.2.3 Nets and buses</a></li>
+      <li><a id="toc-Pins-1" href="Pins.html">2.2.4 Pins</a></li>
+      <li><a id="toc-Boxes-1" href="Boxes.html">2.2.5 Boxes</a></li>
+      <li><a id="toc-Circles-1" href="Circles.html">2.2.6 Circles</a></li>
+      <li><a id="toc-Arcs-1" href="Arcs.html">2.2.7 Arcs</a></li>
+      <li><a id="toc-Paths-1" href="Paths.html">2.2.8 Paths</a></li>
+      <li><a id="toc-Pictures-1" href="Pictures.html">2.2.9 Pictures</a></li>
+      <li><a id="toc-Text-1" href="Text.html">2.2.10 Text</a></li>
+      <li><a id="toc-Components-1" href="Components.html">2.2.11 Components</a></li>
+    </ul></li>
+    <li><a id="toc-Core-attribute-functions-1" href="Core-attribute-functions.html">2.3 Core attribute functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Attribute-names-and-values" href="Core-attribute-functions.html#Attribute-names-and-values">2.3.1 Attribute names and values</a></li>
+      <li><a id="toc-Attribute-attachment" href="Core-attribute-functions.html#Attribute-attachment">2.3.2 Attribute attachment</a></li>
+      <li><a id="toc-Inherited-and-promoted-attributes" href="Core-attribute-functions.html#Inherited-and-promoted-attributes">2.3.3 Inherited and promoted attributes</a></li>
+    </ul></li>
+    <li><a id="toc-Core-source-library-functions-1" href="Core-source-library-functions.html">2.4 Core source library functions</a></li>
+    <li><a id="toc-Configuration-functions-1" href="Configuration-functions.html">2.5 Configuration functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Configuration-contexts-1" href="Configuration-contexts.html">2.5.1 Configuration contexts</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Obtaining-a-context" href="Configuration-contexts.html#Obtaining-a-context">2.5.1.1 Obtaining a context</a></li>
+        <li><a id="toc-Loading-and-saving-configuration-files" href="Configuration-contexts.html#Loading-and-saving-configuration-files">2.5.1.2 Loading and saving configuration files</a></li>
+        <li><a id="toc-Context-parents" href="Configuration-contexts.html#Context-parents">2.5.1.3 Context parents</a></li>
+        <li><a id="toc-Context-trust" href="Configuration-contexts.html#Context-trust">2.5.1.4 Context trust</a></li>
+      </ul></li>
+      <li><a id="toc-Configuration-parameters-1" href="Configuration-parameters.html">2.5.2 Configuration parameters</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Configuration-groups-and-keys" href="Configuration-parameters.html#Configuration-groups-and-keys">2.5.2.1 Configuration groups and keys</a></li>
+        <li><a id="toc-Configuration-inheritance" href="Configuration-parameters.html#Configuration-inheritance">2.5.2.2 Configuration inheritance</a></li>
+        <li><a id="toc-Configuration-values" href="Configuration-parameters.html#Configuration-values">2.5.2.3 Configuration values</a></li>
+      </ul></li>
+      <li><a id="toc-Configuration-events-1" href="Configuration-events.html">2.5.3 Configuration events</a></li>
+      <li><a id="toc-Configuration-errors-1" href="Configuration-errors.html">2.5.4 Configuration errors</a></li>
+    </ul></li>
+    <li><a id="toc-Logging-functions-1" href="Logging-functions.html">2.6 Logging functions</a></li>
+    <li><a id="toc-System-information-1" href="System-information.html">2.7 System information</a></li>
+    <li><a id="toc-Version-information-1" href="Version-information.html">2.8 Version information</a></li>
+  </ul></li>
+  <li><a id="toc-lepton_002dschematic-API-Reference-1" href="lepton_002dschematic-API-Reference.html">3 lepton-schematic API Reference</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Windows-and-views-1" href="Windows-and-views.html">3.1 Windows and views</a></li>
+    <li><a id="toc-Key-mapping-1" href="Key-mapping.html">3.2 Key mapping</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Key-combinations" href="Key-mapping.html#Key-combinations">3.2.1 Key combinations</a></li>
+      <li><a id="toc-Key-sequences" href="Key-mapping.html#Key-sequences">3.2.2 Key sequences</a></li>
+      <li><a id="toc-Keymaps" href="Key-mapping.html#Keymaps">3.2.3 Keymaps</a></li>
+    </ul></li>
+    <li><a id="toc-Selections-1" href="Selections.html">3.3 Selections</a></li>
+    <li><a id="toc-Hooks-1" href="Hooks.html">3.4 Hooks</a></li>
+    <li><a id="toc-Actions-1" href="Actions.html">3.5 Actions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Action-objects" href="Actions.html#Action-objects">3.5.1 Action objects</a></li>
+      <li><a id="toc-Evaluating-actions" href="Actions.html#Evaluating-actions">3.5.2 Evaluating actions</a></li>
+      <li><a id="toc-Action-positions" href="Actions.html#Action-positions">3.5.3 Action positions</a></li>
+    </ul></li>
+    <li><a id="toc-Miscellaneous-lepton_002dschematic-functions" href="Miscellanous-lepton_002dschematic-functions.html">3.6 Miscellaneous lepton-schematic functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-lepton_002dschematic-Attribute-Helpers" href="Miscellanous-lepton_002dschematic-functions.html#lepton_002dschematic-Attribute-Helpers">3.6.1 lepton-schematic Attribute Helpers</a></li>
+      <li><a id="toc-Miscellaneous-utility-functions" href="Miscellanous-lepton_002dschematic-functions.html#Miscellaneous-utility-functions">3.6.2 Miscellaneous utility functions</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-lepton_002dnetlist-API-Reference-1" href="lepton_002dnetlist-API-Reference.html">4 lepton-netlist API Reference</a></li>
+  <li><a id="toc-Concept-Index-1" href="Concept-Index.html" rel="index">Concept Index</a></li>
+  <li><a id="toc-Function-Index-1" href="Function-Index.html" rel="index">Function Index</a></li>
+  <li><a id="toc-Variable-Index-1" href="Variable-Index.html" rel="index">Variable Index</a></li>
+</ul>
+</div>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>

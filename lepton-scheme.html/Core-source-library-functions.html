@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Core source library functions (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Core source library functions (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Core source library functions (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Core source library functions (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Core source library functions (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Core source library functions (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Core-attribute-functions.html" rel="prev" title="Core attribute functions">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Core-source-library-functions"></span><div class="header">
+<div class="section" id="Core-source-library-functions">
+<div class="header">
 <p>
 Next: <a href="Configuration-functions.html" accesskey="n" rel="next">Configuration functions</a>, Previous: <a href="Core-attribute-functions.html" accesskey="p" rel="prev">Core attribute functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -64,23 +68,24 @@ Next: <a href="Configuration-functions.html" accesskey="n" rel="next">Configurat
 <p>To use the functions described in this section, you will need to load
 the <code>(lepton library)</code> module.
 </p>
-<dl>
-<dt id="index-_0025default_002dsource_002dlibrary">Variable: <strong>%default-source-library</strong></dt>
+<dl class="def">
+<dt id="index-_0025default_002dsource_002dlibrary"><span class="category">Variable: </span><span><strong>%default-source-library</strong><a href='#index-_0025default_002dsource_002dlibrary' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Default source library used in the tools.
 </p></dd></dl>
 
-<dl>
-<dt id="index-source_002dlibrary_002dcontents">Function: <strong>source-library-contents</strong> <em>library</em></dt>
+<dl class="def">
+<dt id="index-source_002dlibrary_002dcontents"><span class="category">Function: </span><span><strong>source-library-contents</strong> <em>library</em><a href='#index-source_002dlibrary_002dcontents' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the contents of source <var>library</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dsource_002dlibrary_002dcontents_0021">Function: <strong>set-source-library-contents!</strong> <em>library contents</em></dt>
+<dl class="def">
+<dt id="index-set_002dsource_002dlibrary_002dcontents_0021"><span class="category">Function: </span><span><strong>set-source-library-contents!</strong> <em>library contents</em><a href='#index-set_002dsource_002dlibrary_002dcontents_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the contents of given source <var>library</var> into
 <var>contents</var>. The value of <var>contents</var> must be a list of paths
 where source files are stored or <code>'()</code>.
 </p></dd></dl>
 
+</div>
 
 
 

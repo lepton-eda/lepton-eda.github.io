@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>System information (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>System information (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="System information (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="System information (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="System information (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="System information (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Logging-functions.html" rel="prev" title="Logging functions">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="System-information"></span><div class="header">
+<div class="section" id="System-information">
+<div class="header">
 <p>
 Next: <a href="Version-information.html" accesskey="n" rel="next">Version information</a>, Previous: <a href="Logging-functions.html" accesskey="p" rel="prev">Logging functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -68,8 +72,8 @@ the <code>(lepton os)</code> module.
 for Scheme code that needs to behave differently depending on which
 operating system Lepton is running on.
 </p>
-<dl>
-<dt id="index-separator_002dchar">Variable: <strong>separator-char</strong></dt>
+<dl class="def">
+<dt id="index-separator_002dchar"><span class="category">Variable: </span><span><strong>separator-char</strong><a href='#index-separator_002dchar' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>The directory separator character that should be used on the host
 platform.
 </p>
@@ -78,8 +82,8 @@ the newly written code. It will be removed after version 1.10.
 There is no replacement for it.
 </p></dd></dl>
 
-<dl>
-<dt id="index-separator">Variable: <strong>separator</strong></dt>
+<dl class="def">
+<dt id="index-separator"><span class="category">Variable: </span><span><strong>separator</strong><a href='#index-separator' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>A string containing <code>separator-char</code>.
 </p>
 <p>The <code>separator</code> function is deprecated and must not be used in
@@ -87,19 +91,19 @@ the newly written code. It will be removed after version 1.10.
 Use the guile function <code>file-name-separator-string</code> instead.
 </p></dd></dl>
 
-<dl>
-<dt id="index-path_002dseparator_002dchar">Variable: <strong>path-separator-char</strong></dt>
+<dl class="def">
+<dt id="index-path_002dseparator_002dchar"><span class="category">Variable: </span><span><strong>path-separator-char</strong><a href='#index-path_002dseparator_002dchar' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>The character used for separating the elements in &lsquo;<samp>PATH</samp>&rsquo;-like
 environment variables on the host platform.
 </p></dd></dl>
 
-<dl>
-<dt id="index-path_002dseparator">Variable: <strong>path-separator</strong></dt>
+<dl class="def">
+<dt id="index-path_002dseparator"><span class="category">Variable: </span><span><strong>path-separator</strong><a href='#index-path_002dseparator' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>A string containing <code>path-separator-char</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-platform">Function: <strong>platform</strong></dt>
+<dl class="def">
+<dt id="index-platform"><span class="category">Function: </span><span><strong>platform</strong><a href='#index-platform' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a list of symbols describing the host platform.  The returned
 symbols may include:
 </p>
@@ -117,7 +121,7 @@ Since the Carbon framework has been discontinued by Apple, the symbol
 is no longer used, and the platform will be determined as
 &lsquo;<samp>unknown</samp>&rsquo;.  The Guile variable <var>%host-type</var> can be used
 instead to define the platform in this case.  For example:
-</p><div class="lisp">
+</p><div class="example lisp">
 <pre class="lisp">(string-contains %host-type &quot;apple&quot;)
 </pre></div>
 <p>Please let us know if you have a better suggestion of how to name the
@@ -126,44 +130,44 @@ platform in the function.
 
 </dd></dl>
 
-<dl>
-<dt id="index-platform_003f">Function: <strong>platform?</strong> <em>type</em></dt>
+<dl class="def">
+<dt id="index-platform_003f"><span class="category">Function: </span><span><strong>platform?</strong> <em>type</em><a href='#index-platform_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if the platform description list returned by
 <code>platform</code> contains the symbol <var>type</var>, and &lsquo;<samp>#f</samp>&rsquo;
 otherwise.
 </p></dd></dl>
 
-<dl>
-<dt id="index-sys_002ddata_002ddirs">Function: <strong>sys-data-dirs</strong></dt>
+<dl class="def">
+<dt id="index-sys_002ddata_002ddirs"><span class="category">Function: </span><span><strong>sys-data-dirs</strong><a href='#index-sys_002ddata_002ddirs' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns an ordered list of directories in which to access system-wide
 Lepton data.
 </p></dd></dl>
 
-<dl>
-<dt id="index-sys_002dconfig_002ddirs">Function: <strong>sys-config-dirs</strong></dt>
+<dl class="def">
+<dt id="index-sys_002dconfig_002ddirs"><span class="category">Function: </span><span><strong>sys-config-dirs</strong><a href='#index-sys_002dconfig_002ddirs' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns an ordered list of directories in which to access system-wide
 Lepton configuration information.
 </p></dd></dl>
 
-<dl>
-<dt id="index-user_002ddata_002ddir">Function: <strong>user-data-dir</strong></dt>
+<dl class="def">
+<dt id="index-user_002ddata_002ddir"><span class="category">Function: </span><span><strong>user-data-dir</strong><a href='#index-user_002ddata_002ddir' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the directory in which to store user-specific Lepton data.
 </p></dd></dl>
 
-<dl>
-<dt id="index-user_002dconfig_002ddir">Function: <strong>user-config-dir</strong></dt>
+<dl class="def">
+<dt id="index-user_002dconfig_002ddir"><span class="category">Function: </span><span><strong>user-config-dir</strong><a href='#index-user_002dconfig_002ddir' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the directory in which to store user-specific Lepton
 configuration information.
 </p></dd></dl>
 
-<dl>
-<dt id="index-user_002dcache_002ddir">Function: <strong>user-cache-dir</strong></dt>
+<dl class="def">
+<dt id="index-user_002dcache_002ddir"><span class="category">Function: </span><span><strong>user-cache-dir</strong><a href='#index-user_002dcache_002ddir' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the directory in which to store program-specific Lepton
 configuration information.
 </p></dd></dl>
 
-<dl>
-<dt id="index-expand_002denv_002dvariables">Function: <strong>expand-env-variables</strong> <em>str</em></dt>
+<dl class="def">
+<dt id="index-expand_002denv_002dvariables"><span class="category">Function: </span><span><strong>expand-env-variables</strong> <em>str</em><a href='#index-expand_002denv_002dvariables' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Recursively expands <var>str</var> until no more environment variables can be
 expanded, and return the expanded string. Environment variables are in
 the form &lsquo;<samp>${VAR}</samp>&rsquo;.
@@ -174,10 +178,11 @@ the form &lsquo;<samp>${VAR}</samp>&rsquo;.
 
 </dd></dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Version-information.html" accesskey="n" rel="next">Version information</a>, Previous: <a href="Logging-functions.html" accesskey="p" rel="prev">Logging functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Version-information.html">Version information</a>, Previous: <a href="Logging-functions.html">Logging functions</a>, Up: <a href="Core-API-Reference.html">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

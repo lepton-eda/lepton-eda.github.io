@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Object bounds (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Object bounds (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Object bounds (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Object bounds (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Object bounds (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Object bounds (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Object-transformations.html" rel="prev" title="Object transformations">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Object-bounds"></span><div class="header">
+<div class="subsubsection" id="Object-bounds">
+<div class="header">
 <p>
 Next: <a href="Object-color.html" accesskey="n" rel="next">Object color</a>, Previous: <a href="Object-transformations.html" accesskey="p" rel="prev">Object transformations</a>, Up: <a href="General-object-functions.html" accesskey="u" rel="up">General object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -64,8 +68,8 @@ Next: <a href="Object-color.html" accesskey="n" rel="next">Object color</a>, Pre
 <p>The bounds of an object is the smallest bounding rectangle of the
 object, expressed in document coordinates (see <a href="Coordinate-system.html">Coordinate system</a>).
 </p>
-<dl>
-<dt id="index-object_002dbounds">Function: <strong>object-bounds</strong> <em>objects...</em></dt>
+<dl class="def">
+<dt id="index-object_002dbounds"><span class="category">Function: </span><span><strong>object-bounds</strong> <em>objects...</em><a href='#index-object_002dbounds' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the world coordinate bounding box containing all of the
 <var>objects</var> passed as arguments, or &lsquo;<samp>#f</samp>&rsquo; if none of the
 <var>objects</var> have bounds (for example, this can occur if no
@@ -77,14 +81,15 @@ of the <var>objects</var>, not the visible bounds.  This means that the bounds o
 invisible text is always included.
 </p></dd></dl>
 
-<dl>
-<dt id="index-fold_002dbounds">Function: <strong>fold-bounds</strong> <em>bounds...</em></dt>
+<dl class="def">
+<dt id="index-fold_002dbounds"><span class="category">Function: </span><span><strong>fold-bounds</strong> <em>bounds...</em><a href='#index-fold_002dbounds' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Calculates the union of several sets of <var>bounds</var> (as returned by
 <code>object-bounds</code>).  If any of the <var>bounds</var> are &lsquo;<samp>#f</samp>&rsquo;, they
 are skipped; if all of the <var>bounds</var> are &lsquo;<samp>#f</samp>&rsquo;, &lsquo;<samp>#f</samp>&rsquo; is
 returned.
 </p></dd></dl>
 
+</div>
 
 
 

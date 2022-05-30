@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Key mapping (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Key mapping (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Key mapping (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Key mapping (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Key mapping (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Key mapping (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Windows-and-views.html" rel="prev" title="Windows and views">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Key-mapping"></span><div class="header">
+<div class="section" id="Key-mapping">
+<div class="header">
 <p>
 Next: <a href="Selections.html" accesskey="n" rel="next">Selections</a>, Previous: <a href="Windows-and-views.html" accesskey="p" rel="prev">Windows and views</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -64,7 +68,13 @@ Next: <a href="Selections.html" accesskey="n" rel="next">Selections</a>, Previou
 <p>To use the functions described in this section, you will need to load
 the <code>(schematic keymap)</code> module.
 </p>
-<span id="Key-combinations"></span><h4 class="subsection">3.2.1 Key combinations</h4>
+<ul class="section-toc">
+<li><a href="#Key-combinations" accesskey="1">Key combinations</a></li>
+<li><a href="#Key-sequences" accesskey="2">Key sequences</a></li>
+<li><a href="#Keymaps" accesskey="3">Keymaps</a></li>
+</ul>
+<div class="subsection" id="Key-combinations">
+<h4 class="subsection">3.2.1 Key combinations</h4>
 
 <p>lepton-schematic treats key combinations as first-class objects.  A key
 combination consists of a non-modifier key press with some number of
@@ -73,13 +83,13 @@ modifiers applied.  For example, the key combination <kbd>Ctrl+Shift+A</kbd>
 holding the <tt class="key">Ctrl</tt> and <tt class="key">Shift</tt> keys down, and then pressing
 <tt class="key">A</tt>.
 </p>
-<dl>
-<dt id="index-key_003f">Function: <strong>key?</strong> <em>obj</em></dt>
+<dl class="def">
+<dt id="index-key_003f"><span class="category">Function: </span><span><strong>key?</strong> <em>obj</em><a href='#index-key_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>obj</var> is a key combination.
 </p></dd></dl>
 
-<dl>
-<dt id="index-string_002d_003ekey">Function: <strong>string-&gt;key</strong> <em>str</em></dt>
+<dl class="def">
+<dt id="index-string_002d_003ekey"><span class="category">Function: </span><span><strong>string-&gt;key</strong> <em>str</em><a href='#index-string_002d_003ekey' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Parses <var>str</var> to create a new key combination.  The expected format
 looks like &lsquo;<samp>&lt;Control&gt;a</samp>&rsquo; or &lsquo;<samp>&lt;Shift&gt;&lt;Alt&gt;F1</samp>&rsquo;.  Key names are
 parsed using <code>gdk_keyval_from_name()</code>, and modifiers may appear in
@@ -87,14 +97,14 @@ any order.  If <var>str</var> has invalid syntax or does not represent a
 valid key combination, raises a &lsquo;<samp>key-format</samp>&rsquo; error.
 </p></dd></dl>
 
-<dl>
-<dt id="index-key_002d_003estring">Function: <strong>key-&gt;string</strong> <em>key</em></dt>
+<dl class="def">
+<dt id="index-key_002d_003estring"><span class="category">Function: </span><span><strong>key-&gt;string</strong> <em>key</em><a href='#index-key_002d_003estring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Converts <var>key</var> to a string, using a format suitable for passing to
 <code>string-&gt;key</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-key_002d_003edisplay_002dstring">Function: <strong>key-&gt;display-string</strong> <em>key</em></dt>
+<dl class="def">
+<dt id="index-key_002d_003edisplay_002dstring"><span class="category">Function: </span><span><strong>key-&gt;display-string</strong> <em>key</em><a href='#index-key_002d_003edisplay_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Converts <var>key</var> to a string, using a format suitable for
 display. This should be used when the key combination needs to be
 displayed to the user e.g. in the lepton-schematic menus or status
@@ -107,7 +117,9 @@ current locale.
 </pre></div>
 </dd></dl>
 
-<span id="Key-sequences"></span><h4 class="subsection">3.2.2 Key sequences</h4>
+</div>
+<div class="subsection" id="Key-sequences">
+<h4 class="subsection">3.2.2 Key sequences</h4>
 
 <p>Most lepton-schematic functionality is bound not to single key
 combinations but to sequences of them.  For example, <strong>File→New</strong>
@@ -117,74 +129,76 @@ example:
 </p>
 <div class="example">
 <pre class="example">(string-&gt;keys ``F N'')
-=&gt; #(#&lt;gschem-key &quot;F&quot;&gt; #&lt;gschem-key &quot;N&quot;&gt;)
+=&gt; #(#&lt;schematic-key &quot;F&quot;&gt; #&lt;schematic-key &quot;N&quot;&gt;)
 </pre></div>
 
 <p>In this case, <tt class="key">F</tt> is a <em>prefix key</em>, because pressing it does
 not cause an action to be carried out directly, but just changes the
 effect of pressing subsequent keys.
 </p>
-<dl>
-<dt id="index-keys_003f">Function: <strong>keys?</strong> <em>obj</em></dt>
+<dl class="def">
+<dt id="index-keys_003f"><span class="category">Function: </span><span><strong>keys?</strong> <em>obj</em><a href='#index-keys_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>obj</var> is a valid key sequence.
 </p></dd></dl>
 
-<dl>
-<dt id="index-string_002d_003ekeys">Function: <strong>string-&gt;keys</strong> <em>str</em></dt>
+<dl class="def">
+<dt id="index-string_002d_003ekeys"><span class="category">Function: </span><span><strong>string-&gt;keys</strong> <em>str</em><a href='#index-string_002d_003ekeys' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Parses <var>str</var> into a key sequence.  The expected format is a sequence
 of key combination specifications (as could be passed to
 <code>string-&gt;key</code>) separated by spaces.
 </p></dd></dl>
 
-<dl>
-<dt id="index-keys_002d_003estring">Function: <strong>keys-&gt;string</strong> <em>keys</em></dt>
+<dl class="def">
+<dt id="index-keys_002d_003estring"><span class="category">Function: </span><span><strong>keys-&gt;string</strong> <em>keys</em><a href='#index-keys_002d_003estring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Converts the key sequence <var>keys</var> to a string, using a format
 suitable for passing to <code>string-&gt;keys</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-keys_002d_003edisplay_002dstring">Function: <strong>keys-&gt;display-string</strong> <em>keys</em></dt>
+<dl class="def">
+<dt id="index-keys_002d_003edisplay_002dstring"><span class="category">Function: </span><span><strong>keys-&gt;display-string</strong> <em>keys</em><a href='#index-keys_002d_003edisplay_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Converts the key sequence <var>keys</var> to a string, using a format
 suitable for display.
 </p></dd></dl>
 
-<span id="Keymaps"></span><h4 class="subsection">3.2.3 Keymaps</h4>
+</div>
+<div class="subsection" id="Keymaps">
+<h4 class="subsection">3.2.3 Keymaps</h4>
 
 <p>A <em>keymap</em> maps key combinations to values (usually actions) or to
 other keymaps.  See <a href="Actions.html">Actions</a>.
 </p>
-<dl>
-<dt id="index-keymap_003f">Function: <strong>keymap?</strong> <em>obj</em></dt>
+<dl class="def">
+<dt id="index-keymap_003f"><span class="category">Function: </span><span><strong>keymap?</strong> <em>obj</em><a href='#index-keymap_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>obj</var> is a keymap.
 </p></dd></dl>
 
-<dl>
-<dt id="index-make_002dkeymap">Function: <strong>make-keymap</strong></dt>
+<dl class="def">
+<dt id="index-make_002dkeymap"><span class="category">Function: </span><span><strong>make-keymap</strong><a href='#index-make_002dkeymap' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Creates and returns a new, empty keymap.
 </p></dd></dl>
 
-<dl>
-<dt id="index-keymap_002dbind_002dkey_0021">Function: <strong>keymap-bind-key!</strong> <em>keymap key [bindable]</em></dt>
+<dl class="def">
+<dt id="index-keymap_002dbind_002dkey_0021"><span class="category">Function: </span><span><strong>keymap-bind-key!</strong> <em>keymap key [bindable]</em><a href='#index-keymap_002dbind_002dkey_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Binds <var>key</var> to <var>bindable</var> in <var>keymap</var>.  If <var>bindable</var> is
 &lsquo;<samp>#f</samp>&rsquo; or not specified, removes the binding for <var>key</var>.
 <var>bindable</var> should be a thunk or a keymap.
 </p></dd></dl>
 
-<dl>
-<dt id="index-keymap_002dlookup_002dkey">Function: <strong>keymap-lookup-key</strong> <em>keymap key</em></dt>
+<dl class="def">
+<dt id="index-keymap_002dlookup_002dkey"><span class="category">Function: </span><span><strong>keymap-lookup-key</strong> <em>keymap key</em><a href='#index-keymap_002dlookup_002dkey' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Looks up the binding for <var>key</var> in <var>keymap</var>.  If <var>key</var> is not
 bound, returns &lsquo;<samp>#f</samp>&rsquo;.
 </p></dd></dl>
 
-<dl>
-<dt id="index-keymap_002dlookup_002dbinding">Function: <strong>keymap-lookup-binding</strong> <em>keymap bindable</em></dt>
+<dl class="def">
+<dt id="index-keymap_002dlookup_002dbinding"><span class="category">Function: </span><span><strong>keymap-lookup-binding</strong> <em>keymap bindable</em><a href='#index-keymap_002dlookup_002dbinding' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Carries out a reverse lookup in <var>keymap</var> to find the key bound to
 <var>bindable</var>.  If <var>bindable</var> is not bound in <var>keymap</var>,
 returns &lsquo;<samp>#f</samp>&rsquo;.
 </p></dd></dl>
 
-<dl>
-<dt id="index-keymap_002dfor_002deach">Function: <strong>keymap-for-each</strong> <em>proc keymap</em></dt>
+<dl class="def">
+<dt id="index-keymap_002dfor_002deach"><span class="category">Function: </span><span><strong>keymap-for-each</strong> <em>proc keymap</em><a href='#index-keymap_002dfor_002deach' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Applies <var>proc</var> to each binding in <var>keymap</var>.  <var>proc</var> should
 take two arguments: the bound key, and its binding.
 </p></dd></dl>
@@ -201,8 +215,8 @@ main keymap the prefix key <tt class="key">F</tt> is bound to the new keymap.
 <p>Three helper functions are provided for working with key sequence
 bindings.
 </p>
-<dl>
-<dt id="index-bind_002dkeys_0021">Function: <strong>bind-keys!</strong> <em>keymap keys [bindable]</em></dt>
+<dl class="def">
+<dt id="index-bind_002dkeys_0021"><span class="category">Function: </span><span><strong>bind-keys!</strong> <em>keymap keys [bindable]</em><a href='#index-bind_002dkeys_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Bind <var>keys</var> to <var>bindable</var>.  Keys may be a key sequence vector, a
 single key combination, or a string representing a key sequence or key
 combination.  If <var>bindable</var> is &lsquo;<samp>#f</samp>&rsquo; or not specified, removes
@@ -214,24 +228,26 @@ prefix keys is already bound to something other than a keymap), raises
 an error.  Missing prefix keymaps are created as required.
 </p></dd></dl>
 
-<dl>
-<dt id="index-lookup_002dkeys">Function: <strong>lookup-keys</strong> <em>keymap keys</em></dt>
+<dl class="def">
+<dt id="index-lookup_002dkeys"><span class="category">Function: </span><span><strong>lookup-keys</strong> <em>keymap keys</em><a href='#index-lookup_002dkeys' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Looks up the binding for <var>keys</var> in <var>keymap</var>.  <var>keys</var> is
 interpreted the same as for <code>bind-keys!</code>.  If <var>keys</var> is not
 bound, returns &lsquo;<samp>#f</samp>&rsquo;.
 </p></dd></dl>
 
-<dl>
-<dt id="index-lookup_002dbinding">Function: <strong>lookup-binding</strong> <em>keymap bindable</em></dt>
+<dl class="def">
+<dt id="index-lookup_002dbinding"><span class="category">Function: </span><span><strong>lookup-binding</strong> <em>keymap bindable</em><a href='#index-lookup_002dbinding' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Recursively searches <var>keymap</var> for the key sequence bound to
 <var>bindable</var>, which should be a thunk or a keymap.  If
 <var>bindable</var> is not bound, returns &lsquo;<samp>#f</samp>&rsquo;.
 </p></dd></dl>
 
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Selections.html" accesskey="n" rel="next">Selections</a>, Previous: <a href="Windows-and-views.html" accesskey="p" rel="prev">Windows and views</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Selections.html">Selections</a>, Previous: <a href="Windows-and-views.html">Windows and views</a>, Up: <a href="lepton_002dschematic-API-Reference.html">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

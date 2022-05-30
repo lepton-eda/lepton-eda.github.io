@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Selections (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Selections (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Selections (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Selections (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Selections (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Selections (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Key-mapping.html" rel="prev" title="Key mapping">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Selections"></span><div class="header">
+<div class="section" id="Selections">
+<div class="header">
 <p>
 Next: <a href="Hooks.html" accesskey="n" rel="next">Hooks</a>, Previous: <a href="Key-mapping.html" accesskey="p" rel="prev">Key mapping</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -68,14 +72,14 @@ the <code>(schematic selection)</code> module.
 with it, which is some subset of the <code>page</code>s contents.  Most
 actions in lepton-schematic operate on the currently selected objects.
 </p>
-<dl>
-<dt id="index-page_002dselection">Function: <strong>page-selection</strong> <em>page</em></dt>
+<dl class="def">
+<dt id="index-page_002dselection"><span class="category">Function: </span><span><strong>page-selection</strong> <em>page</em><a href='#index-page_002dselection' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the current selection for <var>page</var>, as a list of
 <code>object</code>s.
 </p></dd></dl>
 
-<dl>
-<dt id="index-object_002dselected_003f">Function: <strong>object-selected?</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dselected_003f"><span class="category">Function: </span><span><strong>object-selected?</strong> <em>object</em><a href='#index-object_002dselected_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if <var>object</var> is in its containing page&rsquo;s
 selection. Otherwise, returns &lsquo;<samp>#f</samp>&rsquo;.  If <var>object</var> is not in a
 <code>page</code>, raises an &lsquo;<samp>object-state</samp>&rsquo; error.
@@ -84,8 +88,8 @@ selection. Otherwise, returns &lsquo;<samp>#f</samp>&rsquo;.  If <var>object</va
 <code>page</code>, not via inclusion in a component <code>object</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-select_002dobject_0021">Function: <strong>select-object!</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-select_002dobject_0021"><span class="category">Function: </span><span><strong>select-object!</strong> <em>object</em><a href='#index-select_002dobject_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Adds <var>object</var> to the selection of its containing <code>page</code>.  If
 <var>object</var> is not directly included in a <code>page</code>, raises an
 &lsquo;<samp>object-state</samp>&rsquo; error.  If <var>object</var> is already selected, does
@@ -94,8 +98,8 @@ nothing.  Returns <var>object</var>.
 <p><strong>Note</strong>: This function does not call <code>select-objects-hook</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-deselect_002dobject_0021">Function: <strong>deselect-object!</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-deselect_002dobject_0021"><span class="category">Function: </span><span><strong>deselect-object!</strong> <em>object</em><a href='#index-deselect_002dobject_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Removes <var>object</var> from the selection of its containing <code>page</code>.
 If <var>object</var> is not directly included in a <code>page</code>, raises an
 &lsquo;<samp>object-state</samp>&rsquo; error.  If <var>object</var> is not selected, does
@@ -105,6 +109,7 @@ nothing.  Returns <var>object</var>.
 <code>deselect-objects-hook</code>.
 </p></dd></dl>
 
+</div>
 
 
 

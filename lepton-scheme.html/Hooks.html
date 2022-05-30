@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Hooks (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Hooks (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Hooks (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Hooks (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Hooks (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Hooks (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Selections.html" rel="prev" title="Selections">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Hooks"></span><div class="header">
+<div class="section" id="Hooks">
+<div class="header">
 <p>
 Next: <a href="Actions.html" accesskey="n" rel="next">Actions</a>, Previous: <a href="Selections.html" accesskey="p" rel="prev">Selections</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -75,96 +79,96 @@ explicitly.
 <p><strong>Warning</strong>: Functions added to these standard hooks should not
 normally modify their arguments.
 </p>
-<p>For more information on hooks in Guile, see <a href="https://www.gnu.org/software/guile/manual/html_node/Hooks.html#Hooks">Hooks</a> in <cite>Guile Reference Manual</cite>.
+<p>For more information on hooks in Guile, see <a data-manual="guile" href="https://www.gnu.org/software/guile/manual/html_node/Hooks.html#Hooks">Hooks</a> in <cite>Guile Reference Manual</cite>.
 </p>
-<dl>
-<dt id="index-add_002dobjects_002dhook">Variable: <strong>add-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-add_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>add-objects-hook</strong><a href='#index-add_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are added to the page, at their initial creation.
 The argument is a list of the objects being added.
 </p></dd></dl>
 
-<dl>
-<dt id="index-copy_002dobjects_002dhook">Variable: <strong>copy-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-copy_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>copy-objects-hook</strong><a href='#index-copy_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are copied, either via <strong>Edit → Copy Mode</strong> or
 similar, or to buffers, or to the clipboard.  Argument is a list of the
 objects that were copied.
 </p></dd></dl>
 
-<dl>
-<dt id="index-remove_002dobjects_002dhook">Variable: <strong>remove-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-remove_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>remove-objects-hook</strong><a href='#index-remove_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are removed from the page.  Argument is a list of
 the objects being removed.
 </p></dd></dl>
 
-<dl>
-<dt id="index-move_002dobjects_002dhook">Variable: <strong>move-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-move_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>move-objects-hook</strong><a href='#index-move_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are moved.  Argument is a list of the objects
 that were moved.
 </p></dd></dl>
 
-<dl>
-<dt id="index-mirror_002dobjects_002dhook">Variable: <strong>mirror-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-mirror_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>mirror-objects-hook</strong><a href='#index-mirror_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are mirrored.  Argument is a list of the objects
 that were mirrored.
 </p></dd></dl>
 
-<dl>
-<dt id="index-rotate_002dobjects_002dhook">Variable: <strong>rotate-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-rotate_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>rotate-objects-hook</strong><a href='#index-rotate_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are rotated.  Argument is a list of the objects
 that were rotated.
 </p></dd></dl>
 
-<dl>
-<dt id="index-paste_002dobjects_002dhook">Variable: <strong>paste-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-paste_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>paste-objects-hook</strong><a href='#index-paste_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are pasted to the page, either via <strong>Edit →
 Copy Mode</strong> or similar, or via buffers, or via the clipboard.  Argument
 is a list of the objects that were pasted.
 </p></dd></dl>
 
-<dl>
-<dt id="index-attach_002dattribs_002dhook">Variable: <strong>attach-attribs-hook</strong></dt>
+<dl class="def">
+<dt id="index-attach_002dattribs_002dhook"><span class="category">Variable: </span><span><strong>attach-attribs-hook</strong><a href='#index-attach_002dattribs_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after attributes are attached to something.  The argument is a
 list of the attributes that were attached.
 </p></dd></dl>
 
-<dl>
-<dt id="index-detach_002dattribs_002dhook">Variable: <strong>detach-attribs-hook</strong></dt>
+<dl class="def">
+<dt id="index-detach_002dattribs_002dhook"><span class="category">Variable: </span><span><strong>detach-attribs-hook</strong><a href='#index-detach_002dattribs_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after attributes are detached from something.  The argument is
 a list of the attributes that were detached.
 </p></dd></dl>
 
-<dl>
-<dt id="index-select_002dobjects_002dhook">Variable: <strong>select-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-select_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>select-objects-hook</strong><a href='#index-select_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are added to the selection.  The argument is a
 list of objects that were selected.
 </p></dd></dl>
 
-<dl>
-<dt id="index-deselect_002dobjects_002dhook">Variable: <strong>deselect-objects-hook</strong></dt>
+<dl class="def">
+<dt id="index-deselect_002dobjects_002dhook"><span class="category">Variable: </span><span><strong>deselect-objects-hook</strong><a href='#index-deselect_002dobjects_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called after objects are removed from the selection.  The argument is
 a list of objects that were deselected.
 </p></dd></dl>
 
-<dl>
-<dt id="index-new_002dpage_002dhook">Variable: <strong>new-page-hook</strong></dt>
+<dl class="def">
+<dt id="index-new_002dpage_002dhook"><span class="category">Variable: </span><span><strong>new-page-hook</strong><a href='#index-new_002dpage_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called when a new page is created. The argument is the new page.
 </p></dd></dl>
 
-<dl>
-<dt id="index-open_002dpage_002dhook">Variable: <strong>open-page-hook</strong></dt>
+<dl class="def">
+<dt id="index-open_002dpage_002dhook"><span class="category">Variable: </span><span><strong>open-page-hook</strong><a href='#index-open_002dpage_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called when an existing page is loaded. The argument is the loaded page.
 </p></dd></dl>
 
-<dl>
-<dt id="index-action_002dproperty_002dhook">Variable: <strong>action-property-hook</strong></dt>
+<dl class="def">
+<dt id="index-action_002dproperty_002dhook"><span class="category">Variable: </span><span><strong>action-property-hook</strong><a href='#index-action_002dproperty_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called when an action property is set.  The arguments are the action,
 the property key and the property value. See <a href="Actions.html">Actions</a>.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-bind_002dkeys_002dhook">Variable: <strong>bind-keys-hook</strong></dt>
+<dl class="def">
+<dt id="index-bind_002dkeys_002dhook"><span class="category">Variable: </span><span><strong>bind-keys-hook</strong><a href='#index-bind_002dkeys_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called when a key binding is set or modified.  The arguments are the
 keymap, the key sequence and the binding&rsquo;s target.
 </p>
@@ -175,8 +179,8 @@ superior keymap.
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-switch_002daction_002dmode_002dhook">Variable: <strong>switch-action-mode-hook</strong></dt>
+<dl class="def">
+<dt id="index-switch_002daction_002dmode_002dhook"><span class="category">Variable: </span><span><strong>switch-action-mode-hook</strong><a href='#index-switch_002daction_002dmode_002dhook' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Called when GUI switches to a new action mode. The argument is the new
 mode.
 </p>
@@ -215,10 +219,11 @@ mode.
 <p>Since 1.10.
 </p></dd></dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Actions.html" accesskey="n" rel="next">Actions</a>, Previous: <a href="Selections.html" accesskey="p" rel="prev">Selections</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Actions.html">Actions</a>, Previous: <a href="Selections.html">Selections</a>, Up: <a href="lepton_002dschematic-API-Reference.html">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

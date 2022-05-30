@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,29 +17,27 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Object fill and stroke (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Object fill and stroke (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Object fill and stroke (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Object fill and stroke (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Object fill and stroke (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Object fill and stroke (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="General-object-functions.html" rel="up" title="General object functions">
-<link href="Lines.html" rel="next" title="Lines">
 <link href="Object-color.html" rel="prev" title="Object color">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +46,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +56,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Object-fill-and-stroke"></span><div class="header">
+<div class="subsubsection" id="Object-fill-and-stroke">
+<div class="header">
 <p>
 Previous: <a href="Object-color.html" accesskey="p" rel="prev">Object color</a>, Up: <a href="General-object-functions.html" accesskey="u" rel="up">General object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -64,8 +67,8 @@ Previous: <a href="Object-color.html" accesskey="p" rel="prev">Object color</a>,
 <p>Graphical object subtypes &ndash; lines, boxes, circles, arcs and paths &ndash;
 are drawn with a stroke pattern that can be configured in detail.
 </p>
-<dl>
-<dt id="index-object_002dstroke">Function: <strong>object-stroke</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dstroke"><span class="category">Function: </span><span><strong>object-stroke</strong> <em>object</em><a href='#index-object_002dstroke' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the stroke settings of the <var>object</var>, which must be a line,
 box, circle, arc or path <code>object</code>.  The return value is a list of
 parameters:
@@ -85,29 +88,29 @@ parameters:
 </li></ol>
 </dd></dl>
 
-<dl>
-<dt id="index-set_002dobject_002dstroke_0021">Function: <strong>set-object-stroke!</strong> <em>object width cap dash [dash-space [dash-length]]</em></dt>
+<dl class="def">
+<dt id="index-set_002dobject_002dstroke_0021"><span class="category">Function: </span><span><strong>set-object-stroke!</strong> <em>object width cap dash [dash-space [dash-length]]</em><a href='#index-set_002dobject_002dstroke_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set the stroke settings of the <var>object</var>, which must be a line,
 box, circle, arc or path <code>object</code>.  The arguments are the same as
 the contents of the list returned by <code>object-stroke</code>.  Returns
 <var>object</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-object_002dstroke_002dwidth">Function: <strong>object-stroke-width</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dstroke_002dwidth"><span class="category">Function: </span><span><strong>object-stroke-width</strong> <em>object</em><a href='#index-object_002dstroke_002dwidth' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the integer stroke width of <var>object</var>, which must be a
 line, box, circle, arc or path <code>object</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-object_002dstroke_002dcap">Function: <strong>object-stroke-cap</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dstroke_002dcap"><span class="category">Function: </span><span><strong>object-stroke-cap</strong> <em>object</em><a href='#index-object_002dstroke_002dcap' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the stroke cap style of <var>object</var>, which must be a line,
 box, circle, arc or path <code>object</code>.  The returned value is one of
 the symbols <code>none</code>, <code>square</code> or <code>round</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-object_002dstroke_002ddash">Function: <strong>object-stroke-dash</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dstroke_002ddash"><span class="category">Function: </span><span><strong>object-stroke-dash</strong> <em>object</em><a href='#index-object_002dstroke_002ddash' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the dash style of <var>object</var>, which must be a line, box,
 circle, arc or path <code>object</code>.  The return value is a list of
 between one and three parameters:
@@ -123,8 +126,8 @@ between one and three parameters:
 <p>Some types of <code>object</code> &ndash; boxes, circles and paths &ndash; can have
 their interiors filled with a variety of patterns.
 </p>
-<dl>
-<dt id="index-object_002dfill">Function: <strong>object-fill</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dfill"><span class="category">Function: </span><span><strong>object-fill</strong> <em>object</em><a href='#index-object_002dfill' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the fill settings of <var>object</var>, which must be a box, circle
 or path <code>object</code>.  The return value is a list of one to six
 parameters:
@@ -142,17 +145,18 @@ parameters:
 </li></ol>
 </dd></dl>
 
-<dl>
-<dt id="index-set_002dobject_002dfill_0021">Function: <strong>set-object-fill!</strong> <em>object fill-type . fill-args</em></dt>
+<dl class="def">
+<dt id="index-set_002dobject_002dfill_0021"><span class="category">Function: </span><span><strong>set-object-fill!</strong> <em>object fill-type . fill-args</em><a href='#index-set_002dobject_002dfill_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the fill settings of <var>object</var>, which must be a box, circle or
 path <code>object</code>.  The arguments are the same as the contents of the
 list returned by <code>object-fill</code>.  Returns <var>object</var>.
 </p></dd></dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="Object-color.html" accesskey="p" rel="prev">Object color</a>, Up: <a href="General-object-functions.html" accesskey="u" rel="up">General object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="Object-color.html">Object color</a>, Up: <a href="General-object-functions.html">General object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

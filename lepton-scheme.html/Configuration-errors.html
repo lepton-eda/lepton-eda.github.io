@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,29 +17,27 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Configuration errors (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Configuration errors (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Configuration errors (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Configuration errors (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Configuration errors (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Configuration errors (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Configuration-functions.html" rel="up" title="Configuration functions">
-<link href="Logging-functions.html" rel="next" title="Logging functions">
 <link href="Configuration-events.html" rel="prev" title="Configuration events">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +46,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +56,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Configuration-errors"></span><div class="header">
+<div class="subsection" id="Configuration-errors">
+<div class="header">
 <p>
 Previous: <a href="Configuration-events.html" accesskey="p" rel="prev">Configuration events</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -75,23 +78,24 @@ indicated with the <code>system-error</code> key.
 arguments is a list containing one of the following symbols:
 </p>
 <dl compact="compact">
-<dt><code>unknown-encoding</code></dt>
+<dt><span><code>unknown-encoding</code></span></dt>
 <dd><p>The text being parsed was in an unknown encoding.
 </p></dd>
-<dt><code>parse</code></dt>
+<dt><span><code>parse</code></span></dt>
 <dd><p>The configuration data wass ill-formed.
 </p></dd>
-<dt><code>key-not-found</code></dt>
+<dt><span><code>key-not-found</code></span></dt>
 <dd><p>A requested configuration key was not found.
 </p></dd>
-<dt><code>group-not-found</code></dt>
+<dt><span><code>group-not-found</code></span></dt>
 <dd><p>A requested configuration group was not found.
 </p></dd>
-<dt><code>invalid-value</code></dt>
+<dt><span><code>invalid-value</code></span></dt>
 <dd><p>A configuration value could not be parsed into the requested format.
 </p></dd>
 </dl>
 
+</div>
 
 
 

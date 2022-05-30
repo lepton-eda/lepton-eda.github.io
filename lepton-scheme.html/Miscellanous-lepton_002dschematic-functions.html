@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,29 +17,27 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Miscellanous lepton-schematic functions (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Miscellanous lepton-schematic functions (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Miscellanous lepton-schematic functions (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Miscellanous lepton-schematic functions (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Miscellanous lepton-schematic functions (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Miscellanous lepton-schematic functions (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="lepton_002dschematic-API-Reference.html" rel="up" title="lepton-schematic API Reference">
-<link href="lepton_002dnetlist-API-Reference.html" rel="next" title="lepton-netlist API Reference">
 <link href="Actions.html" rel="prev" title="Actions">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +46,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,20 +56,26 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Miscellanous-lepton_002dschematic-functions"></span><div class="header">
+<div class="section" id="Miscellanous-lepton_002dschematic-functions">
+<div class="header">
 <p>
 Previous: <a href="Actions.html" accesskey="p" rel="prev">Actions</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Miscellaneous-lepton_002dschematic-functions"></span><h3 class="section">3.6 Miscellaneous lepton-schematic functions</h3>
 
-<span id="lepton_002dschematic-Attribute-Helpers"></span><h4 class="subsection">3.6.1 lepton-schematic Attribute Helpers</h4>
+<ul class="section-toc">
+<li><a href="#lepton_002dschematic-Attribute-Helpers" accesskey="1">lepton-schematic Attribute Helpers</a></li>
+<li><a href="#Miscellaneous-utility-functions" accesskey="2">Miscellaneous utility functions</a></li>
+</ul>
+<div class="subsection" id="lepton_002dschematic-Attribute-Helpers">
+<h4 class="subsection">3.6.1 lepton-schematic Attribute Helpers</h4>
 
 <p>To use the functions described in this section, you will need to load
 the <code>(schematic attrib)</code> module.
 </p>
-<dl>
-<dt id="index-add_002dattrib_0021">Function: <strong>add-attrib!</strong> <em>target name value visible show</em></dt>
+<dl class="def">
+<dt id="index-add_002dattrib_0021"><span class="category">Function: </span><span><strong>add-attrib!</strong> <em>target name value visible show</em><a href='#index-add_002dattrib_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Create a new attribute, either attached to a <var>target</var>
 <code>object</code> in the current <code>page</code>, or floating in the current
 <code>page</code> if <var>target</var> is &lsquo;<samp>#f</samp>&rsquo;.  The <var>name</var> and
@@ -89,27 +97,36 @@ built-in <strong>Add Attribute</strong> action.
 <p>See <a href="Text.html">Text</a>, <a href="Attributes.html">Attributes</a> and <a href="Windows-and-views.html">Windows and views</a>.
 </p></dd></dl>
 
-<span id="Miscellaneous-utility-functions"></span><h4 class="subsection">3.6.2 Miscellaneous utility functions</h4>
+</div>
+<div class="subsection" id="Miscellaneous-utility-functions">
+<h4 class="subsection">3.6.2 Miscellaneous utility functions</h4>
 
 <p>To use the functions described in this section, you will need to load
 the <code>(schematic util)</code> module.
 </p>
-<dl>
-<dt id="index-show_002duri">Function: <strong>show-uri</strong> <em>uri</em></dt>
+<dl class="def">
+<dt id="index-show_002duri"><span class="category">Function: </span><span><strong>show-uri</strong> <em>uri</em><a href='#index-show_002duri' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Open <var>uri</var> in the registered default application associated for
 that type of file or protocol.  URI should be fully-qualified URI;
 which URIs can be handled by <code>show-uri</code> will depend on the system
 configuration.  Raises <code>misc-error</code> on failure.
 </p></dd></dl>
 
-<dl>
-<dt id="index-show_002dfile">Function: <strong>show-file</strong> <em>filename</em></dt>
+<dl class="def">
+<dt id="index-show_002dfile"><span class="category">Function: </span><span><strong>show-file</strong> <em>filename</em><a href='#index-show_002dfile' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Displays a file in the registered default application for files of
 that type. <var>filename</var> should be the absolute path and filename of
 a local file.  Convenience function which calls
 <code>(show-uri &quot;file://<var>filename</var>&quot;)</code>
 </p></dd></dl>
 
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Actions.html">Actions</a>, Up: <a href="lepton_002dschematic-API-Reference.html">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

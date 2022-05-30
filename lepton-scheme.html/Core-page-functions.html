@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,29 +17,27 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Core page functions (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Core page functions (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Core page functions (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Core page functions (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Core page functions (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Core page functions (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Core-API-Reference.html" rel="up" title="Core API Reference">
 <link href="Core-object-functions.html" rel="next" title="Core object functions">
-<link href="Core-API-Reference.html" rel="prev" title="Core API Reference">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +46,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +56,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Core-page-functions"></span><div class="header">
+<div class="section" id="Core-page-functions">
+<div class="header">
 <p>
 Next: <a href="Core-object-functions.html" accesskey="n" rel="next">Core object functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -66,30 +69,38 @@ the <code>(lepton page)</code> module.
 </p>
 <p>See <a href="Pages.html">Pages</a>.
 </p>
-<dl>
-<dt id="index-page_003f">Function: <strong>page?</strong> <em>obj</em></dt>
+<dl class="def">
+<dt id="index-page_003f"><span class="category">Function: </span><span><strong>page?</strong> <em>obj</em><a href='#index-page_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>obj</var> is a <code>page</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-active_002dpages">Function: <strong>active-pages</strong></dt>
+<dl class="def">
+<dt id="index-active_002dpages"><span class="category">Function: </span><span><strong>active-pages</strong><a href='#index-active_002dpages' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a list of all open <code>page</code>s.
 </p></dd></dl>
 
-<span id="Page-creation_002c-disposal-and-filenames"></span><h4 class="subsection">2.1.1 Page creation, disposal and filenames</h4>
+<ul class="section-toc">
+<li><a href="#Page-creation_002c-disposal-and-filenames" accesskey="1">Page creation, disposal and filenames</a></li>
+<li><a href="#Conversion-between-files-and-pages" accesskey="2">Conversion between files and pages</a></li>
+<li><a href="#Page-serialisation" accesskey="3">Page serialisation</a></li>
+<li><a href="#Page-contents" accesskey="4">Page contents</a></li>
+<li><a href="#Page-dirty-flags" accesskey="5">Page dirty flags</a></li>
+</ul>
+<div class="subsection" id="Page-creation_002c-disposal-and-filenames">
+<h4 class="subsection">2.1.1 Page creation, disposal and filenames</h4>
 
 <p>Every <code>page</code> is associated with a <em>filename</em>.  The filename
 does not necessarily have to be a file which exists and/or is
 accessible in the filesystem.
 </p>
-<dl>
-<dt id="index-make_002dpage">Function: <strong>make-page</strong> <em>filename</em></dt>
+<dl class="def">
+<dt id="index-make_002dpage"><span class="category">Function: </span><span><strong>make-page</strong> <em>filename</em><a href='#index-make_002dpage' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Creates and returns a new, empty <code>page</code>, with the given
 string <var>filename</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-close_002dpage_0021">Function: <strong>close-page!</strong> <em>page</em></dt>
+<dl class="def">
+<dt id="index-close_002dpage_0021"><span class="category">Function: </span><span><strong>close-page!</strong> <em>page</em><a href='#index-close_002dpage_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Destroys <var>page</var>.  The returned value is undefined.
 </p>
 <p><strong>Warning</strong>: This function closes and destroys <var>page</var>
@@ -97,36 +108,40 @@ immediately, regardless of whether the page has been modified since
 loading or saving, and without asking the user.
 </p></dd></dl>
 
-<dl>
-<dt id="index-page_002dfilename">Function: <strong>page-filename</strong> <em>page</em></dt>
+<dl class="def">
+<dt id="index-page_002dfilename"><span class="category">Function: </span><span><strong>page-filename</strong> <em>page</em><a href='#index-page_002dfilename' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the filename associated with <var>page</var> as a string.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dpage_002dfilename_0021">Function: <strong>set-page-filename!</strong> <em>page filename</em></dt>
+<dl class="def">
+<dt id="index-set_002dpage_002dfilename_0021"><span class="category">Function: </span><span><strong>set-page-filename!</strong> <em>page filename</em><a href='#index-set_002dpage_002dfilename_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the filename of <var>page</var> to <var>filename</var>.  Returns
 <var>page</var>.
 </p></dd></dl>
 
-<span id="Conversion-between-files-and-pages"></span><h4 class="subsection">2.1.2 Conversion between files and pages</h4>
+</div>
+<div class="subsection" id="Conversion-between-files-and-pages">
+<h4 class="subsection">2.1.2 Conversion between files and pages</h4>
 <p>Pages can be converted to and from files in the gEDA schematic file
 format.
 </p>
-<dl>
-<dt id="index-file_002d_003epage">Function: <strong>file-&gt;page</strong> <em>filename [new-page?]</em></dt>
+<dl class="def">
+<dt id="index-file_002d_003epage"><span class="category">Function: </span><span><strong>file-&gt;page</strong> <em>filename [new-page?]</em><a href='#index-file_002d_003epage' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Return a <code>page</code> for <var>filename</var> which must be a string. If
 such a page has been already opened, that page is returned, otherwise
 a new page is created.  If <var>new-page?</var> is not &lsquo;<samp>#f</samp>&rsquo;, new page
 creation is forced.  Returns the resulting <code>page</code>.
 </p></dd></dl>
 
-<span id="Page-serialisation"></span><h4 class="subsection">2.1.3 Page serialisation</h4>
+</div>
+<div class="subsection" id="Page-serialisation">
+<h4 class="subsection">2.1.3 Page serialisation</h4>
 
 <p>Pages can be converted to and from strings in the gEDA schematic file
 format.
 </p>
-<dl>
-<dt id="index-string_002d_003epage">Function: <strong>string-&gt;page</strong> <em>filename string</em></dt>
+<dl class="def">
+<dt id="index-string_002d_003epage"><span class="category">Function: </span><span><strong>string-&gt;page</strong> <em>filename string</em><a href='#index-string_002d_003epage' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Parses <var>string</var>, which should be in the gEDA file format, to
 create a new <code>page</code>.  The initial filename for the new
 <code>page</code> is <var>filename</var>.
@@ -134,27 +149,29 @@ create a new <code>page</code>.  The initial filename for the new
 <p>If the string is not in gEDA format, raises an <code>string-format</code> error.
 </p></dd></dl>
 
-<dl>
-<dt id="index-page_002d_003estring">Function: <strong>page-&gt;string</strong> <em>page</em></dt>
+<dl class="def">
+<dt id="index-page_002d_003estring"><span class="category">Function: </span><span><strong>page-&gt;string</strong> <em>page</em><a href='#index-page_002d_003estring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a string representation of <var>page</var> in the gEDA file
 format.
 </p></dd></dl>
 
-<span id="Page-contents"></span><h4 class="subsection">2.1.4 Page contents</h4>
+</div>
+<div class="subsection" id="Page-contents">
+<h4 class="subsection">2.1.4 Page contents</h4>
 
 <p>A schematic or symbol <code>page</code> is composed of a set of
 <code>object</code>s which determine both its graphical appearance and its
 electrical meaning.
 </p>
-<dl>
-<dt id="index-page_002dcontents">Function: <strong>page-contents</strong> <em>page</em></dt>
+<dl class="def">
+<dt id="index-page_002dcontents"><span class="category">Function: </span><span><strong>page-contents</strong> <em>page</em><a href='#index-page_002dcontents' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a list of the <code>object</code>s which make up <var>page</var>.  The
 list can be freely modified without changing the contents of
 <var>page</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-page_002dappend_0021">Function: <strong>page-append!</strong> <em>page objects...</em></dt>
+<dl class="def">
+<dt id="index-page_002dappend_0021"><span class="category">Function: </span><span><strong>page-append!</strong> <em>page objects...</em><a href='#index-page_002dappend_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Appends zero or more <var>objects</var> to the contents of <var>page</var> in
 the order given.  Returns <var>page</var>.
 </p>
@@ -164,8 +181,8 @@ than <var>page</var>, or is part of a component <code>object</code>, raises an
 in the <var>page</var> are ignored.
 </p></dd></dl>
 
-<dl>
-<dt id="index-page_002dremove_0021">Function: <strong>page-remove!</strong> <em>page objects...</em></dt>
+<dl class="def">
+<dt id="index-page_002dremove_0021"><span class="category">Function: </span><span><strong>page-remove!</strong> <em>page objects...</em><a href='#index-page_002dremove_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Removes zero or more <var>objects</var> from the contents of <var>page</var>.
 Returns <var>page</var>.
 </p>
@@ -183,8 +200,8 @@ Returns <var>page</var>.
 </li></ul>
 </dd></dl>
 
-<dl>
-<dt id="index-object_002dpage">Function: <strong>object-page</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-object_002dpage"><span class="category">Function: </span><span><strong>object-page</strong> <em>object</em><a href='#index-object_002dpage' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the <code>page</code> which contains <var>object</var> (either directly
 or indirectly), or &lsquo;<samp>#f</samp>&rsquo; if <var>object</var> is not part of a
 <code>page</code>.
@@ -194,29 +211,33 @@ part of a component <code>object</code> which is itself part of a
 <code>page</code>, that <code>page</code> will be returned.
 </p></dd></dl>
 
-<span id="Page-dirty-flags"></span><h4 class="subsection">2.1.5 Page dirty flags</h4>
+</div>
+<div class="subsection" id="Page-dirty-flags">
+<h4 class="subsection">2.1.5 Page dirty flags</h4>
 
 <p>A <code>page</code> has a <em>dirty flag</em> that is used to indicate to
 applications that the <code>page</code> has been modified since it was last
 loaded or saved.
 </p>
-<dl>
-<dt id="index-page_002ddirty_003f">Function: <strong>page-dirty?</strong> <em>page</em></dt>
+<dl class="def">
+<dt id="index-page_002ddirty_003f"><span class="category">Function: </span><span><strong>page-dirty?</strong> <em>page</em><a href='#index-page_002ddirty_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if the <var>page</var>&rsquo;s page has been marked as dirty;
 otherwise, returns &lsquo;<samp>#f</samp>&rsquo;.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dpage_002ddirty_0021">Function: <strong>set-page-dirty!</strong> <em>page [state]</em></dt>
+<dl class="def">
+<dt id="index-set_002dpage_002ddirty_0021"><span class="category">Function: </span><span><strong>set-page-dirty!</strong> <em>page [state]</em><a href='#index-set_002dpage_002ddirty_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the dirty flag for <var>page</var>.  If <var>state</var> is &lsquo;<samp>#f</samp>&rsquo;,
 clears the dirty flag; otherwise, or if <var>state</var> is omitted, marks
 the page as dirty.  Returns <var>page</var>.
 </p></dd></dl>
 
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Core-object-functions.html" accesskey="n" rel="next">Core object functions</a>, Up: <a href="Core-API-Reference.html" accesskey="u" rel="up">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Core-object-functions.html">Core object functions</a>, Up: <a href="Core-API-Reference.html">Core API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

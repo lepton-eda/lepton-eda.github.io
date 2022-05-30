@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Text (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Text (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Text (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Text (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Text (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Text (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Pictures.html" rel="prev" title="Pictures">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Text"></span><div class="header">
+<div class="subsection" id="Text">
+<div class="header">
 <p>
 Next: <a href="Components.html" accesskey="n" rel="next">Components</a>, Previous: <a href="Pictures.html" accesskey="p" rel="prev">Pictures</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -76,13 +80,13 @@ name, just the attribute value, or both.
 </p>
 <p>See <a href="Attributes.html">Attributes</a>.
 </p>
-<dl>
-<dt id="index-text_003f">Function: <strong>text?</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-text_003f"><span class="category">Function: </span><span><strong>text?</strong> <em>object</em><a href='#index-text_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a text <code>object</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-make_002dtext">Function: <strong>make-text</strong> <em>anchor align angle string size visible show [color]</em></dt>
+<dl class="def">
+<dt id="index-make_002dtext"><span class="category">Function: </span><span><strong>make-text</strong> <em>anchor align angle string size visible show [color]</em><a href='#index-make_002dtext' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Creates and returns a new text <code>object</code>.  <var>anchor</var> is the
 position of the anchor of the new text in the form <code>(x . y)</code>, and
 <var>align</var> is a symbol determining how the text should be aligned
@@ -127,14 +131,14 @@ of the color with which to draw the text.  If <var>color</var> is not
 specified, the default text color is used.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dtext_0021">Function: <strong>set-text!</strong> <em>text anchor align angle string size visible show [color]</em></dt>
+<dl class="def">
+<dt id="index-set_002dtext_0021"><span class="category">Function: </span><span><strong>set-text!</strong> <em>text anchor align angle string size visible show [color]</em><a href='#index-set_002dtext_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the parameters of <var>text</var>. The arguments are the same as to
 <code>make-text</code>. Returns <var>text</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002dinfo">Function: <strong>text-info</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dinfo"><span class="category">Function: </span><span><strong>text-info</strong> <em>text</em><a href='#index-text_002dinfo' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the parameters of <var>text</var> as a list in the form:
 </p>
 <div class="example">
@@ -144,14 +148,14 @@ specified, the default text color is used.
 <p>See <code>make-text</code> for a description of all of these parameters.
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002danchor">Function: <strong>text-anchor</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002danchor"><span class="category">Function: </span><span><strong>text-anchor</strong> <em>text</em><a href='#index-text_002danchor' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the position of the anchor of <var>text</var> in the form
 <code>(x . y)</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002dalign">Function: <strong>text-align</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dalign"><span class="category">Function: </span><span><strong>text-align</strong> <em>text</em><a href='#index-text_002dalign' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the alignment of <var>text</var> as one of the following symbols:
 </p>
 <ul>
@@ -167,42 +171,42 @@ specified, the default text color is used.
 </li></ul>
 </dd></dl>
 
-<dl>
-<dt id="index-text_002dangle">Function: <strong>text-angle</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dangle"><span class="category">Function: </span><span><strong>text-angle</strong> <em>text</em><a href='#index-text_002dangle' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the angle that <var>text</var> is displayed at as an integer
 multiple of 90 degrees.
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002dstring">Function: <strong>text-string</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dstring"><span class="category">Function: </span><span><strong>text-string</strong> <em>text</em><a href='#index-text_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the string content of <var>text</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dtext_002dstring_0021">Function: <strong>set-text-string!</strong> <em>text str</em></dt>
+<dl class="def">
+<dt id="index-set_002dtext_002dstring_0021"><span class="category">Function: </span><span><strong>set-text-string!</strong> <em>text str</em><a href='#index-set_002dtext_002dstring_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set the string content of <var>text</var> to <var>str</var>.  <var>str</var> must not
 contain any null characters (&lsquo;<samp>#\0</samp>&rsquo; in Scheme, Unicode
 &lsquo;<samp>U+0000</samp>&rsquo;).
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002dsize">Function: <strong>text-size</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dsize"><span class="category">Function: </span><span><strong>text-size</strong> <em>text</em><a href='#index-text_002dsize' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Return the font size of <var>text</var> as an integer.
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002dvisible_003f">Function: <strong>text-visible?</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dvisible_003f"><span class="category">Function: </span><span><strong>text-visible?</strong> <em>text</em><a href='#index-text_002dvisible_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>text</var> is set to be visible.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dtext_002dvisibility_0021">Function: <strong>set-text-visibility!</strong> <em>text visible?</em></dt>
+<dl class="def">
+<dt id="index-set_002dtext_002dvisibility_0021"><span class="category">Function: </span><span><strong>set-text-visibility!</strong> <em>text visible?</em><a href='#index-set_002dtext_002dvisibility_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>If <var>visible?</var> is &lsquo;<samp>#f</samp>&rsquo;, sets <var>text</var> to be invisible;
 otherwise, sets it to be visible.
 </p></dd></dl>
 
-<dl>
-<dt id="index-text_002dattribute_002dmode">Function: <strong>text-attribute-mode</strong> <em>text</em></dt>
+<dl class="def">
+<dt id="index-text_002dattribute_002dmode"><span class="category">Function: </span><span><strong>text-attribute-mode</strong> <em>text</em><a href='#index-text_002dattribute_002dmode' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a symbol indicating which parts of <var>text</var> will be
 displayed when <var>text</var> is a valid attribute.  The returned value
 will be one of the following symbols:
@@ -214,10 +218,11 @@ will be one of the following symbols:
 </li></ul>
 </dd></dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Components.html" accesskey="n" rel="next">Components</a>, Previous: <a href="Pictures.html" accesskey="p" rel="prev">Pictures</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Components.html">Components</a>, Previous: <a href="Pictures.html">Pictures</a>, Up: <a href="Core-object-functions.html">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

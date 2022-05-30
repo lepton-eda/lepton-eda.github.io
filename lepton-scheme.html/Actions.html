@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Actions (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Actions (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Actions (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Actions (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Actions (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Actions (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Hooks.html" rel="prev" title="Hooks">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,9 +57,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Actions"></span><div class="header">
+<div class="section" id="Actions">
+<div class="header">
 <p>
-Next: <a href="Miscellanous-lepton_002dschematic-functions.html" accesskey="n" rel="next">Miscellanous lepton-schematic functions</a>, Previous: <a href="Hooks.html" accesskey="p" rel="prev">Hooks</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Miscellanous-lepton_002dschematic-functions.html" accesskey="n" rel="next">Miscellaneous lepton-schematic functions</a>, Previous: <a href="Hooks.html" accesskey="p" rel="prev">Hooks</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Actions-1"></span><h3 class="section">3.5 Actions</h3>
@@ -65,7 +69,13 @@ Next: <a href="Miscellanous-lepton_002dschematic-functions.html" accesskey="n" r
 <p>To use the functions described in this section, you will need to load
 the <code>(schematic action)</code> module.
 </p>
-<span id="Action-objects"></span><h4 class="subsection">3.5.1 Action objects</h4>
+<ul class="section-toc">
+<li><a href="#Action-objects" accesskey="1">Action objects</a></li>
+<li><a href="#Evaluating-actions" accesskey="2">Evaluating actions</a></li>
+<li><a href="#Action-positions" accesskey="3">Action positions</a></li>
+</ul>
+<div class="subsection" id="Action-objects">
+<h4 class="subsection">3.5.1 Action objects</h4>
 <span id="index-Action-objects"></span>
 <span id="index-Action-properties"></span>
 
@@ -81,8 +91,8 @@ lepton-schematic action dispatcher <code>eval-action!</code> rather than
 being invoked directly.  Normally, actions have names begining with an
 &lsquo;<samp>&amp;</samp>&rsquo; symbol.
 </p>
-<dl>
-<dt id="index-define_002daction">Macro: <strong>define-action</strong> <em>(name [keyword value ...]) body</em></dt>
+<dl class="def">
+<dt id="index-define_002daction"><span class="category">Macro: </span><span><strong>define-action</strong> <em>(name [keyword value ...]) body</em><a href='#index-define_002daction' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Create a new action, bound to the given <var>name</var> in the current
 module.  The <var>body</var> is a sequence of Scheme expressions which are
 evaluated in order when the action is invoked.  Any number of initial
@@ -97,8 +107,8 @@ properties can be specified for the action by providing pairs of
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-make_002daction">Function: <strong>make-action</strong> <em>thunk [keyword value ...]</em></dt>
+<dl class="def">
+<dt id="index-make_002daction"><span class="category">Function: </span><span><strong>make-action</strong> <em>thunk [keyword value ...]</em><a href='#index-make_002daction' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Create and return a new action wrapping <var>thunk</var>.  Optionally,
 specify <var>keyword</var>-<var>value</var> pairs to set initial properties for the
 action.
@@ -106,8 +116,8 @@ action.
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-action_003f">Function: <strong>action?</strong> <em>obj</em></dt>
+<dl class="def">
+<dt id="index-action_003f"><span class="category">Function: </span><span><strong>action?</strong> <em>obj</em><a href='#index-action_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; iff <var>obj</var> is a lepton-schematic action, and
 &lsquo;<samp>#f</samp>&rsquo; otherwise.
 </p>
@@ -116,23 +126,25 @@ action.
 
 <p>Action properties are name-value pairs that are attached to an action.
 </p>
-<dl>
-<dt id="index-action_002dproperty">Function: <strong>action-property</strong> <em>action key</em></dt>
+<dl class="def">
+<dt id="index-action_002dproperty"><span class="category">Function: </span><span><strong>action-property</strong> <em>action key</em><a href='#index-action_002dproperty' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Return the value of one of <var>action</var>&rsquo;s properties.  <var>key</var> is a
 symbol naming the property to retrieve.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002daction_002dproperty_0021">Function: <strong>set-action-property!</strong> <em>action key value</em></dt>
+<dl class="def">
+<dt id="index-set_002daction_002dproperty_0021"><span class="category">Function: </span><span><strong>set-action-property!</strong> <em>action key value</em><a href='#index-set_002daction_002dproperty_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set the value of one of <var>action</var>&rsquo;s properties.  <var>key</var> is a
 symbol naming the property to set, and <var>value</var> is the new value.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<span id="Evaluating-actions"></span><h4 class="subsection">3.5.2 Evaluating actions</h4>
+</div>
+<div class="subsection" id="Evaluating-actions">
+<h4 class="subsection">3.5.2 Evaluating actions</h4>
 <span id="index-Evaluating-actions"></span>
 <span id="index-Action-evaluation"></span>
 
@@ -141,8 +153,8 @@ normal Scheme functions.  However, it&rsquo;s sometimes useful to explicitly
 evaluate an action in the same way that the lepton-schematic GUI
 (menus, toolbars or keybindings) would do so.
 </p>
-<dl>
-<dt id="index-eval_002daction_0021">Function: <strong>eval-action!</strong> <em>action</em></dt>
+<dl class="def">
+<dt id="index-eval_002daction_0021"><span class="category">Function: </span><span><strong>eval-action!</strong> <em>action</em><a href='#index-eval_002daction_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Invoke <var>action</var>, returning &lsquo;<samp>#t</samp>&rsquo; on success and raising an
 error on failure.  There are a number of possible types for
 <var>action</var> that <code>eval-action!</code> will accept:
@@ -167,15 +179,17 @@ following two calls are equivalent and interchangeable:
 <p>Since 1.10.
 </p></dd></dl>
 
-<span id="Action-positions"></span><h4 class="subsection">3.5.3 Action positions</h4>
+</div>
+<div class="subsection" id="Action-positions">
+<h4 class="subsection">3.5.3 Action positions</h4>
 <span id="index-Action-positions"></span>
 
 <p>Often in lepton-schematic actions it may be useful not to use the
 actual current mouse pointer position but to use the mouse pointer
 position that was current when the action was invoked.
 </p>
-<dl>
-<dt id="index-eval_002daction_002dat_002dpoint_0021">Function: <strong>eval-action-at-point!</strong> <em>action [point]</em></dt>
+<dl class="def">
+<dt id="index-eval_002daction_002dat_002dpoint_0021"><span class="category">Function: </span><span><strong>eval-action-at-point!</strong> <em>action [point]</em><a href='#index-eval_002daction_002dat_002dpoint_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Evaluate <var>action</var> at a particular point on the schematic plane.
 If <var>point</var> is omitted, the action is evaluated at the current
 mouse pointer position.
@@ -183,8 +197,8 @@ mouse pointer position.
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-action_002dposition">Function: <strong>action-position</strong></dt>
+<dl class="def">
+<dt id="index-action_002dposition"><span class="category">Function: </span><span><strong>action-position</strong><a href='#index-action_002dposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Return the current action pointer position, as set when the action was
 invoked (via <code>eval-action-at-point!</code>).  This only makes sense to
 call from inside an action.
@@ -198,10 +212,12 @@ view area to invoke the action, rather than on a menu or toolbar
 button.  At the moment this means that an action position is only set
 when a command is invoked by hotkey.
 </p>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Miscellanous-lepton_002dschematic-functions.html" accesskey="n" rel="next">Miscellanous lepton-schematic functions</a>, Previous: <a href="Hooks.html" accesskey="p" rel="prev">Hooks</a>, Up: <a href="lepton_002dschematic-API-Reference.html" accesskey="u" rel="up">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Miscellanous-lepton_002dschematic-functions.html">Miscellaneous lepton-schematic functions</a>, Previous: <a href="Hooks.html">Hooks</a>, Up: <a href="lepton_002dschematic-API-Reference.html">lepton-schematic API Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

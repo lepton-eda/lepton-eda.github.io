@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Paths (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Paths (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Paths (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Paths (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Paths (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Paths (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Arcs.html" rel="prev" title="Arcs">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Paths"></span><div class="header">
+<div class="subsection" id="Paths">
+<div class="header">
 <p>
 Next: <a href="Pictures.html" accesskey="n" rel="next">Pictures</a>, Previous: <a href="Arcs.html" accesskey="p" rel="prev">Arcs</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -82,26 +86,26 @@ straight line from the current point to the subpath&rsquo;s initial point.
 They take no parameters.
 </li></ul>
 
-<dl>
-<dt id="index-path_003f">Function: <strong>path?</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-path_003f"><span class="category">Function: </span><span><strong>path?</strong> <em>object</em><a href='#index-path_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a path <code>object</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-make_002dpath">Function: <strong>make-path</strong> <em>[color]</em></dt>
+<dl class="def">
+<dt id="index-make_002dpath"><span class="category">Function: </span><span><strong>make-path</strong> <em>[color]</em><a href='#index-make_002dpath' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Creates and returns a new path <code>object</code>.  If <var>color</var> is
 specified, it should be the integer color map index of the color with
 which to draw the path.  If <var>color</var> is not specified, the default
 path color is used.
 </p></dd></dl>
 
-<dl>
-<dt id="index-path_002dlength">Function: <strong>path-length</strong> <em>path</em></dt>
+<dl class="def">
+<dt id="index-path_002dlength"><span class="category">Function: </span><span><strong>path-length</strong> <em>path</em><a href='#index-path_002dlength' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the number of path elements in <var>path</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-path_002dref">Function: <strong>path-ref</strong> <em>path K</em></dt>
+<dl class="def">
+<dt id="index-path_002dref"><span class="category">Function: </span><span><strong>path-ref</strong> <em>path K</em><a href='#index-path_002dref' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the <var>K</var>th element in <var>path</var>.  The return value is a
 list.  The first item in the list is a symbol indicating the type of
 element, and any additional items are the position parameters of the
@@ -115,14 +119,14 @@ element.  For example, a call to <code>path-ref</code> might return:
 &lsquo;<samp>out-of-range</samp>&rsquo; error.
 </p></dd></dl>
 
-<dl>
-<dt id="index-path_002dremove_0021">Function: <strong>path-remove!</strong> <em>path K</em></dt>
+<dl class="def">
+<dt id="index-path_002dremove_0021"><span class="category">Function: </span><span><strong>path-remove!</strong> <em>path K</em><a href='#index-path_002dremove_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Removes the <var>K</var>th element in <var>path</var>, returning <var>path</var>.  If
 <var>K</var> is not a valid offset, raises an &lsquo;<samp>out-of-range</samp>&rsquo; error.
 </p></dd></dl>
 
-<dl>
-<dt id="index-path_002dinsert_0021">Function: <strong>path-insert!</strong> <em>path K type [positions...]</em></dt>
+<dl class="def">
+<dt id="index-path_002dinsert_0021"><span class="category">Function: </span><span><strong>path-insert!</strong> <em>path K type [positions...]</em><a href='#index-path_002dinsert_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Inserts a new element into <var>path</var> at index <var>K</var>.  <var>type</var> is
 a symbol indicating the type of element to insert, using the
 parameters <var>positions</var>.  If <var>K</var> is less than zero or greater
@@ -135,10 +139,11 @@ line section to the current path:
 </pre></div>
 </dd></dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Pictures.html" accesskey="n" rel="next">Pictures</a>, Previous: <a href="Arcs.html" accesskey="p" rel="prev">Arcs</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Pictures.html">Pictures</a>, Previous: <a href="Arcs.html">Arcs</a>, Up: <a href="Core-object-functions.html">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

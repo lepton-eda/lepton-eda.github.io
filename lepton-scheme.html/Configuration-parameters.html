@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,16 +17,15 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Configuration parameters (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -32,11 +34,11 @@ adaptation of it, you must provide the URL for the original version. -->
 <link href="Configuration-contexts.html" rel="prev" title="Configuration contexts">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +47,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +57,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Configuration-parameters"></span><div class="header">
+<div class="subsection" id="Configuration-parameters">
+<div class="header">
 <p>
 Next: <a href="Configuration-events.html" accesskey="n" rel="next">Configuration events</a>, Previous: <a href="Configuration-contexts.html" accesskey="p" rel="prev">Configuration contexts</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -68,14 +72,14 @@ Next: <a href="Configuration-events.html" accesskey="n" rel="next">Configuration
 <p>A Lepton <em>configuration parameter</em> consists of three components:
 </p>
 <dl compact="compact">
-<dt><em>Group</em></dt>
+<dt><span><em>Group</em></span></dt>
 <dd><p>A string which identifies the general category in which the
 parameter lies (e.g. which application and/or plugin).
 </p></dd>
-<dt><em>Name</em></dt>
+<dt><span><em>Name</em></span></dt>
 <dd><p>A string which specifically identifies the parameter within the group.
 </p></dd>
-<dt><em>Value</em></dt>
+<dt><span><em>Value</em></span></dt>
 <dd><p>The value of the parameter. This is stored as a string, but can be
 converted to a number of possible scalar and list types.
 </p></dd>
@@ -83,57 +87,65 @@ converted to a number of possible scalar and list types.
 
 <p>Groups, names and values are all case-sensitive.
 </p>
-<span id="Configuration-groups-and-keys"></span><h4 class="subsubsection">2.5.2.1 Configuration groups and keys</h4>
+<ul class="section-toc">
+<li><a href="#Configuration-groups-and-keys" accesskey="1">Configuration groups and keys</a></li>
+<li><a href="#Configuration-inheritance" accesskey="2">Configuration inheritance</a></li>
+<li><a href="#Configuration-values" accesskey="3">Configuration values</a></li>
+</ul>
+<div class="subsubsection" id="Configuration-groups-and-keys">
+<h4 class="subsubsection">2.5.2.1 Configuration groups and keys</h4>
 
-<dl>
-<dt id="index-config_002dgroups">Function: <strong>config-groups</strong> <em>cfg</em></dt>
+<dl class="def">
+<dt id="index-config_002dgroups"><span class="category">Function: </span><span><strong>config-groups</strong> <em>cfg</em><a href='#index-config_002dgroups' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a list of all groups available in <var>cfg</var> and its parent
 contexts.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dhas_002dgroup_003f">Function: <strong>config-has-group?</strong> <em>cfg group</em></dt>
+<dl class="def">
+<dt id="index-config_002dhas_002dgroup_003f"><span class="category">Function: </span><span><strong>config-has-group?</strong> <em>cfg group</em><a href='#index-config_002dhas_002dgroup_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Determines whether <var>cfg</var> or its parent contexts contain the
 specified <var>group</var>
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dkeys">Function: <strong>config-keys</strong> <em>cfg group</em></dt>
+<dl class="def">
+<dt id="index-config_002dkeys"><span class="category">Function: </span><span><strong>config-keys</strong> <em>cfg group</em><a href='#index-config_002dkeys' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns a list of all keys available in the specified <var>group</var> in
 <var>cfg</var> and its parent contexts.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dhas_002dkey_003f">Function: <strong>config-has-key?</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dhas_002dkey_003f"><span class="category">Function: </span><span><strong>config-has-key?</strong> <em>cfg group key</em><a href='#index-config_002dhas_002dkey_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Determines whether <var>cfg</var> or its parent contexts contains <var>key</var>
 in the specified <var>group</var>.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dremove_002dkey_0021">Function: <strong>config-remove-key!</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dremove_002dkey_0021"><span class="category">Function: </span><span><strong>config-remove-key!</strong> <em>cfg group key</em><a href='#index-config_002dremove_002dkey_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Removes the configuration parameter identified by the given <var>group</var>
 and <var>key</var> in the configuration context <var>cfg</var>. Returns &lsquo;<samp>#t</samp>&rsquo;
 on success, &lsquo;<samp>#f</samp>&rsquo; otherwise.
 </p>
 </dd></dl>
 
-<dl>
-<dt id="index-config_002dremove_002dgroup_0021">Function: <strong>config-remove-group!</strong> <em>cfg group</em></dt>
+<dl class="def">
+<dt id="index-config_002dremove_002dgroup_0021"><span class="category">Function: </span><span><strong>config-remove-group!</strong> <em>cfg group</em><a href='#index-config_002dremove_002dgroup_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Removes the configuration group identified by <var>group</var>
 and all its parameters in the configuration context <var>cfg</var>.
 Returns &lsquo;<samp>#t</samp>&rsquo; on success, &lsquo;<samp>#f</samp>&rsquo; otherwise.
 </p>
 </dd></dl>
 
-<span id="Configuration-inheritance"></span><h4 class="subsubsection">2.5.2.2 Configuration inheritance</h4>
+</div>
+<div class="subsubsection" id="Configuration-inheritance">
+<h4 class="subsubsection">2.5.2.2 Configuration inheritance</h4>
 
 <p>If a configuration context does not directly specify a value for a
 configuration parameter, it inherits the value from its parent
@@ -141,8 +153,8 @@ context.
 </p>
 <p>See <a href="Configuration-contexts.html">Context parents</a>.
 </p>
-<dl>
-<dt id="index-config_002dinherited_003f">Function: <strong>config-inherited?</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dinherited_003f"><span class="category">Function: </span><span><strong>config-inherited?</strong> <em>cfg group key</em><a href='#index-config_002dinherited_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#f</samp>&rsquo; if value of the configuration parameter with the
 given <var>group</var> and <var>key</var> is specified in the context <var>cfg</var>,
 and &lsquo;<samp>#t</samp>&rsquo; if it is inherited from a parent context of <var>cfg</var>.
@@ -150,8 +162,8 @@ and &lsquo;<samp>#t</samp>&rsquo; if it is inherited from a parent context of <v
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dsource">Function: <strong>config-source</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dsource"><span class="category">Function: </span><span><strong>config-source</strong> <em>cfg group key</em><a href='#index-config_002dsource' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the configuration context (either <var>cfg</var> or one of its
 parent contexts) in which the configuration parameter with the given
 <var>group</var> and <var>key</var> has its value defined.
@@ -159,7 +171,9 @@ parent contexts) in which the configuration parameter with the given
 <p>Since 1.10.
 </p></dd></dl>
 
-<span id="Configuration-values"></span><h4 class="subsubsection">2.5.2.3 Configuration values</h4>
+</div>
+<div class="subsubsection" id="Configuration-values">
+<h4 class="subsubsection">2.5.2.3 Configuration values</h4>
 <span id="index-Getting-configuration-parameters"></span>
 <span id="index-Setting-configuration-parameters"></span>
 
@@ -176,63 +190,63 @@ the following types are supported:
 
 <p>In addition, lists of all the above are supported.
 </p>
-<dl>
-<dt id="index-config_002dstring">Function: <strong>config-string</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dstring"><span class="category">Function: </span><span><strong>config-string</strong> <em>cfg group key</em><a href='#index-config_002dstring' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as a string.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dboolean">Function: <strong>config-boolean</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dboolean"><span class="category">Function: </span><span><strong>config-boolean</strong> <em>cfg group key</em><a href='#index-config_002dboolean' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as a boolean.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dint">Function: <strong>config-int</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dint"><span class="category">Function: </span><span><strong>config-int</strong> <em>cfg group key</em><a href='#index-config_002dint' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as an exact integer.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dreal">Function: <strong>config-real</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dreal"><span class="category">Function: </span><span><strong>config-real</strong> <em>cfg group key</em><a href='#index-config_002dreal' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as an inexact real number.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dstring_002dlist">Function: <strong>config-string-list</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dstring_002dlist"><span class="category">Function: </span><span><strong>config-string-list</strong> <em>cfg group key</em><a href='#index-config_002dstring_002dlist' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as a list of strings.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dboolean_002dlist">Function: <strong>config-boolean-list</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dboolean_002dlist"><span class="category">Function: </span><span><strong>config-boolean-list</strong> <em>cfg group key</em><a href='#index-config_002dboolean_002dlist' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as a list of booleans.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
-<dl>
-<dt id="index-config_002dint_002dlist">Function: <strong>config-int-list</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dint_002dlist"><span class="category">Function: </span><span><strong>config-int-list</strong> <em>cfg group key</em><a href='#index-config_002dint_002dlist' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as a list of exact integers.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-config_002dreal_002dlist">Function: <strong>config-real-list</strong> <em>cfg group key</em></dt>
+<dl class="def">
+<dt id="index-config_002dreal_002dlist"><span class="category">Function: </span><span><strong>config-real-list</strong> <em>cfg group key</em><a href='#index-config_002dreal_002dlist' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Retrieve configuration value as a list of inexact real numbers.
 </p>
 <p>Since 1.10.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dconfig_0021">Function: <strong>set-config!</strong> <em>cfg group key value</em></dt>
+<dl class="def">
+<dt id="index-set_002dconfig_0021"><span class="category">Function: </span><span><strong>set-config!</strong> <em>cfg group key value</em><a href='#index-set_002dconfig_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Set the configuration parameter identified by the given <var>group</var>
 and <var>key</var> in the configuration context <var>cfg</var>.  The type of
 value to set is inferred from <var>value</var>. Returns <var>cfg</var>.
@@ -240,10 +254,12 @@ value to set is inferred from <var>value</var>. Returns <var>cfg</var>.
 <p>Since 1.10.
 </p></dd></dl>
 
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Configuration-events.html" accesskey="n" rel="next">Configuration events</a>, Previous: <a href="Configuration-contexts.html" accesskey="p" rel="prev">Configuration contexts</a>, Up: <a href="Configuration-functions.html" accesskey="u" rel="up">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Configuration-events.html">Configuration events</a>, Previous: <a href="Configuration-contexts.html">Configuration contexts</a>, Up: <a href="Configuration-functions.html">Configuration functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

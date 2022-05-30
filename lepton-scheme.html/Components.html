@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for Lepton EDA, version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for Lepton EDA, version 1.9.18.
 
 Copyright (C) 2011-2013 Peter TB Brett
 Copyright (C) 2011-2017 gEDA developers
-Copyright (C) 2017-2021 Lepton developers
+Copyright (C) 2017-2022 Lepton developers
 
 The text of and illustrations in this document are licensed under a
 Creative Commons Attribution–Share Alike 3.0 Unported license
@@ -14,29 +17,27 @@ authors of this document designate the gEDA Project and Lepton EDA
 Project as the "Attribution Parties" for purposes of CC-BY-SA. In
 accordance with CC-BY-SA, if you distribute this document or an
 adaptation of it, you must provide the URL for the original version. -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Components (Lepton EDA Scheme Reference Manual 1.9.16)</title>
+<title>Components (Lepton EDA Scheme Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Components (Lepton EDA Scheme Reference Manual 1.9.16)">
-<meta name="keywords" content="Components (Lepton EDA Scheme Reference Manual 1.9.16)">
+<meta name="description" content="Components (Lepton EDA Scheme Reference Manual 1.9.18)">
+<meta name="keywords" content="Components (Lepton EDA Scheme Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Concept-Index.html" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Core-object-functions.html" rel="up" title="Core object functions">
-<link href="Core-attribute-functions.html" rel="next" title="Core attribute functions">
 <link href="Text.html" rel="prev" title="Text">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -45,6 +46,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -54,7 +56,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Components"></span><div class="header">
+<div class="subsection" id="Components">
+<div class="header">
 <p>
 Previous: <a href="Text.html" accesskey="p" rel="prev">Text</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -91,13 +94,13 @@ translation information using e.g. <code>set-component!</code> will not
 alter them &ndash; that must be done separately (e.g. by reloading the
 symbol).
 </p>
-<dl>
-<dt id="index-component_003f">Function: <strong>component?</strong> <em>object</em></dt>
+<dl class="def">
+<dt id="index-component_003f"><span class="category">Function: </span><span><strong>component?</strong> <em>object</em><a href='#index-component_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns &lsquo;<samp>#t</samp>&rsquo; if and only if <var>object</var> is a component <code>object</code>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-make_002dcomponent">Function: <strong>make-component</strong> <em>basename position angle mirror locked</em></dt>
+<dl class="def">
+<dt id="index-make_002dcomponent"><span class="category">Function: </span><span><strong>make-component</strong> <em>basename position angle mirror locked</em><a href='#index-make_002dcomponent' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Creates and returns a new, empty component <code>object</code> with the
 given <var>basename</var>.  <var>position</var>, <var>angle</var> and <var>mirror</var>
 specify the symbol transformation.  If <var>locked</var> is true, the
@@ -109,8 +112,8 @@ component libraries, and the returned component is flagged as
 embedded.
 </p></dd></dl>
 
-<dl>
-<dt id="index-make_002dcomponent_002flibrary">Function: <strong>make-component/library</strong> <em>basename position angle mirror locked</em></dt>
+<dl class="def">
+<dt id="index-make_002dcomponent_002flibrary"><span class="category">Function: </span><span><strong>make-component/library</strong> <em>basename position angle mirror locked</em><a href='#index-make_002dcomponent_002flibrary' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Searches the component libraries for a symbol matching <var>basename</var>,
 and if found, instantiates the symbol and returns the resulting
 component (which is not flagged as embedded).  Arguments are as for
@@ -119,8 +122,8 @@ component (which is not flagged as embedded).  Arguments are as for
 <p>If no match for <var>basename</var> is found, &lsquo;<samp>#f</samp>&rsquo; is returned.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dcomponent_0021">Function: <strong>set-component!</strong> <em>component position angle mirror locked</em></dt>
+<dl class="def">
+<dt id="index-set_002dcomponent_0021"><span class="category">Function: </span><span><strong>set-component!</strong> <em>component position angle mirror locked</em><a href='#index-set_002dcomponent_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the parameters of <var>component</var>.  Arguments are the same as to
 <code>make-component</code>.  Returns <var>component</var>.
 </p>
@@ -128,16 +131,16 @@ component (which is not flagged as embedded).  Arguments are as for
 of a component does not update the component&rsquo;s contents.
 </p></dd></dl>
 
-<dl>
-<dt id="index-set_002dcomponent_002dwith_002dtransform_0021">Function: <strong>set-component-with-transform!</strong> <em>component position angle mirror locked</em></dt>
+<dl class="def">
+<dt id="index-set_002dcomponent_002dwith_002dtransform_0021"><span class="category">Function: </span><span><strong>set-component-with-transform!</strong> <em>component position angle mirror locked</em><a href='#index-set_002dcomponent_002dwith_002dtransform_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Sets the parameters of <var>component</var>.  Arguments are the same as to
 <code>make-component</code>.  Returns <var>component</var>.
 </p>
 <p><strong>Note</strong>: All transformations are applied immediately.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dinfo">Function: <strong>component-info</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dinfo"><span class="category">Function: </span><span><strong>component-info</strong> <em>component</em><a href='#index-component_002dinfo' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the parameters of <var>component</var> as a list of the form:
 </p>
 <div class="example">
@@ -145,48 +148,48 @@ of a component does not update the component&rsquo;s contents.
 </pre></div>
 </dd></dl>
 
-<dl>
-<dt id="index-component_002dbasename">Function: <strong>component-basename</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dbasename"><span class="category">Function: </span><span><strong>component-basename</strong> <em>component</em><a href='#index-component_002dbasename' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the basename of <var>component</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dfilename">Function: <strong>component-filename</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dfilename"><span class="category">Function: </span><span><strong>component-filename</strong> <em>component</em><a href='#index-component_002dfilename' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>If a component object <var>component</var> has a symbol file
 associated with it, returns its full path, otherwise
 returns false (&lsquo;<samp>#f</samp>&rsquo;).
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dposition">Function: <strong>component-position</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dposition"><span class="category">Function: </span><span><strong>component-position</strong> <em>component</em><a href='#index-component_002dposition' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the position to which the original symbol was translated when
 creating <var>component</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dangle">Function: <strong>component-angle</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dangle"><span class="category">Function: </span><span><strong>component-angle</strong> <em>component</em><a href='#index-component_002dangle' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the angle by which the original symbol was rotated when
 creating <var>component</var>, as an integer number of degrees.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dmirror_003f">Function: <strong>component-mirror?</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dmirror_003f"><span class="category">Function: </span><span><strong>component-mirror?</strong> <em>component</em><a href='#index-component_002dmirror_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns true if the original symbol was mirrored when creating
 <var>component</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dlocked_003f">Function: <strong>component-locked?</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dlocked_003f"><span class="category">Function: </span><span><strong>component-locked?</strong> <em>component</em><a href='#index-component_002dlocked_003f' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns true if <var>component</var> is non-selectable.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dcontents">Function: <strong>component-contents</strong> <em>component</em></dt>
+<dl class="def">
+<dt id="index-component_002dcontents"><span class="category">Function: </span><span><strong>component-contents</strong> <em>component</em><a href='#index-component_002dcontents' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Returns the contents of <var>components</var> as a list of objects.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dappend_0021">Function: <strong>component-append!</strong> <em>component objects...</em></dt>
+<dl class="def">
+<dt id="index-component_002dappend_0021"><span class="category">Function: </span><span><strong>component-append!</strong> <em>component objects...</em><a href='#index-component_002dappend_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Appends <var>objects</var> (which must not be component <code>object</code>s) to
 the contents of <var>component</var>.  Any <var>objects</var> which are already
 included in <var>component</var> are ignored.  If any <var>objects</var> are
@@ -194,8 +197,8 @@ already part of a <code>page</code> or of another component <code>object</code>,
 an &lsquo;<samp>object-state</samp>&rsquo; error is raised. Returns <var>component</var>.
 </p></dd></dl>
 
-<dl>
-<dt id="index-component_002dremove_0021">Function: <strong>component-remove!</strong> <em>component objects...</em></dt>
+<dl class="def">
+<dt id="index-component_002dremove_0021"><span class="category">Function: </span><span><strong>component-remove!</strong> <em>component objects...</em><a href='#index-component_002dremove_0021' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>Removes <var>objects</var> from the contents of <var>component</var>.  Any
 <var>objects</var> which are not part of a component or of a page are
 ignored. Returns <var>component</var>.
@@ -211,10 +214,11 @@ satisfy any of the following conditions:
 </li></ul>
 </dd></dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="Text.html" accesskey="p" rel="prev">Text</a>, Up: <a href="Core-object-functions.html" accesskey="u" rel="up">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="Text.html">Text</a>, Up: <a href="Core-object-functions.html">Core object functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 
