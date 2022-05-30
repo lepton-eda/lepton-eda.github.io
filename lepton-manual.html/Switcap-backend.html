@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,29 +13,27 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Switcap backend (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Switcap backend (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Switcap backend (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Switcap backend (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Switcap backend (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Switcap backend (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="lepton_002dnetlist.html" rel="up" title="lepton-netlist">
-<link href="lepton_002dcli.html" rel="next" title="lepton-cli">
-<link href="Back-annotation-from-PADS-PowerPCB.html" rel="prev" title="Back annotation from PADS PowerPCB">
+<link href="PADS-backend.html" rel="prev" title="PADS backend">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +42,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,9 +52,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Switcap-backend"></span><div class="header">
+<div class="section" id="Switcap-backend">
+<div class="header">
 <p>
-Previous: <a href="PADS-backend.html" accesskey="p" rel="prev">PADS backend</a>, Up: <a href="lepton_002dnetlist.html" accesskey="u" rel="up">lepton-netlist</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="PADS-backend.html" accesskey="p" rel="prev">Forward/backward annotation between Lepton and PADS PowerPCB</a>, Up: <a href="lepton_002dnetlist.html" accesskey="u" rel="up">Netlister</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="gEDA_002fgaf-Switcap-Symbols-and-Netlister"></span><h3 class="section">6.5 gEDA/gaf Switcap Symbols and Netlister</h3>
@@ -81,7 +84,18 @@ Previous: <a href="PADS-backend.html" accesskey="p" rel="prev">PADS backend</a>,
 <p>Some probably useful tips can be found at
 <a href="https://web.engr.oregonstate.edu/~moon/kaj/swtips.html#manual">https://web.engr.oregonstate.edu/~moon/kaj/swtips.html#manual</a>
 </p>
-<span id="Overview-5"></span><h4 class="subsection">6.5.1 Overview</h4>
+<ul class="section-toc">
+<li><a href="#Overview-5" accesskey="1">Overview</a></li>
+<li><a href="#Requirements-1" accesskey="2">Requirements</a></li>
+<li><a href="#Creating-Schematics-1" accesskey="3">Creating Schematics</a></li>
+<li><a href="#Extracting-the-SWITCAP-Netlist" accesskey="4">Extracting the SWITCAP Netlist</a></li>
+<li><a href="#Running-SWITCAP" accesskey="5">Running SWITCAP</a></li>
+<li><a href="#Appendix-A-_002d_002d-Symbols-in-the-Library-1" accesskey="6">Appendix A &ndash; Symbols in the Library</a></li>
+<li><a href="#Example-1" accesskey="7">Example</a></li>
+<li><a href="#Document-Revision-History-1" accesskey="8">Document Revision History</a></li>
+</ul>
+<div class="subsection" id="Overview-5">
+<h4 class="subsection">6.5.1 Overview</h4>
 
 <p>This document describes the symbol library and <code>lepton-netlist</code> backend
 which supports driving SWITCAP simulations from the Lepton system.
@@ -103,7 +117,9 @@ simulations are:
 </li></ol>
 
 
-<span id="Requirements-1"></span><h4 class="subsection">6.5.2 Requirements</h4>
+</div>
+<div class="subsection" id="Requirements-1">
+<h4 class="subsection">6.5.2 Requirements</h4>
 
 <p>You will need the following programs to be installed:
 </p><ol>
@@ -134,9 +150,18 @@ can read.  It is not installed by default, you can find it in the
 <samp>contrib/</samp> directory of the Lepton repository or tarball.
 </p>
 
-<span id="Creating-Schematics-1"></span><h4 class="subsection">6.5.3 Creating Schematics</h4>
+</div>
+<div class="subsection" id="Creating-Schematics-1">
+<h4 class="subsection">6.5.3 Creating Schematics</h4>
 
-<span id="Required-Symbols"></span><h4 class="subsubsection">6.5.3.1 Required Symbols</h4>
+<ul class="section-toc">
+<li><a href="#Required-Symbols" accesskey="1">Required Symbols</a></li>
+<li><a href="#Optional-Symbols" accesskey="2">Optional Symbols</a></li>
+<li><a href="#Net-Names" accesskey="3">Net Names</a></li>
+<li><a href="#Switches" accesskey="4">Switches</a></li>
+</ul>
+<div class="subsubsection" id="Required-Symbols">
+<h4 class="subsubsection">6.5.3.1 Required Symbols</h4>
 
 <p>This section assumes you are familiar with using <code>lepton-schematic</code> to
 create and edit schematics.  SWITCAP netlisting is only supported for
@@ -160,7 +185,9 @@ analysis files may be included.
 </li></ol>
 
 
-<span id="Optional-Symbols"></span><h4 class="subsubsection">6.5.3.2 Optional Symbols</h4>
+</div>
+<div class="subsubsection" id="Optional-Symbols">
+<h4 class="subsubsection">6.5.3.2 Optional Symbols</h4>
 
 <p>You can also optionally add the following SWITCAP special symbols to
 your schematic:
@@ -173,7 +200,9 @@ can be passed to SWITCAP.
 </li></ol>
 
 
-<span id="Net-Names"></span><h4 class="subsubsection">6.5.3.3 Net Names</h4>
+</div>
+<div class="subsubsection" id="Net-Names">
+<h4 class="subsubsection">6.5.3.3 Net Names</h4>
 
 <p>When creating schematics to drive SWITCAP, you should name all nets
 that you wish to plot.  To avoid possible conflicts with unnamed nets,
@@ -183,7 +212,9 @@ checking for possible conflicts with explicitly named nets.  SWITCAP
 limits the length of node names to 7 characters.
 </p>
 
-<span id="Switches"></span><h4 class="subsubsection">6.5.3.4 Switches</h4>
+</div>
+<div class="subsubsection" id="Switches">
+<h4 class="subsubsection">6.5.3.4 Switches</h4>
 
 <p>When placing switches on your schematic, you will need to define which
 clock they are controlled with.  This is done by setting the clock
@@ -191,7 +222,10 @@ attribute on the switch to the reference designator of the clock which
 should control it.
 </p>
 
-<span id="Extracting-the-SWITCAP-Netlist"></span><h4 class="subsection">6.5.4 Extracting the SWITCAP Netlist</h4>
+</div>
+</div>
+<div class="subsection" id="Extracting-the-SWITCAP-Netlist">
+<h4 class="subsection">6.5.4 Extracting the SWITCAP Netlist</h4>
 
 <p>To extract the SWITCAP netlist, run:
 </p>
@@ -208,7 +242,9 @@ should control it.
 <p>The netlist will be left in <samp>example.scn</samp>.
 </p>
 
-<span id="Running-SWITCAP"></span><h4 class="subsection">6.5.5 Running SWITCAP</h4>
+</div>
+<div class="subsection" id="Running-SWITCAP">
+<h4 class="subsection">6.5.5 Running SWITCAP</h4>
 
 <p>I typically use something like:
 </p>
@@ -222,75 +258,97 @@ manually type the file names each time.
 <p>Refer to the SWITCAP manual for more details.
 </p>
 
-<span id="Appendix-A-_002d_002d-Symbols-in-the-Library-1"></span><h4 class="subsection">6.5.6 Appendix A &ndash; Symbols in the Library</h4>
+</div>
+<div class="subsection" id="Appendix-A-_002d_002d-Symbols-in-the-Library-1">
+<h4 class="subsection">6.5.6 Appendix A &ndash; Symbols in the Library</h4>
 
 
-<span id="Capacitors-_0028switcap_002dcapacitor_0029"></span><h4 class="subsubsection">6.5.6.1 Capacitors (switcap-capacitor)</h4>
+<ul class="section-toc">
+<li><a href="#Capacitors-_0028switcap_002dcapacitor_0029" accesskey="1">Capacitors (switcap-capacitor)</a></li>
+<li><a href="#Switches-_0028switcap_002dswitch_0029" accesskey="2">Switches (switcap-switch)</a></li>
+<li><a href="#Independent-Voltage-Sources-_0028switcap_002dvsrc_0029" accesskey="3">Independent Voltage Sources (switcap-vsrc)</a></li>
+<li><a href="#Dependent-Voltage-Sources-_0028switcap_002dvcvs_0029" accesskey="4">Dependent Voltage Sources (switcap-vcvs)</a></li>
+<li><a href="#Clock-Specification-_0028switcap_002dclock_0029" accesskey="5">Clock Specification (switcap-clock)</a></li>
+<li><a href="#Master-Timing-Specification-_0028switcap_002dtiming_0029" accesskey="6">Master Timing Specification (switcap-timing)</a></li>
+<li><a href="#Analysis-File-Include-_0028switcap_002danalysis_0029" accesskey="7">Analysis File Include (switcap-analysis)</a></li>
+<li><a href="#Simulation-Title-Specification-_0028switcap_002dtitle_0029" accesskey="8">Simulation Title Specification (switcap-title)</a></li>
+<li><a href="#Simulation-Options-Specification-_0028switcap_002doptions_0029" accesskey="9">Simulation Options Specification (switcap-options)</a></li>
+</ul>
+<div class="subsubsection" id="Capacitors-_0028switcap_002dcapacitor_0029">
+<h4 class="subsubsection">6.5.6.1 Capacitors (switcap-capacitor)</h4>
 
 <p>Ideal capacitor.  Attributes:
 </p><dl compact="compact">
-<dt><code><em>C</em>=capacitance</code></dt>
+<dt><span><code><em>C</em>=capacitance</code></span></dt>
 <dd><p>Required.  Specifies filename to be included.
 </p></dd>
-<dt><code><em>refdes</em>=reference designator</code></dt>
+<dt><span><code><em>refdes</em>=reference designator</code></span></dt>
 <dd><p>Required.  Must start with <code>C</code> and be unique.
 </p></dd>
 </dl>
 
 
-<span id="Switches-_0028switcap_002dswitch_0029"></span><h4 class="subsubsection">6.5.6.2 Switches (switcap-switch)</h4>
+</div>
+<div class="subsubsection" id="Switches-_0028switcap_002dswitch_0029">
+<h4 class="subsubsection">6.5.6.2 Switches (switcap-switch)</h4>
 
 <p>Ideal switch.  Attributes:
 </p><dl compact="compact">
-<dt><code><em>clock</em>=Controlling clock</code></dt>
+<dt><span><code><em>clock</em>=Controlling clock</code></span></dt>
 <dd><p>Required.  Specifies which clock controls this switch.
 </p></dd>
-<dt><code><em>refdes</em>=reference designator</code></dt>
+<dt><span><code><em>refdes</em>=reference designator</code></span></dt>
 <dd><p>Required.  Must start with <code>S</code> and be unique.
 </p></dd>
 </dl>
 
 
-<span id="Independent-Voltage-Sources-_0028switcap_002dvsrc_0029"></span><h4 class="subsubsection">6.5.6.3 Independent Voltage Sources (switcap-vsrc)</h4>
+</div>
+<div class="subsubsection" id="Independent-Voltage-Sources-_0028switcap_002dvsrc_0029">
+<h4 class="subsubsection">6.5.6.3 Independent Voltage Sources (switcap-vsrc)</h4>
 
 <p>Attributes:
 </p><dl compact="compact">
-<dt><code><em>refdes</em>=reference designator</code></dt>
+<dt><span><code><em>refdes</em>=reference designator</code></span></dt>
 <dd><p>Required.  Must start with <code>V</code> and be unique.
 </p></dd>
 </dl>
 
 
-<span id="Dependent-Voltage-Sources-_0028switcap_002dvcvs_0029"></span><h4 class="subsubsection">6.5.6.4 Dependent Voltage Sources (switcap-vcvs)</h4>
+</div>
+<div class="subsubsection" id="Dependent-Voltage-Sources-_0028switcap_002dvcvs_0029">
+<h4 class="subsubsection">6.5.6.4 Dependent Voltage Sources (switcap-vcvs)</h4>
 
 <p>Attributes:
 </p><dl compact="compact">
-<dt><code><em>gain</em>=gain</code></dt>
+<dt><span><code><em>gain</em>=gain</code></span></dt>
 <dd><p>Required.  Specifies the gain of the controlled source.
 </p></dd>
-<dt><code><em>refdes</em>=reference designator</code></dt>
+<dt><span><code><em>refdes</em>=reference designator</code></span></dt>
 <dd><p>Required.  Must start with <code>E</code> and be unique.
 </p></dd>
 </dl>
 
 
-<span id="Clock-Specification-_0028switcap_002dclock_0029"></span><h4 class="subsubsection">6.5.6.5 Clock Specification (switcap-clock)</h4>
+</div>
+<div class="subsubsection" id="Clock-Specification-_0028switcap_002dclock_0029">
+<h4 class="subsubsection">6.5.6.5 Clock Specification (switcap-clock)</h4>
 
 <p>Attributes:
 </p><dl compact="compact">
-<dt><code><em>PSTART</em>=starting clock phase</code></dt>
+<dt><span><code><em>PSTART</em>=starting clock phase</code></span></dt>
 <dd><p>Required.  Specifies on what phase of the master clock this clock turns
 on.
 </p></dd>
-<dt><code><em>PSTOP</em>=ending clock phase</code></dt>
+<dt><span><code><em>PSTOP</em>=ending clock phase</code></span></dt>
 <dd><p>Required.  Specifies on what phase of the master clock this clock turns
 off.
 </p></dd>
-<dt><code><em>PERIOD</em>=clock period</code></dt>
+<dt><span><code><em>PERIOD</em>=clock period</code></span></dt>
 <dd><p>Required.  Specifies the period of the clock in terms of master clock
 cycles.
 </p></dd>
-<dt><code><em>refdes</em>=reference designator</code></dt>
+<dt><span><code><em>refdes</em>=reference designator</code></span></dt>
 <dd><p>Required.  The switches that are controlled by this clock will refer to
 it by the reference designator.  As such, avoid running any reference
 designator renumbering tools.
@@ -298,11 +356,13 @@ designator renumbering tools.
 </dl>
 
 
-<span id="Master-Timing-Specification-_0028switcap_002dtiming_0029"></span><h4 class="subsubsection">6.5.6.6 Master Timing Specification (switcap-timing)</h4>
+</div>
+<div class="subsubsection" id="Master-Timing-Specification-_0028switcap_002dtiming_0029">
+<h4 class="subsubsection">6.5.6.6 Master Timing Specification (switcap-timing)</h4>
 
 <p>Attributes:
 </p><dl compact="compact">
-<dt><code><em>PERIOD</em>=clock period</code></dt>
+<dt><span><code><em>PERIOD</em>=clock period</code></span></dt>
 <dd><p>Required.  Specifies the period of the master clock in seconds.
 </p></dd>
 </dl>
@@ -310,22 +370,26 @@ designator renumbering tools.
 <p>Only a single instance of this symbol is allowed.
 </p>
 
-<span id="Analysis-File-Include-_0028switcap_002danalysis_0029"></span><h4 class="subsubsection">6.5.6.7 Analysis File Include (switcap-analysis)</h4>
+</div>
+<div class="subsubsection" id="Analysis-File-Include-_0028switcap_002danalysis_0029">
+<h4 class="subsubsection">6.5.6.7 Analysis File Include (switcap-analysis)</h4>
 
 <p>This symbol will cause a specified file containing SWITCAP analysis
 commands to be included in the output netlist.  Attributes:
 </p><dl compact="compact">
-<dt><code><em>file</em>=filename</code></dt>
+<dt><span><code><em>file</em>=filename</code></span></dt>
 <dd><p>Required.  Specifies filename to be included.
 </p></dd>
 </dl>
 
 
-<span id="Simulation-Title-Specification-_0028switcap_002dtitle_0029"></span><h4 class="subsubsection">6.5.6.8 Simulation Title Specification (switcap-title)</h4>
+</div>
+<div class="subsubsection" id="Simulation-Title-Specification-_0028switcap_002dtitle_0029">
+<h4 class="subsubsection">6.5.6.8 Simulation Title Specification (switcap-title)</h4>
 
 <p>Attributes:
 </p><dl compact="compact">
-<dt><code><em>TITLE</em>=switcap title</code></dt>
+<dt><span><code><em>TITLE</em>=switcap title</code></span></dt>
 <dd><p>Required.  Specifies the TITLE line for the SWITCAP netlist.
 </p></dd>
 </dl>
@@ -333,11 +397,13 @@ commands to be included in the output netlist.  Attributes:
 <p>Only a single instance of this symbol is allowed.
 </p>
 
-<span id="Simulation-Options-Specification-_0028switcap_002doptions_0029"></span><h4 class="subsubsection">6.5.6.9 Simulation Options Specification (switcap-options)</h4>
+</div>
+<div class="subsubsection" id="Simulation-Options-Specification-_0028switcap_002doptions_0029">
+<h4 class="subsubsection">6.5.6.9 Simulation Options Specification (switcap-options)</h4>
 
 <p>Attributes:
 </p><dl compact="compact">
-<dt><code><em>OPTIONS</em>=switcap options</code></dt>
+<dt><span><code><em>OPTIONS</em>=switcap options</code></span></dt>
 <dd><p>Required.  Specifies the OPTIONS line for the SWITCAP netlist.  See the
 SWITCAP manual for allowed values.
 </p></dd>
@@ -346,7 +412,10 @@ SWITCAP manual for allowed values.
 <p>Only a single instance of this symbol is allowed.
 </p>
 
-<span id="Example-1"></span><h4 class="subsection">6.5.7 Example</h4>
+</div>
+</div>
+<div class="subsection" id="Example-1">
+<h4 class="subsection">6.5.7 Example</h4>
 
 <p>This appendix provides a simple example of the entire process of
 generating a schematic, producing a SWITCAP netlist, running a
@@ -383,7 +452,15 @@ ANALYZE TRAN;
 
 <div class="float-caption"><p><strong>Figure 6.6: </strong>SWITCAP analysis file, <samp>test.ana</samp></p></div></div>
 
-<span id="Example-Schematics-1"></span><h4 class="subsubsection">6.5.7.1 Example Schematics</h4>
+<ul class="section-toc">
+<li><a href="#Example-Schematics-1" accesskey="1">Example Schematics</a></li>
+<li><a href="#Netlist-the-Design-1" accesskey="2">Netlist the Design</a></li>
+<li><a href="#Run-the-Simulation" accesskey="3">Run the Simulation</a></li>
+<li><a href="#Process-the-Results" accesskey="4">Process the Results</a></li>
+<li><a href="#Plot-the-Results" accesskey="5">Plot the Results</a></li>
+</ul>
+<div class="subsubsection" id="Example-Schematics-1">
+<h4 class="subsubsection">6.5.7.1 Example Schematics</h4>
 
 <p><a href="#fig_003aswitcap1">Figure 6.3</a> shows the schematic of a simple switched capacitor
 circuit.  Note that some switches, <var>S1</var> and <var>S3</var> for
@@ -409,7 +486,9 @@ the file <samp>test.ana</samp> in the output netlist.
 <p><a href="#fig_003aswitcap4">Figure 6.6</a> shows the contents of the <samp>test.ana</samp> file.
 </p>
 
-<span id="Netlist-the-Design-1"></span><h4 class="subsubsection">6.5.7.2 Netlist the Design</h4>
+</div>
+<div class="subsubsection" id="Netlist-the-Design-1">
+<h4 class="subsubsection">6.5.7.2 Netlist the Design</h4>
 
 <p>To netlist the design, run:
 </p>
@@ -418,7 +497,9 @@ the file <samp>test.ana</samp> in the output netlist.
 </pre></div>
 
 
-<span id="Run-the-Simulation"></span><h4 class="subsubsection">6.5.7.3 Run the Simulation</h4>
+</div>
+<div class="subsubsection" id="Run-the-Simulation">
+<h4 class="subsubsection">6.5.7.3 Run the Simulation</h4>
 
 <p>Run the simulation with:
 </p>
@@ -427,7 +508,9 @@ the file <samp>test.ana</samp> in the output netlist.
 </pre></div>
 
 
-<span id="Process-the-Results"></span><h4 class="subsubsection">6.5.7.4 Process the Results</h4>
+</div>
+<div class="subsubsection" id="Process-the-Results">
+<h4 class="subsubsection">6.5.7.4 Process the Results</h4>
 
 <p>Convert the SWITCAP output file to something <code>gwave</code> can read
 by running:
@@ -437,7 +520,9 @@ by running:
 </pre></div>
 
 
-<span id="Plot-the-Results"></span><h4 class="subsubsection">6.5.7.5 Plot the Results</h4>
+</div>
+<div class="subsubsection" id="Plot-the-Results">
+<h4 class="subsubsection">6.5.7.5 Plot the Results</h4>
 
 <p>Start up the <code>gwave</code> program and load the first sinusoidal
 steady state result by running:
@@ -468,16 +553,21 @@ shows the output.
 sending us the picture with simulation results for documentation.
 </p>
 <div class="float-caption"><p><strong>Figure 6.8: </strong>Simulation Results - Transient</p></div></div>
-<span id="Document-Revision-History-1"></span><h4 class="subsection">6.5.8 Document Revision History</h4>
+</div>
+</div>
+<div class="subsection" id="Document-Revision-History-1">
+<h4 class="subsection">6.5.8 Document Revision History</h4>
 <dl compact="compact">
-<dt><em>April 13th, 2003</em></dt>
+<dt><span><em>April 13th, 2003</em></span></dt>
 <dd><p>Created switcap.tex
 </p></dd>
 </dl>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Previous: <a href="PADS-backend.html" accesskey="p" rel="prev">PADS backend</a>, Up: <a href="lepton_002dnetlist.html" accesskey="u" rel="up">lepton-netlist</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="PADS-backend.html">Forward/backward annotation between Lepton and PADS PowerPCB</a>, Up: <a href="lepton_002dnetlist.html">Netlister</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

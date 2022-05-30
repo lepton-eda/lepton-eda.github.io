@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,16 +13,15 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Menu Edit (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Menu Edit (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Menu Edit (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Menu Edit (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Menu Edit (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Menu Edit (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,11 +30,11 @@ Documentation License." -->
 <link href="Menu-File.html" rel="prev" title="Menu File">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,162 +53,164 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Menu-Edit"></span><div class="header">
+<div class="subsection" id="Menu-Edit">
+<div class="header">
 <p>
-Next: <a href="Menu-View.html" accesskey="n" rel="next">Menu View</a>, Previous: <a href="Menu-File.html" accesskey="p" rel="prev">Menu File</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Menu-View.html" accesskey="n" rel="next">Menu View</a>, Previous: <a href="Menu-File.html" accesskey="p" rel="prev">Menu File</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Menu-Edit-1"></span><h4 class="subsection">5.3.3 Menu Edit</h4>
 <span id="index-menu-Edit"></span>
 
 <dl compact="compact">
-<dt><em>Undo</em></dt>
+<dt><span><em>Undo</em></span></dt>
 <dd>
 <p>Edit &rarr; Undo (<kbd>Ctrl-Z</kbd>, <kbd>U</kbd>,
 <kbd>Shift-U</kbd>, or <kbd>E Shift-U</kbd>) undoes the last editing action.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Redo</em></dt>
+<dt><span><em>Redo</em></span></dt>
 <dd>
 <p>Edit &rarr; Redo (<kbd>Shift-Ctrl-Z</kbd>, <kbd>Ctrl-Y</kbd>,
 <kbd>Shift-R</kbd>, or <kbd>E Shift-R</kbd>) repeats recently undone actions.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Cut</em></dt>
+<dt><span><em>Cut</em></span></dt>
 <dd>
 <p>Edit &rarr; Cut (<kbd>Ctrl-X</kbd>) cuts currently
 selected objects to clipboard.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Copy</em></dt>
+<dt><span><em>Copy</em></span></dt>
 <dd>
 <p>Edit &rarr; Copy (<kbd>Ctrl-C</kbd>) copies
 currently selected objects to clipboard.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Paste</em></dt>
+<dt><span><em>Paste</em></span></dt>
 <dd>
 <p>Edit &rarr; Paste (<kbd>Ctrl-V</kbd>) allows to paste the
 current clipboard contents to the drawing area.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Delete</em></dt>
+<dt><span><em>Delete</em></span></dt>
 <dd>
 <p>Edit &rarr; Delete (<kbd>Delete</kbd>, <kbd>D</kbd>, or <kbd>E
 D</kbd>) deletes currently selected objects.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Select Mode</em></dt>
+<dt><span><em>Select Mode</em></span></dt>
 <dd><p>Edit &rarr; Select Mode (<kbd>S</kbd> or <kbd>E S</kbd>)
 switches on the selection mode.  See <a href="Selecting-objects.html">Selecting objects</a>.
 </p>
 </dd>
-<dt><em>Select All</em></dt>
+<dt><span><em>Select All</em></span></dt>
 <dd>
 <p>Edit &rarr; Select All (<kbd>Ctrl-A</kbd>) selects all
 non-locked objects on a page.  See <a href="Selecting-objects.html">Selecting objects</a>.
 </p>
 </dd>
-<dt><em>Deselect</em></dt>
+<dt><span><em>Deselect</em></span></dt>
 <dd>
 <p>Edit &rarr; Deselect (<kbd>Shift-Ctrl-A</kbd>) deselects
 all selected objects, if any.  See <a href="Selecting-objects.html">Selecting objects</a>.
 </p>
 </dd>
-<dt><em>Copy Mode</em></dt>
+<dt><span><em>Copy Mode</em></span></dt>
 <dd>
 <p>Edit &rarr; Copy Mode (<kbd>C</kbd> or <kbd>E C</kbd>) allows
 one-time copy of selected objects.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Multiple Copy Mode</em></dt>
+<dt><span><em>Multiple Copy Mode</em></span></dt>
 <dd>
 <p>Edit &rarr; Multiple Copy Mode (<kbd>E Y</kbd>) allows to
 make several copies of the same objects.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Move Mode</em></dt>
+<dt><span><em>Move Mode</em></span></dt>
 <dd>
 <p>Edit &rarr; Move Mode (<kbd>M</kbd> or <kbd>E M</kbd>) allows
 you to move selected objects without depressing the left mouse button.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Rotate 90 Mode</em></dt>
+<dt><span><em>Rotate 90 Mode</em></span></dt>
 <dd>
 <p>Edit &rarr; Rotate 90 Mode (<kbd>E R</kbd>) rotates
 selected objects by 90 degrees counter-clockwise each time.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Mirror Mode</em></dt>
+<dt><span><em>Mirror Mode</em></span></dt>
 <dd><p>Edit &rarr; Mirror mode (<kbd>E I</kbd>) is used to
 mirror objects around the X axis.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Object Properties...</em></dt>
+<dt><span><em>Object Properties...</em></span></dt>
 <dd><p>Edit &rarr; Object Properties... (<kbd>E O</kbd>) opens a
 dialog where you can see and change the properties of primitive
 objects.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Edit...</em></dt>
+<dt><span><em>Edit...</em></span></dt>
 <dd><p>Edit &rarr; Edit... (<kbd>E E</kbd>) opens one of the
 editing dialogs, <em>Edit Attributes</em>, <em>Edit Attribute</em>, or
 <em>Edit Text</em>, depending on what objects are selected.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Edit Text...</em></dt>
+<dt><span><em>Edit Text...</em></span></dt>
 <dd><p>Edit &rarr; Edit Text... (<kbd>E X</kbd>) opens the Edit
 Text dialog box for editing plain text objects.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Slot...</em></dt>
+<dt><span><em>Slot...</em></span></dt>
 <dd><p>Edit &rarr; Slot... (<kbd>E Shift-S</kbd>) is used to
 change slot number of a slotted component.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Lock</em></dt>
+<dt><span><em>Lock</em></span></dt>
 <dd><p>Edit &rarr; Lock (<kbd>E L</kbd>) locks selected objects,
 that is, makes them not selectable by just clicking on them.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Unlock</em></dt>
+<dt><span><em>Unlock</em></span></dt>
 <dd><p>Edit &rarr; Unlock (<kbd>E Shift-L</kbd>) unlocks
 selected locked objects.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Embed Component/Picture</em></dt>
+<dt><span><em>Embed Component/Picture</em></span></dt>
 <dd><p>Edit &rarr; Embed Component/Picture (<kbd>E B</kbd>)
 embeds a component or a picture into schematic.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Unembed Component/Picture</em></dt>
+<dt><span><em>Unembed Component/Picture</em></span></dt>
 <dd><p>Edit &rarr; Unembed Component/Picture (<kbd>E
 Shift-B</kbd>) unembeds an embedded component or a picture from schematic.
 See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Update Component</em></dt>
+<dt><span><em>Update Component</em></span></dt>
 <dd><p>Edit &rarr; Update Component (<kbd>E U</kbd>) updates
 selected components if they changed before.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
-<dt><em>Symbol Translate...</em></dt>
+<dt><span><em>Symbol Translate...</em></span></dt>
 <dd><p>Edit &rarr; Symbol Translate... (<kbd>E T</kbd>)
 translates a symbol being edited to origin.  See <a href="Editing-schematics.html">Editing schematics</a>.
 </p>
 </dd>
 </dl>
 
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Menu-View.html" accesskey="n" rel="next">Menu View</a>, Previous: <a href="Menu-File.html" accesskey="p" rel="prev">Menu File</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Menu-View.html">Menu View</a>, Previous: <a href="Menu-File.html">Menu File</a>, Up: <a href="lepton_002dschematic-window.html">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

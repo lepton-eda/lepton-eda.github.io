@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,29 +13,28 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Deprecated settings (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Deprecated settings (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Deprecated settings (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Deprecated settings (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Deprecated settings (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Deprecated settings (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Configuration.html" rel="up" title="Configuration">
 <link href="Obsolete-settings.html" rel="next" title="Obsolete settings">
-<link href="export-group.html" rel="prev" title="export group">
+<link href="Configuration-of-Lepton-tools.html" rel="prev" title="Configuration of Lepton tools">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,9 +53,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Deprecated-settings"></span><div class="header">
+<div class="section" id="Deprecated-settings">
+<div class="header">
 <p>
-Next: <a href="Obsolete-settings.html" accesskey="n" rel="next">Obsolete settings</a>, Previous: <a href="Configuration-of-Lepton-tools.html" accesskey="p" rel="prev">Configuration of Lepton tools</a>, Up: <a href="Configuration.html" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Obsolete-settings.html" accesskey="n" rel="next">Obsolete settings</a>, Previous: <a href="Configuration-of-Lepton-tools.html" accesskey="p" rel="prev">Configuration settings for tools in the Lepton EDA suite</a>, Up: <a href="Configuration.html" accesskey="u" rel="up">Configuration system</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Deprecated-settings-1"></span><h3 class="section">3.5 Deprecated settings</h3>
@@ -93,113 +97,125 @@ in the right column are shown in the form
 <a href="https://github.com/lepton-eda/lepton-eda/blob/master/liblepton/scheme/geda-deprecated-config.scm">geda-deprecated-config.scm</a> file (look for
 <code>define-rc-deprecated-config</code> entries there).
 </p>
-<span id="Deprecated-gafrc-settings"></span><h4 class="subsection">3.5.1 Deprecated gafrc settings</h4>
+<ul class="section-toc">
+<li><a href="#Deprecated-gafrc-settings" accesskey="1">Deprecated gafrc settings</a></li>
+<li><a href="#Deprecated-gnetlistrc-settings" accesskey="2">Deprecated gnetlistrc settings</a></li>
+<li><a href="#Deprecated-gschemrc-settings" accesskey="3">Deprecated gschemrc settings</a></li>
+</ul>
+<div class="subsection" id="Deprecated-gafrc-settings">
+<h4 class="subsection">3.5.1 Deprecated gafrc settings</h4>
 
 <p>The following <samp>gafrc</samp> options are deprecated starting with Lepton
 EDA release 1.9.10:
 </p>
 <table>
-<thead><tr><th width="50%">Old <samp>gafrc</samp> file options</th><th width="50%">New options</th></tr></thead>
-<tr><td width="50%">attribute-promotion</td><td width="50%">[schematic.attrib]::<a href="schematic_002eattrib-group.html#promote">promote</a></td></tr>
-<tr><td width="50%">always-promote-attributes</td><td width="50%">[schematic.attrib]::<a href="schematic_002eattrib-group.html#always_002dpromote">always-promote</a></td></tr>
-<tr><td width="50%">promote-invisible</td><td width="50%">[schematic.attrib]::<a href="schematic_002eattrib-group.html#promote_002dinvisible">promote-invisible</a></td></tr>
-<tr><td width="50%">keep-invisible</td><td width="50%">[schematic.attrib]::<a href="schematic_002eattrib-group.html#keep_002dinvisible">keep-invisible</a></td></tr>
-<tr><td width="50%">bus-ripper-symname</td><td width="50%">[schematic]::<a href="schematic-group.html#bus_002dripper_002dsymname">bus-ripper-symname</a></td></tr>
-<tr><td width="50%">make-backup-files</td><td width="50%">[schematic.backup]::<a href="schematic_002ebackup-group.html#create_002dfiles">create-files</a></td></tr>
+<thead><tr><th width="33%">Old <samp>gafrc</samp> option</th><th width="33%">New option</th><th width="33%">Config group</th></tr></thead>
+<tr><td width="33%">attribute-promotion</td><td width="33%"><a href="schematic_002eattrib-group.html#promote">promote</a></td><td width="33%">schematic.attrib</td></tr>
+<tr><td width="33%">always-promote-attributes</td><td width="33%"><a href="schematic_002eattrib-group.html#always_002dpromote">always-promote</a></td><td width="33%">schematic.attrib</td></tr>
+<tr><td width="33%">promote-invisible</td><td width="33%"><a href="schematic_002eattrib-group.html#promote_002dinvisible">promote-invisible</a></td><td width="33%">schematic.attrib</td></tr>
+<tr><td width="33%">keep-invisible</td><td width="33%"><a href="schematic_002eattrib-group.html#keep_002dinvisible">keep-invisible</a></td><td width="33%">schematic.attrib</td></tr>
+<tr><td width="33%">bus-ripper-symname</td><td width="33%"><a href="schematic-group.html#bus_002dripper_002dsymname">bus-ripper-symname</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">make-backup-files</td><td width="33%"><a href="schematic_002ebackup-group.html#create_002dfiles">create-files</a></td><td width="33%">schematic.backup</td></tr>
 </table>
 
-<span id="Deprecated-gnetlistrc-settings"></span><h4 class="subsection">3.5.2 Deprecated gnetlistrc settings</h4>
+</div>
+<div class="subsection" id="Deprecated-gnetlistrc-settings">
+<h4 class="subsection">3.5.2 Deprecated gnetlistrc settings</h4>
 
 <p>The following <samp>gnetlistrc</samp> options are deprecated:
 </p>
 <table>
-<thead><tr><th width="50%">Old <samp>gnetlistrc</samp> file options</th><th width="50%">New options</th></tr></thead>
-<tr><td width="50%">hierarchy-netattrib-mangle</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#mangle_002dnet_002dattribute">mangle-net-attribute</a></td></tr>
-<tr><td width="50%">hierarchy-netattrib-order</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#net_002dattribute_002dorder">net-attribute-order</a></td></tr>
-<tr><td width="50%">hierarchy-netattrib-separator</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#net_002dattribute_002dseparator">net-attribute-separator</a></td></tr>
-<tr><td width="50%">hierarchy-netname-mangle</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#mangle_002dnetname_002dattribute">mangle-netname-attribute</a></td></tr>
-<tr><td width="50%">hierarchy-netname-order</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#netname_002dattribute_002dorder">netname-attribute-order</a></td></tr>
-<tr><td width="50%">hierarchy-netname-separator</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#netname_002dattribute_002dseparator">netname-attribute-separator</a></td></tr>
-<tr><td width="50%">hierarchy-traversal</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#traverse_002dhierarchy">traverse-hierarchy</a></td></tr>
-<tr><td width="50%">hierarchy-uref-mangle</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#mangle_002drefdes_002dattribute">mangle-refdes-attribute</a></td></tr>
-<tr><td width="50%">hierarchy-uref-order</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#refdes_002dattribute_002dorder">refdes-attribute-order</a></td></tr>
-<tr><td width="50%">hierarchy-uref-separator</td><td width="50%">[netlist.hierarchy]::<a href="netlist_002ehierarchy-group.html#refdes_002dattribute_002dseparator">refdes-attribute-separator</a></td></tr>
-<tr><td width="50%">net-naming-priority</td><td width="50%">[netlist]::<a href="netlist-group.html#net_002dnaming_002dpriority">net-naming-priority</a></td></tr>
-<tr><td width="50%">unnamed-busname</td><td width="50%">[netlist]::<a href="netlist-group.html#default_002dbus_002dname">default-bus-name</a></td></tr>
-<tr><td width="50%">unnamed-netname</td><td width="50%">[netlist]::<a href="netlist-group.html#default_002dnet_002dname">default-net-name</a></td></tr>
+<thead><tr><th width="33%">Old <samp>gnetlistrc</samp> option</th><th width="33%">New option</th><th width="33%">Config group</th></tr></thead>
+<tr><td width="33%">hierarchy-netattrib-mangle</td><td width="33%"><a href="netlist_002ehierarchy-group.html#mangle_002dnet_002dattribute">mangle-net-attribute</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-netattrib-order</td><td width="33%"><a href="netlist_002ehierarchy-group.html#net_002dattribute_002dorder">net-attribute-order</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-netattrib-separator</td><td width="33%"><a href="netlist_002ehierarchy-group.html#net_002dattribute_002dseparator">net-attribute-separator</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-netname-mangle</td><td width="33%"><a href="netlist_002ehierarchy-group.html#mangle_002dnetname_002dattribute">mangle-netname-attribute</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-netname-order</td><td width="33%"><a href="netlist_002ehierarchy-group.html#netname_002dattribute_002dorder">netname-attribute-order</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-netname-separator</td><td width="33%"><a href="netlist_002ehierarchy-group.html#netname_002dattribute_002dseparator">netname-attribute-separator</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-traversal</td><td width="33%"><a href="netlist_002ehierarchy-group.html#traverse_002dhierarchy">traverse-hierarchy</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-uref-mangle</td><td width="33%"><a href="netlist_002ehierarchy-group.html#mangle_002drefdes_002dattribute">mangle-refdes-attribute</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-uref-order</td><td width="33%"><a href="netlist_002ehierarchy-group.html#refdes_002dattribute_002dorder">refdes-attribute-order</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">hierarchy-uref-separator</td><td width="33%"><a href="netlist_002ehierarchy-group.html#refdes_002dattribute_002dseparator">refdes-attribute-separator</a></td><td width="33%">netlist.hierarchy</td></tr>
+<tr><td width="33%">net-naming-priority</td><td width="33%"><a href="netlist-group.html#net_002dnaming_002dpriority">net-naming-priority</a></td><td width="33%">netlist</td></tr>
+<tr><td width="33%">unnamed-busname</td><td width="33%"><a href="netlist-group.html#default_002dbus_002dname">default-bus-name</a></td><td width="33%">netlist</td></tr>
+<tr><td width="33%">unnamed-netname</td><td width="33%"><a href="netlist-group.html#default_002dnet_002dname">default-net-name</a></td><td width="33%">netlist</td></tr>
 </table>
 
-<span id="Deprecated-gschemrc-settings"></span><h4 class="subsection">3.5.3 Deprecated gschemrc settings</h4>
+</div>
+<div class="subsection" id="Deprecated-gschemrc-settings">
+<h4 class="subsection">3.5.3 Deprecated gschemrc settings</h4>
 
 <p>The following <samp>gschemrc</samp> options are deprecated:
 </p>
 <table>
-<thead><tr><th width="50%">Old <samp>gschemrc</samp> file options</th><th width="50%">New options</th></tr></thead>
-<tr><td width="50%">component-dialog-attributes</td><td width="50%">[schematic.library]::<a href="schematic_002elibrary-group.html#component_002dattributes">component-attributes</a></td></tr>
-<tr><td width="50%">print-color</td><td width="50%">[schematic.printing]::<a href="schematic_002eprinting-group.html#monochrome">monochrome</a></td></tr>
-<tr><td width="50%">print-orientation</td><td width="50%">[schematic.printing]::<a href="schematic_002eprinting-group.html#layout">layout</a></td></tr>
-<tr><td width="50%">print-paper</td><td width="50%">[schematic.printing]::<a href="schematic_002eprinting-group.html#paper">paper</a></td></tr>
-<tr><td width="50%">sort-component-library</td><td width="50%">[schematic.library]::<a href="schematic_002elibrary-group.html#sort">sort</a></td></tr>
-<tr><td width="50%">untitled-name</td><td width="50%">[schematic]::<a href="schematic-group.html#default_002dfilename">default-filename</a></td></tr>
+<thead><tr><th width="33%">Old <samp>gschemrc</samp> option</th><th width="33%">New option</th><th width="33%">Config group</th></tr></thead>
+<tr><td width="33%">component-dialog-attributes</td><td width="33%"><a href="schematic_002elibrary-group.html#component_002dattributes">component-attributes</a></td><td width="33%">schematic.library</td></tr>
+<tr><td width="33%">print-color</td><td width="33%"><a href="schematic_002eprinting-group.html#monochrome">monochrome</a></td><td width="33%">schematic.printing</td></tr>
+<tr><td width="33%">print-orientation</td><td width="33%"><a href="schematic_002eprinting-group.html#layout">layout</a></td><td width="33%">schematic.printing</td></tr>
+<tr><td width="33%">print-paper</td><td width="33%"><a href="schematic_002eprinting-group.html#paper">paper</a></td><td width="33%">schematic.printing</td></tr>
+<tr><td width="33%">sort-component-library</td><td width="33%"><a href="schematic_002elibrary-group.html#sort">sort</a></td><td width="33%">schematic.library</td></tr>
+<tr><td width="33%">untitled-name</td><td width="33%"><a href="schematic-group.html#default_002dfilename">default-filename</a></td><td width="33%">schematic</td></tr>
 </table>
 
 <p>The following <samp>gschemrc</samp> options are deprecated starting with
 Lepton EDA release 1.9.10:
 </p>
 <table>
-<thead><tr><th width="50%">Old <samp>gschemrc</samp> file options</th><th width="50%">New options</th></tr></thead>
-<tr><td width="50%">action-feedback-mode</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#action_002dfeedback_002dmode">action-feedback-mode</a></td></tr>
-<tr><td width="50%">auto-save-interval</td><td width="50%">[schematic]::<a href="schematic-group.html#auto_002dsave_002dinterval">auto-save-interval</a></td></tr>
-<tr><td width="50%">bus-ripper-rotation</td><td width="50%">[schematic]::<a href="schematic-group.html#bus_002dripper_002drotation">bus-ripper-rotation</a></td></tr>
-<tr><td width="50%">bus-ripper-size</td><td width="50%">[schematic]::<a href="schematic-group.html#bus_002dripper_002dsize">bus-ripper-size</a></td></tr>
-<tr><td width="50%">bus-ripper-type</td><td width="50%">[schematic]::<a href="schematic-group.html#bus_002dripper_002dtype">bus-ripper-type</a></td></tr>
-<tr><td width="50%">continue-component-place</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#continue_002dcomponent_002dplace">continue-component-place</a></td></tr>
-<tr><td width="50%">default-titleblock</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#default_002dtitleblock">default-titleblock</a></td></tr>
-<tr><td width="50%">dots-grid-dot-size</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#dots_002dgrid_002ddot_002dsize">dots-grid-dot-size</a></td></tr>
-<tr><td width="50%">dots-grid-fixed-threshold</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#dots_002dgrid_002dfixed_002dthreshold">dots-grid-fixed-threshold</a></td></tr>
-<tr><td width="50%">dots-grid-mode</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#dots_002dgrid_002dmode">dots-grid-mode</a></td></tr>
-<tr><td width="50%">draw-grips</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#draw_002dgrips">draw-grips</a></td></tr>
-<tr><td width="50%">embed-components</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#embed_002dcomponents">embed-components</a></td></tr>
-<tr><td width="50%">enforce-hierarchy</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#enforce_002dhierarchy">enforce-hierarchy</a></td></tr>
-<tr><td width="50%">fast-mousepan</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#fast_002dmousepan">fast-mousepan</a></td></tr>
-<tr><td width="50%">file-preview</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#file_002dpreview">file-preview</a></td></tr>
-<tr><td width="50%">force-boundingbox</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#force_002dboundingbox">force-boundingbox</a></td></tr>
-<tr><td width="50%">grid-mode</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#grid_002dmode">grid-mode</a></td></tr>
-<tr><td width="50%">handleboxes</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#handleboxes">handleboxes</a></td></tr>
-<tr><td width="50%">keyboardpan-gain</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#keyboardpan_002dgain">keyboardpan-gain</a></td></tr>
-<tr><td width="50%">log-window</td><td width="50%">[schematic]::<a href="schematic-group.html#log_002dwindow">log-window</a></td></tr>
-<tr><td width="50%">logging</td><td width="50%">[schematic]::<a href="schematic-group.html#logging">logging</a></td></tr>
-<tr><td width="50%">magnetic-net-mode</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#magnetic_002dnet_002dmode">magnetic-net-mode</a></td></tr>
-<tr><td width="50%">mesh-grid-display-threshold</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#mesh_002dgrid_002ddisplay_002dthreshold">mesh-grid-display-threshold</a></td></tr>
-<tr><td width="50%">middle-button</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#middle_002dbutton">middle-button</a></td></tr>
-<tr><td width="50%">mousepan-gain</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#mousepan_002dgain">mousepan-gain</a></td></tr>
-<tr><td width="50%">net-consolidate</td><td width="50%">[schematic]::<a href="schematic-group.html#net_002dconsolidate">net-consolidate</a></td></tr>
-<tr><td width="50%">net-direction-mode</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#net_002ddirection_002dmode">net-direction-mode</a></td></tr>
-<tr><td width="50%">net-selection-mode</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#net_002dselection_002dmode">net-selection-mode</a></td></tr>
-<tr><td width="50%">netconn-rubberband</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#netconn_002drubberband">netconn-rubberband</a></td></tr>
-<tr><td width="50%">scroll-wheel</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#scroll_002dwheel">scroll-wheel</a></td></tr>
-<tr><td width="50%">scrollbars</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#scrollbars">scrollbars</a></td></tr>
-<tr><td width="50%">scrollpan-steps</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#scrollpan_002dsteps">scrollpan-steps</a></td></tr>
-<tr><td width="50%">select-slack-pixels</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#select_002dslack_002dpixels">select-slack-pixels</a></td></tr>
-<tr><td width="50%">snap-size</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#snap_002dsize">snap-size</a></td></tr>
-<tr><td width="50%">text-caps-style</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#text_002dcaps_002dstyle">text-caps-style</a></td></tr>
-<tr><td width="50%">text-size</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#text_002dsize">text-size</a></td></tr>
-<tr><td width="50%">third-button</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#third_002dbutton">third-button</a></td></tr>
-<tr><td width="50%">third-button-cancel</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#third_002dbutton_002dcancel">third-button-cancel</a></td></tr>
-<tr><td width="50%">toolbars</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#toolbars">toolbars</a></td></tr>
-<tr><td width="50%">undo-control</td><td width="50%">[schematic.undo]::<a href="schematic_002eundo-group.html#undo_002dcontrol">undo-control</a></td></tr>
-<tr><td width="50%">undo-levels</td><td width="50%">[schematic.undo]::<a href="schematic_002eundo-group.html#undo_002dlevels">undo-levels</a></td></tr>
-<tr><td width="50%">undo-panzoom</td><td width="50%">[schematic.undo]::<a href="schematic_002eundo-group.html#undo_002dpanzoom">undo-panzoom</a></td></tr>
-<tr><td width="50%">undo-type</td><td width="50%">[schematic.undo]::<a href="schematic_002eundo-group.html#undo_002dtype">undo-type</a></td></tr>
-<tr><td width="50%">warp-cursor</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#warp_002dcursor">warp-cursor</a></td></tr>
-<tr><td width="50%">zoom-gain</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#zoom_002dgain">zoom-gain</a></td></tr>
-<tr><td width="50%">zoom-with-pan</td><td width="50%">[schematic.gui]::<a href="schematic_002egui-group.html#zoom_002dwith_002dpan">zoom-with-pan</a></td></tr>
+<thead><tr><th width="33%">Old <samp>gschemrc</samp> option</th><th width="33%">New option</th><th width="33%">Config group</th></tr></thead>
+<tr><td width="33%">action-feedback-mode</td><td width="33%"><a href="schematic_002egui-group.html#action_002dfeedback_002dmode">action-feedback-mode</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">auto-save-interval</td><td width="33%"><a href="schematic-group.html#auto_002dsave_002dinterval">auto-save-interval</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">bus-ripper-rotation</td><td width="33%"><a href="schematic-group.html#bus_002dripper_002drotation">bus-ripper-rotation</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">bus-ripper-size</td><td width="33%"><a href="schematic-group.html#bus_002dripper_002dsize">bus-ripper-size</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">bus-ripper-type</td><td width="33%"><a href="schematic-group.html#bus_002dripper_002dtype">bus-ripper-type</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">continue-component-place</td><td width="33%"><a href="schematic_002egui-group.html#continue_002dcomponent_002dplace">continue-component-place</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">default-titleblock</td><td width="33%"><a href="schematic_002egui-group.html#default_002dtitleblock">default-titleblock</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">dots-grid-dot-size</td><td width="33%"><a href="schematic_002egui-group.html#dots_002dgrid_002ddot_002dsize">dots-grid-dot-size</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">dots-grid-fixed-threshold</td><td width="33%"><a href="schematic_002egui-group.html#dots_002dgrid_002dfixed_002dthreshold">dots-grid-fixed-threshold</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">dots-grid-mode</td><td width="33%"><a href="schematic_002egui-group.html#dots_002dgrid_002dmode">dots-grid-mode</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">draw-grips</td><td width="33%"><a href="schematic_002egui-group.html#draw_002dgrips">draw-grips</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">embed-components</td><td width="33%"><a href="schematic_002egui-group.html#embed_002dcomponents">embed-components</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">enforce-hierarchy</td><td width="33%"><a href="schematic_002egui-group.html#enforce_002dhierarchy">enforce-hierarchy</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">fast-mousepan</td><td width="33%"><a href="schematic_002egui-group.html#fast_002dmousepan">fast-mousepan</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">file-preview</td><td width="33%"><a href="schematic_002egui-group.html#file_002dpreview">file-preview</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">force-boundingbox</td><td width="33%"><a href="schematic_002egui-group.html#force_002dboundingbox">force-boundingbox</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">grid-mode</td><td width="33%"><a href="schematic_002egui-group.html#grid_002dmode">grid-mode</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">handleboxes</td><td width="33%"><a href="schematic_002egui-group.html#handleboxes">handleboxes</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">keyboardpan-gain</td><td width="33%"><a href="schematic_002egui-group.html#keyboardpan_002dgain">keyboardpan-gain</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">log-window</td><td width="33%"><a href="schematic-group.html#log_002dwindow">log-window</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">logging</td><td width="33%"><a href="schematic-group.html#logging">logging</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">magnetic-net-mode</td><td width="33%"><a href="schematic_002egui-group.html#magnetic_002dnet_002dmode">magnetic-net-mode</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">mesh-grid-display-threshold</td><td width="33%"><a href="schematic_002egui-group.html#mesh_002dgrid_002ddisplay_002dthreshold">mesh-grid-display-threshold</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">middle-button</td><td width="33%"><a href="schematic_002egui-group.html#middle_002dbutton">middle-button</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">mousepan-gain</td><td width="33%"><a href="schematic_002egui-group.html#mousepan_002dgain">mousepan-gain</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">net-consolidate</td><td width="33%"><a href="schematic-group.html#net_002dconsolidate">net-consolidate</a></td><td width="33%">schematic</td></tr>
+<tr><td width="33%">net-direction-mode</td><td width="33%"><a href="schematic_002egui-group.html#net_002ddirection_002dmode">net-direction-mode</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">net-selection-mode</td><td width="33%"><a href="schematic_002egui-group.html#net_002dselection_002dmode">net-selection-mode</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">netconn-rubberband</td><td width="33%"><a href="schematic_002egui-group.html#netconn_002drubberband">netconn-rubberband</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">scroll-wheel</td><td width="33%"><a href="schematic_002egui-group.html#scroll_002dwheel">scroll-wheel</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">scrollbars</td><td width="33%"><a href="schematic_002egui-group.html#scrollbars">scrollbars</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">scrollpan-steps</td><td width="33%"><a href="schematic_002egui-group.html#scrollpan_002dsteps">scrollpan-steps</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">select-slack-pixels</td><td width="33%"><a href="schematic_002egui-group.html#select_002dslack_002dpixels">select-slack-pixels</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">snap-size</td><td width="33%"><a href="schematic_002egui-group.html#snap_002dsize">snap-size</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">text-caps-style</td><td width="33%"><a href="schematic_002egui-group.html#text_002dcaps_002dstyle">text-caps-style</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">text-size</td><td width="33%"><a href="schematic_002egui-group.html#text_002dsize">text-size</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">third-button</td><td width="33%"><a href="schematic_002egui-group.html#third_002dbutton">third-button</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">third-button-cancel</td><td width="33%"><a href="schematic_002egui-group.html#third_002dbutton_002dcancel">third-button-cancel</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">toolbars</td><td width="33%"><a href="schematic_002egui-group.html#toolbars">toolbars</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">undo-control</td><td width="33%"><a href="schematic_002eundo-group.html#undo_002dcontrol">undo-control</a></td><td width="33%">schematic.undo</td></tr>
+<tr><td width="33%">undo-levels</td><td width="33%"><a href="schematic_002eundo-group.html#undo_002dlevels">undo-levels</a></td><td width="33%">schematic.undo</td></tr>
+<tr><td width="33%">undo-panzoom</td><td width="33%"><a href="schematic_002eundo-group.html#undo_002dpanzoom">undo-panzoom</a></td><td width="33%">schematic.undo</td></tr>
+<tr><td width="33%">undo-type</td><td width="33%"><a href="schematic_002eundo-group.html#undo_002dtype">undo-type</a></td><td width="33%">schematic.undo</td></tr>
+<tr><td width="33%">warp-cursor</td><td width="33%"><a href="schematic_002egui-group.html#warp_002dcursor">warp-cursor</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">zoom-gain</td><td width="33%"><a href="schematic_002egui-group.html#zoom_002dgain">zoom-gain</a></td><td width="33%">schematic.gui</td></tr>
+<tr><td width="33%">zoom-with-pan</td><td width="33%"><a href="schematic_002egui-group.html#zoom_002dwith_002dpan">zoom-with-pan</a></td><td width="33%">schematic.gui</td></tr>
 </table>
 
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="Obsolete-settings.html" accesskey="n" rel="next">Obsolete settings</a>, Previous: <a href="Configuration-of-Lepton-tools.html" accesskey="p" rel="prev">Configuration of Lepton tools</a>, Up: <a href="Configuration.html" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Obsolete-settings.html">Obsolete settings</a>, Previous: <a href="Configuration-of-Lepton-tools.html">Configuration settings for tools in the Lepton EDA suite</a>, Up: <a href="Configuration.html">Configuration system</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

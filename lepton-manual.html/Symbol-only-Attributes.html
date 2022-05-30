@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,29 +13,28 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Symbol only Attributes (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Symbol only Attributes (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Symbol only Attributes (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Symbol only Attributes (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Symbol only Attributes (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Symbol only Attributes (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="gEDA_002fgaf-Master-Attribute-Document.html" rel="up" title="gEDA/gaf Master Attribute Document">
-<link href="device-attribute.html" rel="next" title="device attribute">
+<link href="Master-attribute-list.html" rel="up" title="Master attribute list">
+<link href="Schematic-only-Attributes.html" rel="next" title="Schematic only Attributes">
 <link href="What-are-Attributes_003f.html" rel="prev" title="What are Attributes?">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,43 +53,32 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Symbol-only-Attributes"></span><div class="header">
+<div class="section" id="Symbol-only-Attributes">
+<div class="header">
 <p>
-Next: <a href="Schematic-only-Attributes.html" accesskey="n" rel="next">Schematic only Attributes</a>, Previous: <a href="What-are-Attributes_003f.html" accesskey="p" rel="prev">What are Attributes?</a>, Up: <a href="gEDA_002fgaf-Master-Attribute-Document.html" accesskey="u" rel="up">gEDA/gaf Master Attribute Document</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Schematic-only-Attributes.html" accesskey="n" rel="next">Schematic only Attributes</a>, Previous: <a href="What-are-Attributes_003f.html" accesskey="p" rel="prev">What are Attributes?</a>, Up: <a href="Master-attribute-list.html" accesskey="u" rel="up">Master attribute list</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="Symbol-only-Attributes-1"></span><h3 class="section">13.3 Symbol only Attributes</h3>
+<span id="Symbol-only-Attributes-1"></span><h3 class="section">13.2 Symbol only Attributes</h3>
 
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="device-attribute.html" accesskey="1">device attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="graphical-attribute.html" accesskey="2">graphical attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="description-attribute.html" accesskey="3">description attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="author-attribute.html" accesskey="4">author attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="comment-attribute.html" accesskey="5">comment attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="pinseq-attribute.html" accesskey="6">pinseq attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="pinnumber-attribute.html" accesskey="7">pinnumber attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="pintype-attribute.html" accesskey="8">pintype attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="pinlabel-attribute.html" accesskey="9">pinlabel attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="numslots-attribute.html">numslots attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="slotdef-attribute.html">slotdef attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="footprint-attribute.html">footprint attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="documentation-attribute.html">documentation attribute</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
 
+<ul class="section-toc">
+<li><a href="device-attribute.html" accesskey="1">device attribute</a></li>
+<li><a href="graphical-attribute.html" accesskey="2">graphical attribute</a></li>
+<li><a href="description-attribute.html" accesskey="3">description attribute</a></li>
+<li><a href="author-attribute.html" accesskey="4">author attribute</a></li>
+<li><a href="comment-attribute.html" accesskey="5">comment attribute</a></li>
+<li><a href="pinseq-attribute.html" accesskey="6">pinseq attribute</a></li>
+<li><a href="pinnumber-attribute.html" accesskey="7">pinnumber attribute</a></li>
+<li><a href="pintype-attribute.html" accesskey="8">pintype attribute</a></li>
+<li><a href="pinlabel-attribute.html" accesskey="9">pinlabel attribute</a></li>
+<li><a href="numslots-attribute.html">numslots attribute</a></li>
+<li><a href="slotdef-attribute.html">slotdef attribute</a></li>
+<li><a href="footprint-attribute.html">footprint attribute</a></li>
+<li><a href="documentation-attribute.html">documentation attribute</a></li>
+</ul>
+</div>
 
 
 

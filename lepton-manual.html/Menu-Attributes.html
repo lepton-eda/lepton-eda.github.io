@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,16 +13,15 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Menu Attributes (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Menu Attributes (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Menu Attributes (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Menu Attributes (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Menu Attributes (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Menu Attributes (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,11 +30,11 @@ Documentation License." -->
 <link href="Menu-Hierarchy.html" rel="prev" title="Menu Hierarchy">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,28 +53,119 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Menu-Attributes"></span><div class="header">
+<div class="subsection" id="Menu-Attributes">
+<div class="header">
 <p>
-Next: <a href="Menu-Options.html" accesskey="n" rel="next">Menu Options</a>, Previous: <a href="Menu-Hierarchy.html" accesskey="p" rel="prev">Menu Hierarchy</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Menu-Options.html" accesskey="n" rel="next">Menu Options</a>, Previous: <a href="Menu-Hierarchy.html" accesskey="p" rel="prev">Menu Hierarchy</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Menu-Attributes-1"></span><h4 class="subsection">5.3.8 Menu Attributes</h4>
 <span id="index-menu-Attributes"></span>
 
 <dl compact="compact">
-<dt><em>Attach</em></dt>
-<dt><em>Detach</em></dt>
-<dt><em>Show Value</em></dt>
-<dt><em>Show Name</em></dt>
-<dt><em>Show Both</em></dt>
-<dt><em>Toggle Visibility</em></dt>
-<dt><em>Hide Specific Text...</em></dt>
-<dt><em>Show Specific Text...</em></dt>
-<dt><em>Show/Hide Hidden Text</em></dt>
-<dt><em>Find Text/Check Symbol</em></dt>
-<dt><em>Autonumber Text...</em></dt>
+<dt><span><em>Attach</em></span></dt>
+<dd><p>Attributes &rarr; Attach (<kbd>T A</kbd>) attaches a text
+attribute to an object.  You can select attributes and other objects
+in any order and then hit the shortcut.  However, all attributes will
+be attached to only one of the objects selected and it is not easy to
+understand which one will be chosen for that.  Therefore, it is
+recommended to select only one object and any number of attributes to
+attach to it.  Attached attributes change their color to the
+&ldquo;Attribute&rdquo; color and you cannot re-attach them to any other object
+until you detach them.
+</p>
+</dd>
+<dt><span><em>Detach</em></span></dt>
+<dd><p>Attributes &rarr; Detach (<kbd>T D</kbd>) detaches a text
+attribute from the object it was attached to.  After detaching
+attributes change their color to the &ldquo;Detached attribute&rdquo; color.
+The action does nothing for not attached attributes.
+</p>
+</dd>
+<dt><span><em>Show Value</em></span></dt>
+<dd><p>Attributes &rarr; Show Value (<kbd>T V</kbd>) toggles the
+visibility of a text attribute so only its value is shown on schematic
+page.
+</p>
+</dd>
+<dt><span><em>Show Name</em></span></dt>
+<dd><p>Attributes &rarr; Show Name (<kbd>T N</kbd>) toggles the
+visibility of a text attribute so only its name is shown on schematic
+page.  Not very helpful for most of attributes but may be useful for
+those which values were historically not very well chosen, for
+instance, <var>graphical=1</var>.
+</p>
+</dd>
+<dt><span><em>Show Both</em></span></dt>
+<dd><p>Attributes &rarr; Show Both (<kbd>T B</kbd>) toggles the
+visibility of a text attribute so it is shown in the form
+<var>name=value</var>.
+</p>
+</dd>
+<dt><span><em>Toggle Visibility</em></span></dt>
+<dd><p>Attributes &rarr; Toggle Visibility (<kbd>T T</kbd>)
+switches off or on the total visibility of selected attributes.  After
+switching off the visibility of an attribute, you won&rsquo;t be able to
+simple select it to make it visible again.  Either just undo the
+operation if you did this mistakenly, or use the
+Attributes &rarr; Show/Hide Hidden Text action in
+order to be able to select any hidden attribute and then toggle their
+visibility.  Please see below for more information on that.
+</p>
+</dd>
+<dt><span><em>Hide Specific Text...</em></span></dt>
+<dd><p>Attributes &rarr; Hide Specific Text... (<kbd>T H</kbd>)
+allows to quickly hide a set of text objects having the specified text
+prefix.  For attributes you have to specify their full text, that is,
+the name of attribute as well (e.g. <var>refdes=U</var>), no matter which
+style of visibility (&lsquo;<samp>name</samp>&rsquo;, &lsquo;<samp>value</samp>&rsquo;, or &lsquo;<samp>both</samp>&rsquo;) each
+particular attribute has.
+</p>
+</dd>
+<dt><span><em>Show Specific Text...</em></span></dt>
+<dd><p>Attributes &rarr; Show Specific Text... (<kbd>T
+Shift-H</kbd>) allows to quickly make visible a set of hidden text objects
+having the specified text prefix.  The same rules apply as for
+Attributes &rarr; Hide Specific Text....
+</p>
+</dd>
+<dt><span><em>Show/Hide Hidden Text</em></span></dt>
+<dd><p>Attributes &rarr; Show/Hide Hidden Text (<kbd>T I</kbd>
+or <kbd>E N</kbd>) toggles displaying of hidden text objects.  Sometimes,
+it is convenient to not always show some information, e.g. attributes,
+or it should not be present on the printed paper.  You can make some
+text objects invisible with the Attributes &rarr;
+Toggle Visibility action described above and toggle their visibility
+by using this action.  Hidden text objects will have little markers at
+their anchor points like the letter &ldquo;I&rdquo; (which means &ldquo;invisible&rdquo;).
+</p>
+</dd>
+<dt><span><em>Find Text/Check Symbol</em></span></dt>
+<dd><p>Attributes &rarr; Find Text/Check Symbol (<kbd>T F</kbd>)
+opens a bottom widget where you can select one of operations:
+searching for specific text, searching for text by a pattern,
+searching for text by a regular expression, or checking the symbol if
+you&rsquo;re in the symbol editing mode.  The last operation is special and
+allows you to interactively run the same checks <code>lepton-symcheck</code> does, with
+feedback in the form of dialog windows where you can select the issue
+items and go to the place the objects in question reside in.
+</p>
+</dd>
+<dt><span><em>Autonumber Text...</em></span></dt>
+<dd><p>Attributes &rarr; Autonumber Text... (<kbd>T U</kbd>)
+opens an interactive autonumber dialog window in which you can select
+the scope of autonumbering and several options.  Hit the &lsquo;<samp>Apply</samp>&rsquo;
+button after choosing the wanted settings to actually run the
+autonumbering or &lsquo;<samp>Close</samp>&rsquo; to cancel it.
+</p></dd>
 </dl>
 
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Menu-Options.html">Menu Options</a>, Previous: <a href="Menu-Hierarchy.html">Menu Hierarchy</a>, Up: <a href="lepton_002dschematic-window.html">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

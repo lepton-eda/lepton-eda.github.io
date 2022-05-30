@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,29 +13,28 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>net= attribute mini-HOWTO (Lepton EDA Reference Manual 1.9.16)</title>
+<title>net= attribute mini-HOWTO (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="net= attribute mini-HOWTO (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="net= attribute mini-HOWTO (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="net= attribute mini-HOWTO (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="net= attribute mini-HOWTO (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="index.html" rel="up" title="Top">
 <link href="Lepton-EDA-fonts.html" rel="next" title="Lepton EDA fonts">
-<link href="Master-Attribute-Document-Revision-History.html" rel="prev" title="Master Attribute Document Revision History">
+<link href="Master-attribute-list.html" rel="prev" title="Master attribute list">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,9 +53,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="net_003d-attribute-mini_002dHOWTO"></span><div class="header">
+<div class="chapter" id="net_003d-attribute-mini_002dHOWTO">
+<div class="header">
 <p>
-Next: <a href="Lepton-EDA-fonts.html" accesskey="n" rel="next">Lepton EDA fonts</a>, Previous: <a href="gEDA_002fgaf-Master-Attribute-Document.html" accesskey="p" rel="prev">gEDA/gaf Master Attribute Document</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Lepton-EDA-fonts.html" accesskey="n" rel="next">Lepton EDA fonts</a>, Previous: <a href="Master-attribute-list.html" accesskey="p" rel="prev">Master attribute list</a>, Up: <a href="index.html" accesskey="u" rel="up">Lepton EDA Reference Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="net_003d-attribute-mini_002dHOWTO-1"></span><h2 class="chapter">14 net= attribute mini-HOWTO</h2>
@@ -67,7 +71,16 @@ Next: <a href="Lepton-EDA-fonts.html" accesskey="n" rel="next">Lepton EDA fonts<
 <p>The information in this document is current as of 19991011.
 </p>
 
-<span id="What-is-the-net_003d-attribute-used-for_003f"></span><h3 class="section">14.1 What is the net= attribute used for?</h3>
+<ul class="section-toc">
+<li><a href="#What-is-the-net_003d-attribute-used-for_003f" accesskey="1">What is the net= attribute used for?</a></li>
+<li><a href="#What-is-the-format-of-the-net_003d-attribute_003f" accesskey="2">What is the format of the net= attribute?</a></li>
+<li><a href="#How-do-you-actually-use-the-net_003d-attribute_003f" accesskey="3">How do you actually use the net= attribute?</a></li>
+<li><a href="#Caveats-_002f-Bugs" accesskey="4">Caveats / Bugs</a></li>
+<li><a href="#Example-2" accesskey="5">Example</a></li>
+<li><a href="#Final-notes" accesskey="6">Final notes</a></li>
+</ul>
+<div class="section" id="What-is-the-net_003d-attribute-used-for_003f">
+<h3 class="section">14.1 What is the net= attribute used for?</h3>
 
 <p>The &lsquo;<samp>net=</samp>&rsquo; attribute is used to specify power, ground, and/or
 arbitrary nets in the gEDA system.
@@ -85,7 +98,9 @@ connected to these pins as separate power/ground nets. Please keep
 this in mind as you draw symbols.
 </p>
 
-<span id="What-is-the-format-of-the-net_003d-attribute_003f"></span><h3 class="section">14.2 What is the format of the net= attribute?</h3>
+</div>
+<div class="section" id="What-is-the-format-of-the-net_003d-attribute_003f">
+<h3 class="section">14.2 What is the format of the net= attribute?</h3>
 
 <p>Attributes in gEDA are simple text items which are in the form
 &lsquo;<samp>name=value</samp>&rsquo;. All proper attributes follow this form. Attribute
@@ -108,16 +123,16 @@ form:
 
 <p>where:
 </p><dl compact="compact">
-<dt>&lsquo;<samp><em>net=</em></samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp><em>net=</em></samp>&rsquo;</span></dt>
 <dd><p>The attribute name (always the same, lowercase)
 </p>
 </dd>
-<dt>&lsquo;<samp>signalname</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>signalname</samp>&rsquo;</span></dt>
 <dd>
 <p>The signal or net being defines (like +5V, GND, etc...)
 </p>
 </dd>
-<dt>&lsquo;<samp>pinname</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>pinname</samp>&rsquo;</span></dt>
 <dd>
 <p>The pin name (or number) which is assigned to this signal/net (or pin
 names/numbers)
@@ -136,7 +151,9 @@ are familiar with that attribute).
 can have as many pinnames/numbers as you want.
 </p>
 
-<span id="How-do-you-actually-use-the-net_003d-attribute_003f"></span><h3 class="section">14.3 How do you actually use the net= attribute?</h3>
+</div>
+<div class="section" id="How-do-you-actually-use-the-net_003d-attribute_003f">
+<h3 class="section">14.3 How do you actually use the net= attribute?</h3>
 
 <p>You can place the &lsquo;<samp>net=</samp>&rsquo; attribute in several places. Here&rsquo;s the
 list so far:
@@ -177,7 +194,9 @@ attributes. If you run into a case where this doesn&rsquo;t work, please
 <a href="Communication.html">report a bug</a>.
 </p>
 
-<span id="Caveats-_002f-Bugs"></span><h3 class="section">14.4 Caveats / Bugs</h3>
+</div>
+<div class="section" id="Caveats-_002f-Bugs">
+<h3 class="section">14.4 Caveats / Bugs</h3>
 
 <p>The &lsquo;<samp>net=</samp>&rsquo; attribute/mechanism is fairly new, so there are bound
 to be bugs (many bugs). Here are some of the identified issues:
@@ -202,7 +221,9 @@ symbol should override the internal one.
 </li></ul>
 
 
-<span id="Example-2"></span><h3 class="section">14.5 Example</h3>
+</div>
+<div class="section" id="Example-2">
+<h3 class="section">14.5 Example</h3>
 
 <p>Here&rsquo;s a schematic which uses standard symbols (note: the 7400 does
 not have the &lsquo;<samp>net=</samp>&rsquo; attribute inside yet). This schematic
@@ -293,13 +314,17 @@ END nets
 <p>Notice how NETLABEL was renamed (aliased to the +5V net).
 </p>
 
-<span id="Final-notes"></span><h3 class="section">14.6 Final notes</h3>
+</div>
+<div class="section" id="Final-notes">
+<h3 class="section">14.6 Final notes</h3>
 
 <p>If you found a bug, please <a href="Communication.html">let us know</a>.
-</p><hr>
+</p></div>
+</div>
+<hr>
 <div class="header">
 <p>
-Next: <a href="Lepton-EDA-fonts.html" accesskey="n" rel="next">Lepton EDA fonts</a>, Previous: <a href="gEDA_002fgaf-Master-Attribute-Document.html" accesskey="p" rel="prev">gEDA/gaf Master Attribute Document</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Lepton-EDA-fonts.html">Lepton EDA fonts</a>, Previous: <a href="Master-attribute-list.html">Master attribute list</a>, Up: <a href="index.html">Lepton EDA Reference Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

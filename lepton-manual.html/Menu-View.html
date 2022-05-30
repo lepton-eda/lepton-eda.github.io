@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,16 +13,15 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Menu View (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Menu View (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Menu View (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Menu View (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Menu View (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Menu View (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,11 +30,11 @@ Documentation License." -->
 <link href="Menu-Edit.html" rel="prev" title="Menu Edit">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,29 +53,112 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Menu-View"></span><div class="header">
+<div class="subsection" id="Menu-View">
+<div class="header">
 <p>
-Next: <a href="Menu-Page.html" accesskey="n" rel="next">Menu Page</a>, Previous: <a href="Menu-Edit.html" accesskey="p" rel="prev">Menu Edit</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Menu-Page.html" accesskey="n" rel="next">Menu Page</a>, Previous: <a href="Menu-Edit.html" accesskey="p" rel="prev">Menu Edit</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Menu-View-1"></span><h4 class="subsection">5.3.4 Menu View</h4>
 <span id="index-menu-View"></span>
 
 <dl compact="compact">
-<dt><em>Find Text Results</em></dt>
-<dt><em>Redraw</em></dt>
-<dt><em>Pan</em></dt>
-<dt><em>Zoom Box</em></dt>
-<dt><em>Zoom Extents</em></dt>
-<dt><em>Zoom In</em></dt>
-<dt><em>Zoom Out</em></dt>
-<dt><em>Zoom Full</em></dt>
-<dt><em>Dark Color Scheme</em></dt>
-<dt><em>Light Color Scheme</em></dt>
-<dt><em>BW Color Scheme</em></dt>
-<dt><em>Color Scheme Editor...</em></dt>
+<dt><span><em>Side Dock</em></span></dt>
+<dd><p>View &rarr; Side Dock (<kbd>V A</kbd>) opens the side
+dock widget with three tabs: &ldquo;Object&rdquo;, &ldquo;Text&rdquo;, and &ldquo;Options&rdquo;.
+You can select the tabs with left mouse click, or by choosing one of
+the actions Edit &rarr; Edit... (<kbd>E E</kbd>),
+Edit &rarr; Edit Text... (<kbd>E X</kbd>), or
+Options &rarr; Options... (<kbd>E X</kbd>)
+correspondingly.  See the description of corresponding menu items for
+more information on that.  The action is available if displaying dock
+widgets is enabled in <a href="schematic_002egui-group.html#use_002ddocks">configuration</a>.
+</p>
+</dd>
+<dt><span><em>Bottom Dock</em></span></dt>
+<dd><p>View &rarr; Bottom Dock (<kbd>V S</kbd>) opens the bottom
+dock widget with two tabs: &ldquo;Find Text&rdquo; and &ldquo;Log&rdquo;.  The action is
+available if showing dock widgets is enabled in <a href="schematic_002egui-group.html#use_002ddocks">configuration</a>.
+</p>
+</dd>
+<dt><span><em>Find Text Results</em></span></dt>
+<dd><p>View &rarr; Find Text Results opens a widget with
+results of last text searching.  If the docks are enabled in
+<a href="schematic_002egui-group.html#use_002ddocks">configuration</a>, the widget is displayed in the bottom
+dock.  Otherwise, a separate dialog window is open.  See <a href="Searching-for-text.html">Searching for specific text</a>.
+</p>
+</dd>
+<dt><span><em>Redraw</em></span></dt>
+<dd><p>View &rarr; Redraw (<kbd>R</kbd> or <kbd>V R</kbd>) allows you
+to trigger redrawing of the current page if, for example, you see some
+rendering glitches on the canvas.
+</p>
+</dd>
+<dt><span><em>Pan</em></span></dt>
+<dd><p>View &rarr; Pan (<kbd>X</kbd> or <kbd>V P</kbd>) pans the
+page, that is, makes it appear so the current mouse cursor position in
+world coordinates becomes the center of the view.
+</p>
+</dd>
+<dt><span><em>Zoom Box</em></span></dt>
+<dd><p>View &rarr; Zoom Box (<kbd>W</kbd> or <kbd>V B</kbd>) zooms
+the view to coordinates defined by a box you draw on the canvas.  The
+first coordinate of the box is the current mouse position.  Move the
+mouse to another point and click to set the second coordinate.  The
+view will be scaled so the box region wholly fits in the canvas.
+</p>
+</dd>
+<dt><span><em>Zoom Extents</em></span></dt>
+<dd><p>View &rarr; Zoom Extents (<kbd>0</kbd>, <kbd>Ctrl-0</kbd>,
+<kbd>V E</kbd>, or <kbd>*</kbd> on the additional keypad) zooms the size of the
+visible canvas area to the extents of all visible objects.
+</p>
+</dd>
+<dt><span><em>Zoom In</em></span></dt>
+<dd><p>View &rarr; Zoom In (<kbd>=</kbd>, <kbd>Ctrl-=</kbd>, <kbd>Z</kbd>,
+<kbd>V I</kbd>, or <kbd>+</kbd> on the additional keypad) zooms in the contents
+of the canvas.
+</p>
+</dd>
+<dt><span><em>Zoom Out</em></span></dt>
+<dd><p>View &rarr; Zoom Out (<kbd>-</kbd>, <kbd>Ctrl-minus</kbd>,
+<kbd>Shift-Z</kbd>, <kbd>V O</kbd>, or <kbd>-</kbd> on the additional keypad) zooms
+out the contents of the canvas.
+</p>
+</dd>
+<dt><span><em>Zoom Full</em></span></dt>
+<dd><p>View &rarr; Zoom Full (<kbd>V F</kbd>) zooms the canvas
+to show all the available coordinate space.
+</p>
+</dd>
+<dt><span><em>Dark Color Scheme</em></span></dt>
+<dd><p>View &rarr; Dark Color Scheme (<kbd>V D</kbd>) loads
+a predefined color scheme with black background.
+</p>
+</dd>
+<dt><span><em>Light Color Scheme</em></span></dt>
+<dd><p>View &rarr; Light Color Scheme (<kbd>V L</kbd>) loads
+a predefined color scheme with light background.
+</p>
+</dd>
+<dt><span><em>BW Color Scheme</em></span></dt>
+<dd><p>View &rarr; BW Color Scheme (<kbd>V W</kbd>) loads
+a predefined black-and-white color scheme.
+</p>
+</dd>
+<dt><span><em>Color Scheme Editor...</em></span></dt>
+<dd><p>View &rarr; Color Scheme Editor... opens a dialog in
+which you can edit and save a custom color map used to display
+schematics on the canvas.
+</p></dd>
 </dl>
 
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Menu-Page.html">Menu Page</a>, Previous: <a href="Menu-Edit.html">Menu Edit</a>, Up: <a href="lepton_002dschematic-window.html">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

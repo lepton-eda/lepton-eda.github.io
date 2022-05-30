@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,16 +13,15 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Menu Add (Lepton EDA Reference Manual 1.9.16)</title>
+<title>Menu Add (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="Menu Add (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="Menu Add (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="Menu Add (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="Menu Add (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,11 +30,11 @@ Documentation License." -->
 <link href="Menu-Page.html" rel="prev" title="Menu Page">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,29 +53,145 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Menu-Add"></span><div class="header">
+<div class="subsection" id="Menu-Add">
+<div class="header">
 <p>
-Next: <a href="Menu-Hierarchy.html" accesskey="n" rel="next">Menu Hierarchy</a>, Previous: <a href="Menu-Page.html" accesskey="p" rel="prev">Menu Page</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Menu-Hierarchy.html" accesskey="n" rel="next">Menu Hierarchy</a>, Previous: <a href="Menu-Page.html" accesskey="p" rel="prev">Menu Page</a>, Up: <a href="lepton_002dschematic-window.html" accesskey="u" rel="up">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="Menu-Add-1"></span><h4 class="subsection">5.3.6 Menu Add</h4>
 <span id="index-menu-Add"></span>
 
+<p>The menu provides several modes for inserting symbols.  All the modes
+are active until you switch to another mode or cancel it, for example,
+by hitting <kbd>Esc</kbd>.
+</p>
 <dl compact="compact">
-<dt><em>Component...</em></dt>
-<dt><em>Net</em></dt>
-<dt><em>Bus</em></dt>
-<dt><em>Attribute...</em></dt>
-<dt><em>Text...</em></dt>
-<dt><em>Line</em></dt>
-<dt><em>Path</em></dt>
-<dt><em>Box</em></dt>
-<dt><em>Circle</em></dt>
-<dt><em>Arc</em></dt>
-<dt><em>Pin</em></dt>
-<dt><em>Picture...</em></dt>
+<dt><span><em>Component...</em></span></dt>
+<dd><p>Add &rarr; Component... (<kbd>I</kbd> or <kbd>A C</kbd>) opens
+the Add component dialog where you can choose a symbol to insert,
+choose the method of insertion, filter the symbols by names, or choose
+updating the symbols in your schematic.
+</p>
+</dd>
+<dt><span><em>Net</em></span></dt>
+<dd><p>Add &rarr; Net (<kbd>N</kbd> or <kbd>A N</kbd>) switches on
+net adding mode.  If the mouse cursor is over the canvas, the
+insertion starts immediately and the first point of a new net is the
+point under the cursor.  Otherwise you have to left-click on the
+canvas to start a net.  Use another left click to finish it.  In
+default configuration, the right mouse button click cancels the net
+adding operation but does not cancel the mode.
+</p>
+</dd>
+<dt><span><em>Bus</em></span></dt>
+<dd><p>Add &rarr; Bus (<kbd>Shift-B</kbd> or <kbd>A U</kbd>) switches
+on bus adding mode.  If the mouse cursor is over the canvas, the
+insertion starts immediately and the first point of a new bus is the
+point under the cursor. Otherwise you have to left-click on the canvas
+to start a bus.  Use another left click to finish drawing it.  In
+default configuration, the right mouse button click cancels the bus
+addition but does not cancel the mode.
+</p>
+</dd>
+<dt><span><em>Attribute...</em></span></dt>
+<dd><p>Add &rarr; Attribute... (<kbd>A A</kbd>) opens the Add
+Attribute dialog where you can interactively choose the name and value
+of a new attribute as well as its visibility.  The position of the
+attribute insertion corresponds to the point of the mouse cursor at
+which it was at the moment of the shortcut hitting.
+</p>
+</dd>
+<dt><span><em>Text...</em></span></dt>
+<dd><p>Add &rarr; Text... (<kbd>A T</kbd>) opens the Add Text
+dialog where the user can type the text contents and choose its
+properties: color, size, alignment, and rotation angle.  Hitting the
+&lsquo;<samp>Apply</samp>&rsquo; button brings the text to the canvas and allows inserting
+it using the left mouse click.  Hitting <kbd>Esc</kbd> cancels the
+insertion.  Close the dialog by hitting the &lsquo;<samp>Close</samp>&rsquo; button.
+</p>
+</dd>
+<dt><span><em>Line</em></span></dt>
+<dd><p>Add &rarr; Line (<kbd>L</kbd> or <kbd>A L</kbd>) starts line
+inserting mode.  If the mouse cursor is over the canvas, the insertion
+starts immediately and the first point of the line is the point under
+the cursor.  Otherwise you have to left-click to define the first
+point.  Use the left mouse button click to finish the insertion or the
+right mouse click to cancel it.
+</p>
+</dd>
+<dt><span><em>Path</em></span></dt>
+<dd><p>Add &rarr; Path (<kbd>A H</kbd>) switches on path
+inserting mode.  You have to left-click on the canvas to insert the
+first point of the path.  Then move the mouse to the second point
+defining the first part of the path.  If you depress the left mouse
+button and continue dragging, a bezier curve will be formed instead of
+a straight line.  Another couple of left-clicks will be necessary then
+to define the form and the last point of the curve.  You can insert
+several path segments in such a way.  Double left-click defines the
+end point of the path.  Hit <kbd>Esc</kbd> if you want to cancel making up
+a path.
+</p>
+</dd>
+<dt><span><em>Box</em></span></dt>
+<dd><p>Add &rarr; Box (<kbd>B</kbd> or <kbd>A B</kbd>) starts the box
+insertion mode.  The box is defined by two points on the canvas.  If
+the mouse cursor is over the canvas, the first point of a new box
+corresponds to the point under the cursor.  Otherwise you have to
+left-click to define the point.  Use another left-click to define the
+point of the second box corner.  Hit <kbd>Esc</kbd> if you want to cancel
+making up a box.
+</p>
+</dd>
+<dt><span><em>Circle</em></span></dt>
+<dd><p>Add &rarr; Circle (<kbd>A I</kbd>) starts the circle
+insertion mode.  The circle is defined by two points on the canvas.
+If the mouse cursor is over the canvas, the first point of a new
+circle corresponds to the point under cursor.  Otherwise you have to
+left-click to define the point.  This point will be the center of a
+new circle.  Use another left-click to define its radius.  Hit
+<kbd>Esc</kbd> if you want to cancel making up a circle.
+</p>
+</dd>
+<dt><span><em>Arc</em></span></dt>
+<dd><p>Add &rarr; Arc (<kbd>A R</kbd>) starts the arc insertion
+mode.  An arc is defined by its center, radius, and its start and
+sweep angles.  If the mouse cursor is over the canvas, the center
+point of a new arc corresponds to the point under the cursor.
+Otherwise you have to left-click to define the center point.  Use
+another left-click to define its radius.  Thereafter, the Arc Params
+dialog box will be shown.  Whithin it, you can change the radius and
+angles of the arc.  Press the &lsquo;<samp>OK</samp>&rsquo; button in the dialog to apply
+changes or use &lsquo;<samp>Cancel</samp>&rsquo; to cancel the operation.
+</p>
+</dd>
+<dt><span><em>Pin</em></span></dt>
+<dd><p>Add &rarr; Pin (<kbd>A P</kbd>) starts the pin insertion
+mode.  If the mouse cursor is over the canvas, the point under it will
+become the first, connectable point of the pin.  Otherwise you have to
+define it by left-clicking on the canvas.  Use another left-click to
+define the length of the pin.  You may notice that originally the
+angle of the pin is the multiple of 90 degrees.  This can be changed
+later by editing it.  Don&rsquo;t forget to edit the attributes of the new
+pin which are added and attached to it automatically.
+</p>
+</dd>
+<dt><span><em>Picture...</em></span></dt>
+<dd><p>Add &rarr; Picture... (<kbd>A G</kbd>) opens the Add
+Picture dialog box where you may choose a picture for insertion into
+your schematic.  Select the picture you want in the dialog and click
+on the &lsquo;<samp>Open</samp>&rsquo; button.  Two left-clicks on the canvas will define
+its size.  If you don&rsquo;t want to insert the picture, click the
+&lsquo;<samp>Close</samp>&rsquo; button in the dialog.
+</p></dd>
 </dl>
 
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Menu-Hierarchy.html">Menu Hierarchy</a>, Previous: <a href="Menu-Page.html">Menu Page</a>, Up: <a href="lepton_002dschematic-window.html">Main lepton-schematic window</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

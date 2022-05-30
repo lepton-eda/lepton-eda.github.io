@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,16 +13,15 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>List of programs (Lepton EDA Reference Manual 1.9.16)</title>
+<title>List of programs (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="List of programs (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="List of programs (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="List of programs (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="List of programs (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,11 +30,11 @@ Documentation License." -->
 <link href="Overview.html" rel="prev" title="Overview">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,7 +53,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="List-of-programs"></span><div class="header">
+<div class="section" id="List-of-programs">
+<div class="header">
 <p>
 Next: <a href="Compatibility-with-geda_002dgaf.html" accesskey="n" rel="next">Compatibility with geda-gaf</a>, Previous: <a href="Overview.html" accesskey="p" rel="prev">Overview</a>, Up: <a href="Overview.html" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -61,22 +65,25 @@ Next: <a href="Compatibility-with-geda_002dgaf.html" accesskey="n" rel="next">Co
 <p>Lepton EDA suite includes tools as follows:
 </p>
 <ul>
-<li> lepton-schematic&mdash;the main GUI tool for schematic capture.
-</li><li> lepton-attrib
+<li> lepton-schematic&mdash;the main GUI tool for schematic capture
+</li><li> lepton-attrib&mdash;spreadsheet schematic attribute editor
 </li><li> lepton-netlist&mdash;a tool for making netlists from command line
-</li><li> lepton-cli&mdash;a CLI tool providing support of configuration, export, and shell.
+</li><li> lepton-cli&mdash;a CLI tool providing support of configuration, export, and shell
+</li><li> lepton-config&mdash;configure your tools
+</li><li> lepton-export&mdash;export schematics to images and multipage documents
+</li><li> lepton-shell&mdash;interactive processing of schematic data in Scheme REPL
 </li><li> lepton-archive&mdash;project archivation utility
 </li><li> lepton-tragesym&mdash;symbol generator
-</li><li> lepton-embed
-</li><li> lepton-pcb_backannotate
-</li><li> lepton-refdes_renum
-</li><li> lepton-renum
-</li><li> lepton-sch2pcb
-</li><li> lepton-schdiff
-</li><li> lepton-symcheck
-</li><li> lepton-symfix
-</li><li> lepton-upcfg
-</li><li> lepton-update
+</li><li> lepton-embed&mdash;embed symbols and pictures into schematics
+</li><li> lepton-pcb_backannotate&mdash;backannotate changes from PCB to schematic
+</li><li> lepton-refdes_renum&mdash;renumber reference designators
+</li><li> lepton-renum&mdash;an advanced refdes renumber utility
+</li><li> lepton-sch2pcb&mdash;generate PCB layout from a set of schematics
+</li><li> lepton-schdiff&mdash;view graphical diff of schematics
+</li><li> lepton-symcheck&mdash;check symbol files for errors
+</li><li> lepton-symfix&mdash;fix attributes in symbol files
+</li><li> lepton-upcfg&mdash;upgrade gEDA config files to be usable in Lepton
+</li><li> lepton-update&mdash;update obsolete schematics to the current version
 </li></ul>
 
 <p>The following contributed tools are not covered in this manual.
@@ -85,25 +92,31 @@ programs, so they are of limited use for most users.  Please see
 corresponding man pages for more information.
 </p>
 <ul>
-<li> convert_sym&mdash;convert a Viewlogic symbol/schematic to <a href="gEDA-file-format.html">gEDA file format</a>.
-</li><li> gmk_sym&mdash;create rectangular symbols in <a href="gEDA-file-format.html">gEDA file format</a> from a
+<li> convert_sym&mdash;convert a Viewlogic symbol/schematic to <a href="gEDA-file-format.html">gEDA/gaf File Format Document</a>.
+</li><li> gmk_sym&mdash;create rectangular symbols in <a href="gEDA-file-format.html">gEDA/gaf File Format Document</a> from a
 text file.
 </li><li> olib&mdash;OrCAD(tm) library part to gEDA .sym converter.
-</li><li> sarlacc_schem&mdash;convert OrCAD SDT IV files to <a href="gEDA-file-format.html">gEDA file format</a>.
+</li><li> sarlacc_schem&mdash;convert OrCAD SDT IV files to <a href="gEDA-file-format.html">gEDA/gaf File Format Document</a>.
 </li><li> smash_megafile&mdash;break a Viewlogic megafile into a million little
 pieces.
 </li><li> gnet_hier_verilog.sh&mdash;generate a non-flattened hierarchical Verilog
 netlist.
 </li><li> pads_backannotate&mdash;process PADS PowerPCB .eco files to backannotate
-changes to schematics in <a href="gEDA-file-format.html">gEDA file format</a>.
+changes to schematics in <a href="gEDA-file-format.html">gEDA/gaf File Format Document</a>.
 </li><li> sw2asc&mdash;converts a SWITCAP2 output file into ASCII data files that
-other tools can read.  See <a href="Switcap-backend.html">Switcap backend</a> for more information.
-</li><li> sch2eaglepos.sh&mdash;read a schematic in <a href="gEDA-file-format.html">gEDA file format</a> and
+other tools can read.  See <a href="Switcap-backend.html">gEDA/gaf Switcap Symbols and Netlister</a> for more information.
+</li><li> sch2eaglepos.sh&mdash;read a schematic in <a href="gEDA-file-format.html">gEDA/gaf File Format Document</a> and
 attempt to extract the relative positions of the components in order
 to generate corresponding MOVE instructions for Eagle.
-</li><li> sarlacc_sym&mdash;convert OrCAD text libraries to components in <a href="gEDA-file-format.html">gEDA file format</a>.
+</li><li> sarlacc_sym&mdash;convert OrCAD text libraries to components in <a href="gEDA-file-format.html">gEDA/gaf File Format Document</a>.
 </li></ul>
 
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Compatibility-with-geda_002dgaf.html">Compatibility with geda-gaf</a>, Previous: <a href="Overview.html">Overview</a>, Up: <a href="Overview.html">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

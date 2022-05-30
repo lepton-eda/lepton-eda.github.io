@@ -1,8 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual documents Lepton EDA version 1.9.16.
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents Lepton EDA version 1.9.18.
 
-Copyright (C) 2020-2021 Lepton Contributors.
+Copyright (C) 2020-2022 Lepton Contributors.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -10,16 +13,15 @@ any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
 copy of the license is included in the section entitled "GNU Free
 Documentation License." -->
-<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>lepton-cli config (Lepton EDA Reference Manual 1.9.16)</title>
+<title>lepton-cli config (Lepton EDA Reference Manual 1.9.18)</title>
 
-<meta name="description" content="lepton-cli config (Lepton EDA Reference Manual 1.9.16)">
-<meta name="keywords" content="lepton-cli config (Lepton EDA Reference Manual 1.9.16)">
+<meta name="description" content="lepton-cli config (Lepton EDA Reference Manual 1.9.18)">
+<meta name="keywords" content="lepton-cli config (Lepton EDA Reference Manual 1.9.18)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Topic-Index.html" rel="index" title="Topic Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -28,11 +30,11 @@ Documentation License." -->
 <link href="lepton_002dcli-export.html" rel="prev" title="lepton-cli export">
 <style type="text/css">
 <!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
 kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
@@ -41,6 +43,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -50,9 +53,10 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="lepton_002dcli-config"></span><div class="header">
+<div class="section" id="lepton_002dcli-config">
+<div class="header">
 <p>
-Next: <a href="lepton_002dcli-shell.html" accesskey="n" rel="next">lepton-cli shell</a>, Previous: <a href="lepton_002dcli-export.html" accesskey="p" rel="prev">lepton-cli export</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="lepton_002dcli-shell.html" accesskey="n" rel="next">lepton-cli shell</a>, Previous: <a href="lepton_002dcli-export.html" accesskey="p" rel="prev">lepton-cli export</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli - Lepton command-line utility</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <span id="lepton_002dcli-config-1"></span><h3 class="section">7.2 lepton-cli config</h3>
@@ -81,26 +85,33 @@ directory).  If no <var>GROUP</var> and <var>KEY</var> are provided, the command
 outputs the filename of the selected configuration store.
 </p>
 <dl compact="compact">
-<dt><samp>-p [<var>PATH</var>]</samp></dt>
-<dt><samp>--project[=<var>PATH</var>]</samp></dt>
+<dt><span><samp>-p [<var>PATH</var>]</samp></span></dt>
+<dt><span><samp>--project[=<var>PATH</var>]</samp></span></dt>
 <dd><p>Select the project configuration store of the project located in
 <var>PATH</var>.  If no <var>PATH</var> is provided, selects the project in the
 current working directory.
 </p>
+<blockquote>
+<p><b>Note:</b> Unlike <samp>--project</samp>, for which an optional argument must be
+specified using &lsquo;<samp>=</samp>&rsquo;, any argument after <samp>-p</samp> is considered
+to be a path, not a configuration group.  It may be specified as
+&lsquo;<samp>-pPATH</samp>&rsquo; or &lsquo;<samp>-p PATH</samp>&rsquo;.  Please see examples below.
+</p></blockquote>
+
 </dd>
-<dt><samp>-u</samp></dt>
-<dt><samp>--user</samp></dt>
+<dt><span><samp>-u</samp></span></dt>
+<dt><span><samp>--user</samp></span></dt>
 <dd><p>Select the user configuration store.
 </p>
 </dd>
-<dt><samp>-s</samp></dt>
-<dt><samp>--system</samp></dt>
+<dt><span><samp>-s</samp></span></dt>
+<dt><span><samp>--system</samp></span></dt>
 <dd><p>Select the system configuration store.  Depending on user permissions,
 the system configuration store may be read-only.
 </p>
 </dd>
-<dt><samp>-c</samp></dt>
-<dt><samp>--cache</samp></dt>
+<dt><span><samp>-c</samp></span></dt>
+<dt><span><samp>--cache</samp></span></dt>
 <dd><p>Select the program-specific configuration store
 (<a href="New-configuration-system.html#cache_002dconfiguration_002dcontext">CACHE configuration context</a>).
 </p>
@@ -108,7 +119,12 @@ the system configuration store may be read-only.
 </dl>
 
 
-<span id="Configuration-files"></span><h4 class="subsection">7.2.1 Configuration files</h4>
+<ul class="section-toc">
+<li><a href="#Configuration-files" accesskey="1">Configuration files</a></li>
+<li><a href="#lepton_002dcli-config-examples" accesskey="2">lepton-cli config examples</a></li>
+</ul>
+<div class="subsection" id="Configuration-files">
+<h4 class="subsection">7.2.1 Configuration files</h4>
 
 <p>Configuration settings used to configure these programs are written to
 Lepton config files.  Naming and location of those files, file format,
@@ -213,9 +229,76 @@ such conditions:
 <pre class="example">lepton-cli export -a 0,0:1.0 -o file.pdf file.sch
 </pre></div>
 
-<span id="lepton_002dcli-config-examples"></span><h4 class="subsection">7.2.2 lepton-cli config examples</h4>
+</div>
+<div class="subsection" id="lepton_002dcli-config-examples">
+<h4 class="subsection">7.2.2 lepton-cli config examples</h4>
 
-<span id="Set-up-exporting"></span><h4 class="subsubsection">7.2.2.1 Set up exporting</h4>
+<ul class="section-toc">
+<li><a href="#Difference-between-_002dp-and-_002d_002dproject" accesskey="1">Difference between -p and &ndash;project</a></li>
+<li><a href="#Set-up-exporting" accesskey="2">Set up exporting</a></li>
+<li><a href="#Set-up-netlisting" accesskey="3">Set up netlisting</a></li>
+<li><a href="#Set-up-lepton_002dschematic" accesskey="4">Set up lepton-schematic</a></li>
+</ul>
+<div class="subsubsection" id="Difference-between-_002dp-and-_002d_002dproject">
+<h4 class="subsubsection">7.2.2.1 Difference between -p and &ndash;project</h4>
+<p>Please note the difference between specifying the options <samp>-p</samp>
+and <samp>--project</samp>.  Supposed that your <samp>lepton.conf</samp> in the
+current working directory has the contents as follows:
+</p>
+<div class="example">
+<pre class="example">[export]
+dpi=144
+</pre></div>
+
+<p>the following commands work as expected:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project=. export dpi
+-| 144
+lepton-cli config --project export dpi
+-| 144
+lepton-cli config -p . export dpi
+-| 144
+lepton-cli config -p. export dpi
+-| 144
+</pre></div>
+
+<p>while the following ones are wrong and output errors:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config -p export dpi
+-| ERROR: Directory &quot;export&quot; does not exist.
+lepton-cli config -p=export dpi
+-| ERROR: Directory &quot;=export&quot; does not exist.
+</pre></div>
+
+<p>This is because <em>any</em> argument after <samp>-p</samp>, be it specified
+with space or without it between the option and the argument, is
+considered to be a path, not a configuration group, and the equal sign
+cannot be used as a separator like for <samp>--project</samp>.  Conversely,
+the following command:
+</p>
+<div class="example">
+<pre class="example">lepton-cli config --project . export dpi
+</pre></div>
+
+<p>will silently exit and result in the following content in
+<samp>./lepton.conf</samp>:
+</p>
+<div class="example">
+<pre class="example">[.]
+export=dpi
+</pre></div>
+
+<p>which is not you would expect here, right?  This is because an
+optional argument for the option <samp>--project</samp> <strong>must</strong> be
+used with &lsquo;<samp>=</samp>&rsquo; as separator, not space.  Therefore in the above
+command, &lsquo;<samp>.</samp>&rsquo; was interpreted as a configuration group, and
+&lsquo;<samp>export</samp>&rsquo; and &lsquo;<samp>dpi</samp>&rsquo; as a key and its value within it.
+</p>
+</div>
+<div class="subsubsection" id="Set-up-exporting">
+<h4 class="subsubsection">7.2.2.2 Set up exporting</h4>
 <p>Use the &ldquo;landscape&rdquo; layout by default for a local project:
 </p>
 <div class="example">
@@ -267,7 +350,9 @@ quarter of inch for top and bottom for a local project:
 </pre></div>
 
 
-<span id="Set-up-netlisting"></span><h4 class="subsubsection">7.2.2.2 Set up netlisting</h4>
+</div>
+<div class="subsubsection" id="Set-up-netlisting">
+<h4 class="subsubsection">7.2.2.3 Set up netlisting</h4>
 
 <p>Use shorter net names for unnamed nets in all netlists:
 </p>
@@ -289,7 +374,9 @@ settings in <samp>lepton-user.conf</samp>:
 </pre></div>
 
 
-<span id="Set-up-lepton_002dschematic"></span><h4 class="subsubsection">7.2.2.3 Set up lepton-schematic</h4>
+</div>
+<div class="subsubsection" id="Set-up-lepton_002dschematic">
+<h4 class="subsubsection">7.2.2.4 Set up lepton-schematic</h4>
 
 <p>Use shorter names for new pages:
 </p>
@@ -325,10 +412,13 @@ obviously wrong, and you will see no attribute at all.
 <div class="example">
 <pre class="example">lepton-cli config --user schematic.library sort true
 </pre></div>
+</div>
+</div>
+</div>
 <hr>
 <div class="header">
 <p>
-Next: <a href="lepton_002dcli-shell.html" accesskey="n" rel="next">lepton-cli shell</a>, Previous: <a href="lepton_002dcli-export.html" accesskey="p" rel="prev">lepton-cli export</a>, Up: <a href="lepton_002dcli.html" accesskey="u" rel="up">lepton-cli</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="lepton_002dcli-shell.html">lepton-cli shell</a>, Previous: <a href="lepton_002dcli-export.html">lepton-cli export</a>, Up: <a href="lepton_002dcli.html">lepton-cli - Lepton command-line utility</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Topic-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 
