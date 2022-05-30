@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Tue Sep 14 10:02:45 2021 -->
+<!-- CreationDate: Mon May 30 10:20:43 2022 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -268,12 +268,16 @@ configuration store affected (by default, the project
 configuration store for the current working directory). If
 no <i>GROUP</i> and <i>KEY</i> are provided, outputs the
 filename of the selected configuration store. <b><br>
--p</b>, <b>--project</b>[=<i>PATH</i>]</p>
+-p</b> [<i>PATH</i>], <b>--project</b>[=<i>PATH</i>]</p>
 
 <p style="margin-left:23%;">Select the project
 configuration store of the project located in <i>PATH</i>.
 If no <i>PATH</i> is provided, selects the project in the
-current working directory.</p>
+current working directory. Unlike <b>--project</b>, for
+which an optional argument must be specified using <b>=</b>,
+any argument after <b>-p</b> is considered to be a path, not
+a configuration group. It may be specified as <b>-pPATH</b>
+or <b>-p PATH</b>.</p>
 
 <p style="margin-left:11%;"><b>-u</b>, <b>--user</b></p>
 
@@ -393,7 +397,7 @@ and pass all the remaining arguments as the value of
 
 <p style="margin-left:11%; margin-top: 1em">Copyright
 &copy; 2012-2017 gEDA Contributors. <br>
-Copyright &copy; 2017-2021 Lepton Developers. <br>
+Copyright &copy; 2017-2022 Lepton Developers. <br>
 License GPLv2+: GNU GPL version 2 or later. Please see the
 &rsquo;COPYING&rsquo; <br>
 file included with this program for full details.</p>
